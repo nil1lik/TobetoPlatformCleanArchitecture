@@ -18,6 +18,8 @@ using System.Reflection;
 using Application.Services.Cities;
 using Application.Services.Countries;
 using Application.Services.Districts;
+using Application.Services.Languages;
+using Application.Services.LanguageLevels;
 
 namespace Application;
 
@@ -48,6 +50,8 @@ public static class ApplicationServiceRegistration
         services.AddScoped<IAuthenticatorService, AuthenticatorManager>();
         services.AddScoped<IUserService, UserManager>();
 
+        services.AddScoped<ILanguagesService, LanguagesManager>();
+        services.AddScoped<ILanguageLevelsService, LanguageLevelsManager>();
         services.AddScoped<ICitiesService, CitiesManager>();
         services.AddScoped<ICountriesService, CountriesManager>();
         services.AddScoped<IDistrictsService, DistrictsManager>();
