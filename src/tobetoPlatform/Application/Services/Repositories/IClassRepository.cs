@@ -3,6 +3,6 @@ using Core.Persistence.Repositories;
 
 namespace Application.Services.Repositories;
 
-public interface IClassRepository : IAsyncRepository<Class, int>, IRepository<Class, int>
+public interface IClassRepository : IAsyncRepository<CourseClass, int>, IRepository<CourseClass, int>
 {
 }
