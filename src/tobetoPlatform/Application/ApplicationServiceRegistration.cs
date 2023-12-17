@@ -15,6 +15,11 @@ using Core.Mailing.MailKitImplementations;
 using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
+using Application.Services.Cities;
+using Application.Services.Countries;
+using Application.Services.Districts;
+using Application.Services.Languages;
+using Application.Services.LanguageLevels;
 using Application.Services.Languages;
 using Application.Services.LanguageLevels;
 
@@ -47,6 +52,11 @@ public static class ApplicationServiceRegistration
         services.AddScoped<IAuthenticatorService, AuthenticatorManager>();
         services.AddScoped<IUserService, UserManager>();
 
+        services.AddScoped<ILanguagesService, LanguagesManager>();
+        services.AddScoped<ILanguageLevelsService, LanguageLevelsManager>();
+        services.AddScoped<ICitiesService, CitiesManager>();
+        services.AddScoped<ICountriesService, CountriesManager>();
+        services.AddScoped<IDistrictsService, DistrictsManager>();
         services.AddScoped<ILanguagesService, LanguagesManager>();
         services.AddScoped<ILanguageLevelsService, LanguageLevelsManager>();
         return services;
