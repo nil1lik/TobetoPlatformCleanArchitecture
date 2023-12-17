@@ -33,6 +33,31 @@ public class OperationClaimConfiguration : IEntityTypeConfiguration<OperationCla
                 new OperationClaim { Id = ++id, Name = GeneralOperationClaims.Admin }
             };
 
+        
+        #region Cities
+        seeds.Add(new OperationClaim { Id = ++id, Name = "Cities.Admin" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "Cities.Read" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "Cities.Write" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "Cities.Add" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "Cities.Update" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "Cities.Delete" });
+        #endregion
+        #region Countries
+        seeds.Add(new OperationClaim { Id = ++id, Name = "Countries.Admin" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "Countries.Read" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "Countries.Write" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "Countries.Add" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "Countries.Update" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "Countries.Delete" });
+        #endregion
+        #region Districts
+        seeds.Add(new OperationClaim { Id = ++id, Name = "Districts.Admin" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "Districts.Read" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "Districts.Write" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "Districts.Add" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "Districts.Update" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "Districts.Delete" });
+        #endregion
         return seeds;
     }
 }
