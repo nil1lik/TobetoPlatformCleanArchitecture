@@ -1,4 +1,4 @@
-﻿using Application.Services.AuthenticatorService;
+using Application.Services.AuthenticatorService;
 using Application.Services.AuthService;
 using Application.Services.UsersService;
 using Core.Application.Pipelines.Authorization;
@@ -15,6 +15,9 @@ using Core.Mailing.MailKitImplementations;
 using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
+using Application.Services.Cities;
+using Application.Services.Countries;
+using Application.Services.Districts;
 
 namespace Application;
 
@@ -45,6 +48,9 @@ public static class ApplicationServiceRegistration
         services.AddScoped<IAuthenticatorService, AuthenticatorManager>();
         services.AddScoped<IUserService, UserManager>();
 
+        services.AddScoped<ICitiesService, CitiesManager>();
+        services.AddScoped<ICountriesService, CountriesManager>();
+        services.AddScoped<IDistrictsService, DistrictsManager>();
         return services;
     }
 
