@@ -21,6 +21,7 @@ public class Profile:Entity<Guid>
     public int ProfileExperienceId { get; set; }
     public int ProfileExamId { get; set; }
     public int ProfileSurveyId { get; set; }
+    public int ProfileEducationId { get; set; }
     public string NationalIdentity { get; set; }
     public string Phone { get; set; }
 
@@ -36,6 +37,7 @@ public class Profile:Entity<Guid>
     public virtual ProfileSurvey? ProfileSurvey { get; set; }
     public virtual ProfileAnnouncement? ProfileAnnouncement { get; set; }
     public virtual ProfileClass? ProfileClass { get; set; }
+    public virtual ProfileEducation? ProfileEducation { get; set; }
     public virtual ICollection<Certificate>? Certificates { get; set; }
     public virtual ICollection<SocialMediaAccount>? SocialMediaAccounts { get; set; }
 

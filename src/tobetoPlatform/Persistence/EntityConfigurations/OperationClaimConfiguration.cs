@@ -58,6 +58,14 @@ public class OperationClaimConfiguration : IEntityTypeConfiguration<OperationCla
         seeds.Add(new OperationClaim { Id = ++id, Name = "Districts.Update" });
         seeds.Add(new OperationClaim { Id = ++id, Name = "Districts.Delete" });
         #endregion
+        #region Announcements
+        seeds.Add(new OperationClaim { Id = ++id, Name = "Announcements.Admin" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "Announcements.Read" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "Announcements.Write" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "Announcements.Add" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "Announcements.Update" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "Announcements.Delete" });
+        #endregion
         return seeds;
     }
 }
