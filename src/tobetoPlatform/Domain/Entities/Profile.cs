@@ -35,6 +35,7 @@ public class Profile:Entity<Guid>
     public virtual ProfileExam? ProfileExam { get; set; }
     public virtual ProfileSurvey? ProfileSurvey { get; set; }
     public virtual ProfileAnnouncement? ProfileAnnouncement { get; set; }
+    public virtual ProfileClass? ProfileClass { get; set; }
     public virtual ICollection<Certificate>? Certificates { get; set; }
     public virtual ICollection<SocialMediaAccount>? SocialMediaAccounts { get; set; }
 
