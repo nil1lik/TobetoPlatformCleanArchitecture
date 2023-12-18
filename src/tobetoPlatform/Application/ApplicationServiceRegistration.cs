@@ -18,10 +18,8 @@ using System.Reflection;
 using Application.Services.Cities;
 using Application.Services.Countries;
 using Application.Services.Districts;
-using Application.Services.Languages;
-using Application.Services.LanguageLevels;
-using Application.Services.Languages;
-using Application.Services.LanguageLevels;
+using Application.Services.Announcements;
+using Application.Services.CourseClasses;
 
 namespace Application;
 
@@ -51,6 +49,13 @@ public static class ApplicationServiceRegistration
         services.AddScoped<IAuthService, AuthManager>();
         services.AddScoped<IAuthenticatorService, AuthenticatorManager>();
         services.AddScoped<IUserService, UserManager>();
+
+
+        services.AddScoped<ICitiesService, CitiesManager>();
+        services.AddScoped<ICountriesService, CountriesManager>();
+        services.AddScoped<IDistrictsService, DistrictsManager>();
+
+        services.AddScoped<ICourseClassesService, CourseClassesManager>();
 
         return services;
     }

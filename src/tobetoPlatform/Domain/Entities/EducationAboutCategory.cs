@@ -6,15 +6,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Domain.Entities;
-public class EducationContent:Entity<int>
+public class EducationAboutCategory :Entity<int>
 {
     public string Name { get; set; }
-    public virtual ICollection<Course> Courses { get; set; }
-
-    public EducationContent()
+    public EducationAboutCategory()
     {
         
     }
-
-
 }

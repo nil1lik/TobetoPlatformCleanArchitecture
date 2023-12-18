@@ -34,23 +34,6 @@ public class OperationClaimConfiguration : IEntityTypeConfiguration<OperationCla
             };
 
         
-        #region Languages
-        seeds.Add(new OperationClaim { Id = ++id, Name = "Languages.Admin" });
-        seeds.Add(new OperationClaim { Id = ++id, Name = "Languages.Read" });
-        seeds.Add(new OperationClaim { Id = ++id, Name = "Languages.Write" });
-        seeds.Add(new OperationClaim { Id = ++id, Name = "Languages.Add" });
-        seeds.Add(new OperationClaim { Id = ++id, Name = "Languages.Update" });
-        seeds.Add(new OperationClaim { Id = ++id, Name = "Languages.Delete" });
-        #endregion
-        #region LanguageLevels
-        seeds.Add(new OperationClaim { Id = ++id, Name = "LanguageLevels.Admin" });
-        seeds.Add(new OperationClaim { Id = ++id, Name = "LanguageLevels.Read" });
-        seeds.Add(new OperationClaim { Id = ++id, Name = "LanguageLevels.Write" });
-        seeds.Add(new OperationClaim { Id = ++id, Name = "LanguageLevels.Add" });
-        seeds.Add(new OperationClaim { Id = ++id, Name = "LanguageLevels.Update" });
-        seeds.Add(new OperationClaim { Id = ++id, Name = "LanguageLevels.Delete" });
-        #endregion
-
         #region Cities
         seeds.Add(new OperationClaim { Id = ++id, Name = "Cities.Admin" });
         seeds.Add(new OperationClaim { Id = ++id, Name = "Cities.Read" });
@@ -75,14 +58,13 @@ public class OperationClaimConfiguration : IEntityTypeConfiguration<OperationCla
         seeds.Add(new OperationClaim { Id = ++id, Name = "Districts.Update" });
         seeds.Add(new OperationClaim { Id = ++id, Name = "Districts.Delete" });
         #endregion
-        
-        #region Languages
-        seeds.Add(new OperationClaim { Id = ++id, Name = "Languages.Admin" });
-        seeds.Add(new OperationClaim { Id = ++id, Name = "Languages.Read" });
-        seeds.Add(new OperationClaim { Id = ++id, Name = "Languages.Write" });
-        seeds.Add(new OperationClaim { Id = ++id, Name = "Languages.Add" });
-        seeds.Add(new OperationClaim { Id = ++id, Name = "Languages.Update" });
-        seeds.Add(new OperationClaim { Id = ++id, Name = "Languages.Delete" });
+        #region CourseClasses
+        seeds.Add(new OperationClaim { Id = ++id, Name = "CourseClasses.Admin" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "CourseClasses.Read" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "CourseClasses.Write" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "CourseClasses.Add" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "CourseClasses.Update" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "CourseClasses.Delete" });
         #endregion
         #region LanguageLevels
         seeds.Add(new OperationClaim { Id = ++id, Name = "LanguageLevels.Admin" });

@@ -10,11 +10,10 @@ namespace Domain.Entities;
 public class EducationPath : Entity<int>
 {
     public int ProfileEducationId { get; set; }
-    public int EducationContentId { get; set; }
+    public int EducationAboutId { get; set; }
     public string Name { get; set; }
     public string ImageUrl { get; set; }
     public virtual ProfileEducation ProfileEducation { get; set; }
-    public virtual EducationContent EducationContent { get; set; }
 
     public EducationPath()
     {
