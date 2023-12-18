@@ -20,7 +20,7 @@ public class EducationAdmiration : Entity<int>
 
     }
 
-    public EducationAdmiration(int id, bool isLiked, bool isFavourited, bool completionRate, double educationPoint) : this()
+    public EducationAdmiration(int id, bool isLiked, bool isFavourited, double completionRate, double educationPoint) : this()
     {
         Id = id;
         IsLiked = isLiked;
