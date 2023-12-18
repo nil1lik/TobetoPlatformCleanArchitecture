@@ -12,6 +12,7 @@ namespace Domain.Entities;
 public class Profile:Entity<Guid>
 {
     public int UserId { get; set; }
+    public int ProfileApplicationId { get; set; }
     public int ProfileAddressId { get; set; }
     public int ProfileClassId { get; set; }
     public int ProfileAnnouncementId { get; set; }
@@ -24,10 +25,12 @@ public class Profile:Entity<Guid>
     public int ProfileEducationId { get; set; }
     public string NationalIdentity { get; set; }
     public string Phone { get; set; }
-
     public DateTime BirthDate { get; set; }
     public string? Description { get; set; }
+
+
     public virtual User User { get; set; }
+    public virtual ProfileApplication ProfileApplication { get; set; }
     public virtual ProfileAddress ProfileAddress { get; set; }
     public virtual ProfileGraduation ProfileGraduation { get; set; }
     public virtual ProfileLanguage? ProfileLanguage { get; set; }
