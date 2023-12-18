@@ -23,6 +23,25 @@ public class BaseDbContext : DbContext
     public DbSet<District> Districts { get; set; }
 
     public DbSet<CourseClass> CourseClasses { get; set; }
+    public DbSet<ApplicationForm> ApplicationForms { get; set; }
+    public DbSet<AsyncLesson> AsyncLessons { get; set; }
+    public DbSet<Calendar> Calendars { get; set; }
+    public DbSet<Certificate> Certificates { get; set; }
+    public DbSet<Company> Companies { get; set; }
+    public DbSet<Contact> Contacts { get; set; }
+    public DbSet<Course> Courses { get; set; }
+    public DbSet<CourseInstructor> CourseInstructors { get; set; }
+    public DbSet<CourseLesson> CourseLessons { get; set; }
+    public DbSet<EducationAbout> EducationAbouts { get; set; }
+    public DbSet<EducationAboutCategory> EducationAboutCategories { get; set; }
+    public DbSet<EducationAdmiration> EducationAdmirations { get; set; }
+    public DbSet<EducationPath> EducationPaths { get; set; }
+    public DbSet<ExamResult> ExamResults { get; set; }
+    public DbSet<Experience> Experiences { get; set; }
+    public DbSet<Instructor> Instructors { get; set; }
+    public DbSet<LessonType> LessonTypes { get; set; }
+    public DbSet<LessonVideoDetail> LessonVideoDetails { get; set; }
+    public DbSet<Profile> Profiles { get; set; }
 
 
     public BaseDbContext(DbContextOptions dbContextOptions, IConfiguration configuration)

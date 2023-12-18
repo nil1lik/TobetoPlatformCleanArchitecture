@@ -22,6 +22,24 @@ using Application.Services.Countries;
 using Application.Services.Districts;
 using Application.Services.Announcements;
 using Application.Services.CourseClasses;
+using Application.Services.ApplicationForms;
+using Application.Services.AsyncLessons;
+using Application.Services.Calendars;
+using Application.Services.Certificates;
+using Application.Services.Companies;
+using Application.Services.Contacts;
+using Application.Services.Courses;
+using Application.Services.CourseInstructors;
+using Application.Services.CourseLessons;
+using Application.Services.EducationAbouts;
+using Application.Services.EducationAboutCategories;
+using Application.Services.EducationAdmirations;
+using Application.Services.EducationPaths;
+using Application.Services.ExamResults;
+using Application.Services.Experiences;
+using Application.Services.Instructors;
+using Application.Services.LessonTypes;
+using Application.Services.LessonVideoDetails;
 
 namespace Application;
 
@@ -62,6 +80,24 @@ public static class ApplicationServiceRegistration
 
         services.AddScoped<ICourseClassesService, CourseClassesManager>();
 
+        services.AddScoped<IApplicationFormsService, ApplicationFormsManager>();
+        services.AddScoped<IAsyncLessonsService, AsyncLessonsManager>();
+        services.AddScoped<ICalendarsService, CalendarsManager>();
+        services.AddScoped<ICertificatesService, CertificatesManager>();
+        services.AddScoped<ICompaniesService, CompaniesManager>();
+        services.AddScoped<IContactsService, ContactsManager>();
+        services.AddScoped<ICoursesService, CoursesManager>();
+        services.AddScoped<ICourseInstructorsService, CourseInstructorsManager>();
+        services.AddScoped<ICourseLessonsService, CourseLessonsManager>();
+        services.AddScoped<IEducationAboutsService, EducationAboutsManager>();
+        services.AddScoped<IEducationAboutCategoriesService, EducationAboutCategoriesManager>();
+        services.AddScoped<IEducationAdmirationsService, EducationAdmirationsManager>();
+        services.AddScoped<IEducationPathsService, EducationPathsManager>();
+        services.AddScoped<IExamResultsService, ExamResultsManager>();
+        services.AddScoped<IExperiencesService, ExperiencesManager>();
+        services.AddScoped<IInstructorsService, InstructorsManager>();
+        services.AddScoped<ILessonTypesService, LessonTypesManager>();
+        services.AddScoped<ILessonVideoDetailsService, LessonVideoDetailsManager>();
         return services;
     }
 
