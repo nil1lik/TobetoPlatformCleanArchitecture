@@ -17,6 +17,11 @@ using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 using Application.Services.Skills;
 using Application.Services.Exams;
+using Application.Services.Cities;
+using Application.Services.Countries;
+using Application.Services.Districts;
+using Application.Services.Announcements;
+using Application.Services.CourseClasses;
 
 namespace Application;
 
@@ -49,6 +54,14 @@ public static class ApplicationServiceRegistration
 
         services.AddScoped<ISkillsService, SkillsManager>();
         services.AddScoped<IExamsService, ExamsManager>();
+
+
+        services.AddScoped<ICitiesService, CitiesManager>();
+        services.AddScoped<ICountriesService, CountriesManager>();
+        services.AddScoped<IDistrictsService, DistrictsManager>();
+
+        services.AddScoped<ICourseClassesService, CourseClassesManager>();
+
         return services;
     }
 

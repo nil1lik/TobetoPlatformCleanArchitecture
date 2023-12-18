@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 namespace Domain.Entities;
 public class ProfileAnnouncement:Entity<int>
 {
-    public virtual ICollection<ProfileClass> ProfileClasses { get; set; }
     public virtual ICollection<Profile> Profiles { get; set; }
     public virtual ICollection<Announcement> Announcements { get; set; }
 }
