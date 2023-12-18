@@ -6,9 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Domain.Entities;
-public class CourseClass:Entity<int>
+public class Contact : Entity<int>
 {
-    public int ProfileClassId { get; set; }
-    public string Name { get; set; }
-    public virtual ProfileClass ProfileClass { get; set; }
+    public string NameSurname { get; set; }
+    public string Email { get; set; }
+    public string Message { get; set; }
 }
