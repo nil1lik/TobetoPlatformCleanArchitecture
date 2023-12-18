@@ -41,7 +41,7 @@ public class BaseDbContext : DbContext
     public DbSet<Instructor> Instructors { get; set; }
     public DbSet<LessonType> LessonTypes { get; set; }
     public DbSet<LessonVideoDetail> LessonVideoDetails { get; set; }
-    public DbSet<Profile> Profiles { get; set; }
+    public DbSet<UserProfile> Profiles { get; set; }
 
 
     public BaseDbContext(DbContextOptions dbContextOptions, IConfiguration configuration)

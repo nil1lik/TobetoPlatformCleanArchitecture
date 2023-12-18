@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Domain.Entities;
 public class ProfileEducation : Entity<int>
 {
-    public virtual ICollection<Profile> Profiles { get; set; }
+    public virtual ICollection<UserProfile> UserProfiles { get; set; }
     public virtual ICollection<EducationPath> EducationPaths { get; set; }
 
 }
