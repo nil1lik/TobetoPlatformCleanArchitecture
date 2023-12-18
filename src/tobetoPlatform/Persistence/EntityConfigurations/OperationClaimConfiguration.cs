@@ -49,7 +49,8 @@ public class OperationClaimConfiguration : IEntityTypeConfiguration<OperationCla
         seeds.Add(new OperationClaim { Id = ++id, Name = "LanguageLevels.Add" });
         seeds.Add(new OperationClaim { Id = ++id, Name = "LanguageLevels.Update" });
         seeds.Add(new OperationClaim { Id = ++id, Name = "LanguageLevels.Delete" });
-        
+        #endregion
+
         #region Cities
         seeds.Add(new OperationClaim { Id = ++id, Name = "Cities.Admin" });
         seeds.Add(new OperationClaim { Id = ++id, Name = "Cities.Read" });

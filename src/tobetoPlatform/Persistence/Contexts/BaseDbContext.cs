@@ -20,8 +20,6 @@ public class BaseDbContext : DbContext
     public DbSet<City> Cities { get; set; }
     public DbSet<Country> Countries { get; set; }
     public DbSet<District> Districts { get; set; }
-    public DbSet<Language> Languages { get; set; }
-    public DbSet<LanguageLevel> LanguageLevels { get; set; }
 
     public BaseDbContext(DbContextOptions dbContextOptions, IConfiguration configuration)
         : base(dbContextOptions)
