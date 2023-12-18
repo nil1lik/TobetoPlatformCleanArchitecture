@@ -18,6 +18,7 @@ using System.Reflection;
 using Application.Services.Cities;
 using Application.Services.Countries;
 using Application.Services.Districts;
+using Application.Services.Announcements;
 
 namespace Application;
 
@@ -48,6 +49,7 @@ public static class ApplicationServiceRegistration
         services.AddScoped<IAuthenticatorService, AuthenticatorManager>();
         services.AddScoped<IUserService, UserManager>();
 
+        services.AddScoped<IAnnouncementsService, AnnouncementsManager>();
         return services;
     }
 
