@@ -15,7 +15,9 @@ public class BaseDbContext : DbContext
     public DbSet<RefreshToken> RefreshTokens { get; set; }
     public DbSet<User> Users { get; set; }
     public DbSet<UserOperationClaim> UserOperationClaims { get; set; }
-    public DbSet<CourseClass> CourseClasses { get; set; }
+    public DbSet<City> Cities { get; set; }
+    public DbSet<Country> Countries { get; set; }
+    public DbSet<District> Districts { get; set; }
 
     public BaseDbContext(DbContextOptions dbContextOptions, IConfiguration configuration)
         : base(dbContextOptions)
