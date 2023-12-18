@@ -25,6 +25,24 @@ public static class PersistenceServiceRegistration
         services.AddScoped<ICountryRepository, CountryRepository>();
         services.AddScoped<IDistrictRepository, DistrictRepository>();
         services.AddScoped<IAnnouncementRepository, AnnouncementRepository>();
+        services.AddScoped<IApplicationFormRepository, ApplicationFormRepository>();
+        services.AddScoped<IAsyncLessonRepository, AsyncLessonRepository>();
+        services.AddScoped<ICalendarRepository, CalendarRepository>();
+        services.AddScoped<ICertificateRepository, CertificateRepository>();
+        services.AddScoped<ICompanyRepository, CompanyRepository>();
+        services.AddScoped<IContactRepository, ContactRepository>();
+        services.AddScoped<ICourseRepository, CourseRepository>();
+        services.AddScoped<ICourseInstructorRepository, CourseInstructorRepository>();
+        services.AddScoped<ICourseLessonRepository, CourseLessonRepository>();
+        services.AddScoped<IEducationAboutRepository, EducationAboutRepository>();
+        services.AddScoped<IEducationAboutCategoryRepository, EducationAboutCategoryRepository>();
+        services.AddScoped<IEducationAdmirationRepository, EducationAdmirationRepository>();
+        services.AddScoped<IEducationPathRepository, EducationPathRepository>();
+        services.AddScoped<IExamResultRepository, ExamResultRepository>();
+        services.AddScoped<IExperienceRepository, ExperienceRepository>();
+        services.AddScoped<IInstructorRepository, InstructorRepository>();
+        services.AddScoped<ILessonTypeRepository, LessonTypeRepository>();
+        services.AddScoped<ILessonVideoDetailRepository, LessonVideoDetailRepository>();
         return services;
     }
 }
