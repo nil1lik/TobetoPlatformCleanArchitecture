@@ -10,7 +10,7 @@ public class EducationAdmiration : Entity<int>
 {
     public bool IsLiked { get; set; }
     public bool IsFavourited { get; set; }
-    public bool CompletionRate { get; set; } // Bool mu olacak?
+    public double CompletionRate { get; set; } 
     public double EducationPoint { get; set; }
 
     public virtual ICollection<EducationPath> EducationPaths { get; set; }
@@ -20,7 +20,7 @@ public class EducationAdmiration : Entity<int>
 
     }
 
-    public EducationAdmiration(int id, bool isLiked, bool isFavourited, bool completionRate, double educationPoint) : this()
+    public EducationAdmiration(int id, bool isLiked, bool isFavourited, double completionRate, double educationPoint) : this()
     {
         Id = id;
         IsLiked = isLiked;
