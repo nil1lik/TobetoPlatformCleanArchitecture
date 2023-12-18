@@ -15,7 +15,9 @@ using Core.Mailing.MailKitImplementations;
 using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
-using Application.Services.CourseClasses;
+using Application.Services.Cities;
+using Application.Services.Countries;
+using Application.Services.Districts;
 
 namespace Application;
 
@@ -46,7 +48,6 @@ public static class ApplicationServiceRegistration
         services.AddScoped<IAuthenticatorService, AuthenticatorManager>();
         services.AddScoped<IUserService, UserManager>();
 
-        services.AddScoped<ICourseClassesService, CourseClassesManager>();
         return services;
     }
 
