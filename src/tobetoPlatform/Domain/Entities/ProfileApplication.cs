@@ -13,7 +13,7 @@ public class ProfileApplication:Entity<int>
     public int ApplicationFormId { get; set; }
     public string Name { get; set; }
 
-    public virtual ICollection<Profile> Profiles { get; set; }
+    public virtual ICollection<UserProfile> UserProfiles { get; set; }
     public virtual ICollection<ApplicationForm> ApplicationForms { get; set; }
 
     public ProfileApplication()
