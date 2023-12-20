@@ -2,8 +2,10 @@
 using System;
 namespace Domain.Entities
 {
-    public class ProfileAddress : Entity<int>  //güncellendi
+    public class ProfileAddress : Entity<int>  
     {
+        //ProfileId tutulamalı -> teke tek 
+        public int ProfileId { get; set; }
         public int CountryId { get; set; }
         public int CityId { get; set; }
         public int DistrictId { get; set; }
@@ -12,6 +14,7 @@ namespace Domain.Entities
         public virtual Country Country{ get; set; }
         public virtual City City { get; set; }
         public virtual District District { get; set; }
+        public virtual Profile Profile { get; set; }
 
         public ProfileAddress() 
         {
