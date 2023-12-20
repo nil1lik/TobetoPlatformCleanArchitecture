@@ -15,6 +15,7 @@ public class AsyncLesson : Entity<int>
     public int VideoCategoryId { get; set; }
     public string Name { get; set; }
     public string Description { get; set; }
+    public TimeSpan Time { get; set; }
     public string VideoUrl { get; set; }
 
     //Lesson'a ait point nerde?
