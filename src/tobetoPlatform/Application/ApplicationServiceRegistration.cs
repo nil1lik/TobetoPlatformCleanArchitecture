@@ -40,6 +40,9 @@ using Application.Services.Experiences;
 using Application.Services.Instructors;
 using Application.Services.LessonTypes;
 using Application.Services.LessonVideoDetails;
+using Application.Services.Graduations;
+using Application.Services.LanguageLevels;
+using Application.Services.Languages;
 
 namespace Application;
 
@@ -62,24 +65,18 @@ public static class ApplicationServiceRegistration
         services.AddSubClassesOfType(Assembly.GetExecutingAssembly(), typeof(BaseBusinessRules));
 
         services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
-
         services.AddSingleton<IMailService, MailKitMailService>();
         services.AddSingleton<LoggerServiceBase, FileLogger>();
         services.AddSingleton<IElasticSearch, ElasticSearchManager>();
         services.AddScoped<IAuthService, AuthManager>();
         services.AddScoped<IAuthenticatorService, AuthenticatorManager>();
         services.AddScoped<IUserService, UserManager>();
-
         services.AddScoped<ISkillsService, SkillsManager>();
         services.AddScoped<IExamsService, ExamsManager>();
-
-
         services.AddScoped<ICitiesService, CitiesManager>();
         services.AddScoped<ICountriesService, CountriesManager>();
         services.AddScoped<IDistrictsService, DistrictsManager>();
-
         services.AddScoped<ICourseClassesService, CourseClassesManager>();
-
         services.AddScoped<IApplicationFormsService, ApplicationFormsManager>();
         services.AddScoped<IAsyncLessonsService, AsyncLessonsManager>();
         services.AddScoped<ICalendarsService, CalendarsManager>();
@@ -87,6 +84,7 @@ public static class ApplicationServiceRegistration
         services.AddScoped<ICompaniesService, CompaniesManager>();
         services.AddScoped<IContactsService, ContactsManager>();
         services.AddScoped<ICoursesService, CoursesManager>();
+        services.AddScoped<ICourseClassesService, CourseClassesManager>();
         services.AddScoped<ICourseInstructorsService, CourseInstructorsManager>();
         services.AddScoped<ICourseLessonsService, CourseLessonsManager>();
         services.AddScoped<IEducationAboutsService, EducationAboutsManager>();
@@ -96,7 +94,10 @@ public static class ApplicationServiceRegistration
         services.AddScoped<IExamResultsService, ExamResultsManager>();
         services.AddScoped<IExperiencesService, ExperiencesManager>();
         services.AddScoped<IInstructorsService, InstructorsManager>();
+        services.AddScoped<IGraduationsService, GraduationsManager>();
         services.AddScoped<ILessonTypesService, LessonTypesManager>();
+        services.AddScoped<ILanguagesService, LanguagesManager>();
+        services.AddScoped<ILanguageLevelsService, LanguageLevelsManager>();
         services.AddScoped<ILessonVideoDetailsService, LessonVideoDetailsManager>();
         return services;
     }
