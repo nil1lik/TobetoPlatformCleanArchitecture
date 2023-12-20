@@ -14,7 +14,7 @@ namespace Domain.Entities
         public virtual Country Country{ get; set; }
         public virtual City City { get; set; }
         public virtual District District { get; set; }
-        public virtual Profile Profile { get; set; }
+        public virtual UserProfile UserProfile { get; set; }
 
         public ProfileAddress() 
         {
