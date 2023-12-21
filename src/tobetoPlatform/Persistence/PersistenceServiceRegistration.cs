@@ -47,6 +47,7 @@ public static class PersistenceServiceRegistration
         services.AddScoped<ILanguageLevelRepository, LanguageLevelRepository>();
         services.AddScoped<ILessonVideoDetailRepository, LessonVideoDetailRepository>();
 
+        services.AddScoped<IUserProfileRepository, UserProfileRepository>();
         return services;
     }
 }
