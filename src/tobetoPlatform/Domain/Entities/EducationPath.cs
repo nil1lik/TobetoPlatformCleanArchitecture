@@ -14,7 +14,7 @@ public class EducationPath : Entity<int>
     public string Name { get; set; }
     public string ImageUrl { get; set; }
     public virtual ProfileEducation ProfileEducation { get; set; }
-
+    public virtual EducationAbout EducationAbout { get; set; }
     public EducationPath()
     {
 

@@ -43,6 +43,7 @@ using Application.Services.Languages;
 using Domain.Entities;
 using Application.Services.LanguageLevels;
 using Application.Services.Graduations;
+using Application.Services.UserProfiles;
 
 namespace Application;
 
@@ -99,6 +100,7 @@ public static class ApplicationServiceRegistration
         services.AddScoped<ILanguagesService, LanguagesManager>();
         services.AddScoped<ILanguageLevelsService, LanguageLevelsManager>();
         services.AddScoped<ILessonVideoDetailsService, LessonVideoDetailsManager>();
+        services.AddScoped<IUserProfilesService, UserProfilesManager>();
         return services;
     }
 
