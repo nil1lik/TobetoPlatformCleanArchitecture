@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities;
 
-public class UserProfile:Entity<Guid>
+public class UserProfile:Entity<int>
 {
     public int UserId { get; set; }
     public int ProfileApplicationId { get; set; }
@@ -50,7 +50,7 @@ public class UserProfile:Entity<Guid>
 
     }
 
-    public UserProfile(Guid id, int userId, int profileAddressId, int profileClassId, int profileAnnouncementId, int profileGraduationId, int profileLanguageId, int profileSkillId, int profileExperienceId, int profileExamId, int profileSurveyId, string nationalIdentity, string phone, DateTime birthDate, string? description):this()
+    public UserProfile(int id, int userId, int profileAddressId, int profileClassId, int profileAnnouncementId, int profileGraduationId, int profileLanguageId, int profileSkillId, int profileExperienceId, int profileExamId, int profileSurveyId, string nationalIdentity, string phone, DateTime birthDate, string? description):this()
     {
         Id = id;
         UserId = userId;
