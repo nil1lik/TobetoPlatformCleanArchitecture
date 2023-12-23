@@ -7,16 +7,18 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities;
 
-public class Skill : Entity<int>  //güncellendi
-{ 
+public class Skill : Entity<int>  
+{
     public string Name { get; set; }
+
+    public virtual ICollection<ProfileSkill>? ProfileSkills { get; set; }
 
     public Skill()
     {
 
     }
 
-    public Skill(Guid profileId, string name, int id) : this()
+    public Skill(string name, int id) : this()
     {
         Id = id;
         Name = name;

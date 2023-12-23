@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities;
 
-public class Experience:Entity<int>  //güncellendi
+public class Experience:Entity<int>  
 {
+    public int UserProfileId { get; set; }
     public int CityId { get; set; }
     public string OrganizationName { get; set; }
     public string Position { get; set; }
@@ -18,14 +19,17 @@ public class Experience:Entity<int>  //güncellendi
     public string Description { get; set; }
     public virtual City City { get; set; }
 
+    public virtual UserProfile UserProfile { get; set; }
+
     public Experience()
     {
 
     }
 
-    public Experience(int id, int cityId, string organizationName, string position, string sector, DateTime startDate, DateTime endDate, string description) : this()
+    public Experience(int id, int userProfileId, int cityId, string organizationName, string position, string sector, DateTime startDate, DateTime endDate, string description) : this()
     {
         Id = id;
+        UserProfileId = userProfileId;
         CityId = cityId;
         OrganizationName = organizationName;
         Position = position;

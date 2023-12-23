@@ -10,5 +10,6 @@ namespace Domain.Entities;
 public class TimeSpent :  Entity<int>
 {
     public bool isEnd { get; set; }
+
     public virtual  ICollection<EducationPath> EducationPaths { get; set; }
 }

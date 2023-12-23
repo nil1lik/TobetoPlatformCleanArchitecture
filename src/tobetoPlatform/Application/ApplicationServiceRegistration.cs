@@ -44,6 +44,8 @@ using Domain.Entities;
 using Application.Services.LanguageLevels;
 using Application.Services.Graduations;
 using Application.Services.UserProfiles;
+using Application.Services.ProfileApplications;
+using Application.Services.ProfileApplicationForms;
 
 namespace Application;
 
@@ -101,6 +103,8 @@ public static class ApplicationServiceRegistration
         services.AddScoped<ILanguageLevelsService, LanguageLevelsManager>();
         services.AddScoped<ILessonVideoDetailsService, LessonVideoDetailsManager>();
         services.AddScoped<IUserProfilesService, UserProfilesManager>();
+        services.AddScoped<IProfileApplicationsService, ProfileApplicationsManager>();
+        services.AddScoped<IProfileApplicationFormsService, ProfileApplicationFormsManager>();
         return services;
     }
 

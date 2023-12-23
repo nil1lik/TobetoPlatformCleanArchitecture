@@ -31,4 +31,4 @@ public class ExamBusinessRules : BaseBusinessRules
         );
         await ExamShouldExistWhenSelected(exam);
     }
-}
+}  

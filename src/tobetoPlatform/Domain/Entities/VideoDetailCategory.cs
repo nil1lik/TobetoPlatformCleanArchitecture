@@ -20,6 +20,6 @@ public class VideoDetailCategory:Entity<int>
     public VideoDetailCategory(string name, int id) : this()
     {
         Id = id;
-        Name = name;
+        Name = name; 
     }
 }

@@ -15,9 +15,11 @@ public class SyncLesson : Entity<int>
     public DateTime EndDate { get; set; }
 
     public TimeSpan Time { get; set; }
+
     public virtual ICollection<Instructor> Instructors { get; set; }
     public virtual LessonVideoDetail LessonVideoDetail { get; set; }
     public virtual Course Course { get; set; }
+
 
     public SyncLesson()
     {

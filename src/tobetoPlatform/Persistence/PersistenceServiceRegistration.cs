@@ -48,6 +48,8 @@ public static class PersistenceServiceRegistration
         services.AddScoped<ILessonVideoDetailRepository, LessonVideoDetailRepository>();
 
         services.AddScoped<IUserProfileRepository, UserProfileRepository>();
+        services.AddScoped<IProfileApplicationRepository, ProfileApplicationRepository>();
+        services.AddScoped<IProfileApplicationFormRepository, ProfileApplicationFormRepository>();
         return services;
     }
 }

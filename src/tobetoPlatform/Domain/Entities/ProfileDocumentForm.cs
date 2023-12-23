@@ -20,4 +20,14 @@ public class ProfileDocumentForm:Entity<int>
     {
         
     }
+
+    public ProfileDocumentForm(int id, int applicationFormId, string name, bool approvalStatus, string documentFormUrl, string message) : this()
+    {
+        Id = id;
+        ApplicationFormId = applicationFormId;
+        Name = name;
+        ApprovalStatus = approvalStatus;
+        DocumentFormUrl = documentFormUrl;
+        Message = message;
+    }
 }

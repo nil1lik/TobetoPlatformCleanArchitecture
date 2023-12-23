@@ -10,7 +10,6 @@ namespace Domain.Entities;
 public class AsyncLesson : Entity<int>
 {
     public int ProfileEducationId { get; set; }
-    public int CourseLessonId { get; set; }
     public int LessonVideoDetailId { get; set; }
     public int VideoCategoryId { get; set; }
     public string Name { get; set; }
@@ -21,8 +20,9 @@ public class AsyncLesson : Entity<int>
     //Lesson'a ait point nerde?
 
     public virtual LessonVideoDetail LessonVideoDetail { get; set; }
-    public virtual CourseLesson CourseLesson { get; set; }
+    public virtual ICollection<CourseLesson> CourseLessons { get; set; }
     public virtual VideoCategory VideoCategory { get; set; }
+
     public virtual ProfileEducation ProfileEducation { get; set; }
 
     public AsyncLesson()
@@ -30,11 +30,10 @@ public class AsyncLesson : Entity<int>
 
     }
 
-    public AsyncLesson(int id, int courseLessonId, int profileEducationId, int lessonVideoDetailId, string name, string description, string videoUrl, int videoCategoryId) : this()
+    public AsyncLesson(int id, int profileEducationId, int lessonVideoDetailId, string name, string description, string videoUrl, int videoCategoryId) : this()
     {
         Id = id;
         ProfileEducationId = profileEducationId;
-        CourseLessonId = courseLessonId;
         LessonVideoDetailId = lessonVideoDetailId;
         Name = name;
         Description = description;
