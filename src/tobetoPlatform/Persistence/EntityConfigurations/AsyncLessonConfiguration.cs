@@ -12,7 +12,6 @@ public class AsyncLessonConfiguration : IEntityTypeConfiguration<AsyncLesson>
 
         builder.Property(al => al.Id).HasColumnName("Id").IsRequired();
         builder.Property(al => al.ProfileEducationId).HasColumnName("ProfileEducationId");
-        builder.Property(al => al.CourseLessonId).HasColumnName("CourseLessonId");
         builder.Property(al => al.LessonVideoDetailId).HasColumnName("LessonVideoDetailId");
         builder.Property(al => al.VideoCategoryId).HasColumnName("VideoCategoryId");
         builder.Property(al => al.Name).HasColumnName("Name");

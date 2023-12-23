@@ -11,7 +11,6 @@ public class CourseClassConfiguration : IEntityTypeConfiguration<CourseClass>
         builder.ToTable("CourseClasses").HasKey(cc => cc.Id);
 
         builder.Property(cc => cc.Id).HasColumnName("Id").IsRequired();
-        builder.Property(cc => cc.ProfileClassId).HasColumnName("ProfileClassId");
         builder.Property(cc => cc.Name).HasColumnName("Name");
         builder.Property(cc => cc.CreatedDate).HasColumnName("CreatedDate").IsRequired();
         builder.Property(cc => cc.UpdatedDate).HasColumnName("UpdatedDate");

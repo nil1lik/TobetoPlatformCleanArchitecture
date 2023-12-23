@@ -10,4 +10,17 @@ public class ApplicationForm:Entity<int>
 
     public virtual ProfileApplicationForm ProfileApplicationForm { get; set; }
     public virtual ProfileDocumentForm ProfileDocumentForm { get; set; }
-}
+
+    public ApplicationForm()
+    {
+    }
+
+    public ApplicationForm(int id, int profileDocumentFormId, int profileApplicationFormId, string name) : this()
+    {
+        Id = id;
+        ProfileDocumentFormId = profileDocumentFormId;
+        ProfileApplicationFormId = profileApplicationFormId;
+        Name = name;
+    }
+
+  } 

@@ -11,11 +11,13 @@ namespace Domain.Entities
     {
         public string Name { get; set; }
         public string Description { get; set; }
-        public virtual ProfileAnnouncement? ProfileAnnouncement { get; set; }
+
+        public virtual ICollection<ProfileAnnouncement>? ProfileAnnouncement { get; set; }
+
         public Announcement()
         {
 
-        }
+        } 
 
         public Announcement(string name, string description, int id) : this()
         {

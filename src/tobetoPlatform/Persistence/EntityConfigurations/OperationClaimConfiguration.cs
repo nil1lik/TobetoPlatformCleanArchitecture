@@ -243,6 +243,22 @@ public class OperationClaimConfiguration : IEntityTypeConfiguration<OperationCla
         seeds.Add(new OperationClaim { Id = ++id, Name = "UserProfiles.Update" });
         seeds.Add(new OperationClaim { Id = ++id, Name = "UserProfiles.Delete" });
         #endregion
+        #region ProfileApplications
+        seeds.Add(new OperationClaim { Id = ++id, Name = "ProfileApplications.Admin" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "ProfileApplications.Read" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "ProfileApplications.Write" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "ProfileApplications.Add" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "ProfileApplications.Update" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "ProfileApplications.Delete" });
+        #endregion
+        #region ProfileApplicationForms
+        seeds.Add(new OperationClaim { Id = ++id, Name = "ProfileApplicationForms.Admin" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "ProfileApplicationForms.Read" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "ProfileApplicationForms.Write" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "ProfileApplicationForms.Add" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "ProfileApplicationForms.Update" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "ProfileApplicationForms.Delete" });
+        #endregion
         return seeds;
     }
 }

@@ -10,6 +10,9 @@ namespace Domain.Entities;
 public class LanguageLevel : Entity<int>
 {
     public string Name { get; set; }
+
+    public virtual ICollection<Language> Languages { get; set; }
+
     public LanguageLevel()
     {
 

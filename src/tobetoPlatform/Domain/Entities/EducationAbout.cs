@@ -25,6 +25,14 @@ public class EducationAbout : Entity<int>
 
     }
 
-
+    public EducationAbout(int id, int companyId, int educationAboutCategoryId, DateTime startDate, DateTime endDate, string estimatedDuration) : this()
+    {
+        Id = id;
+        CompanyId = companyId;
+        EducationAboutCategoryId = educationAboutCategoryId;
+        StartDate = startDate;
+        EndDate = endDate;
+        EstimatedDuration = estimatedDuration;
+    }
 }
 

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities;
 
-public class Graduation : Entity<int>  //güncellendi
+public class Graduation : Entity<int>  
 {
     public string Degree { get; set; }
     public string UniversityName { get; set; }
@@ -15,6 +15,8 @@ public class Graduation : Entity<int>  //güncellendi
     public DateTime StartDate { get; set; }
     public DateTime EndDate { get; set; }
     public DateTime GraduationDate { get; set; }
+
+    public virtual ICollection<ProfileGraduation> ProfileGraduations { get; set; }
 
     public Graduation()
     {

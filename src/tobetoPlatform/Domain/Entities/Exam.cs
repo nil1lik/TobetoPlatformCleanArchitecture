@@ -13,7 +13,9 @@ public class Exam:Entity<int>
     public string Name { get; set; }
     public string Description { get; set; }
     public string Duration { get; set; }
+
     public virtual ExamResult ExamResult { get; set; }
+    public virtual ICollection<ProfileExam> ProfileExams { get; set; }
 
     public Exam()
     {
@@ -29,3 +31,4 @@ public class Exam:Entity<int>
         Duration = duration;
     }
 }
+
