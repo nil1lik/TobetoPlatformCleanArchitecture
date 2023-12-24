@@ -8,11 +8,14 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities;
 
-public class Language : Entity<int>  //güncellendi
+public class Language : Entity<int>  
 {
     public string Name { get; set; }
     public int LanguageLevelId { get; set; }
+
     public virtual LanguageLevel Level { get; set; }
+
+    public virtual ICollection<ProfileLanguage> ProfileLanguages { get; set; }
 
     public Language()
     {

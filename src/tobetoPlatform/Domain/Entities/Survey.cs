@@ -6,17 +6,22 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Domain.Entities;
-public class Survey:Entity<int>  //güncellendi
+public class Survey:Entity<int> 
 {
     public string Name { get; set; }
+
+    public virtual ICollection<ProfileSurvey> ProfileSurveys { get; set; }
+
     public Survey()
     {
         
     }
 
-    public Survey(int id, int profileId, string name):this()
+    public Survey(int id, string name):this()
     {
         Id = id;
         Name = name;
     }
 }
+
+

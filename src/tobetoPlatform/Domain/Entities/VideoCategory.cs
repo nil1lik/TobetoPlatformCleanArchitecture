@@ -9,6 +9,7 @@ namespace Domain.Entities;
 public class VideoCategory : Entity<int>
 {
     public string Name { get; set; }
+
     public virtual ICollection<AsyncLesson> AsyncLessons { get; set; }
 
     public VideoCategory()
