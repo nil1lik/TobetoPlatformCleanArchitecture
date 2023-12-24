@@ -9,7 +9,23 @@ using System.Threading.Tasks;
 namespace Domain.Entities;
 public class ProfileEducation : Entity<int>
 {
-    public virtual ICollection<UserProfile> UserProfiles { get; set; }
-    public virtual ICollection<EducationPath> EducationPaths { get; set; }
+    public int UserProfileId { get; set; }
+    public int EducationPathId { get; set; }
+
+    public virtual UserProfile UserProfile { get; set; }
+    public virtual EducationPath EducationPath { get; set; }
+
+    public ProfileEducation()
+    {
+    }
+
+    public ProfileEducation(int id, int userProfileId, int educationPathId):this()
+    {
+        Id = id;
+        UserProfileId = userProfileId;
+        EducationPathId = educationPathId;
+    }
+
+    
 
 }

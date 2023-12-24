@@ -15,6 +15,7 @@ public class CityConfiguration : IEntityTypeConfiguration<City>
         builder.Property(c => c.CreatedDate).HasColumnName("CreatedDate").IsRequired();
         builder.Property(c => c.UpdatedDate).HasColumnName("UpdatedDate");
         builder.Property(c => c.DeletedDate).HasColumnName("DeletedDate");
+       
 
         builder.HasQueryFilter(c => !c.DeletedDate.HasValue);
     }

@@ -12,8 +12,6 @@ public class LessonVideoDetailConfiguration : IEntityTypeConfiguration<LessonVid
 
         builder.Property(lvd => lvd.Id).HasColumnName("Id").IsRequired();
         builder.Property(lvd => lvd.VideoLanguageId).HasColumnName("VideoLanguageId");
-        builder.Property(lvd => lvd.CategoryId).HasColumnName("CategoryId");
-        builder.Property(lvd => lvd.SubcategoryId).HasColumnName("SubcategoryId");
         builder.Property(lvd => lvd.CompanyId).HasColumnName("CompanyId");
         builder.Property(lvd => lvd.CreatedDate).HasColumnName("CreatedDate").IsRequired();
         builder.Property(lvd => lvd.UpdatedDate).HasColumnName("UpdatedDate");

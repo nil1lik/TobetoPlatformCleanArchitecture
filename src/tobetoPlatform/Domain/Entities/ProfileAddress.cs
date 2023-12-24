@@ -4,8 +4,7 @@ namespace Domain.Entities
 {
     public class ProfileAddress : Entity<int>  
     {
-        //ProfileId tutulamalı -> teke tek 
-        public int ProfileId { get; set; }
+        public int UserProfileId { get; set; }
         public int CountryId { get; set; }
         public int CityId { get; set; }
         public int DistrictId { get; set; }
@@ -22,10 +21,11 @@ namespace Domain.Entities
 
         }
 
-        public ProfileAddress(int id, int countryId, int cityId, int districtId, string addressDetail) : this()
+        public ProfileAddress(int id, int countryId,int userProfileId, int cityId, int districtId, string addressDetail) : this()
         {
             Id = id;
             CountryId = countryId;
+            UserProfileId = userProfileId;
             CityId = cityId;
             DistrictId = districtId;
             AddressDetail = addressDetail; 

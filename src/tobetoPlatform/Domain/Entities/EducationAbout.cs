@@ -20,11 +20,22 @@ public class EducationAbout : Entity<int>
     public virtual Company Company { get; set; }
     public virtual EducationAboutCategory EducationAboutCategory { get; set; }
 
+    public virtual ICollection<EducationPath> EducationPaths { get; set; }
+
     public EducationAbout()
     {
 
     }
 
-
+    public EducationAbout(int id, int companyId, int educationAboutCategoryId, DateTime startDate, DateTime endDate, string estimatedDuration) : this()
+    {
+        Id = id;
+        CompanyId = companyId;
+        EducationAboutCategoryId = educationAboutCategoryId;
+        StartDate = startDate;
+        EndDate = endDate;
+        EstimatedDuration = estimatedDuration;
+    }
 }
+
 

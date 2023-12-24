@@ -11,6 +11,8 @@ public class District : Entity<int>
 {
     public string Name { get; set; }
 
+    public ICollection<ProfileAddress> ProfileAddresses { get; set; }
+
     public District()
     {
 
