@@ -11,7 +11,6 @@ public class InstructorConfiguration : IEntityTypeConfiguration<Instructor>
         builder.ToTable("Instructors").HasKey(i => i.Id);
 
         builder.Property(i => i.Id).HasColumnName("Id").IsRequired();
-        builder.Property(i => i.CourseInstructorId).HasColumnName("CourseInstructorId");
         builder.Property(i => i.FirstName).HasColumnName("FirstName");
         builder.Property(i => i.LastName).HasColumnName("LastName");
         builder.Property(i => i.ImageUrl).HasColumnName("ImageUrl");

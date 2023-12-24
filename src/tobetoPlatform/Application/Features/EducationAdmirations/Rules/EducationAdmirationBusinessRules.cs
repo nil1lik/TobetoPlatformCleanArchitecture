@@ -36,7 +36,7 @@ public class EducationAdmirationBusinessRules : BaseBusinessRules
         await EducationAdmirationShouldExistWhenSelected(educationAdmiration);
     }
 
-    //EducationPath'de hiçbir video izlenmediyse...
+    //EducationPath'de hiï¿½bir video izlenmediyse...
     public async Task CheckUnwatchedVideosOnEducationPath(int userProfileId, CancellationToken cancellationToken)
     {
         EducationAdmiration? educationAdmiration = await _educationAdmirationRepository.GetAsync(
