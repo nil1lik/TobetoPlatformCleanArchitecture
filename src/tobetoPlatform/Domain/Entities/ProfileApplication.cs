@@ -9,17 +9,21 @@ using System.Threading.Tasks;
 namespace Domain.Entities;
 public class ProfileApplication:Entity<int>
 {
-    public int ProfileId { get; set; }
-    public int ApplicationFormId { get; set; }
-    public string Name { get; set; }
+    public int UserProfileId { get; set; }
+    public int ApplicationId { get; set; }
 
-    public virtual ICollection<UserProfile> UserProfiles { get; set; }
-    public virtual ICollection<ApplicationForm> ApplicationForms { get; set; }
+    public virtual UserProfile UserProfile { get; set; }
+    public virtual Application Application { get; set; }
 
     public ProfileApplication()
     {
         
     }
 
-
+    public ProfileApplication(int id ,int userProfileId, int applicationId) : this()
+    {
+        Id = id;
+        UserProfileId = userProfileId;
+        ApplicationId = applicationId;
+    }
 }

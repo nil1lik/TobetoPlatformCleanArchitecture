@@ -11,7 +11,6 @@ public class EducationPathConfiguration : IEntityTypeConfiguration<EducationPath
         builder.ToTable("EducationPaths").HasKey(ep => ep.Id);
 
         builder.Property(ep => ep.Id).HasColumnName("Id").IsRequired();
-        builder.Property(ep => ep.ProfileEducationId).HasColumnName("ProfileEducationId");
         builder.Property(ep => ep.EducationAboutId).HasColumnName("EducationAboutId");
         builder.Property(ep => ep.Name).HasColumnName("Name");
         builder.Property(ep => ep.ImageUrl).HasColumnName("ImageUrl");

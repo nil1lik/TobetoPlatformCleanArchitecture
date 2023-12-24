@@ -9,6 +9,7 @@ namespace Domain.Entities;
 public class VideoDetailCategory:Entity<int>
 {
     public string Name { get; set; }
+
     public virtual ICollection<VideoDetailSubcategory> VideoDetailSubcategories { get; set; }
     public virtual ICollection<LessonVideoDetail> LessonVideoDetails { get; set; }
 
@@ -20,6 +21,6 @@ public class VideoDetailCategory:Entity<int>
     public VideoDetailCategory(string name, int id) : this()
     {
         Id = id;
-        Name = name;
+        Name = name; 
     }
 }

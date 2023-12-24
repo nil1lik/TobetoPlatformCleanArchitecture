@@ -21,7 +21,6 @@ using Application.Services.Cities;
 using Application.Services.Countries;
 using Application.Services.Districts;
 using Application.Services.CourseClasses;
-using Application.Services.ApplicationForms;
 using Application.Services.AsyncLessons;
 using Application.Services.Calendars;
 using Application.Services.Certificates;
@@ -44,6 +43,7 @@ using Domain.Entities;
 using Application.Services.LanguageLevels;
 using Application.Services.Graduations;
 using Application.Services.UserProfiles;
+using Application.Services.ProfileApplications;
 
 namespace Application;
 
@@ -78,7 +78,6 @@ public static class ApplicationServiceRegistration
         services.AddScoped<ICountriesService, CountriesManager>();
         services.AddScoped<IDistrictsService, DistrictsManager>();
         services.AddScoped<ICourseClassesService, CourseClassesManager>();
-        services.AddScoped<IApplicationFormsService, ApplicationFormsManager>();
         services.AddScoped<IAsyncLessonsService, AsyncLessonsManager>();
         services.AddScoped<ICalendarsService, CalendarsManager>();
         services.AddScoped<ICertificatesService, CertificatesManager>();
@@ -101,6 +100,7 @@ public static class ApplicationServiceRegistration
         services.AddScoped<ILanguageLevelsService, LanguageLevelsManager>();
         services.AddScoped<ILessonVideoDetailsService, LessonVideoDetailsManager>();
         services.AddScoped<IUserProfilesService, UserProfilesManager>();
+        services.AddScoped<IProfileApplicationsService, ProfileApplicationsManager>();
         return services;
     }
 
