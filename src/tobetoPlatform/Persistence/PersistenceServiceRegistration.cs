@@ -24,7 +24,6 @@ public static class PersistenceServiceRegistration
         services.AddScoped<ICountryRepository, CountryRepository>();
         services.AddScoped<IDistrictRepository, DistrictRepository>();
         services.AddScoped<IAnnouncementRepository, AnnouncementRepository>();
-        services.AddScoped<IApplicationFormRepository, ApplicationFormRepository>();
         services.AddScoped<IAsyncLessonRepository, AsyncLessonRepository>();
         services.AddScoped<ICalendarRepository, CalendarRepository>();
         services.AddScoped<ICertificateRepository, CertificateRepository>();
@@ -49,7 +48,6 @@ public static class PersistenceServiceRegistration
 
         services.AddScoped<IUserProfileRepository, UserProfileRepository>();
         services.AddScoped<IProfileApplicationRepository, ProfileApplicationRepository>();
-        services.AddScoped<IProfileApplicationFormRepository, ProfileApplicationFormRepository>();
         return services;
     }
 }

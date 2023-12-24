@@ -21,7 +21,6 @@ public class BaseDbContext : DbContext
     public DbSet<Country> Countries { get; set; }
     public DbSet<District> Districts { get; set; }
     public DbSet<CourseClass> CourseClasses { get; set; }
-    public DbSet<ApplicationForm> ApplicationForms { get; set; }
     public DbSet<AsyncLesson> AsyncLessons { get; set; }
     public DbSet<Calendar> Calendars { get; set; }
     public DbSet<Certificate> Certificates { get; set; }
@@ -41,7 +40,8 @@ public class BaseDbContext : DbContext
     public DbSet<LessonVideoDetail> LessonVideoDetails { get; set; }
     public DbSet<UserProfile> UserProfiles { get; set; }
     public DbSet<ProfileApplication> ProfileApplications { get; set; }
-    public DbSet<ProfileApplicationForm> ProfileApplicationForms { get; set; }
+    public DbSet<LanguageLevel> LanguageLevels { get; set; }
+
 
 
     public BaseDbContext(DbContextOptions dbContextOptions, IConfiguration configuration)

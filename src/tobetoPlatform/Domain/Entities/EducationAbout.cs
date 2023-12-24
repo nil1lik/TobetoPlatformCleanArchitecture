@@ -20,6 +20,8 @@ public class EducationAbout : Entity<int>
     public virtual Company Company { get; set; }
     public virtual EducationAboutCategory EducationAboutCategory { get; set; }
 
+    public virtual ICollection<EducationPath> EducationPaths { get; set; }
+
     public EducationAbout()
     {
 
@@ -35,4 +37,5 @@ public class EducationAbout : Entity<int>
         EstimatedDuration = estimatedDuration;
     }
 }
+
 

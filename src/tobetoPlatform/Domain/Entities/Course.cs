@@ -12,6 +12,7 @@ public class Course : Entity<int>
     public string Name { get; set; }
 
     public virtual EducationPath EducationPath { get; set; }
+
     public virtual ICollection<CourseInstructor> CourseInstructors { get; set; }
     public virtual ICollection<SyncLesson> SyncLessons { get; set; }
     public virtual ICollection<CourseLesson> CourseLesson { get; set; }
