@@ -6,7 +6,6 @@ namespace Domain.Entities
     {
         public int UserProfileId { get; set; }
         public int ExamId { get; set; }
-        public bool IsCompleted { get; set; }
 
         public virtual UserProfile UserProfile { get; set; }
         public virtual Exam Exam { get; set; }
@@ -15,12 +14,11 @@ namespace Domain.Entities
         {
         }
 
-        public ProfileExam(int id,int userProfileId, int examId, bool isCompleted):this()
+        public ProfileExam(int id,int userProfileId, int examId):this()
         {
             Id = id;
             UserProfileId = userProfileId;
             ExamId = examId;
-            IsCompleted = isCompleted;
         }
 
         

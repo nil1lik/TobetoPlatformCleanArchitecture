@@ -17,8 +17,8 @@ public class Experience:Entity<int>
     public DateTime StartDate { get; set; }
     public DateTime EndDate { get; set; }
     public string Description { get; set; }
-    public virtual City City { get; set; }
 
+    public virtual City City { get; set; }
     public virtual UserProfile UserProfile { get; set; }
 
     public Experience()

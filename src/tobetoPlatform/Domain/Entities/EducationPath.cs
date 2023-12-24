@@ -9,13 +9,15 @@ using System.Threading.Tasks;
 namespace Domain.Entities;
 public class EducationPath : Entity<int>
 {
+    public int EducationAdmirationId { get; set; }
     public int EducationAboutId { get; set; }
     public int TimeSpentId { get; set; }
     public string Name { get; set; }
     public string ImageUrl { get; set; }
 
     public virtual EducationAbout EducationAbout { get; set; }
-    public virtual TimeSpent TimeSpent { get; set; }
+    public virtual EducationAdmiration EducationAdmiration { get; set; }
+
     public virtual ICollection<ProfileEducation> ProfileEducations { get; set; }
     public virtual ICollection<Course> Courses { get; set; }
 
@@ -24,11 +26,11 @@ public class EducationPath : Entity<int>
 
     }
 
-    public EducationPath(int id,int educationAboutId,int timeSpentId, string name, string imageUrl) : this()
+    public EducationPath(int id,int educationAboutId, int educationAdmirationId, string name, string imageUrl) : this()
     {
         Id = id;
+        EducationAdmirationId = educationAdmirationId;
         EducationAboutId = educationAboutId;
-        TimeSpentId = timeSpentId;
         Name = name;
         ImageUrl = imageUrl;
     }
