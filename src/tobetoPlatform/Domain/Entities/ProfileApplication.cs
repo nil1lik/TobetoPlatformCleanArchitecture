@@ -14,6 +14,7 @@ public class ProfileApplication:Entity<int>
 
     public virtual UserProfile UserProfile { get; set; }
     public virtual Application Application { get; set; }
+    public virtual ProfileApplicationStep ProfileApplicationStep{ get; set; }
 
     public ProfileApplication()
     {
