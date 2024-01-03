@@ -9,7 +9,7 @@ namespace Domain.Entities;
 
 public class Exam:Entity<int>
 {
-    public int ExamResultId { get; set; }
+    //public int ExamResultId { get; set; }
     public string Name { get; set; }
     public string Description { get; set; }
     public string Duration { get; set; }
@@ -27,7 +27,7 @@ public class Exam:Entity<int>
     public Exam(int id, int examResultId, bool isCompleted,string name, int questionCount, string description, string duration) : this()
     {
         Id = id;
-        ExamResultId = examResultId;
+        //ExamResultId = examResultId;
         IsCompleted = isCompleted;
         QuestionCount = questionCount;
         Name = name;

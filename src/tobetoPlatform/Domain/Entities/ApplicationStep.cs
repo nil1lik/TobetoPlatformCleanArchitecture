@@ -11,6 +11,7 @@ namespace Domain.Entities
 
         public virtual Application Application { get; set; }
         public virtual ICollection<ProfileApplicationStep> ProfileApplicationSteps { get; set; }
+
         public ApplicationStep()
         {
         }

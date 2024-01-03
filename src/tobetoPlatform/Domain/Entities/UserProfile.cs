@@ -12,7 +12,7 @@ namespace Domain.Entities;
 public class UserProfile:Entity<int>
 {
     public int UserId { get; set; }
-    public int ProfileAddressId { get; set; }
+    //public int ProfileAddressId { get; set; }
     public int ProfileShareId { get; set; }
     public int ProfileExperienceId { get; set; }
     public string NationalIdentity { get; set; }
@@ -52,7 +52,7 @@ public class UserProfile:Entity<int>
     {
         Id = id;
         UserId = userId;
-        ProfileAddressId = profileAddressId;
+        //ProfileAddressId = profileAddressId;
         ProfileShareId = profileShareId;
         ProfileExperienceId = profileExperienceId;
         NationalIdentity = nationalIdentity;
