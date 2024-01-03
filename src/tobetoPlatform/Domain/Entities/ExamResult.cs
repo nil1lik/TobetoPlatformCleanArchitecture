@@ -15,8 +15,6 @@ public class ExamResult:Entity<int>
     public int Empty { get; set; }
     public int Point { get; set; }  
 
-    public virtual Exam Exam { get; set; }
-
     public ExamResult()
     {
 

@@ -14,7 +14,6 @@ public class UserProfile:Entity<int>
     public int UserId { get; set; }
     public int ProfileAddressId { get; set; }
     public int ProfileShareId { get; set; }
-    public int ProfileExperienceId { get; set; }
     public string NationalIdentity { get; set; }
     public string Phone { get; set; }
     public DateTime BirthDate { get; set; }
@@ -48,13 +47,12 @@ public class UserProfile:Entity<int>
         
     }
 
-    public UserProfile(int id, int userId, int profileAddressId, int profileShareId, int profileExperienceId, string nationalIdentity, string phone, DateTime birthDate, string? description) : this()
+    public UserProfile(int id, int userId, int profileAddressId, int profileShareId, string nationalIdentity, string phone, DateTime birthDate, string? description) : this()
     {
         Id = id;
         UserId = userId;
         ProfileAddressId = profileAddressId;
         ProfileShareId = profileShareId;
-        ProfileExperienceId = profileExperienceId;
         NationalIdentity = nationalIdentity;
         Phone = phone;
         BirthDate = birthDate;

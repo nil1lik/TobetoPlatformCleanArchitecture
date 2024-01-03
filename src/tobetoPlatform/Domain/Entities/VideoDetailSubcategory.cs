@@ -19,10 +19,10 @@ public class VideoDetailSubcategory:Entity<int>
         
     }
 
-    public VideoDetailSubcategory(int id,int videoDetailCategoryId, string name) : this()
+    public VideoDetailSubcategory(int id, int videoDetailCategoryId, string name) : this()
     {
-        VideoDetailCategoryId = videoDetailCategoryId;
         Id = id;
+        VideoDetailCategoryId = videoDetailCategoryId;
         Name = name;
     }
 }
