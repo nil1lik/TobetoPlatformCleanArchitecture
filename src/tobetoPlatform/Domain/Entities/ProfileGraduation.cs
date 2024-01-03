@@ -14,8 +14,9 @@ namespace Domain.Entities
         {
         }
 
-        public ProfileGraduation(int graduationId, int userProfileId)
+        public ProfileGraduation(int id, int graduationId, int userProfileId):this()
         {
+            Id = id;
             GraduationId = graduationId;
             UserProfileId = userProfileId;
         }
