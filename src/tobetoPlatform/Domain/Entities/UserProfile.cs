@@ -19,20 +19,15 @@ public class UserProfile:Entity<int>
     public DateTime BirthDate { get; set; }
     public string? Description { get; set; }
 
-
     public virtual User User { get; set; }
-
-    public virtual ICollection<ProfileApplication> ProfileApplications { get; set; }
-
     public virtual ProfileShare ProfileShare { get; set; }
     public virtual ProfileAddress ProfileAddress { get; set; }
 
+    public virtual ICollection<ProfileApplication> ProfileApplications { get; set; }
     public virtual ICollection<ProfileGraduation> ProfileGraduation { get; set; }
     public virtual ICollection<ProfileLanguage>? ProfileLanguages { get; set; }
     public virtual ICollection<ProfileSkill>? ProfileSkills { get; set; }
-
     public virtual ICollection<ProfileExam>? ProfileExams { get; set; }
-
     public virtual ICollection<ProfileSurvey>? ProfileSurveys { get; set; }
     public virtual ICollection<ProfileAnnouncement>? ProfileAnnouncement { get; set; }
     public virtual ICollection<ProfileClass>? ProfileClasses { get; set; }
@@ -40,14 +35,13 @@ public class UserProfile:Entity<int>
     public virtual ICollection<Certificate>? Certificates { get; set; }
     public virtual ICollection<Experience>? Experiences { get; set; }
     public virtual ICollection<SocialMediaAccount>? SocialMediaAccounts { get; set; }
-
     
     public UserProfile()
     {
         
     }
 
-    public UserProfile(int id, int userId, int profileAddressId, int profileShareId, string nationalIdentity, string phone, DateTime birthDate, string? description) : this()
+    public UserProfile(int id, int userId, int profileAddressId, int profileShareId, string nationalIdentity, string phone, DateTime birthDate, string? description, User user)
     {
         Id = id;
         UserId = userId;
@@ -57,5 +51,6 @@ public class UserProfile:Entity<int>
         Phone = phone;
         BirthDate = birthDate;
         Description = description;
+        User = user;
     }
 }

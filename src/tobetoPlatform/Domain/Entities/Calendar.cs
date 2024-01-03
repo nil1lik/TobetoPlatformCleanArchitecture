@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 namespace Domain.Entities;
 public class Calendar :Entity<int>
 {
-    public int SyncLessonId { get; set; }
+    //public int SyncLessonId { get; set; }
     public int EducationPathId { get; set; }
-    public int InstructorId { get; set; }
+    //public int InstructorId { get; set; }
 
-    public virtual SyncLesson SyncLesson { get; set; }
+    //public virtual SyncLesson SyncLesson { get; set; }
     public virtual EducationPath EducationPath { get; set; }
-    public virtual Instructor Instructor { get; set; }
+    //public virtual Instructor Instructor { get; set; }
 
     public Calendar()
     {
@@ -24,8 +24,8 @@ public class Calendar :Entity<int>
     public Calendar(int id,int syncLessonId, int educationPathId, int instructorId) : this()
     {
         Id = id;
-        SyncLessonId = syncLessonId;
+        //SyncLessonId = syncLessonId;
         EducationPathId = educationPathId;
-        InstructorId = instructorId;
+        //InstructorId = instructorId;
     }
 }
