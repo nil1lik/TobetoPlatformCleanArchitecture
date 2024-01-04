@@ -2,7 +2,7 @@
 using System;
 namespace Domain.Entities
 {
-    public class Application : Entity<int>
+    public class UserApplication : Entity<int>
     {
         public string Name { get; set; }
 
@@ -10,11 +10,11 @@ namespace Domain.Entities
         public virtual ICollection<ApplicationStep> ApplicationSteps { get; set; }
 
 
-        public Application()
+        public UserApplication()
         {
         }
 
-        public Application(int id,string name) : this()
+        public UserApplication(int id,string name) : this()
         {
             Id = id;
             Name = name;
