@@ -16,6 +16,20 @@ using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 using Domain.Entities;
+using Application.Services.UserProfiles;
+using Application.Services.ProfileShares;
+using Application.Services.Announcements;
+using Application.Services.ProfileApplications;
+using Application.Services.ApplicationSteps;
+using Application.Services.AsyncLessons;
+using Application.Services.Calendars;
+using Application.Services.Certificates;
+using Application.Services.Cities;
+using Application.Services.Companies;
+using Application.Services.Contacts;
+using Application.Services.Countries;
+using Application.Services.Courses;
+using Application.Services.CourseClasses;
 
 
 namespace Application;
@@ -45,6 +59,20 @@ public static class ApplicationServiceRegistration
         services.AddScoped<IAuthService, AuthManager>();
         services.AddScoped<IAuthenticatorService, AuthenticatorManager>();
         services.AddScoped<IUserService, UserManager>();
+        services.AddScoped<IUserProfilesService, UserProfilesManager>();
+        services.AddScoped<IProfileSharesService, ProfileSharesManager>();
+        services.AddScoped<IAnnouncementsService, AnnouncementsManager>();
+        services.AddScoped<IProfileApplicationsService, ProfileApplicationsManager>();
+        services.AddScoped<IApplicationStepsService, ApplicationStepsManager>();
+        services.AddScoped<IAsyncLessonsService, AsyncLessonsManager>();
+        services.AddScoped<ICalendarsService, CalendarsManager>();
+        services.AddScoped<ICertificatesService, CertificatesManager>();
+        services.AddScoped<ICitiesService, CitiesManager>();
+        services.AddScoped<ICompaniesService, CompaniesManager>();
+        services.AddScoped<IContactsService, ContactsManager>();
+        services.AddScoped<ICountriesService, CountriesManager>();
+        services.AddScoped<ICoursesService, CoursesManager>();
+        services.AddScoped<ICourseClassesService, CourseClassesManager>();
         return services;
     }
 
