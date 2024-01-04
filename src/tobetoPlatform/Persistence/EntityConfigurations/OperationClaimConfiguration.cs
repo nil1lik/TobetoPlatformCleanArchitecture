@@ -259,6 +259,28 @@ public class OperationClaimConfiguration : IEntityTypeConfiguration<OperationCla
         seeds.Add(new OperationClaim { Id = ++id, Name = "ProfileApplicationForms.Update" });
         seeds.Add(new OperationClaim { Id = ++id, Name = "ProfileApplicationForms.Delete" });
         #endregion
+        #region ProfileShares
+        seeds.Add(new OperationClaim { Id = ++id, Name = "ProfileShares.Admin" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "ProfileShares.Read" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "ProfileShares.Write" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "ProfileShares.Add" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "ProfileShares.Update" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "ProfileShares.Delete" });
+        #endregion
+        #region Announcements
+        seeds.Add(new OperationClaim { Id = ++id, Name = "Announcements.Admin" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "Announcements.Read" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "Announcements.Write" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "Announcements.Add" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "Announcements.Update" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "Announcements.Delete" });
+        #region ApplicationSteps
+        seeds.Add(new OperationClaim { Id = ++id, Name = "ApplicationSteps.Admin" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "ApplicationSteps.Read" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "ApplicationSteps.Write" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "ApplicationSteps.Add" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "ApplicationSteps.Update" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "ApplicationSteps.Delete" });
         return seeds;
     }
 }

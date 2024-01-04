@@ -23,6 +23,20 @@ public static class PersistenceServiceRegistration
         services.AddScoped<IUserOperationClaimRepository, UserOperationClaimRepository>();
 
 
+        services.AddScoped<IUserProfileRepository, UserProfileRepository>();
+        services.AddScoped<IProfileShareRepository, ProfileShareRepository>();
+        services.AddScoped<IAnnouncementRepository, AnnouncementRepository>();
+        services.AddScoped<IProfileApplicationRepository, ProfileApplicationRepository>();
+        services.AddScoped<IApplicationStepRepository, ApplicationStepRepository>();
+        services.AddScoped<IAsyncLessonRepository, AsyncLessonRepository>();
+        services.AddScoped<ICalendarRepository, CalendarRepository>();
+        services.AddScoped<ICertificateRepository, CertificateRepository>();
+        services.AddScoped<ICityRepository, CityRepository>();
+        services.AddScoped<ICompanyRepository, CompanyRepository>();
+        services.AddScoped<IContactRepository, ContactRepository>();
+        services.AddScoped<ICountryRepository, CountryRepository>();
+        services.AddScoped<ICourseRepository, CourseRepository>();
+        services.AddScoped<ICourseClassRepository, CourseClassRepository>();
         return services;
     }
 }

@@ -41,6 +41,9 @@ public class BaseDbContext : DbContext
     public DbSet<UserProfile> UserProfiles { get; set; }
     public DbSet<ProfileApplication> ProfileApplications { get; set; }
     public DbSet<LanguageLevel> LanguageLevels { get; set; }
+    public DbSet<ProfileShare> ProfileShares { get; set; }
+    public DbSet<Announcement> Announcements { get; set; }
+    public DbSet<ApplicationStep> ApplicationSteps { get; set; }
 
 
 
