@@ -11,9 +11,9 @@ public class CalendarConfiguration : IEntityTypeConfiguration<Calendar>
         builder.ToTable("Calendars").HasKey(c => c.Id);
 
         builder.Property(c => c.Id).HasColumnName("Id").IsRequired();
-        builder.Property(c => c.SyncLessonId).HasColumnName("SyncLessonId");
+        //builder.Property(c => c.SyncLessonId).HasColumnName("SyncLessonId");
         builder.Property(c => c.EducationPathId).HasColumnName("EducationPathId");
-        builder.Property(c => c.InstructorId).HasColumnName("InstructorId");
+        //builder.Property(c => c.InstructorId).HasColumnName("InstructorId");
         builder.Property(c => c.CreatedDate).HasColumnName("CreatedDate").IsRequired();
         builder.Property(c => c.UpdatedDate).HasColumnName("UpdatedDate");
         builder.Property(c => c.DeletedDate).HasColumnName("DeletedDate");

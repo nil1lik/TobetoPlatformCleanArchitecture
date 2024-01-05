@@ -25,7 +25,7 @@ public class GetByIdApplicationStepQuery : IRequest<GetByIdApplicationStepRespon
 
         public async Task<GetByIdApplicationStepResponse> Handle(GetByIdApplicationStepQuery request, CancellationToken cancellationToken)
         {
-            ApplicationStep? applicationStep = await _applicationStepRepository.GetAsync(predicate: as => as.Id == request.Id, cancellationToken: cancellationToken);
+            ApplicationStep? applicationStep = await _applicationStepRepository.GetAsync(predicate: aps => aps.Id == request.Id, cancellationToken: cancellationToken);
             await _applicationStepBusinessRules.ApplicationStepShouldExistWhenSelected(applicationStep);
 
             GetByIdApplicationStepResponse response = _mapper.Map<GetByIdApplicationStepResponse>(applicationStep);

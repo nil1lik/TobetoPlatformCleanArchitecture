@@ -8,17 +8,17 @@ public class ApplicationStepConfiguration : IEntityTypeConfiguration<Application
 {
     public void Configure(EntityTypeBuilder<ApplicationStep> builder)
     {
-        builder.ToTable("ApplicationSteps").HasKey(as => as.Id);
+        builder.ToTable("ApplicationSteps").HasKey(aps => aps.Id);
 
-        builder.Property(as => as.Id).HasColumnName("Id").IsRequired();
-        builder.Property(as => as.UserApplicationId).HasColumnName("UserApplicationId");
-        builder.Property(as => as.Name).HasColumnName("Name");
-        builder.Property(as => as.DocumentUrl).HasColumnName("DocumentUrl");
-        builder.Property(as => as.FormUrl).HasColumnName("FormUrl");
-        builder.Property(as => as.CreatedDate).HasColumnName("CreatedDate").IsRequired();
-        builder.Property(as => as.UpdatedDate).HasColumnName("UpdatedDate");
-        builder.Property(as => as.DeletedDate).HasColumnName("DeletedDate");
+        builder.Property(aps => aps.Id).HasColumnName("Id").IsRequired();
+        builder.Property(aps => aps.UserApplicationId).HasColumnName("UserApplicationId");
+        builder.Property(aps => aps.Name).HasColumnName("Name");
+        builder.Property(aps => aps.DocumentUrl).HasColumnName("DocumentUrl");
+        builder.Property(aps => aps.FormUrl).HasColumnName("FormUrl");
+        builder.Property(aps => aps.CreatedDate).HasColumnName("CreatedDate").IsRequired();
+        builder.Property(aps => aps.UpdatedDate).HasColumnName("UpdatedDate");
+        builder.Property(aps => aps.DeletedDate).HasColumnName("DeletedDate");
 
-        builder.HasQueryFilter(as => !as.DeletedDate.HasValue);
+        builder.HasQueryFilter(aps => !aps.DeletedDate.HasValue);
     }
 }

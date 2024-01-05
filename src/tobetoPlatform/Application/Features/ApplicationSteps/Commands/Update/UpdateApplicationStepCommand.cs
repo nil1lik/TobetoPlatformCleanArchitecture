@@ -30,7 +30,7 @@ public class UpdateApplicationStepCommand : IRequest<UpdatedApplicationStepRespo
 
         public async Task<UpdatedApplicationStepResponse> Handle(UpdateApplicationStepCommand request, CancellationToken cancellationToken)
         {
-            ApplicationStep? applicationStep = await _applicationStepRepository.GetAsync(predicate: as => as.Id == request.Id, cancellationToken: cancellationToken);
+            ApplicationStep? applicationStep = await _applicationStepRepository.GetAsync(predicate: aps => aps.Id == request.Id, cancellationToken: cancellationToken);
             await _applicationStepBusinessRules.ApplicationStepShouldExistWhenSelected(applicationStep);
             applicationStep = _mapper.Map(request, applicationStep);
 

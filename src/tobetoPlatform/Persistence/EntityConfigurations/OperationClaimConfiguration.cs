@@ -274,6 +274,7 @@ public class OperationClaimConfiguration : IEntityTypeConfiguration<OperationCla
         seeds.Add(new OperationClaim { Id = ++id, Name = "Announcements.Add" });
         seeds.Add(new OperationClaim { Id = ++id, Name = "Announcements.Update" });
         seeds.Add(new OperationClaim { Id = ++id, Name = "Announcements.Delete" });
+        #endregion
         #region ApplicationSteps
         seeds.Add(new OperationClaim { Id = ++id, Name = "ApplicationSteps.Admin" });
         seeds.Add(new OperationClaim { Id = ++id, Name = "ApplicationSteps.Read" });
@@ -281,6 +282,7 @@ public class OperationClaimConfiguration : IEntityTypeConfiguration<OperationCla
         seeds.Add(new OperationClaim { Id = ++id, Name = "ApplicationSteps.Add" });
         seeds.Add(new OperationClaim { Id = ++id, Name = "ApplicationSteps.Update" });
         seeds.Add(new OperationClaim { Id = ++id, Name = "ApplicationSteps.Delete" });
+        #endregion
         return seeds;
     }
 }

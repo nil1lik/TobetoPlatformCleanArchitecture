@@ -25,7 +25,7 @@ public class ApplicationStepBusinessRules : BaseBusinessRules
     public async Task ApplicationStepIdShouldExistWhenSelected(int id, CancellationToken cancellationToken)
     {
         ApplicationStep? applicationStep = await _applicationStepRepository.GetAsync(
-            predicate: as => as.Id == id,
+            predicate: aps => aps.Id == id,
             enableTracking: false,
             cancellationToken: cancellationToken
         );
