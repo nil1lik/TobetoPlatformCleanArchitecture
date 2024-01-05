@@ -31,4 +31,7 @@ public class UserProfileBusinessRules : BaseBusinessRules
         );
         await UserProfileShouldExistWhenSelected(userProfile);
     }
+
+    
+
 }

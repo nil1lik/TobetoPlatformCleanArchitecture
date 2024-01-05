@@ -12,14 +12,10 @@ public class EducationAbout : Entity<int>
     public int EducationAboutCategoryId { get; set; }
     public DateTime StartDate { get; set; }
     public DateTime EndDate { get; set; }
-    public string EstimatedDuration { get; set; } //Tahmini Süre
     
-
-    //Geçirilen Süre ayrı tabloda tutulmalı mı?
 
     public virtual Company Company { get; set; }
     public virtual EducationAboutCategory EducationAboutCategory { get; set; }
-
     public virtual ICollection<EducationPath> EducationPaths { get; set; }
 
     public EducationAbout()
@@ -27,14 +23,13 @@ public class EducationAbout : Entity<int>
 
     }
 
-    public EducationAbout(int id, int companyId, int educationAboutCategoryId, DateTime startDate, DateTime endDate, string estimatedDuration) : this()
+    public EducationAbout(int id, int companyId, int educationAboutCategoryId, DateTime startDate, DateTime endDate) : this()
     {
         Id = id;
         CompanyId = companyId;
         EducationAboutCategoryId = educationAboutCategoryId;
         StartDate = startDate;
         EndDate = endDate;
-        EstimatedDuration = estimatedDuration;
     }
 }
 

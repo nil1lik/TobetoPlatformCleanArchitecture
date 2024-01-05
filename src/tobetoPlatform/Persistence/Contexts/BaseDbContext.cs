@@ -41,6 +41,20 @@ public class BaseDbContext : DbContext
     public DbSet<UserProfile> UserProfiles { get; set; }
     public DbSet<ProfileApplication> ProfileApplications { get; set; }
     public DbSet<LanguageLevel> LanguageLevels { get; set; }
+    public DbSet<ProfileShare> ProfileShares { get; set; }
+    public DbSet<Announcement> Announcements { get; set; }
+    public DbSet<ApplicationStep> ApplicationSteps { get; set; }
+    public DbSet<SyncLesson> SyncLessons { get; set; }
+    public DbSet<Survey> Surveys { get; set; }
+    public DbSet<ProfileApplicationStep> ProfileApplicationSteps { get; set; }
+    public DbSet<VideoDetailSubcategory> VideoDetailSubcategories { get; set; }
+    public DbSet<VideoLanguage> VideoLanguages { get; set; }
+    public DbSet<UserApplication> UserApplications { get; set; }
+    public DbSet<Graduation> Graduations { get; set; }
+    public DbSet<Language> Languages { get; set; }
+    public DbSet<VideoCategory> VideoCategories { get; set; }
+    public DbSet<SocialMediaAccount> SocialMediaAccounts { get; set; }
+    public DbSet<SocialMediaCategory> SocialMediaCategories { get; set; }
 
 
 

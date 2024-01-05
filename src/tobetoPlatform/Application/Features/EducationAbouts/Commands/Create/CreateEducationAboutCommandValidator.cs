@@ -10,6 +10,5 @@ public class CreateEducationAboutCommandValidator : AbstractValidator<CreateEduc
         RuleFor(c => c.EducationAboutCategoryId).NotEmpty();
         RuleFor(c => c.StartDate).NotEmpty();
         RuleFor(c => c.EndDate).NotEmpty();
-        RuleFor(c => c.EstimatedDuration).NotEmpty();
     }
 }

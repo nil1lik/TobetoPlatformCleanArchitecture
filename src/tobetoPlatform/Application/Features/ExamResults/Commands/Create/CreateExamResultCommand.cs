@@ -8,7 +8,7 @@ namespace Application.Features.ExamResults.Commands.Create;
 
 public class CreateExamResultCommand : IRequest<CreatedExamResultResponse>
 {
-    public int ExamStatusId { get; set; }
+    public int ExamId { get; set; }
     public int Correct { get; set; }
     public int Wrong { get; set; }
     public int Empty { get; set; }

@@ -15,7 +15,6 @@ public class EducationAboutConfiguration : IEntityTypeConfiguration<EducationAbo
         builder.Property(ea => ea.EducationAboutCategoryId).HasColumnName("EducationAboutCategoryId");
         builder.Property(ea => ea.StartDate).HasColumnName("StartDate");
         builder.Property(ea => ea.EndDate).HasColumnName("EndDate");
-        builder.Property(ea => ea.EstimatedDuration).HasColumnName("EstimatedDuration");
         builder.Property(ea => ea.CreatedDate).HasColumnName("CreatedDate").IsRequired();
         builder.Property(ea => ea.UpdatedDate).HasColumnName("UpdatedDate");
         builder.Property(ea => ea.DeletedDate).HasColumnName("DeletedDate");

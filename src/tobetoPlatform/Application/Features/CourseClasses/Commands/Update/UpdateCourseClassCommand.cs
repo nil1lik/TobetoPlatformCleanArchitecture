@@ -9,7 +9,6 @@ namespace Application.Features.CourseClasses.Commands.Update;
 public class UpdateCourseClassCommand : IRequest<UpdatedCourseClassResponse>
 {
     public int Id { get; set; }
-    public int ProfileAnnouncementId { get; set; }
     public string Name { get; set; }
 
     public class UpdateCourseClassCommandHandler : IRequestHandler<UpdateCourseClassCommand, UpdatedCourseClassResponse>

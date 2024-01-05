@@ -11,4 +11,3 @@ public static class AnnouncementsOperationClaims
     public const string Update = "Announcements.Update";
     public const string Delete = "Announcements.Delete";
 }
-

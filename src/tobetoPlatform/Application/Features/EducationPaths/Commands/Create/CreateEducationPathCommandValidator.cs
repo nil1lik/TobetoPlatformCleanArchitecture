@@ -6,8 +6,9 @@ public class CreateEducationPathCommandValidator : AbstractValidator<CreateEduca
 {
     public CreateEducationPathCommandValidator()
     {
-        RuleFor(c => c.ProfileEducationId).NotEmpty();
+        RuleFor(c => c.EducationAdmirationId).NotEmpty();
         RuleFor(c => c.EducationAboutId).NotEmpty();
+        RuleFor(c => c.TimeSpentId).NotEmpty();
         RuleFor(c => c.Name).NotEmpty();
         RuleFor(c => c.ImageUrl).NotEmpty();
     }
