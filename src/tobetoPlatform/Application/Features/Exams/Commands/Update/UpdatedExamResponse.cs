@@ -9,4 +9,6 @@ public class UpdatedExamResponse : IResponse
     public string Name { get; set; }
     public string Description { get; set; }
     public string Duration { get; set; }
+    public int QuestionCount { get; set; }
+    public bool IsCompleted { get; set; }
 }

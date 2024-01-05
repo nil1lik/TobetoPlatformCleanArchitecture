@@ -15,6 +15,8 @@ public class ExamConfiguration : IEntityTypeConfiguration<Exam>
         builder.Property(e => e.Name).HasColumnName("Name");
         builder.Property(e => e.Description).HasColumnName("Description");
         builder.Property(e => e.Duration).HasColumnName("Duration");
+        builder.Property(e => e.QuestionCount).HasColumnName("QuestionCount");
+        builder.Property(e => e.IsCompleted).HasColumnName("IsCompleted");
         builder.Property(e => e.CreatedDate).HasColumnName("CreatedDate").IsRequired();
         builder.Property(e => e.UpdatedDate).HasColumnName("UpdatedDate");
         builder.Property(e => e.DeletedDate).HasColumnName("DeletedDate");

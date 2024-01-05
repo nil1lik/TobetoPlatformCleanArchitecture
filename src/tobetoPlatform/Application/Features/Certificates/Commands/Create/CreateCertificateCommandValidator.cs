@@ -6,6 +6,7 @@ public class CreateCertificateCommandValidator : AbstractValidator<CreateCertifi
 {
     public CreateCertificateCommandValidator()
     {
+        RuleFor(c => c.UserProfileId).NotEmpty();
         RuleFor(c => c.Name).NotEmpty();
         RuleFor(c => c.FileUrl).NotEmpty();
         RuleFor(c => c.FileType).NotEmpty();

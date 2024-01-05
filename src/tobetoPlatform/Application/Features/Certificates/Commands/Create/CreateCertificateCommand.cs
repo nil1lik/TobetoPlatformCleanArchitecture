@@ -8,6 +8,7 @@ namespace Application.Features.Certificates.Commands.Create;
 
 public class CreateCertificateCommand : IRequest<CreatedCertificateResponse>
 {
+    public int UserProfileId { get; set; }
     public string Name { get; set; }
     public string FileUrl { get; set; }
     public string FileType { get; set; }

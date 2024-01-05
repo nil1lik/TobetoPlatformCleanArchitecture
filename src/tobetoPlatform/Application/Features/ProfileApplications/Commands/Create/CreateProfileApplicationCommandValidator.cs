@@ -6,8 +6,7 @@ public class CreateProfileApplicationCommandValidator : AbstractValidator<Create
 {
     public CreateProfileApplicationCommandValidator()
     {
-        RuleFor(c => c.ProfileId).NotEmpty();
-        RuleFor(c => c.ApplicationFormId).NotEmpty();
-        RuleFor(c => c.Name).NotEmpty();
+        RuleFor(c => c.UserProfileId).NotEmpty();
+        RuleFor(c => c.UserApplicationId).NotEmpty();
     }
 }

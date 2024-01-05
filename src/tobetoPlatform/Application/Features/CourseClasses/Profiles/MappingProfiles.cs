@@ -10,7 +10,7 @@ using Core.Persistence.Paging;
 
 namespace Application.Features.CourseClasses.Profiles;
 
-public class MappingProfiles : AutoMapper.Profile
+public class MappingProfiles : Profile
 {
     public MappingProfiles()
     {

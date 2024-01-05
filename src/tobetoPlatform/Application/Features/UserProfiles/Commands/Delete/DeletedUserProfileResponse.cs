@@ -4,5 +4,5 @@ namespace Application.Features.UserProfiles.Commands.Delete;
 
 public class DeletedUserProfileResponse : IResponse
 {
-    public Guid Id { get; set; }
+    public int Id { get; set; }
 }

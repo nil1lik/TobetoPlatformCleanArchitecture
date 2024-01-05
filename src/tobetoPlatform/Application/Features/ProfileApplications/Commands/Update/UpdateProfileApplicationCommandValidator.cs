@@ -7,8 +7,7 @@ public class UpdateProfileApplicationCommandValidator : AbstractValidator<Update
     public UpdateProfileApplicationCommandValidator()
     {
         RuleFor(c => c.Id).NotEmpty();
-        RuleFor(c => c.ProfileId).NotEmpty();
-        RuleFor(c => c.ApplicationFormId).NotEmpty();
-        RuleFor(c => c.Name).NotEmpty();
+        RuleFor(c => c.UserProfileId).NotEmpty();
+        RuleFor(c => c.UserApplicationId).NotEmpty();
     }
 }

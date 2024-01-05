@@ -9,6 +9,7 @@ namespace Application.Features.Experiences.Commands.Update;
 public class UpdateExperienceCommand : IRequest<UpdatedExperienceResponse>
 {
     public int Id { get; set; }
+    public int UserProfileId { get; set; }
     public int CityId { get; set; }
     public string OrganizationName { get; set; }
     public string Position { get; set; }

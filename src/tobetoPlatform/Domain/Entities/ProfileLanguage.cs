@@ -14,13 +14,11 @@ namespace Domain.Entities
         {
         }
 
-        public ProfileLanguage(int userProfileId, int languageId)
+        public ProfileLanguage(int id, int userProfileId, int languageId):this()
         {
+            Id = id;
             UserProfileId = userProfileId;
             LanguageId = languageId;
         }
-
-        
-
     }
 }

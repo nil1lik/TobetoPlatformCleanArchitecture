@@ -13,7 +13,6 @@ public class UpdateEducationAboutCommand : IRequest<UpdatedEducationAboutRespons
     public int EducationAboutCategoryId { get; set; }
     public DateTime StartDate { get; set; }
     public DateTime EndDate { get; set; }
-    public string EstimatedDuration { get; set; }
 
     public class UpdateEducationAboutCommandHandler : IRequestHandler<UpdateEducationAboutCommand, UpdatedEducationAboutResponse>
     {

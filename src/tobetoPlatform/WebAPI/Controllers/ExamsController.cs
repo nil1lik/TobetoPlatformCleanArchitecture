@@ -20,7 +20,7 @@ public class ExamsController : BaseController
 
         return Created(uri: "", response);
     }
-    
+
     [HttpPut]
     public async Task<IActionResult> Update([FromBody] UpdateExamCommand updateExamCommand)
     {

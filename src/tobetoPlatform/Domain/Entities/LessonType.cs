@@ -9,6 +9,14 @@ namespace Domain.Entities;
 public class LessonType:Entity<int>
 {
     public string Name { get; set; }
-    //AsyncLesson
 
+    public LessonType()
+    {
+        
+    }
+    public LessonType(int id, string name):this()
+    {
+        Id = id;
+        Name = name;
+    }
 }

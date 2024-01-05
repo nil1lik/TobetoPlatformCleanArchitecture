@@ -8,7 +8,6 @@ namespace Application.Features.Instructors.Commands.Create;
 
 public class CreateInstructorCommand : IRequest<CreatedInstructorResponse>
 {
-    public int CourseInstructorId { get; set; }
     public string FirstName { get; set; }
     public string LastName { get; set; }
     public string ImageUrl { get; set; }

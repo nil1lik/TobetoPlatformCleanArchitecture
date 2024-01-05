@@ -9,7 +9,6 @@ namespace Application.Features.Courses.Commands.Create;
 public class CreateCourseCommand : IRequest<CreatedCourseResponse>
 {
     public int EducationPathId { get; set; }
-    public int CourseLessonId { get; set; }
     public string Name { get; set; }
 
     public class CreateCourseCommandHandler : IRequestHandler<CreateCourseCommand, CreatedCourseResponse>

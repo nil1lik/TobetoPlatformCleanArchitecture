@@ -11,6 +11,7 @@ public class CertificateConfiguration : IEntityTypeConfiguration<Certificate>
         builder.ToTable("Certificates").HasKey(c => c.Id);
 
         builder.Property(c => c.Id).HasColumnName("Id").IsRequired();
+        builder.Property(c => c.UserProfileId).HasColumnName("UserProfileId");
         builder.Property(c => c.Name).HasColumnName("Name");
         builder.Property(c => c.FileUrl).HasColumnName("FileUrl");
         builder.Property(c => c.FileType).HasColumnName("FileType");

@@ -11,8 +11,7 @@ public class ExamResultConfiguration : IEntityTypeConfiguration<ExamResult>
         builder.ToTable("ExamResults").HasKey(er => er.Id);
 
         builder.Property(er => er.Id).HasColumnName("Id").IsRequired();
-        
-        //builder.Property(er => er.ExamStatusId).HasColumnName("ExamStatusId");
+        builder.Property(er => er.ExamId).HasColumnName("ExamId");
         builder.Property(er => er.Correct).HasColumnName("Correct");
         builder.Property(er => er.Wrong).HasColumnName("Wrong");
         builder.Property(er => er.Empty).HasColumnName("Empty");

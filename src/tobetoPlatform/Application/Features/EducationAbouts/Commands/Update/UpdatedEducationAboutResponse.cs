@@ -9,5 +9,4 @@ public class UpdatedEducationAboutResponse : IResponse
     public int EducationAboutCategoryId { get; set; }
     public DateTime StartDate { get; set; }
     public DateTime EndDate { get; set; }
-    public string EstimatedDuration { get; set; }
 }
