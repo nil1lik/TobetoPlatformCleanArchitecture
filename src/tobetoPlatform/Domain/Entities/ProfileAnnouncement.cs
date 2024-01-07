@@ -24,7 +24,4 @@ public class ProfileAnnouncement:Entity<int>
         UserProfileId = userProfileId;
         AnnouncementId = announcementId;
     }
-
-   
 }
-
