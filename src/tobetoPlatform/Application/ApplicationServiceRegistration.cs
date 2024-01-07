@@ -16,6 +16,7 @@ using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 using Domain.Entities;
+using Application.Services.Announcements;
 
 
 namespace Application;
@@ -45,6 +46,7 @@ public static class ApplicationServiceRegistration
         services.AddScoped<IAuthService, AuthManager>();
         services.AddScoped<IAuthenticatorService, AuthenticatorManager>();
         services.AddScoped<IUserService, UserManager>();
+        services.AddScoped<IAnnouncementsService, AnnouncementsManager>();
         return services;
     }
 
