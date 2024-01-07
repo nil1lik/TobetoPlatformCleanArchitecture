@@ -31,4 +31,18 @@ public class ExamBusinessRules : BaseBusinessRules
         );
         await ExamShouldExistWhenSelected(exam);
     }
+
+    public async Task ExamNameCannotBeDuplicatedWhenInserted(string name, CancellationToken cancellationToken)
+    {
+        Exam? exam = await _examRepository.GetAsync(
+            predicate: e => e.Name.ToLower() == name.ToLower(),
+            enableTracking: false,
+            cancellationToken: cancellationToken
+            );
+
+        if (exam != null)
+        {
+            throw new BusinessException(ExamsBusinessMessages.ExamNameExists);
+        }
+    }
 }
