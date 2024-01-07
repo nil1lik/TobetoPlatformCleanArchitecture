@@ -283,6 +283,94 @@ public class OperationClaimConfiguration : IEntityTypeConfiguration<OperationCla
         seeds.Add(new OperationClaim { Id = ++id, Name = "ApplicationSteps.Update" });
         seeds.Add(new OperationClaim { Id = ++id, Name = "ApplicationSteps.Delete" });
         #endregion
+        #region SyncLessons
+        seeds.Add(new OperationClaim { Id = ++id, Name = "SyncLessons.Admin" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "SyncLessons.Read" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "SyncLessons.Write" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "SyncLessons.Add" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "SyncLessons.Update" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "SyncLessons.Delete" });
+        #endregion
+        #region Surveys
+        seeds.Add(new OperationClaim { Id = ++id, Name = "Surveys.Admin" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "Surveys.Read" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "Surveys.Write" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "Surveys.Add" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "Surveys.Update" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "Surveys.Delete" });
+        #endregion
+        #region ProfileApplicationSteps
+        seeds.Add(new OperationClaim { Id = ++id, Name = "ProfileApplicationSteps.Admin" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "ProfileApplicationSteps.Read" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "ProfileApplicationSteps.Write" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "ProfileApplicationSteps.Add" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "ProfileApplicationSteps.Update" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "ProfileApplicationSteps.Delete" });
+        #endregion
+        #region VideoDetailSubcategories
+        seeds.Add(new OperationClaim { Id = ++id, Name = "VideoDetailSubcategories.Admin" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "VideoDetailSubcategories.Read" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "VideoDetailSubcategories.Write" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "VideoDetailSubcategories.Add" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "VideoDetailSubcategories.Update" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "VideoDetailSubcategories.Delete" });
+        #endregion
+        #region VideoLanguages
+        seeds.Add(new OperationClaim { Id = ++id, Name = "VideoLanguages.Admin" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "VideoLanguages.Read" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "VideoLanguages.Write" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "VideoLanguages.Add" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "VideoLanguages.Update" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "VideoLanguages.Delete" });
+        #endregion
+        #region UserApplications
+        seeds.Add(new OperationClaim { Id = ++id, Name = "UserApplications.Admin" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "UserApplications.Read" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "UserApplications.Write" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "UserApplications.Add" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "UserApplications.Update" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "UserApplications.Delete" });
+        #endregion
+        #region Graduations
+        seeds.Add(new OperationClaim { Id = ++id, Name = "Graduations.Admin" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "Graduations.Read" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "Graduations.Write" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "Graduations.Add" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "Graduations.Update" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "Graduations.Delete" });
+        #endregion
+        #region Languages
+        seeds.Add(new OperationClaim { Id = ++id, Name = "Languages.Admin" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "Languages.Read" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "Languages.Write" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "Languages.Add" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "Languages.Update" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "Languages.Delete" });
+        #endregion
+        #region VideoCategories
+        seeds.Add(new OperationClaim { Id = ++id, Name = "VideoCategories.Admin" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "VideoCategories.Read" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "VideoCategories.Write" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "VideoCategories.Add" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "VideoCategories.Update" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "VideoCategories.Delete" });
+        #endregion
+        #region SocialMediaAccounts
+        seeds.Add(new OperationClaim { Id = ++id, Name = "SocialMediaAccounts.Admin" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "SocialMediaAccounts.Read" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "SocialMediaAccounts.Write" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "SocialMediaAccounts.Add" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "SocialMediaAccounts.Update" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "SocialMediaAccounts.Delete" });
+        #endregion
+        #region SocialMediaCategories
+        seeds.Add(new OperationClaim { Id = ++id, Name = "SocialMediaCategories.Admin" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "SocialMediaCategories.Read" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "SocialMediaCategories.Write" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "SocialMediaCategories.Add" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "SocialMediaCategories.Update" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "SocialMediaCategories.Delete" });
+        #endregion
         return seeds;
     }
 }

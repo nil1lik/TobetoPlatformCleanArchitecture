@@ -12,7 +12,7 @@ public class UserProfileConfiguration : IEntityTypeConfiguration<UserProfile>
 
         builder.Property(up => up.Id).HasColumnName("Id").IsRequired();
         builder.Property(up => up.UserId).HasColumnName("UserId");
-        builder.Property(up => up.ProfileAddressId).HasColumnName("ProfileAddressId");
+        //builder.Property(up => up.ProfileAddressId).HasColumnName("ProfileAddressId");
         builder.Property(up => up.ProfileShareId).HasColumnName("ProfileShareId");
         builder.Property(up => up.NationalIdentity).HasColumnName("NationalIdentity");
         builder.Property(up => up.Phone).HasColumnName("Phone");

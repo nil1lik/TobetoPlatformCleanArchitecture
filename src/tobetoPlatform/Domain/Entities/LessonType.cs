@@ -14,7 +14,6 @@ public class LessonType:Entity<int>
     {
         
     }
-
     public LessonType(int id, string name):this()
     {
         Id = id;
