@@ -23,7 +23,6 @@ public class AsyncLesson : Entity<int>
 
     public virtual ICollection<CourseLesson> CourseLessons { get; set; }
 
-
     public AsyncLesson()
     {
 
