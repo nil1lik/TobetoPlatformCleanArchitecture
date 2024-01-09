@@ -10,7 +10,6 @@ public class CreateSocialMediaAccountCommand : IRequest<CreatedSocialMediaAccoun
 {
     public int UserProfileId { get; set; }
     public int SocialMediaCategoryId { get; set; }
-    public string Name { get; set; }
     public string MediaUrl { get; set; }
 
     public class CreateSocialMediaAccountCommandHandler : IRequestHandler<CreateSocialMediaAccountCommand, CreatedSocialMediaAccountResponse>

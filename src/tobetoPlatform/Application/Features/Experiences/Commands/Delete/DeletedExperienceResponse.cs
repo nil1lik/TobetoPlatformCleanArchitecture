@@ -1,8 +1,8 @@
 using Core.Application.Responses;
 
-namespace Application.Features.Graduations.Commands.Delete;
+namespace Application.Features.Experiences.Commands.Delete;
 
-public class DeletedGraduationResponse : IResponse
+public class DeletedExperienceResponse : IResponse
 {
     public int Id { get; set; }
     public string Message { get; set; }
