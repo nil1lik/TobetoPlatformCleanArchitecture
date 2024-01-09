@@ -5,4 +5,5 @@ namespace Application.Features.Languages.Commands.Delete;
 public class DeletedLanguageResponse : IResponse
 {
     public int Id { get; set; }
+    public string Message { get; set; }
 }

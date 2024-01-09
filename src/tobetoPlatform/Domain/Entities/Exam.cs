@@ -16,7 +16,7 @@ public class Exam:Entity<int>
     public int QuestionCount { get; set; }
     public bool IsCompleted { get; set; }
 
-    public virtual ExamResult ExamResult { get; set; }
+    public virtual ExamResult? ExamResult { get; set; }
     public virtual ICollection<ProfileExam> ProfileExams { get; set; }
 
     public Exam()

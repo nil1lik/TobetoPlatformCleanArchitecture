@@ -11,7 +11,7 @@ public class LanguageLevelConfiguration : IEntityTypeConfiguration<LanguageLevel
         builder.ToTable("LanguageLevels").HasKey(ll => ll.Id);
 
         builder.Property(ll => ll.Id).HasColumnName("Id").IsRequired();
-        builder.Property(ll => ll.Name).HasColumnName("Name");
+        builder.Property(ll => ll.Name).HasColumnName("Name").IsRequired();
         builder.Property(ll => ll.CreatedDate).HasColumnName("CreatedDate").IsRequired();
         builder.Property(ll => ll.UpdatedDate).HasColumnName("UpdatedDate");
         builder.Property(ll => ll.DeletedDate).HasColumnName("DeletedDate");

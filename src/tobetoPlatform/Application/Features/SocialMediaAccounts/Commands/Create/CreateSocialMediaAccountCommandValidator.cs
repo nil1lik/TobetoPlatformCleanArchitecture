@@ -8,7 +8,6 @@ public class CreateSocialMediaAccountCommandValidator : AbstractValidator<Create
     {
         RuleFor(c => c.UserProfileId).NotEmpty();
         RuleFor(c => c.SocialMediaCategoryId).NotEmpty();
-        RuleFor(c => c.Name).NotEmpty();
         RuleFor(c => c.MediaUrl).NotEmpty();
     }
 }

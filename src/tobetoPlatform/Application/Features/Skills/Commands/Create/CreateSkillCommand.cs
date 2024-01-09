@@ -27,10 +27,11 @@ public class CreateSkillCommand : IRequest<CreatedSkillResponse>
         public async Task<CreatedSkillResponse> Handle(CreateSkillCommand request, CancellationToken cancellationToken)
         {
             Skill skill = _mapper.Map<Skill>(request);
-
             await _skillRepository.AddAsync(skill);
-
             CreatedSkillResponse response = _mapper.Map<CreatedSkillResponse>(skill);
+
+            response.Message = "Yetenek eklendi";
+          
             return response;
         }
     }
