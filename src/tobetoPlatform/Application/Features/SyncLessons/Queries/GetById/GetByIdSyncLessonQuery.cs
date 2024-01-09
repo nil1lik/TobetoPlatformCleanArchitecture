@@ -35,4 +35,29 @@ public class GetByIdSyncLessonQuery : IRequest<GetByIdSyncLessonResponse>
             return response;
         }
     }
+
+    private static void LessonSituation(SyncLesson? syncLesson, GetByIdSyncLessonResponse response)
+    {
+        DateTime time = DateTime.Now;
+
+        if (syncLesson.StartDate > time)
+        {
+            response.LessonSituation = "Oturum Henüz Baþlamadý";
+        }
+
+        else if (syncLesson.StartDate == time)
+        {
+            response.LessonSituation = "Oturum Devam Ediyor";
+        }
+
+        else if (syncLesson.StartDate < time && syncLesson.IsJoin == true)
+        {
+            response.LessonSituation = "Katýldýn";
+        }
+
+        else if (syncLesson.StartDate < time && syncLesson.IsJoin == false)
+        {
+            response.LessonSituation = "Katýlmadýn";
+        }
+    }
 }

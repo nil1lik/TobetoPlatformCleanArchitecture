@@ -18,7 +18,7 @@ public class Skill : Entity<int>
 
     }
 
-    public Skill(string name, int id) : this()
+    public Skill(int id, string name) : this()
     {
         Id = id;
         Name = name;
