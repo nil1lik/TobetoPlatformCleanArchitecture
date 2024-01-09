@@ -1,8 +1,8 @@
 using Core.Application.Responses;
 
-namespace Application.Features.Experiences.Commands.Create;
+namespace Application.Features.Experiences.Commands.Update;
 
-public class CreatedExperienceResponse : IResponse
+public class UpdatedExperienceResponse : IResponse
 {
     public int Id { get; set; }
     public int UserProfileId { get; set; }

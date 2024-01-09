@@ -4,10 +4,11 @@ using AutoMapper;
 using Domain.Entities;
 using MediatR;
 
-namespace Application.Features.Experiences.Commands.Create;
+namespace Application.Features.Experiences.Commands.Update;
 
-public class CreateExperienceCommand : IRequest<CreatedExperienceResponse>
+public class UpdateExperienceCommand : IRequest<UpdatedExperienceResponse>
 {
+    public int Id { get; set; }
     public int UserProfileId { get; set; }
     public int CityId { get; set; }
     public string OrganizationName { get; set; }
@@ -17,13 +18,13 @@ public class CreateExperienceCommand : IRequest<CreatedExperienceResponse>
     public DateTime EndDate { get; set; }
     public string Description { get; set; }
 
-    public class CreateExperienceCommandHandler : IRequestHandler<CreateExperienceCommand, CreatedExperienceResponse>
+    public class UpdateExperienceCommandHandler : IRequestHandler<UpdateExperienceCommand, UpdatedExperienceResponse>
     {
         private readonly IMapper _mapper;
         private readonly IExperienceRepository _experienceRepository;
         private readonly ExperienceBusinessRules _experienceBusinessRules;
 
-        public CreateExperienceCommandHandler(IMapper mapper, IExperienceRepository experienceRepository,
+        public UpdateExperienceCommandHandler(IMapper mapper, IExperienceRepository experienceRepository,
                                          ExperienceBusinessRules experienceBusinessRules)
         {
             _mapper = mapper;
@@ -31,13 +32,15 @@ public class CreateExperienceCommand : IRequest<CreatedExperienceResponse>
             _experienceBusinessRules = experienceBusinessRules;
         }
 
-        public async Task<CreatedExperienceResponse> Handle(CreateExperienceCommand request, CancellationToken cancellationToken)
+        public async Task<UpdatedExperienceResponse> Handle(UpdateExperienceCommand request, CancellationToken cancellationToken)
         {
-            Experience experience = _mapper.Map<Experience>(request);
+            Experience? experience = await _experienceRepository.GetAsync(predicate: e => e.Id == request.Id, cancellationToken: cancellationToken);
+            await _experienceBusinessRules.ExperienceShouldExistWhenSelected(experience);
+            experience = _mapper.Map(request, experience);
 
-            await _experienceRepository.AddAsync(experience);
+            await _experienceRepository.UpdateAsync(experience!);
 
-            CreatedExperienceResponse response = _mapper.Map<CreatedExperienceResponse>(experience);
+            UpdatedExperienceResponse response = _mapper.Map<UpdatedExperienceResponse>(experience);
             return response;
         }
     }

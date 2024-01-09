@@ -1,8 +1,8 @@
-using Core.Application.Responses;
+using Core.Application.Dtos;
 
-namespace Application.Features.Experiences.Commands.Create;
+namespace Application.Features.Experiences.Queries.GetList;
 
-public class CreatedExperienceResponse : IResponse
+public class GetListExperienceListItemDto : IDto
 {
     public int Id { get; set; }
     public int UserProfileId { get; set; }
