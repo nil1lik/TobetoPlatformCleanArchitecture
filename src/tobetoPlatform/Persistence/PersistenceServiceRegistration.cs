@@ -24,13 +24,11 @@ public static class PersistenceServiceRegistration
         services.AddScoped<IUserOperationClaimRepository, UserOperationClaimRepository>();
 
 
-        services.AddScoped<IUserProfileRepository, UserProfileRepository>();
         services.AddScoped<IProfileShareRepository, ProfileShareRepository>();
         services.AddScoped<IAnnouncementRepository, AnnouncementRepository>();
         services.AddScoped<IProfileApplicationRepository, ProfileApplicationRepository>();
         services.AddScoped<IApplicationStepRepository, ApplicationStepRepository>();
         services.AddScoped<IAsyncLessonRepository, AsyncLessonRepository>();
-        services.AddScoped<ICalendarRepository, CalendarRepository>();
         services.AddScoped<ICertificateRepository, CertificateRepository>();
         services.AddScoped<ICityRepository, CityRepository>();
         services.AddScoped<ICompanyRepository, CompanyRepository>();
@@ -40,7 +38,6 @@ public static class PersistenceServiceRegistration
         services.AddScoped<ICourseClassRepository, CourseClassRepository>();
         services.AddScoped<ISyncLessonRepository, SyncLessonRepository>();
         services.AddScoped<IExamResultRepository, ExamResultRepository>();
-        services.AddScoped<IExperienceRepository, ExperienceRepository>();
         services.AddScoped<IInstructorRepository, InstructorRepository>();
         services.AddScoped<IEducationAboutCategoryRepository, EducationAboutCategoryRepository>();
         services.AddScoped<IDistrictRepository, DistrictRepository>();
