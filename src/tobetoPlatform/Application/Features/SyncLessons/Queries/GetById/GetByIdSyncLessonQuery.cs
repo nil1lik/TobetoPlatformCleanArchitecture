@@ -1,8 +1,11 @@
+using Application.Features.SyncLessons.Constants;
 using Application.Features.SyncLessons.Rules;
 using Application.Services.Repositories;
 using AutoMapper;
+using Core.CrossCuttingConcerns.Exceptions.Types;
 using Domain.Entities;
 using MediatR;
+using System;
 
 namespace Application.Features.SyncLessons.Queries.GetById;
 

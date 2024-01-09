@@ -22,7 +22,6 @@ using Application.Services.Announcements;
 using Application.Services.ProfileApplications;
 using Application.Services.ApplicationSteps;
 using Application.Services.AsyncLessons;
-using Application.Services.Calendars;
 using Application.Services.Certificates;
 using Application.Services.Cities;
 using Application.Services.Companies;
@@ -88,7 +87,6 @@ public static class ApplicationServiceRegistration
         services.AddScoped<IProfileApplicationsService, ProfileApplicationsManager>();
         services.AddScoped<IApplicationStepsService, ApplicationStepsManager>();
         services.AddScoped<IAsyncLessonsService, AsyncLessonsManager>();
-        services.AddScoped<ICalendarsService, CalendarsManager>();
         services.AddScoped<ICertificatesService, CertificatesManager>();
         services.AddScoped<ICitiesService, CitiesManager>();
         services.AddScoped<ICompaniesService, CompaniesManager>();
