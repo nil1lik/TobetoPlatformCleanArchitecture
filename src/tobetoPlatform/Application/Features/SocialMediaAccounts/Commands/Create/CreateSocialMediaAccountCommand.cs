@@ -31,10 +31,14 @@ public class CreateSocialMediaAccountCommand : IRequest<CreatedSocialMediaAccoun
         {
             SocialMediaAccount socialMediaAccount = _mapper.Map<SocialMediaAccount>(request);
 
+            await _socialMediaAccountBusinessRules.SocialMediaAccountsCannotBeMoreThan3(socialMediaAccount);
             await _socialMediaAccountRepository.AddAsync(socialMediaAccount);
 
             CreatedSocialMediaAccountResponse response = _mapper.Map<CreatedSocialMediaAccountResponse>(socialMediaAccount);
+            response.Message = "Sosyal medya adresiniz baþarýyla eklendi";
+
             return response;
         }
+
     }
 }

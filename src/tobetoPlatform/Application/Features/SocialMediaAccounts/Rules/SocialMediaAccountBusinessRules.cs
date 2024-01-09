@@ -1,8 +1,10 @@
+using Application.Features.SocialMediaAccounts.Commands.Create;
 using Application.Features.SocialMediaAccounts.Constants;
 using Application.Services.Repositories;
 using Core.Application.Rules;
 using Core.CrossCuttingConcerns.Exceptions.Types;
 using Domain.Entities;
+using Nest;
 
 namespace Application.Features.SocialMediaAccounts.Rules;
 
@@ -31,4 +33,16 @@ public class SocialMediaAccountBusinessRules : BaseBusinessRules
         );
         await SocialMediaAccountShouldExistWhenSelected(socialMediaAccount);
     }
+
+
+    public Task SocialMediaAccountsCannotBeMoreThan3(SocialMediaAccount? socialMediaAccount)
+    {
+        if (socialMediaAccount.Id >= 3)
+            throw new BusinessException(SocialMediaAccountsBusinessMessages.SocialMediaAccountsCannotBeMoreThan3);
+
+        return Task.CompletedTask;
+    }
+
+
+
 }
