@@ -13,5 +13,5 @@ public class GetByIdSyncLessonResponse : IResponse
     public DateTime EndDate { get; set; }
     public TimeSpan Time { get; set; }
     public bool IsJoin { get; set; }
-    public string LessonStatuation { get; set; }
+    public string LessonSituation { get; set; }
 }
