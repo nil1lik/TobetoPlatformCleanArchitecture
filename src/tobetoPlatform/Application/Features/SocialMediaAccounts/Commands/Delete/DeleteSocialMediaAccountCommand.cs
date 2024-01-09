@@ -33,6 +33,7 @@ public class DeleteSocialMediaAccountCommand : IRequest<DeletedSocialMediaAccoun
             await _socialMediaAccountRepository.DeleteAsync(socialMediaAccount!);
 
             DeletedSocialMediaAccountResponse response = _mapper.Map<DeletedSocialMediaAccountResponse>(socialMediaAccount);
+            response.Message = "Sosyal medya hesabýnýz baþarýyla kaldýrýldý";
             return response;
         }
     }
