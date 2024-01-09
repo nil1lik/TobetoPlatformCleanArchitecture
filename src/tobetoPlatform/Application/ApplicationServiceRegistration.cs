@@ -16,7 +16,43 @@ using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 using Domain.Entities;
+using Application.Services.UserProfiles;
+using Application.Services.ProfileShares;
 using Application.Services.Announcements;
+using Application.Services.ProfileApplications;
+using Application.Services.ApplicationSteps;
+using Application.Services.AsyncLessons;
+using Application.Services.Calendars;
+using Application.Services.Certificates;
+using Application.Services.Cities;
+using Application.Services.Companies;
+using Application.Services.Contacts;
+using Application.Services.Countries;
+using Application.Services.Courses;
+using Application.Services.CourseClasses;
+using Application.Services.SyncLessons;
+using Application.Services.ExamResults;
+using Application.Services.Experiences;
+using Application.Services.Instructors;
+using Application.Services.EducationAboutCategories;
+using Application.Services.Districts;
+using Application.Services.LessonTypes;
+using Application.Services.Skills;
+using Application.Services.Surveys;
+using Application.Services.Exams;
+using Application.Services.ProfileApplicationSteps;
+using Application.Services.EducationPaths;
+using Application.Services.VideoDetailSubcategories;
+using Application.Services.VideoLanguages;
+using Application.Services.UserApplications;
+using Application.Services.EducationAdmirations;
+using Application.Services.LanguageLevels;
+using Application.Services.EducationAbouts;
+using Application.Services.Graduations;
+using Application.Services.Languages;
+using Application.Services.VideoCategories;
+using Application.Services.SocialMediaAccounts;
+using Application.Services.SocialMediaCategories;
 
 
 namespace Application;
@@ -46,7 +82,8 @@ public static class ApplicationServiceRegistration
         services.AddScoped<IAuthService, AuthManager>();
         services.AddScoped<IAuthenticatorService, AuthenticatorManager>();
         services.AddScoped<IUserService, UserManager>();
-        services.AddScoped<IAnnouncementsService, AnnouncementsManager>();
+        services.AddScoped<IExperiencesService, ExperiencesManager>();
+        services.AddScoped<IUserProfilesService, UserProfilesManager>();
         return services;
     }
 
