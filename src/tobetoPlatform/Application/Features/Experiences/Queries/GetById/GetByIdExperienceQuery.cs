@@ -1,38 +1,34 @@
-using Application.Features.Experiences.Constants;
 using Application.Features.Experiences.Rules;
 using Application.Services.Repositories;
 using AutoMapper;
 using Domain.Entities;
 using MediatR;
 
-namespace Application.Features.Experiences.Commands.Delete;
+namespace Application.Features.Experiences.Queries.GetById;
 
-public class DeleteExperienceCommand : IRequest<DeletedExperienceResponse>
+public class GetByIdExperienceQuery : IRequest<GetByIdExperienceResponse>
 {
     public int Id { get; set; }
 
-    public class DeleteExperienceCommandHandler : IRequestHandler<DeleteExperienceCommand, DeletedExperienceResponse>
+    public class GetByIdExperienceQueryHandler : IRequestHandler<GetByIdExperienceQuery, GetByIdExperienceResponse>
     {
         private readonly IMapper _mapper;
         private readonly IExperienceRepository _experienceRepository;
         private readonly ExperienceBusinessRules _experienceBusinessRules;
 
-        public DeleteExperienceCommandHandler(IMapper mapper, IExperienceRepository experienceRepository,
-                                         ExperienceBusinessRules experienceBusinessRules)
+        public GetByIdExperienceQueryHandler(IMapper mapper, IExperienceRepository experienceRepository, ExperienceBusinessRules experienceBusinessRules)
         {
             _mapper = mapper;
             _experienceRepository = experienceRepository;
             _experienceBusinessRules = experienceBusinessRules;
         }
 
-        public async Task<DeletedExperienceResponse> Handle(DeleteExperienceCommand request, CancellationToken cancellationToken)
+        public async Task<GetByIdExperienceResponse> Handle(GetByIdExperienceQuery request, CancellationToken cancellationToken)
         {
             Experience? experience = await _experienceRepository.GetAsync(predicate: e => e.Id == request.Id, cancellationToken: cancellationToken);
             await _experienceBusinessRules.ExperienceShouldExistWhenSelected(experience);
 
-            await _experienceRepository.DeleteAsync(experience!);
-
-            DeletedExperienceResponse response = _mapper.Map<DeletedExperienceResponse>(experience);
+            GetByIdExperienceResponse response = _mapper.Map<GetByIdExperienceResponse>(experience);
             return response;
         }
     }
