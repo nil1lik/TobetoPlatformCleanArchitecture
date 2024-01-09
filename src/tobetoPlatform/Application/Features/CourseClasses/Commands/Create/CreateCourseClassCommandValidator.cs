@@ -6,7 +6,6 @@ public class CreateCourseClassCommandValidator : AbstractValidator<CreateCourseC
 {
     public CreateCourseClassCommandValidator()
     {
-        RuleFor(c => c.ProfileAnnouncementId).NotEmpty();
         RuleFor(c => c.Name).NotEmpty();
     }
 }

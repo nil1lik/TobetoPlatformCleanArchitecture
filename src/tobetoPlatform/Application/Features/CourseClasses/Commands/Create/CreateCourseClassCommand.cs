@@ -8,7 +8,6 @@ namespace Application.Features.CourseClasses.Commands.Create;
 
 public class CreateCourseClassCommand : IRequest<CreatedCourseClassResponse>
 {
-    public int ProfileAnnouncementId { get; set; }
     public string Name { get; set; }
 
     public class CreateCourseClassCommandHandler : IRequestHandler<CreateCourseClassCommand, CreatedCourseClassResponse>

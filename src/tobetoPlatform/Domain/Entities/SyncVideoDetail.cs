@@ -11,7 +11,21 @@ public class SyncVideoDetail : Entity<int>
     public int VideoLanguageId { get; set; }
     public int CategoryId { get; set; }
     public int? SubcategoryId { get; set; }
+
     public virtual VideoDetailCategory Category { get; set; }
     public virtual VideoDetailSubcategory Subcategory { get; set; }
     public virtual VideoLanguage VideoLanguage { get; set; }
+
+    public SyncVideoDetail()
+    {
+        
+    }
+
+    public SyncVideoDetail(int id, int videoLanguageId, int categoryId, int? subcategoryId):this()
+    {
+        Id = id;
+        VideoLanguageId = videoLanguageId;
+        CategoryId = categoryId;
+        SubcategoryId = subcategoryId;
+    }
 }

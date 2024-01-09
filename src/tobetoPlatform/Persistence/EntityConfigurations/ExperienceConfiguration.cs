@@ -11,6 +11,7 @@ public class ExperienceConfiguration : IEntityTypeConfiguration<Experience>
         builder.ToTable("Experiences").HasKey(e => e.Id);
 
         builder.Property(e => e.Id).HasColumnName("Id").IsRequired();
+        //builder.Property(e => e.UserProfileId).HasColumnName("UserProfileId");
         builder.Property(e => e.CityId).HasColumnName("CityId");
         builder.Property(e => e.OrganizationName).HasColumnName("OrganizationName");
         builder.Property(e => e.Position).HasColumnName("Position");

@@ -6,12 +6,12 @@ public class CreateAsyncLessonCommandValidator : AbstractValidator<CreateAsyncLe
 {
     public CreateAsyncLessonCommandValidator()
     {
-        RuleFor(c => c.ProfileEducationId).NotEmpty();
-        RuleFor(c => c.CourseLessonId).NotEmpty();
         RuleFor(c => c.LessonVideoDetailId).NotEmpty();
         RuleFor(c => c.VideoCategoryId).NotEmpty();
+        RuleFor(c => c.LessonTypeId).NotEmpty();
         RuleFor(c => c.Name).NotEmpty();
-        RuleFor(c => c.Description).NotEmpty();
+        RuleFor(c => c.Time).NotEmpty();
         RuleFor(c => c.VideoUrl).NotEmpty();
+        RuleFor(c => c.IsCompleted).NotEmpty();
     }
 }

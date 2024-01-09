@@ -11,13 +11,13 @@ public class AsyncLessonConfiguration : IEntityTypeConfiguration<AsyncLesson>
         builder.ToTable("AsyncLessons").HasKey(al => al.Id);
 
         builder.Property(al => al.Id).HasColumnName("Id").IsRequired();
-        builder.Property(al => al.ProfileEducationId).HasColumnName("ProfileEducationId");
-        builder.Property(al => al.CourseLessonId).HasColumnName("CourseLessonId");
         builder.Property(al => al.LessonVideoDetailId).HasColumnName("LessonVideoDetailId");
         builder.Property(al => al.VideoCategoryId).HasColumnName("VideoCategoryId");
+        builder.Property(al => al.LessonTypeId).HasColumnName("LessonTypeId");
         builder.Property(al => al.Name).HasColumnName("Name");
-        builder.Property(al => al.Description).HasColumnName("Description");
+        builder.Property(al => al.Time).HasColumnName("Time");
         builder.Property(al => al.VideoUrl).HasColumnName("VideoUrl");
+        builder.Property(al => al.IsCompleted).HasColumnName("IsCompleted");
         builder.Property(al => al.CreatedDate).HasColumnName("CreatedDate").IsRequired();
         builder.Property(al => al.UpdatedDate).HasColumnName("UpdatedDate");
         builder.Property(al => al.DeletedDate).HasColumnName("DeletedDate");

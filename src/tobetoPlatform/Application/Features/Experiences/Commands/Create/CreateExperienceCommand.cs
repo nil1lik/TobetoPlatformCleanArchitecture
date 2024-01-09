@@ -8,6 +8,7 @@ namespace Application.Features.Experiences.Commands.Create;
 
 public class CreateExperienceCommand : IRequest<CreatedExperienceResponse>
 {
+    public int UserProfileId { get; set; }
     public int CityId { get; set; }
     public string OrganizationName { get; set; }
     public string Position { get; set; }

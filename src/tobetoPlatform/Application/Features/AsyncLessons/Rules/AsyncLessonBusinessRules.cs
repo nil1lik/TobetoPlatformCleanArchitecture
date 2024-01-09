@@ -3,6 +3,7 @@ using Application.Services.Repositories;
 using Core.Application.Rules;
 using Core.CrossCuttingConcerns.Exceptions.Types;
 using Domain.Entities;
+using Nest;
 
 namespace Application.Features.AsyncLessons.Rules;
 
@@ -29,6 +30,30 @@ public class AsyncLessonBusinessRules : BaseBusinessRules
             enableTracking: false,
             cancellationToken: cancellationToken
         );
+        await AsyncLessonShouldExistWhenSelected(asyncLesson);
+    }
+
+    public async Task AsyncVideoLessonVideoViewsStatus(double videoPoint,CancellationToken cancellationToken)
+    {
+        AsyncLesson? asyncLesson = await _asyncLessonRepository.GetAsync(
+                    predicate: al => al.VideoPoint == videoPoint,
+                    enableTracking: false,
+                    cancellationToken: cancellationToken
+                );
+        if (asyncLesson.VideoPoint == 0)
+        {
+            throw new BusinessException(AsyncLessonsBusinessMessages.VideoNotStarted);
+        }
+
+        else if (asyncLesson.VideoPoint >= 34.6)
+        {
+            throw new BusinessException(asyncLesson.VideoPoint + AsyncLessonsBusinessMessages.VideoInProgress);
+        }
+
+        else if (asyncLesson.VideoPoint == 100)
+        {
+            throw new BusinessException(asyncLesson.VideoPoint + AsyncLessonsBusinessMessages.VideoComlete);
+        }
         await AsyncLessonShouldExistWhenSelected(asyncLesson);
     }
 }

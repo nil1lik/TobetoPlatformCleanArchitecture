@@ -12,7 +12,6 @@ public class CourseConfiguration : IEntityTypeConfiguration<Course>
 
         builder.Property(c => c.Id).HasColumnName("Id").IsRequired();
         builder.Property(c => c.EducationPathId).HasColumnName("EducationPathId");
-        builder.Property(c => c.CourseLessonId).HasColumnName("CourseLessonId");
         builder.Property(c => c.Name).HasColumnName("Name");
         builder.Property(c => c.CreatedDate).HasColumnName("CreatedDate").IsRequired();
         builder.Property(c => c.UpdatedDate).HasColumnName("UpdatedDate");

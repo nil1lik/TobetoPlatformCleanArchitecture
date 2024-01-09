@@ -2,10 +2,26 @@
 using System;
 namespace Domain.Entities
 {
-    public class ProfileSkill : Entity<int>  //güncellendi
+    public class ProfileSkill : Entity<int>  
     {
-        public virtual ICollection<UserProfile> UserProfiles { get; set; }
-        public virtual ICollection<Skill> Skills { get; set; }
+        public int UserProfileId { get; set; }
+        public int SkillId { get; set; }
+
+        public virtual UserProfile UserProfile { get; set; }
+        public virtual Skill Skill { get; set; }
+
+        public ProfileSkill()
+        {
+        }
+
+        public ProfileSkill(int id , int userProfileId, int skillId) : this()
+        {
+            Id = id;
+            UserProfileId = userProfileId;
+            SkillId = skillId;
+        }
+
+       
 
        
     }

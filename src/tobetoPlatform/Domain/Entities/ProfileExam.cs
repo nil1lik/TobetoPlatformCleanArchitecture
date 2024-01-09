@@ -4,9 +4,25 @@ namespace Domain.Entities
 {
     public class ProfileExam : Entity<int> 
     {
-        public bool IsCompleted { get; set; }
-        public virtual ICollection<UserProfile> UserProfiles { get; set; }
-        public virtual ICollection<Exam> Exams { get; set; }
+        public int UserProfileId { get; set; }
+        public int ExamId { get; set; }
+
+        public virtual UserProfile UserProfile { get; set; }
+        public virtual Exam Exam { get; set; }
+
+        public ProfileExam()
+        {
+        }
+
+        public ProfileExam(int id,int userProfileId, int examId):this()
+        {
+            Id = id;
+            UserProfileId = userProfileId;
+            ExamId = examId;
+        }
+
+        
 
     }
 }
+

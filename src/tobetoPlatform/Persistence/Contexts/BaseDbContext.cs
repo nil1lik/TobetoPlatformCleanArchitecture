@@ -17,13 +17,10 @@ public class BaseDbContext : DbContext
     public DbSet<UserOperationClaim> UserOperationClaims { get; set; }
     public DbSet<Skill> Skills { get; set; }
     public DbSet<Exam> Exams { get; set; }
-
     public DbSet<City> Cities { get; set; }
     public DbSet<Country> Countries { get; set; }
     public DbSet<District> Districts { get; set; }
-
     public DbSet<CourseClass> CourseClasses { get; set; }
-    public DbSet<ApplicationForm> ApplicationForms { get; set; }
     public DbSet<AsyncLesson> AsyncLessons { get; set; }
     public DbSet<Calendar> Calendars { get; set; }
     public DbSet<Certificate> Certificates { get; set; }
@@ -41,7 +38,24 @@ public class BaseDbContext : DbContext
     public DbSet<Instructor> Instructors { get; set; }
     public DbSet<LessonType> LessonTypes { get; set; }
     public DbSet<LessonVideoDetail> LessonVideoDetails { get; set; }
-    public DbSet<UserProfile> Profiles { get; set; }
+    public DbSet<UserProfile> UserProfiles { get; set; }
+    public DbSet<ProfileApplication> ProfileApplications { get; set; }
+    public DbSet<LanguageLevel> LanguageLevels { get; set; }
+    public DbSet<ProfileShare> ProfileShares { get; set; }
+    public DbSet<Announcement> Announcements { get; set; }
+    public DbSet<ApplicationStep> ApplicationSteps { get; set; }
+    public DbSet<SyncLesson> SyncLessons { get; set; }
+    public DbSet<Survey> Surveys { get; set; }
+    public DbSet<ProfileApplicationStep> ProfileApplicationSteps { get; set; }
+    public DbSet<VideoDetailSubcategory> VideoDetailSubcategories { get; set; }
+    public DbSet<VideoLanguage> VideoLanguages { get; set; }
+    public DbSet<UserApplication> UserApplications { get; set; }
+    public DbSet<Graduation> Graduations { get; set; }
+    public DbSet<Language> Languages { get; set; }
+    public DbSet<VideoCategory> VideoCategories { get; set; }
+    public DbSet<SocialMediaAccount> SocialMediaAccounts { get; set; }
+    public DbSet<SocialMediaCategory> SocialMediaCategories { get; set; }
+
 
 
     public BaseDbContext(DbContextOptions dbContextOptions, IConfiguration configuration)

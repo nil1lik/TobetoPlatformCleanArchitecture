@@ -3,6 +3,7 @@ using Application.Services.Repositories;
 using Core.Application.Rules;
 using Core.CrossCuttingConcerns.Exceptions.Types;
 using Domain.Entities;
+using Nest;
 
 namespace Application.Features.EducationPaths.Rules;
 
@@ -31,4 +32,5 @@ public class EducationPathBusinessRules : BaseBusinessRules
         );
         await EducationPathShouldExistWhenSelected(educationPath);
     }
+
 }

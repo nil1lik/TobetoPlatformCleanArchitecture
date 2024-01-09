@@ -6,6 +6,7 @@ public class CreateExperienceCommandValidator : AbstractValidator<CreateExperien
 {
     public CreateExperienceCommandValidator()
     {
+        RuleFor(c => c.UserProfileId).NotEmpty();
         RuleFor(c => c.CityId).NotEmpty();
         RuleFor(c => c.OrganizationName).NotEmpty();
         RuleFor(c => c.Position).NotEmpty();
