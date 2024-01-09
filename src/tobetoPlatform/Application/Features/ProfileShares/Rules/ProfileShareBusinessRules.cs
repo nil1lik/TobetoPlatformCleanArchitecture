@@ -38,12 +38,13 @@ public class ProfileShareBusinessRules : BaseBusinessRules
 
     public async Task<Guid>ShowProfileLinkIfSwitchIsActive(bool isShare, CancellationToken cancellationToken)
     {
-        ProfileShare? profileShare = await _profileShareRepository.GetAsync(
+           ProfileShare? profileShare = await _profileShareRepository.GetAsync(
            predicate: ps => ps.IsShare == isShare,
            enableTracking: false,
            cancellationToken: cancellationToken
        );
-        if (profileShare.IsShare != isShare)
+
+        if (isShare==false)
         {
             throw new BusinessException(ProfileSharesBusinessMessages.NoPermissionToShareProfile);
         }
