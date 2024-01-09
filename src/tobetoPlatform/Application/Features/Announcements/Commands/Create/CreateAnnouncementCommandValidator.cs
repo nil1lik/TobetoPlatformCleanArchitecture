@@ -8,5 +8,6 @@ public class CreateAnnouncementCommandValidator : AbstractValidator<CreateAnnoun
     {
         RuleFor(c => c.Name).NotEmpty();
         RuleFor(c => c.Description).NotEmpty();
+        RuleFor(c => c.IsRead).NotEmpty();
     }
 }

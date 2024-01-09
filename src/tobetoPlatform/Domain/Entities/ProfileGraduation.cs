@@ -2,10 +2,26 @@
 using System;
 namespace Domain.Entities
 {
-    public class ProfileGraduation : Entity<int>  //güncellendi
+    public class ProfileGraduation : Entity<int>  
     {
-        public virtual ICollection<Graduation> Graduations { get; set; }
-        public virtual ICollection<UserProfile> UserProfiles { get; set; }
+        public int GraduationId { get; set; }
+        public int UserProfileId { get; set; }
+
+        public virtual Graduation Graduation { get; set; }
+        public virtual UserProfile UserProfile { get; set; }
+
+        public ProfileGraduation()
+        {
+        }
+
+        public ProfileGraduation(int id, int graduationId, int userProfileId):this()
+        {
+            Id = id;
+            GraduationId = graduationId;
+            UserProfileId = userProfileId;
+        }
+
+        
    
     }
 }

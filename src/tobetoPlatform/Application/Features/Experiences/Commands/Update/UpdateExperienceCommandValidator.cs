@@ -7,6 +7,7 @@ public class UpdateExperienceCommandValidator : AbstractValidator<UpdateExperien
     public UpdateExperienceCommandValidator()
     {
         RuleFor(c => c.Id).NotEmpty();
+        RuleFor(c => c.UserProfileId).NotEmpty();
         RuleFor(c => c.CityId).NotEmpty();
         RuleFor(c => c.OrganizationName).NotEmpty();
         RuleFor(c => c.Position).NotEmpty();

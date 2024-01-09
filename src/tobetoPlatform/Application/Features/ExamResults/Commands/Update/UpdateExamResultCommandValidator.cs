@@ -7,7 +7,7 @@ public class UpdateExamResultCommandValidator : AbstractValidator<UpdateExamResu
     public UpdateExamResultCommandValidator()
     {
         RuleFor(c => c.Id).NotEmpty();
-        RuleFor(c => c.ExamStatusId).NotEmpty();
+        RuleFor(c => c.ExamId).NotEmpty();
         RuleFor(c => c.Correct).NotEmpty();
         RuleFor(c => c.Wrong).NotEmpty();
         RuleFor(c => c.Empty).NotEmpty();

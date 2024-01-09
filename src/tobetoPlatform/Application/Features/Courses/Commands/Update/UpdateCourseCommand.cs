@@ -10,7 +10,6 @@ public class UpdateCourseCommand : IRequest<UpdatedCourseResponse>
 {
     public int Id { get; set; }
     public int EducationPathId { get; set; }
-    public int CourseLessonId { get; set; }
     public string Name { get; set; }
 
     public class UpdateCourseCommandHandler : IRequestHandler<UpdateCourseCommand, UpdatedCourseResponse>

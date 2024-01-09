@@ -5,6 +5,5 @@ namespace Application.Features.CourseClasses.Commands.Create;
 public class CreatedCourseClassResponse : IResponse
 {
     public int Id { get; set; }
-    public int ProfileAnnouncementId { get; set; }
     public string Name { get; set; }
 }

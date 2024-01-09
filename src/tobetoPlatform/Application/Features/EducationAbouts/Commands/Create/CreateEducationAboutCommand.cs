@@ -12,7 +12,6 @@ public class CreateEducationAboutCommand : IRequest<CreatedEducationAboutRespons
     public int EducationAboutCategoryId { get; set; }
     public DateTime StartDate { get; set; }
     public DateTime EndDate { get; set; }
-    public string EstimatedDuration { get; set; }
 
     public class CreateEducationAboutCommandHandler : IRequestHandler<CreateEducationAboutCommand, CreatedEducationAboutResponse>
     {

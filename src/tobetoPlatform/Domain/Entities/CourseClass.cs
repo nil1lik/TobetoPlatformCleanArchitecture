@@ -8,7 +8,19 @@ using System.Threading.Tasks;
 namespace Domain.Entities;
 public class CourseClass:Entity<int>
 {
-    public int ProfileClassId { get; set; }
     public string Name { get; set; }
-    public virtual ProfileClass ProfileClass { get; set; }
+
+    public virtual ICollection<ProfileClass> ProfileClasses { get; set; }
+
+    public CourseClass()
+    {
+    }
+
+    public CourseClass(int id, string name) : this()
+    {
+        Id = id;
+        Name = name;
+    }
+
+   
 }

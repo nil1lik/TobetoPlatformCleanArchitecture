@@ -2,9 +2,11 @@
 using System;
 namespace Domain.Entities
 {
-    public class Country:Entity<int>  //güncellendi
+    public class Country:Entity<int> 
     {
         public string Name { get; set; }
+
+        public ICollection<ProfileAddress> ProfileAddress { get; set; }
 
         public Country()
         {
@@ -17,4 +19,5 @@ namespace Domain.Entities
         }
     }
 }
+
 

@@ -8,6 +8,22 @@ using System.Threading.Tasks;
 namespace Domain.Entities;
 public class CourseInstructor : Entity<int>
 {
-    public virtual ICollection<Course> Courses { get; set; }
-    public virtual ICollection<Instructor> Instructors { get; set; }
+    public int CourseId { get; set; }
+    public int InstructorId { get; set; }
+
+    public virtual Course Course { get; set; }
+    public virtual Instructor Instructor { get; set; }
+
+    public CourseInstructor()
+    {
+    }
+
+    public CourseInstructor(int id, int courseId, int instructorId) : this()
+    {
+        Id = id;
+        CourseId = courseId;
+        InstructorId = instructorId;
+    }
+
+    
 }
