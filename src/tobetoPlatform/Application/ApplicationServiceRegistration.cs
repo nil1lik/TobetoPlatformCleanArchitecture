@@ -50,6 +50,8 @@ using Application.Services.Languages;
 using Application.Services.VideoCategories;
 using Application.Services.SocialMediaAccounts;
 using Application.Services.SocialMediaCategories;
+using Application.Services.UserProfiles;
+using Application.Services.Experiences;
 
 
 namespace Application;
@@ -93,6 +95,8 @@ public static class ApplicationServiceRegistration
         services.AddScoped<ICourseClassesService, CourseClassesManager>();
         services.AddScoped<ISyncLessonsService, SyncLessonsManager>();
         services.AddScoped<IExamResultsService, ExamResultsManager>();
+        services.AddScoped<IUserProfilesService, UserProfilesManager>();
+        services.AddScoped<IExperiencesService, ExperiencesManager>();
         return services;
     }
 
