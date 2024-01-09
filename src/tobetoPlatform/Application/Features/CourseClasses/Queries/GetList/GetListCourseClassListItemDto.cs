@@ -1,0 +1,9 @@
+using Core.Application.Dtos;
+
+namespace Application.Features.CourseClasses.Queries.GetList;
+
+public class GetListCourseClassListItemDto : IDto
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+}

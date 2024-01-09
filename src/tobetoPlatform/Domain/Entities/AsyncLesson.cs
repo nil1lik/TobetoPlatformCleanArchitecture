@@ -12,7 +12,6 @@ public class AsyncLesson : Entity<int>
     public int LessonVideoDetailId { get; set; }
     public int VideoCategoryId { get; set; }
     public int LessonTypeId { get; set; }
-
     public string Name { get; set; }
     public TimeSpan Time { get; set; }
     public string VideoUrl { get; set; }
@@ -30,7 +29,7 @@ public class AsyncLesson : Entity<int>
 
     }
 
-    public AsyncLesson(int id, bool isCompleted,int lessonTypeId, int lessonVideoDetailId, string name, string description, string videoUrl, int videoCategoryId) : this()
+    public AsyncLesson(int id, bool isCompleted,int lessonTypeId, TimeSpan time, int lessonVideoDetailId, string name, string videoUrl, int videoCategoryId) : this()
     {
         Id = id;
         LessonVideoDetailId = lessonVideoDetailId;
@@ -38,6 +37,7 @@ public class AsyncLesson : Entity<int>
         Name = name;
         LessonTypeId = lessonTypeId;
         VideoUrl = videoUrl;
+        Time = time;
         VideoCategoryId = videoCategoryId;
     }
 }
