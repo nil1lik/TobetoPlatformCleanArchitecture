@@ -30,10 +30,8 @@ public class CreateSkillCommand : IRequest<CreatedSkillResponse>
             await _skillRepository.AddAsync(skill);
             CreatedSkillResponse response = _mapper.Map<CreatedSkillResponse>(skill);
 
-            if (response.Id==skill.Id)
-            {
-                response.Message = "Yetenek eklendi";
-            }
+            response.Message = "Yetenek eklendi";
+          
             return response;
         }
     }

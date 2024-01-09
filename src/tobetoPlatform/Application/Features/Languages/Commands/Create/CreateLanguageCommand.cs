@@ -28,10 +28,10 @@ public class CreateLanguageCommand : IRequest<CreatedLanguageResponse>
         public async Task<CreatedLanguageResponse> Handle(CreateLanguageCommand request, CancellationToken cancellationToken)
         {
             Language language = _mapper.Map<Language>(request);
-
+            await _languageBusinessRules.LanguageShouldNotBeTheSame(request.Name, language);
             await _languageRepository.AddAsync(language);
-
             CreatedLanguageResponse response = _mapper.Map<CreatedLanguageResponse>(language);
+            response.Message = "Yabancý dil bilgisi eklendi";
             return response;
         }
     }

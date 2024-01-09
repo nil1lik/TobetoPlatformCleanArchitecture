@@ -33,6 +33,7 @@ public class DeleteLanguageCommand : IRequest<DeletedLanguageResponse>
             await _languageRepository.DeleteAsync(language!);
 
             DeletedLanguageResponse response = _mapper.Map<DeletedLanguageResponse>(language);
+            response.Message = "Yabancý dil kaldýrýldý";
             return response;
         }
     }
