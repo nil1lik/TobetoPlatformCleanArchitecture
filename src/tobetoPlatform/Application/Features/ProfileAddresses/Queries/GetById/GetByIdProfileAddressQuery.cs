@@ -9,7 +9,7 @@ namespace Application.Features.ProfileAddresses.Queries.GetById;
 
 public class GetByIdProfileAddressQuery : IRequest<GetByIdProfileAddressResponse>
 {
-    public int userId { get; set; }
+    public int Id { get; set; }
 
     public class GetByIdProfileAddressQueryHandler : IRequestHandler<GetByIdProfileAddressQuery, GetByIdProfileAddressResponse>
     {
@@ -27,7 +27,7 @@ public class GetByIdProfileAddressQuery : IRequest<GetByIdProfileAddressResponse
         public async Task<GetByIdProfileAddressResponse> Handle(GetByIdProfileAddressQuery request, CancellationToken cancellationToken)
         {
             ProfileAddress? profileAddress = await _profileAddressRepository.GetAsync(
-                predicate: pa => pa.UserProfileId == request.userId, 
+                predicate: pa => pa.Id == request.Id, 
                 include:p => p.Include(x => x.City).
                                 Include(x => x.Country).
                                 Include(x => x.District),

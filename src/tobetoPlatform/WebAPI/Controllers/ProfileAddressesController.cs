@@ -40,7 +40,7 @@ public class ProfileAddressesController : BaseController
     [HttpGet("{id}")]
     public async Task<IActionResult> GetById([FromRoute] int id)
     {
-        GetByIdProfileAddressResponse response = await Mediator.Send(new GetByIdProfileAddressQuery { userId = id });
+        GetByIdProfileAddressResponse response = await Mediator.Send(new GetByIdProfileAddressQuery { Id = id });
         return Ok(response);
     }
 
