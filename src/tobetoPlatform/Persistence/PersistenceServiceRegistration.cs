@@ -61,6 +61,8 @@ public static class PersistenceServiceRegistration
         services.AddScoped<ISocialMediaCategoryRepository, SocialMediaCategoryRepository>();
         services.AddScoped<IUserProfileRepository, UserProfileRepository>();
         services.AddScoped<IExperienceRepository, ExperienceRepository>();
+        services.AddScoped<IProfileAddressRepository, ProfileAddressRepository>();
+        services.AddScoped<IAnnouncementTypeRepository, AnnouncementTypeRepository>();
         return services;
     }
 }

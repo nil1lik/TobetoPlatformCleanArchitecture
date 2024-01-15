@@ -52,6 +52,8 @@ using Application.Services.SocialMediaAccounts;
 using Application.Services.SocialMediaCategories;
 using Application.Services.UserProfiles;
 using Application.Services.Experiences;
+using Application.Services.ProfileAddresses;
+using Application.Services.AnnouncementTypes;
 
 
 namespace Application;
@@ -97,6 +99,8 @@ public static class ApplicationServiceRegistration
         services.AddScoped<IExamResultsService, ExamResultsManager>();
         services.AddScoped<IUserProfilesService, UserProfilesManager>();
         services.AddScoped<IExperiencesService, ExperiencesManager>();
+        services.AddScoped<IProfileAddressesService, ProfileAddressesManager>();
+        services.AddScoped<IAnnouncementTypesService, AnnouncementTypesManager>();
         return services;
     }
 
