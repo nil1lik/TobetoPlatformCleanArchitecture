@@ -5,6 +5,7 @@ using Core.Application.Requests;
 using Core.Application.Responses;
 using Core.Persistence.Paging;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 
 namespace Application.Features.UserProfiles.Queries.GetList;
 
@@ -26,6 +27,7 @@ public class GetListUserProfileQuery : IRequest<GetListResponse<GetListUserProfi
         public async Task<GetListResponse<GetListUserProfileListItemDto>> Handle(GetListUserProfileQuery request, CancellationToken cancellationToken)
         {
             IPaginate<UserProfile> userProfiles = await _userProfileRepository.GetListAsync(
+                include: up => up.Include(up => up.User),
                 index: request.PageRequest.PageIndex,
                 size: request.PageRequest.PageSize, 
                 cancellationToken: cancellationToken
