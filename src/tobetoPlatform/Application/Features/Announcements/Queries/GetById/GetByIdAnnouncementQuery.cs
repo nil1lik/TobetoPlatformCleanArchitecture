@@ -3,6 +3,7 @@ using Application.Services.Repositories;
 using AutoMapper;
 using Domain.Entities;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 
 namespace Application.Features.Announcements.Queries.GetById;
 
@@ -25,7 +26,10 @@ public class GetByIdAnnouncementQuery : IRequest<GetByIdAnnouncementResponse>
 
         public async Task<GetByIdAnnouncementResponse> Handle(GetByIdAnnouncementQuery request, CancellationToken cancellationToken)
         {
-            Announcement? announcement = await _announcementRepository.GetAsync(predicate: a => a.Id == request.Id, cancellationToken: cancellationToken);
+            Announcement? announcement = await _announcementRepository.GetAsync(
+                predicate: a => a.Id == request.Id,
+                include: a => a.Include(an => an.AnnouncementType),
+                cancellationToken: cancellationToken);;
             await _announcementBusinessRules.AnnouncementShouldExistWhenSelected(announcement);
 
             GetByIdAnnouncementResponse response = _mapper.Map<GetByIdAnnouncementResponse>(announcement);

@@ -17,7 +17,6 @@ using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 using Domain.Entities;
 using Application.Services.ProfileShares;
-using Application.Services.Announcements;
 using Application.Services.ProfileApplications;
 using Application.Services.ApplicationSteps;
 using Application.Services.AsyncLessons;
@@ -52,6 +51,8 @@ using Application.Services.SocialMediaAccounts;
 using Application.Services.SocialMediaCategories;
 using Application.Services.Experiences;
 using Application.Services.UserProfiles;
+using Application.Services.Announcements;
+using Application.Services.AnnouncementTypes;
 
 
 namespace Application;
@@ -82,7 +83,6 @@ public static class ApplicationServiceRegistration
         services.AddScoped<IAuthenticatorService, AuthenticatorManager>();
         services.AddScoped<IUserService, UserManager>();
         services.AddScoped<IProfileSharesService, ProfileSharesManager>();
-        services.AddScoped<IAnnouncementsService, AnnouncementsManager>();
         services.AddScoped<IProfileApplicationsService, ProfileApplicationsManager>();
         services.AddScoped<IApplicationStepsService, ApplicationStepsManager>();
         services.AddScoped<IAsyncLessonsService, AsyncLessonsManager>();
@@ -97,6 +97,8 @@ public static class ApplicationServiceRegistration
         services.AddScoped<IExamResultsService, ExamResultsManager>();
         services.AddScoped<IExperiencesService, ExperiencesManager>();
         services.AddScoped<IUserProfilesService, UserProfilesManager>();
+        services.AddScoped<IAnnouncementsService, AnnouncementsManager>();
+        services.AddScoped<IAnnouncementTypesService, AnnouncementTypesManager>();
         return services;
     }
 
