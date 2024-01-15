@@ -1,6 +1,7 @@
 using Application.Features.Experiences.Rules;
 using Application.Services.Repositories;
 using AutoMapper;
+using Azure;
 using Domain.Entities;
 using MediatR;
 
@@ -36,8 +37,10 @@ public class CreateExperienceCommand : IRequest<CreatedExperienceResponse>
             Experience experience = _mapper.Map<Experience>(request);
 
             await _experienceRepository.AddAsync(experience);
-
+            
             CreatedExperienceResponse response = _mapper.Map<CreatedExperienceResponse>(experience);
+
+            response.Message = "Deneyim eklendi.";
             return response;
         }
     }

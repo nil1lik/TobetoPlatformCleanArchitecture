@@ -32,7 +32,7 @@ public class DeleteSkillCommand : IRequest<DeletedSkillResponse>
 
             await _skillRepository.DeleteAsync(skill!);
             DeletedSkillResponse response = _mapper.Map<DeletedSkillResponse>(skill);
-            response.Message = "Yetenek kaldýrýldý";
+            response.Message = "Yetenek kaldýrýldý.";
             return response;
         }
     }
