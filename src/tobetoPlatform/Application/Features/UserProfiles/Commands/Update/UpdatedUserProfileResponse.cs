@@ -12,4 +12,5 @@ public class UpdatedUserProfileResponse : IResponse
     public string Phone { get; set; }
     public DateTime BirthDate { get; set; }
     public string? Description { get; set; }
+    public string Message { get; set; }
 }
