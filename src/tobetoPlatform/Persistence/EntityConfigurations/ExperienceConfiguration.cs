@@ -12,11 +12,11 @@ public class ExperienceConfiguration : IEntityTypeConfiguration<Experience>
 
         builder.Property(e => e.Id).HasColumnName("Id").IsRequired();
         builder.Property(e => e.CityId).HasColumnName("CityId");
-        builder.Property(e => e.OrganizationName).HasColumnName("OrganizationName");
-        builder.Property(e => e.Position).HasColumnName("Position");
-        builder.Property(e => e.Sector).HasColumnName("Sector");
-        builder.Property(e => e.StartDate).HasColumnName("StartDate");
-        builder.Property(e => e.EndDate).HasColumnName("EndDate");
+        builder.Property(e => e.OrganizationName).HasColumnName("OrganizationName").IsRequired();
+        builder.Property(e => e.Position).HasColumnName("Position").IsRequired();
+        builder.Property(e => e.Sector).HasColumnName("Sector").IsRequired();
+        builder.Property(e => e.StartDate).HasColumnName("StartDate").IsRequired();
+        builder.Property(e => e.EndDate).HasColumnName("EndDate").IsRequired();
         builder.Property(e => e.Description).HasColumnName("Description");
         builder.Property(e => e.CreatedDate).HasColumnName("CreatedDate").IsRequired();
         builder.Property(e => e.UpdatedDate).HasColumnName("UpdatedDate");

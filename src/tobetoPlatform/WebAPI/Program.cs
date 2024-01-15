@@ -94,6 +94,7 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+
 const string webApiConfigurationSection = "WebAPIConfiguration";
 WebApiConfiguration webApiConfiguration =
     app.Configuration.GetSection(webApiConfigurationSection).Get<WebApiConfiguration>()

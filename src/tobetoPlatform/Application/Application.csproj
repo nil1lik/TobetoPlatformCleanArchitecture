@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Calendar\" />
+    <Folder Include="Features\Calendar\Profiles\" />
     <Folder Include="Services\" />
     <Folder Include="Services\Repositories" />
   </ItemGroup>
