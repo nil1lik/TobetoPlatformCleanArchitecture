@@ -386,6 +386,7 @@ public class OperationClaimConfiguration : IEntityTypeConfiguration<OperationCla
         seeds.Add(new OperationClaim { Id = ++id, Name = "AnnouncementTypes.Add" });
         seeds.Add(new OperationClaim { Id = ++id, Name = "AnnouncementTypes.Update" });
         seeds.Add(new OperationClaim { Id = ++id, Name = "AnnouncementTypes.Delete" });
+        #endregion
         return seeds;
     }
 }
