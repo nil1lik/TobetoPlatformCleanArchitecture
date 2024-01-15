@@ -31,8 +31,8 @@ public class DeleteSkillCommand : IRequest<DeletedSkillResponse>
             await _skillBusinessRules.SkillShouldExistWhenSelected(skill);
 
             await _skillRepository.DeleteAsync(skill!);
-
             DeletedSkillResponse response = _mapper.Map<DeletedSkillResponse>(skill);
+            response.Message = "Yetenek kaldýrýldý.";
             return response;
         }
     }

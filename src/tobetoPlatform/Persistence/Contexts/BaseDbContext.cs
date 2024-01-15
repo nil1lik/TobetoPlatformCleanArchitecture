@@ -22,7 +22,6 @@ public class BaseDbContext : DbContext
     public DbSet<District> Districts { get; set; }
     public DbSet<CourseClass> CourseClasses { get; set; }
     public DbSet<AsyncLesson> AsyncLessons { get; set; }
-    public DbSet<Calendar> Calendars { get; set; }
     public DbSet<Certificate> Certificates { get; set; }
     public DbSet<Company> Companies { get; set; }
     public DbSet<Contact> Contacts { get; set; }
@@ -55,6 +54,8 @@ public class BaseDbContext : DbContext
     public DbSet<VideoCategory> VideoCategories { get; set; }
     public DbSet<SocialMediaAccount> SocialMediaAccounts { get; set; }
     public DbSet<SocialMediaCategory> SocialMediaCategories { get; set; }
+    public DbSet<ProfileAddress> ProfileAddresses { get; set; }
+    public DbSet<AnnouncementType> AnnouncementTypes { get; set; }
 
 
 
@@ -62,7 +63,7 @@ public class BaseDbContext : DbContext
         : base(dbContextOptions)
     {
         Configuration = configuration;
-        Database.EnsureCreated();
+        //Database.EnsureCreated();
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder) =>
