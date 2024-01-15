@@ -5,6 +5,7 @@ using Core.Application.Requests;
 using Core.Application.Responses;
 using Core.Persistence.Paging;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 
 namespace Application.Features.Exams.Queries.GetList;
 
@@ -26,6 +27,7 @@ public class GetListExamQuery : IRequest<GetListResponse<GetListExamListItemDto>
         public async Task<GetListResponse<GetListExamListItemDto>> Handle(GetListExamQuery request, CancellationToken cancellationToken)
         {
             IPaginate<Exam> exams = await _examRepository.GetListAsync(
+                include: i => i.Include(i => i.ExamResult),
                 index: request.PageRequest.PageIndex,
                 size: request.PageRequest.PageSize, 
                 cancellationToken: cancellationToken
