@@ -36,6 +36,7 @@ public class CreateGraduationCommand : IRequest<CreatedGraduationResponse>
             await _graduationRepository.AddAsync(graduation);
 
             CreatedGraduationResponse response = _mapper.Map<CreatedGraduationResponse>(graduation);
+            response.Message = "Eðitim bilgisi eklendi.";
             return response;
         }
     }

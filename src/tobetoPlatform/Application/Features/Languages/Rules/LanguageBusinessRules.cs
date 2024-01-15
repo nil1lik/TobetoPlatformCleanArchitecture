@@ -1,7 +1,9 @@
 using Application.Features.Languages.Constants;
+using Application.Features.SocialMediaAccounts.Constants;
 using Application.Services.Repositories;
 using Core.Application.Rules;
 using Core.CrossCuttingConcerns.Exceptions.Types;
+using Core.Persistence.Paging;
 using Domain.Entities;
 
 namespace Application.Features.Languages.Rules;
@@ -30,5 +32,15 @@ public class LanguageBusinessRules : BaseBusinessRules
             cancellationToken: cancellationToken
         );
         await LanguageShouldExistWhenSelected(language);
+    }
+
+    public async Task LanguageShouldNotBeTheSame(string name, Language? language)
+    {
+        IPaginate<Language> result = await _languageRepository.GetListAsync(b => b.Name == name);
+
+        if (result.Items.Any() && language != null && language.Name == result.Items.First().Name)
+        {
+            throw new BusinessException(LanguagesBusinessMessages.LanguageShouldNotBeTheSame);
+        }
     }
 }

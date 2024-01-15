@@ -11,4 +11,5 @@ public class CreatedGraduationResponse : IResponse
     public DateTime StartDate { get; set; }
     public DateTime EndDate { get; set; }
     public DateTime GraduationDate { get; set; }
+    public string Message { get; set; }
 }

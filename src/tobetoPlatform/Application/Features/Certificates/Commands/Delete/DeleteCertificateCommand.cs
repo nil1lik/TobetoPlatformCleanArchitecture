@@ -33,7 +33,9 @@ public class DeleteCertificateCommand : IRequest<DeletedCertificateResponse>
             await _certificateRepository.DeleteAsync(certificate!);
 
             DeletedCertificateResponse response = _mapper.Map<DeletedCertificateResponse>(certificate);
+            response.Message = "Dosya kaldýrma iþlemi baþarýlý";
             return response;
+
         }
     }
 }

@@ -15,6 +15,7 @@ public class SyncLesson : Entity<int>
     public DateTime StartDate { get; set; }
     public DateTime EndDate { get; set; }
     public TimeSpan Time { get; set; }
+
     public bool IsJoin { get; set; }
 
     public virtual ICollection<Instructor> Instructors { get; set; }
