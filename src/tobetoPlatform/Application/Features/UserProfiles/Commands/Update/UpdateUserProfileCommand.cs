@@ -40,6 +40,7 @@ public class UpdateUserProfileCommand : IRequest<UpdatedUserProfileResponse>
             await _userProfileRepository.UpdateAsync(userProfile!);
 
             UpdatedUserProfileResponse response = _mapper.Map<UpdatedUserProfileResponse>(userProfile);
+            response.Message = "Bilgileriniz baþarýyla güncellendi";
             return response;
         }
     }
