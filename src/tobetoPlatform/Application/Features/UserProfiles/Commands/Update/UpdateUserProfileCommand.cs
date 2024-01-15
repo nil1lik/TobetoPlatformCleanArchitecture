@@ -1,6 +1,7 @@
 using Application.Features.UserProfiles.Rules;
 using Application.Services.Repositories;
 using AutoMapper;
+using Azure;
 using Domain.Entities;
 using MediatR;
 
@@ -38,8 +39,9 @@ public class UpdateUserProfileCommand : IRequest<UpdatedUserProfileResponse>
             userProfile = _mapper.Map(request, userProfile);
 
             await _userProfileRepository.UpdateAsync(userProfile!);
-
+            
             UpdatedUserProfileResponse response = _mapper.Map<UpdatedUserProfileResponse>(userProfile);
+            response.Message = "Bilgileriniz baþarýyla güncellendi";
             return response;
         }
     }
