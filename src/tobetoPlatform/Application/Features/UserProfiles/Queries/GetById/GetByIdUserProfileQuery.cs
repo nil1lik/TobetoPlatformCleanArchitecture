@@ -3,6 +3,7 @@ using Application.Services.Repositories;
 using AutoMapper;
 using Domain.Entities;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 
 namespace Application.Features.UserProfiles.Queries.GetById;
 
@@ -25,7 +26,8 @@ public class GetByIdUserProfileQuery : IRequest<GetByIdUserProfileResponse>
 
         public async Task<GetByIdUserProfileResponse> Handle(GetByIdUserProfileQuery request, CancellationToken cancellationToken)
         {
-            UserProfile? userProfile = await _userProfileRepository.GetAsync(predicate: up => up.Id == request.Id, cancellationToken: cancellationToken);
+            UserProfile? userProfile = await _userProfileRepository.GetAsync(predicate: up => up.Id == request.Id, 
+                cancellationToken: cancellationToken);
             await _userProfileBusinessRules.UserProfileShouldExistWhenSelected(userProfile);
 
             GetByIdUserProfileResponse response = _mapper.Map<GetByIdUserProfileResponse>(userProfile);

@@ -11,6 +11,7 @@ public class AnnouncementConfiguration : IEntityTypeConfiguration<Announcement>
         builder.ToTable("Announcements").HasKey(a => a.Id);
 
         builder.Property(a => a.Id).HasColumnName("Id").IsRequired();
+        builder.Property(a => a.AnnouncementTypeId).HasColumnName("AnnouncementTypeId");
         builder.Property(a => a.Name).HasColumnName("Name");
         builder.Property(a => a.Description).HasColumnName("Description");
         builder.Property(a => a.IsRead).HasColumnName("IsRead");

@@ -371,6 +371,14 @@ public class OperationClaimConfiguration : IEntityTypeConfiguration<OperationCla
         seeds.Add(new OperationClaim { Id = ++id, Name = "SocialMediaCategories.Update" });
         seeds.Add(new OperationClaim { Id = ++id, Name = "SocialMediaCategories.Delete" });
         #endregion
+        #region AnnouncementTypes
+        seeds.Add(new OperationClaim { Id = ++id, Name = "AnnouncementTypes.Admin" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "AnnouncementTypes.Read" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "AnnouncementTypes.Write" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "AnnouncementTypes.Add" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "AnnouncementTypes.Update" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "AnnouncementTypes.Delete" });
+        #endregion
         return seeds;
     }
 }
