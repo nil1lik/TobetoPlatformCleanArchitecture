@@ -20,8 +20,12 @@ public class MappingProfiles : Profile
         CreateMap<Announcement, UpdatedAnnouncementResponse>().ReverseMap();
         CreateMap<Announcement, DeleteAnnouncementCommand>().ReverseMap();
         CreateMap<Announcement, DeletedAnnouncementResponse>().ReverseMap();
-        CreateMap<Announcement, GetByIdAnnouncementResponse>().ReverseMap();
-        CreateMap<Announcement, GetListAnnouncementListItemDto>().ReverseMap();
+        CreateMap<Announcement, GetByIdAnnouncementResponse>().
+            ForMember(a => a.AnnouncementType, opt => opt.MapFrom(a => a.AnnouncementType.Name)).
+            ReverseMap();
+        CreateMap<Announcement, GetListAnnouncementListItemDto>().
+            ForMember(a => a.AnnouncementType, opt=>opt.MapFrom(a=>a.AnnouncementType.Name)).
+            ReverseMap();
         CreateMap<IPaginate<Announcement>, GetListResponse<GetListAnnouncementListItemDto>>().ReverseMap();
     }
 }
