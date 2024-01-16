@@ -6,5 +6,6 @@ public class GetByIdLanguageResponse : IResponse
 {
     public int Id { get; set; }
     public string Name { get; set; }
-    public int LanguageLevelId { get; set; }
+    public string LanguageLevel { get; set; }
+
 }

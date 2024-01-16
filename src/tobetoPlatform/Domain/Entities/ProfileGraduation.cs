@@ -20,8 +20,5 @@ namespace Domain.Entities
             GraduationId = graduationId;
             UserProfileId = userProfileId;
         }
-
-        
-   
     }
 }

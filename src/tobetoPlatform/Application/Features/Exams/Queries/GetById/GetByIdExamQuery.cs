@@ -3,6 +3,7 @@ using Application.Services.Repositories;
 using AutoMapper;
 using Domain.Entities;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 
 namespace Application.Features.Exams.Queries.GetById;
 
@@ -25,7 +26,9 @@ public class GetByIdExamQuery : IRequest<GetByIdExamResponse>
 
         public async Task<GetByIdExamResponse> Handle(GetByIdExamQuery request, CancellationToken cancellationToken)
         {
-            Exam? exam = await _examRepository.GetAsync(predicate: e => e.Id == request.Id, cancellationToken: cancellationToken);
+            Exam? exam = await _examRepository.GetAsync(predicate: e => e.Id == request.Id, 
+                                                        include: i=>i.Include(i=>i.ExamResult),
+                                                        cancellationToken: cancellationToken);
             await _examBusinessRules.ExamShouldExistWhenSelected(exam);
 
             GetByIdExamResponse response = _mapper.Map<GetByIdExamResponse>(exam);

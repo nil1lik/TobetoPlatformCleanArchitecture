@@ -1,6 +1,7 @@
 using Application.Features.UserProfiles.Rules;
 using Application.Services.Repositories;
 using AutoMapper;
+using Core.Security.Entities;
 using Domain.Entities;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -26,7 +27,9 @@ public class GetByIdUserProfileQuery : IRequest<GetByIdUserProfileResponse>
 
         public async Task<GetByIdUserProfileResponse> Handle(GetByIdUserProfileQuery request, CancellationToken cancellationToken)
         {
-            UserProfile? userProfile = await _userProfileRepository.GetAsync(predicate: up => up.Id == request.Id, 
+            UserProfile? userProfile = await _userProfileRepository.GetAsync(
+                predicate: up => up.Id == request.Id, 
+                include:up=>up.Include(up => up.User),
                 cancellationToken: cancellationToken);
             await _userProfileBusinessRules.UserProfileShouldExistWhenSelected(userProfile);
 

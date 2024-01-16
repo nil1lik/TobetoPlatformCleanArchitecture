@@ -13,7 +13,7 @@ public class UserProfile:Entity<int>
 {
     public int UserId { get; set; }
     //public int ProfileAddressId { get; set; }
-    public int ProfileShareId { get; set; }
+    public int? ProfileShareId { get; set; }
     public string NationalIdentity { get; set; }
     public string Phone { get; set; }
     public DateTime BirthDate { get; set; }

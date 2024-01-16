@@ -3,7 +3,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Persistence.Contexts;
-using Persistence.EntityConfigurations;
 using Persistence.Repositories;
 
 namespace Persistence;
@@ -13,8 +12,7 @@ public static class PersistenceServiceRegistration
     public static IServiceCollection AddPersistenceServices(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddDbContext<BaseDbContext>(options =>
-        options.UseInMemoryDatabase("inMemory"));
-        //UseSqlServer(configuration.GetConnectionString("TobetoPlatformConnectionString")));
+        options.UseSqlServer(configuration.GetConnectionString("TobetoPlatformConnectionString")));
 
 
         services.AddScoped<IEmailAuthenticatorRepository, EmailAuthenticatorRepository>();
@@ -63,6 +61,7 @@ public static class PersistenceServiceRegistration
         services.AddScoped<IExperienceRepository, ExperienceRepository>();
         services.AddScoped<IProfileAddressRepository, ProfileAddressRepository>();
         services.AddScoped<IAnnouncementTypeRepository, AnnouncementTypeRepository>();
+        services.AddScoped<IProfileExamRepository, ProfileExamRepository>();
         return services;
     }
 }
