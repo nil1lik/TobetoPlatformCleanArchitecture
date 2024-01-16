@@ -5,6 +5,7 @@ using Core.Application.Requests;
 using Core.Application.Responses;
 using Core.Persistence.Paging;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 
 namespace Application.Features.Languages.Queries.GetList;
 
@@ -26,6 +27,7 @@ public class GetListLanguageQuery : IRequest<GetListResponse<GetListLanguageList
         public async Task<GetListResponse<GetListLanguageListItemDto>> Handle(GetListLanguageQuery request, CancellationToken cancellationToken)
         {
             IPaginate<Language> languages = await _languageRepository.GetListAsync(
+                include: l => l.Include(x => x.LanguageLevel),
                 index: request.PageRequest.PageIndex,
                 size: request.PageRequest.PageSize, 
                 cancellationToken: cancellationToken
