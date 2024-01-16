@@ -36,6 +36,7 @@ public class DeleteUserCommand : IRequest<DeletedUserResponse>, ISecuredRequest
             await _userRepository.DeleteAsync(user!);
 
             DeletedUserResponse response = _mapper.Map<DeletedUserResponse>(user);
+            response.Message = "Deneyim kaldýrýldý.";
             return response;
         }
     }

@@ -20,7 +20,10 @@ public class MappingProfiles : Profile
         CreateMap<Exam, UpdatedExamResponse>().ReverseMap();
         CreateMap<Exam, DeleteExamCommand>().ReverseMap();
         CreateMap<Exam, DeletedExamResponse>().ReverseMap();
-        CreateMap<Exam, GetByIdExamResponse>().ReverseMap();
+        CreateMap<Exam, GetByIdExamResponse>().
+                        ForMember(i=>i.ExamResultCreatedDate, opt=> opt.MapFrom(i=>i.ExamResult.CreatedDate)).
+                        ForMember(i => i.ExamPoint, opt => opt.MapFrom(i => i.ExamResult.Point)).
+                        ReverseMap();
         CreateMap<Exam, GetListExamListItemDto>().ReverseMap();
         CreateMap<IPaginate<Exam>, GetListResponse<GetListExamListItemDto>>().ReverseMap();
     }
