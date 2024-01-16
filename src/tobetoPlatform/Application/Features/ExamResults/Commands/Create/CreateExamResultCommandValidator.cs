@@ -7,9 +7,9 @@ public class CreateExamResultCommandValidator : AbstractValidator<CreateExamResu
     public CreateExamResultCommandValidator()
     {
         RuleFor(c => c.ExamId).NotEmpty();
-        RuleFor(c => c.Correct).NotEmpty();
-        RuleFor(c => c.Wrong).NotEmpty();
-        RuleFor(c => c.Empty).NotEmpty();
+        RuleFor(c => c.Correct);
+        RuleFor(c => c.Wrong);
+        RuleFor(c => c.Empty);
         RuleFor(c => c.Point).NotEmpty();
     }
 }

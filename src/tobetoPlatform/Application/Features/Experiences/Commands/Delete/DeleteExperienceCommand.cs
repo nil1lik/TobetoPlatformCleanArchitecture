@@ -33,7 +33,6 @@ public class DeleteExperienceCommand : IRequest<DeletedExperienceResponse>
             await _experienceRepository.DeleteAsync(experience!);
 
             DeletedExperienceResponse response = _mapper.Map<DeletedExperienceResponse>(experience);
-            response.Message = "Deneyim kaldýrýldý";
             return response;
         }
     }

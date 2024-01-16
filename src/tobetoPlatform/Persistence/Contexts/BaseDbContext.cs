@@ -56,6 +56,7 @@ public class BaseDbContext : DbContext
     public DbSet<SocialMediaCategory> SocialMediaCategories { get; set; }
     public DbSet<ProfileAddress> ProfileAddresses { get; set; }
     public DbSet<AnnouncementType> AnnouncementTypes { get; set; }
+    public DbSet<ProfileExam> ProfileExams { get; set; }
 
 
 

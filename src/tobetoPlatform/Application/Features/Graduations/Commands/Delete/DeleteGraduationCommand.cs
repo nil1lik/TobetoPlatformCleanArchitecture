@@ -33,7 +33,7 @@ public class DeleteGraduationCommand : IRequest<DeletedGraduationResponse>
             await _graduationRepository.DeleteAsync(graduation!);
 
             DeletedGraduationResponse response = _mapper.Map<DeletedGraduationResponse>(graduation);
-            response.Message = "Eðitim kaldýrýldý";
+            response.Message = "Eðitim kaldýrýldý.";
             return response;
         }
     }
