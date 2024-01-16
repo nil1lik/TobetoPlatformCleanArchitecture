@@ -9,18 +9,19 @@ namespace Domain.Entities;
 
 public class District : Entity<int>
 {
+    public int CityId { get; set; }
     public string Name { get; set; }
 
-    public ICollection<ProfileAddress> ProfileAddresses { get; set; }
-
+    public virtual City City { get; set; }
     public District()
     {
 
     }
 
-    public District(string name, int id) : this()
+    public District(int id, int cityId, string name):this()
     {
         Id = id;
+        CityId = cityId;
         Name = name;
     }
 }
