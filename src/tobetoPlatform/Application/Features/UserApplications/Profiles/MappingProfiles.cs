@@ -20,8 +20,14 @@ public class MappingProfiles : Profile
         CreateMap<UserApplication, UpdatedUserApplicationResponse>().ReverseMap();
         CreateMap<UserApplication, DeleteUserApplicationCommand>().ReverseMap();
         CreateMap<UserApplication, DeletedUserApplicationResponse>().ReverseMap();
-        CreateMap<UserApplication, GetByIdUserApplicationResponse>().ReverseMap();
-        CreateMap<UserApplication, GetListUserApplicationListItemDto>().ReverseMap();
+        CreateMap<UserApplication, GetByIdUserApplicationResponse>()
+                                                 .ForMember(dest => dest.ApplicationStepName,
+                                                 opt => opt.MapFrom(src => src.ApplicationSteps.Select(step => step.Name).FirstOrDefault()))
+                                                 .ReverseMap();
+        CreateMap<UserApplication, GetListUserApplicationListItemDto>()
+                                                 .ForMember(dest => dest.ApplicationStepName,
+                                                 opt => opt.MapFrom(src => src.ApplicationSteps.Select(step => step.Name).ToList()))
+                                                 .ReverseMap();
         CreateMap<IPaginate<UserApplication>, GetListResponse<GetListUserApplicationListItemDto>>().ReverseMap();
     }
 }
