@@ -25,7 +25,6 @@ using Application.Services.Certificates;
 using Application.Services.Cities;
 using Application.Services.Companies;
 using Application.Services.Contacts;
-using Application.Services.Countries;
 using Application.Services.Courses;
 using Application.Services.CourseClasses;
 using Application.Services.SyncLessons;
@@ -92,7 +91,6 @@ public static class ApplicationServiceRegistration
         services.AddScoped<ICitiesService, CitiesManager>();
         services.AddScoped<ICompaniesService, CompaniesManager>();
         services.AddScoped<IContactsService, ContactsManager>();
-        services.AddScoped<ICountriesService, CountriesManager>();
         services.AddScoped<ICoursesService, CoursesManager>();
         services.AddScoped<ICourseClassesService, CourseClassesManager>();
         services.AddScoped<ISyncLessonsService, SyncLessonsManager>();

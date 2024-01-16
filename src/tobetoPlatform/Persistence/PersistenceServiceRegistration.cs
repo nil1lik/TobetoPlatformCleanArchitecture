@@ -32,7 +32,6 @@ public static class PersistenceServiceRegistration
         services.AddScoped<ICityRepository, CityRepository>();
         services.AddScoped<ICompanyRepository, CompanyRepository>();
         services.AddScoped<IContactRepository, ContactRepository>();
-        services.AddScoped<ICountryRepository, CountryRepository>();
         services.AddScoped<ICourseRepository, CourseRepository>();
         services.AddScoped<ICourseClassRepository, CourseClassRepository>();
         services.AddScoped<ISyncLessonRepository, SyncLessonRepository>();

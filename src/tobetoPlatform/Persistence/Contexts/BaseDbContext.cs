@@ -18,7 +18,6 @@ public class BaseDbContext : DbContext
     public DbSet<Skill> Skills { get; set; }
     public DbSet<Exam> Exams { get; set; }
     public DbSet<City> Cities { get; set; }
-    public DbSet<Country> Countries { get; set; }
     public DbSet<District> Districts { get; set; }
     public DbSet<CourseClass> CourseClasses { get; set; }
     public DbSet<AsyncLesson> AsyncLessons { get; set; }
