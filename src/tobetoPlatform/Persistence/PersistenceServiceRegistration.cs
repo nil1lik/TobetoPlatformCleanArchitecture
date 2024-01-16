@@ -63,5 +63,6 @@ public static class PersistenceServiceRegistration
         services.AddScoped<IAnnouncementTypeRepository, AnnouncementTypeRepository>();
         services.AddScoped<IProfileExamRepository, ProfileExamRepository>();
         return services;
+
     }
 }
