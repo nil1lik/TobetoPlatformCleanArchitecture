@@ -28,9 +28,7 @@ public class GetByIdProfileAddressQuery : IRequest<GetByIdProfileAddressResponse
         {
             ProfileAddress? profileAddress = await _profileAddressRepository.GetAsync(
                 predicate: pa => pa.Id == request.Id, 
-                include:p => p.Include(x => x.City).
-                                Include(x => x.Country).
-                                Include(x => x.District),
+                include:p => p.Include(x => x.City),
                 cancellationToken: cancellationToken);
 
             await _profileAddressBusinessRules.ProfileAddressShouldExistWhenSelected(profileAddress);

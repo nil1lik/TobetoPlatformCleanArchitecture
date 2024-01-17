@@ -6,6 +6,7 @@ public class CreateAnnouncementCommandValidator : AbstractValidator<CreateAnnoun
 {
     public CreateAnnouncementCommandValidator()
     {
+        RuleFor(c => c.AnnouncementTypeId).NotEmpty();
         RuleFor(c => c.Name).NotEmpty();
         RuleFor(c => c.Description).NotEmpty();
         RuleFor(c => c.IsRead).NotEmpty();

@@ -10,6 +10,8 @@ public class City : Entity<int>
 {
     public string Name { get; set; }
 
+    
+    public virtual ICollection<District> Districts { get; set; }
     public virtual ICollection<ProfileAddress> ProfileAdresses { get; set; }
     public virtual ICollection<Experience> Experiences { get; set; }
 
