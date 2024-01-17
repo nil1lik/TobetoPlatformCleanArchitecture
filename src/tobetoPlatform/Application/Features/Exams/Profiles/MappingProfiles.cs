@@ -24,7 +24,10 @@ public class MappingProfiles : Profile
                         ForMember(i=>i.ExamResultCreatedDate, opt=> opt.MapFrom(i=>i.ExamResult.CreatedDate)).
                         ForMember(i => i.ExamPoint, opt => opt.MapFrom(i => i.ExamResult.Point)).
                         ReverseMap();
-        CreateMap<Exam, GetListExamListItemDto>().ReverseMap();
+        CreateMap<Exam, GetListExamListItemDto>().
+            ForMember(p=>p.ExamPoint,opt=>opt.MapFrom(p=>p.ExamResult.Point)).
+            ForMember(p=>p.ExamResultCreatedDate,opt=>opt.MapFrom(p=>p.ExamResult.CreatedDate))
+            .ReverseMap();
         CreateMap<IPaginate<Exam>, GetListResponse<GetListExamListItemDto>>().ReverseMap();
     }
 }
