@@ -402,5 +402,6 @@ FodyWeavers.xsd
 *.sln.iml
 /src/tobetoPlatform/Persistence/Migrations
 
+*.DS_Store
 .DS_Store
 

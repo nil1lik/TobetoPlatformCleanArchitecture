@@ -19,8 +19,6 @@ public class ProfileAddressRepository : EfRepositoryBase<ProfileAddress, int, Ba
     {
         var x = Context.ProfileAddresses.
             Include(x=>x.City).
-            Include(x=>x.Country).
-            Include(x=>x.District).
             FirstOrDefault(x=>x.UserProfileId == userId);
         return x;
     }
