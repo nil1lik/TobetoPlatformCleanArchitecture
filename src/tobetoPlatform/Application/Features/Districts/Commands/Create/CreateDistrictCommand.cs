@@ -8,6 +8,7 @@ namespace Application.Features.Districts.Commands.Create;
 
 public class CreateDistrictCommand : IRequest<CreatedDistrictResponse>
 {
+    public int CityId { get; set; }
     public string Name { get; set; }
 
     public class CreateDistrictCommandHandler : IRequestHandler<CreateDistrictCommand, CreatedDistrictResponse>
