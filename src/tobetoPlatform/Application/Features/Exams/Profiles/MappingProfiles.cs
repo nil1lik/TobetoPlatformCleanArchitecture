@@ -7,6 +7,7 @@ using AutoMapper;
 using Core.Application.Responses;
 using Domain.Entities;
 using Core.Persistence.Paging;
+using Application.Features.Exams.Queries.GetByIdExamResult;
 
 namespace Application.Features.Exams.Profiles;
 
@@ -20,14 +21,12 @@ public class MappingProfiles : Profile
         CreateMap<Exam, UpdatedExamResponse>().ReverseMap();
         CreateMap<Exam, DeleteExamCommand>().ReverseMap();
         CreateMap<Exam, DeletedExamResponse>().ReverseMap();
-        CreateMap<Exam, GetByIdExamResponse>().
-                        ForMember(i=>i.ExamResultCreatedDate, opt=> opt.MapFrom(i=>i.ExamResult.CreatedDate)).
-                        ForMember(i => i.ExamPoint, opt => opt.MapFrom(i => i.ExamResult.Point)).
-                        ReverseMap();
-        CreateMap<Exam, GetListExamListItemDto>().
-            ForMember(p=>p.ExamPoint,opt=>opt.MapFrom(p=>p.ExamResult.Point)).
-            ForMember(p=>p.ExamResultCreatedDate,opt=>opt.MapFrom(p=>p.ExamResult.CreatedDate))
-            .ReverseMap();
+        CreateMap<Exam, GetByIdExamResponse>().ReverseMap();
+        CreateMap<Exam, GetByIdExamResultDTO>().
+            ForMember(x => x.ExamPoint, opt=>opt.MapFrom(x=>x.ExamResult.Point)).
+            ForMember(x => x.ExamResultCreatedDate, opt=>opt.MapFrom(x=>x.ExamResult.CreatedDate)).
+            ReverseMap();
+        CreateMap<Exam, GetListExamListItemDto>().ReverseMap();
         CreateMap<IPaginate<Exam>, GetListResponse<GetListExamListItemDto>>().ReverseMap();
     }
 }

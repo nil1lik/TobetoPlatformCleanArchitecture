@@ -27,7 +27,6 @@ public class GetByIdExamQuery : IRequest<GetByIdExamResponse>
         public async Task<GetByIdExamResponse> Handle(GetByIdExamQuery request, CancellationToken cancellationToken)
         {
             Exam? exam = await _examRepository.GetAsync(predicate: e => e.Id == request.Id, 
-                                                        include: i=>i.Include(i=>i.ExamResult),
                                                         cancellationToken: cancellationToken);
             await _examBusinessRules.ExamShouldExistWhenSelected(exam);
 
