@@ -7,6 +7,9 @@ using AutoMapper;
 using Core.Application.Responses;
 using Domain.Entities;
 using Core.Persistence.Paging;
+using Application.Features.Announcements.Queries.GetAnnouncementDetail;
+using Application.Features.Announcements.Queries.GetAnnouncementTypeDetailList;
+using OtpNet;
 
 namespace Application.Features.Announcements.Profiles;
 
@@ -20,12 +23,17 @@ public class MappingProfiles : Profile
         CreateMap<Announcement, UpdatedAnnouncementResponse>().ReverseMap();
         CreateMap<Announcement, DeleteAnnouncementCommand>().ReverseMap();
         CreateMap<Announcement, DeletedAnnouncementResponse>().ReverseMap();
-        CreateMap<Announcement, GetByIdAnnouncementResponse>().
-            ForMember(a => a.AnnouncementType, opt => opt.MapFrom(a => a.AnnouncementType.Name)).
-            ReverseMap();
-        CreateMap<Announcement, GetListAnnouncementListItemDto>().
-            ForMember(a => a.AnnouncementType, opt=>opt.MapFrom(a=>a.AnnouncementType.Name)).
-            ReverseMap();
+        CreateMap<Announcement, GetByIdAnnouncementResponse>().ReverseMap();
+        CreateMap<Announcement, GetListAnnouncementListItemDto>().ReverseMap();
+        CreateMap<Announcement, GetAnnouncementTypeDetailListDto>()
+            .ForMember(a => a.AnnouncementTypeName, opt => opt.MapFrom(a => a.AnnouncementType.Name))
+            .ReverseMap();
+        CreateMap<Announcement, GetAnnouncementTypeDetailDto>().
+            ForMember(a => a.AnnouncementTypeName, opt => opt.MapFrom(a => a.AnnouncementType.Name))
+            .ReverseMap(); 
         CreateMap<IPaginate<Announcement>, GetListResponse<GetListAnnouncementListItemDto>>().ReverseMap();
+        CreateMap<IPaginate<Announcement>, GetListResponse<GetAnnouncementTypeDetailListDto>>().ReverseMap(); 
+          
     }
 }
+
