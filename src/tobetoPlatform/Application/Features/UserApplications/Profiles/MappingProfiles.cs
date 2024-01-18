@@ -7,6 +7,8 @@ using AutoMapper;
 using Core.Application.Responses;
 using Domain.Entities;
 using Core.Persistence.Paging;
+using Application.Features.UserApplications.Queries.GetApplicationDetail;
+using Application.Features.UserApplications.Queries.GetApplicationDetailList;
 
 namespace Application.Features.UserApplications.Profiles;
 
@@ -20,14 +22,16 @@ public class MappingProfiles : Profile
         CreateMap<UserApplication, UpdatedUserApplicationResponse>().ReverseMap();
         CreateMap<UserApplication, DeleteUserApplicationCommand>().ReverseMap();
         CreateMap<UserApplication, DeletedUserApplicationResponse>().ReverseMap();
-        CreateMap<UserApplication, GetByIdUserApplicationResponse>()
-                                                 .ForMember(dest => dest.ApplicationStepName,
-                                                 opt => opt.MapFrom(src => src.ApplicationSteps.Select(step => step.Name).FirstOrDefault()))
-                                                 .ReverseMap();
-        CreateMap<UserApplication, GetListUserApplicationListItemDto>()
+        CreateMap<UserApplication, GetByIdUserApplicationResponse>().ReverseMap();
+        CreateMap<UserApplication, GetListApplicationDetailListItemDto>()
                                                  .ForMember(dest => dest.ApplicationStepName,
                                                  opt => opt.MapFrom(src => src.ApplicationSteps.Select(step => step.Name).ToList()))
                                                  .ReverseMap();
+        CreateMap<UserApplication, GetApplicationDetailResponse>()
+                                                 .ForMember(dest => dest.ApplicationStepName,
+                                                 opt => opt.MapFrom(src => src.ApplicationSteps.Select(step => step.Name).FirstOrDefault()))
+                                                 .ReverseMap();
+        CreateMap<IPaginate<UserApplication>, GetListResponse<GetListApplicationDetailListItemDto>>().ReverseMap();
         CreateMap<IPaginate<UserApplication>, GetListResponse<GetListUserApplicationListItemDto>>().ReverseMap();
     }
 }
