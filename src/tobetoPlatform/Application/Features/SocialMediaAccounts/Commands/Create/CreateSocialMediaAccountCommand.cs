@@ -30,7 +30,7 @@ public class CreateSocialMediaAccountCommand : IRequest<CreatedSocialMediaAccoun
         {
             SocialMediaAccount socialMediaAccount = _mapper.Map<SocialMediaAccount>(request);
 
-            await _socialMediaAccountBusinessRules.SocialMediaAccountsShouldNotBeTheSame(request.UserProfileId, socialMediaAccount);
+            await _socialMediaAccountBusinessRules.SocialMediaAccountsShouldNotBeDuplicated(request.UserProfileId, socialMediaAccount);
             await _socialMediaAccountBusinessRules.CheckUserSocialMediaAccountLimit(request.UserProfileId);
 
             await _socialMediaAccountRepository.AddAsync(socialMediaAccount);
@@ -38,9 +38,5 @@ public class CreateSocialMediaAccountCommand : IRequest<CreatedSocialMediaAccoun
             response.Message = "Sosyal medya adresiniz baþarýyla eklendi";
             return response;
         }
-
-       
-
-
     }
 }

@@ -12,8 +12,8 @@ public static class PersistenceServiceRegistration
     public static IServiceCollection AddPersistenceServices(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddDbContext<BaseDbContext>(options =>
-        //options.UseSqlServer(configuration.GetConnectionString("TobetoPlatformConnectionString")));
-        options.UseInMemoryDatabase("inMemory"));
+        options.UseSqlServer(configuration.GetConnectionString("TobetoPlatformConnectionString")));
+        //options.UseInMemoryDatabase("inMemory"));
 
 
         services.AddScoped<IEmailAuthenticatorRepository, EmailAuthenticatorRepository>();
