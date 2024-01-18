@@ -17,9 +17,9 @@ namespace Domain.Entities
         public virtual AnnouncementType AnnouncementType { get; set; }
         public virtual ICollection<ProfileAnnouncement>? ProfileAnnouncement { get; set; }
 
-        public Announcement()
+        public Announcement() 
         {
-
+            
         } 
 
         public Announcement(string name, bool isRead, string description, int id) : this()
