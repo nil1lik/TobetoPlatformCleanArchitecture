@@ -13,8 +13,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Features.Cities.Queries.GetDistrictListByCityId;
-public class GetDistrictListCityQuery:IRequest<GetListResponse<GetDistrictListCityListItemDto>>
+namespace Application.Features.Cities.Queries.GetDistrictList;
+
+public class GetDistrictListCityQuery : IRequest<GetListResponse<GetDistrictListCityListItemDto>>
 {
     public PageRequest PageRequest { get; set; }
 

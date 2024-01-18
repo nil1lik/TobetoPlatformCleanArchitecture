@@ -12,7 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Features.Cities.Queries.GetDistrictByCityId;
+namespace Application.Features.Cities.Queries.GetDistrictById;
 public class GetDistrictByIdCityQuery : IRequest<GetDistrictByIdCityResponse>
 {
     public int Id { get; set; }
