@@ -24,4 +24,4 @@ public class MappingProfiles : Profile
         CreateMap<EducationPath, GetListEducationPathListItemDto>().ReverseMap();
         CreateMap<IPaginate<EducationPath>, GetListResponse<GetListEducationPathListItemDto>>().ReverseMap();
     }
-}
+} 

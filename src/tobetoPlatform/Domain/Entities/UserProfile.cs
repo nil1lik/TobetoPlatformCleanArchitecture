@@ -13,11 +13,11 @@ public class UserProfile:Entity<int>
 {
     public int UserId { get; set; }
     //public int ProfileAddressId { get; set; }
-    public int ProfileShareId { get; set; }
+    public int? ProfileShareId { get; set; }
     public string NationalIdentity { get; set; }
     public string Phone { get; set; }
     public DateTime BirthDate { get; set; }
-    public string? Description { get; set; }
+    public string? Description { get; set; } 
 
     public virtual User User { get; set; }
     public virtual ProfileShare ProfileShare { get; set; }
