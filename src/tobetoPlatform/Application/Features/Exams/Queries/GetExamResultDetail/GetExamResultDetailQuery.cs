@@ -1,6 +1,4 @@
-﻿using Amazon.Runtime.Internal;
-using Application.Features.Exams.Queries.GetById;
-using Application.Features.Exams.Rules;
+﻿using Application.Features.Exams.Rules;
 using Application.Services.Repositories;
 using AutoMapper;
 using Domain.Entities;
@@ -13,11 +11,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Application.Features.Exams.Queries.GetByIdExamResult;
-public class GetByIdExamResultQuery : IRequest<GetByIdExamResultDTO>
+public class GetExamResultDetailQuery : IRequest<GetExamResultDetailDTO>
 {
     public int Id { get; set; }
 
-    public class GetByIdExamResultQueryHandler : IRequestHandler<GetByIdExamResultQuery, GetByIdExamResultDTO>
+    public class GetByIdExamResultQueryHandler : IRequestHandler<GetExamResultDetailQuery, GetExamResultDetailDTO>
     {
         private readonly IMapper _mapper;
         private readonly IExamRepository _examRepository;
@@ -30,14 +28,14 @@ public class GetByIdExamResultQuery : IRequest<GetByIdExamResultDTO>
             _examBusinessRules = examBusinessRules;
         }
 
-        public async Task<GetByIdExamResultDTO> Handle(GetByIdExamResultQuery request, CancellationToken cancellationToken)
+        public async Task<GetExamResultDetailDTO> Handle(GetExamResultDetailQuery request, CancellationToken cancellationToken)
         {
             Exam? exam = await _examRepository.GetAsync(predicate: e => e.Id == request.Id,
-                                                        include:p=>p.Include(p=>p.ExamResult),
+                                                        include: p => p.Include(p => p.ExamResult),
                                                         cancellationToken: cancellationToken);
             await _examBusinessRules.ExamShouldExistWhenSelected(exam);
 
-            GetByIdExamResultDTO response = _mapper.Map<GetByIdExamResultDTO>(exam);
+            GetExamResultDetailDTO response = _mapper.Map<GetExamResultDetailDTO>(exam);
             return response;
         }
     }
