@@ -1,6 +1,8 @@
 using Application.Features.UserApplications.Commands.Create;
 using Application.Features.UserApplications.Commands.Delete;
 using Application.Features.UserApplications.Commands.Update;
+using Application.Features.UserApplications.Queries.GetApplicationDetail;
+using Application.Features.UserApplications.Queries.GetApplicationDetailList;
 using Application.Features.UserApplications.Queries.GetById;
 using Application.Features.UserApplications.Queries.GetList;
 using Core.Application.Requests;
@@ -36,13 +38,29 @@ public class UserApplicationsController : BaseController
 
         return Ok(response);
     }
-
+    
     [HttpGet("{id}")]
     public async Task<IActionResult> GetById([FromRoute] int id)
     {
         GetByIdUserApplicationResponse response = await Mediator.Send(new GetByIdUserApplicationQuery { Id = id });
         return Ok(response);
     }
+
+    [HttpGet("getApplicationDetail/{id}")]
+    public async Task<IActionResult> GetApplicationDetail([FromRoute] int id)
+    {
+        GetApplicationDetailResponse response = await Mediator.Send(new GetApplicationDetailQuery { Id = id });
+        return Ok(response);
+    }
+
+    [HttpGet("getApplicationDetailList")]
+    public async Task<IActionResult> GetApplicationDetailList([FromQuery] PageRequest pageRequest)
+    {
+        GetListApplicationDetailQuery getListApplicationDetailQuery = new() { PageRequest = pageRequest };
+        GetListResponse<GetListApplicationDetailListItemDto> response = await Mediator.Send(getListApplicationDetailQuery);
+        return Ok(response);
+    }
+
 
     [HttpGet]
     public async Task<IActionResult> GetList([FromQuery] PageRequest pageRequest)

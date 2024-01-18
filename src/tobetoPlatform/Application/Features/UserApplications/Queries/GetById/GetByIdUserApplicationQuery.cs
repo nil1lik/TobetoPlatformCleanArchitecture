@@ -29,9 +29,9 @@ public class GetByIdUserApplicationQuery : IRequest<GetByIdUserApplicationRespon
         public async Task<GetByIdUserApplicationResponse> Handle(GetByIdUserApplicationQuery request, CancellationToken cancellationToken)
         {
             
-            UserApplication? userApplication = await _userApplicationRepository.GetAsync(predicate: ua => ua.Id == request.Id,
-                                                                                         include: p=> p.Include(p=>p.ApplicationSteps),
-                                                                                         cancellationToken: cancellationToken);
+            UserApplication? userApplication = await _userApplicationRepository.GetAsync(
+                predicate: ua => ua.Id == request.Id,
+                cancellationToken: cancellationToken);
 
             await _userApplicationBusinessRules.UserApplicationShouldExistWhenSelected(userApplication);
 
