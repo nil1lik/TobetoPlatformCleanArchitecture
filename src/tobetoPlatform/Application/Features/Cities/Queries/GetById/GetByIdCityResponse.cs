@@ -6,4 +6,5 @@ public class GetByIdCityResponse : IResponse
 {
     public int Id { get; set; }
     public string Name { get; set; }
+    public List<string> Districts { get; set; }
 }

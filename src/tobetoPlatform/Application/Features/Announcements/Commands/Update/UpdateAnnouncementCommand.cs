@@ -9,6 +9,7 @@ namespace Application.Features.Announcements.Commands.Update;
 public class UpdateAnnouncementCommand : IRequest<UpdatedAnnouncementResponse>
 {
     public int Id { get; set; }
+    public int AnnouncementTypeId { get; set; }
     public string Name { get; set; }
     public string Description { get; set; }
     public bool IsRead { get; set; }

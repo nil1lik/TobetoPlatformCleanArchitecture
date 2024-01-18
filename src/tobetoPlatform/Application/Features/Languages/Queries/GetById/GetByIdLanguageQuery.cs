@@ -3,6 +3,7 @@ using Application.Services.Repositories;
 using AutoMapper;
 using Domain.Entities;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 
 namespace Application.Features.Languages.Queries.GetById;
 
@@ -25,7 +26,10 @@ public class GetByIdLanguageQuery : IRequest<GetByIdLanguageResponse>
 
         public async Task<GetByIdLanguageResponse> Handle(GetByIdLanguageQuery request, CancellationToken cancellationToken)
         {
-            Language? language = await _languageRepository.GetAsync(predicate: l => l.Id == request.Id, cancellationToken: cancellationToken);
+            Language? language = await _languageRepository.GetAsync(
+                predicate: l => l.Id == request.Id, 
+                include : l=>l.Include(x=>x.LanguageLevel),
+                cancellationToken: cancellationToken);
             await _languageBusinessRules.LanguageShouldExistWhenSelected(language);
 
             GetByIdLanguageResponse response = _mapper.Map<GetByIdLanguageResponse>(language);

@@ -49,6 +49,6 @@ public class ProfileShareBusinessRules : BaseBusinessRules
             return profileShare.ProfileUrl;
         }
         throw new BusinessException(ProfileSharesBusinessMessages.NoPermissionToShareProfile);
-
+        //frontend'de kontrolü yapýlabilir.
     }
 }

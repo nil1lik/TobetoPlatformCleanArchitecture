@@ -30,24 +30,11 @@ public class CreateProfileAddressCommand : IRequest<CreatedProfileAddressRespons
 
         public async Task<CreatedProfileAddressResponse> Handle(CreateProfileAddressCommand request, CancellationToken cancellationToken)
         {
-            var ProfileAddresses  = _profileAddressRepository.GetCreatedProfileAddresss(request.UserProfileId);
-            if (ProfileAddresses == null)
-            {
-                ProfileAddress profileAddress = _mapper.Map<ProfileAddress>(request);
-                await _profileAddressRepository.AddAsync(profileAddress);
+            ProfileAddress profileAddress = _mapper.Map<ProfileAddress>(request);
+            await _profileAddressRepository.AddAsync(profileAddress);
 
-                CreatedProfileAddressResponse response = _mapper.Map<CreatedProfileAddressResponse>(profileAddress);
-                return response;
-            }
-            else
-            {
-                var updateAdress = _mapper.Map(request, ProfileAddresses);
-                await _profileAddressRepository.UpdateAsync(updateAdress);
-                CreatedProfileAddressResponse response = _mapper.Map<CreatedProfileAddressResponse>(updateAdress);
-                return response;
-
-            }
+            CreatedProfileAddressResponse response = _mapper.Map<CreatedProfileAddressResponse>(profileAddress);
+            return response;
         }
-
     }
 }
