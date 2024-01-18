@@ -31,7 +31,7 @@ public class CreateLanguageCommand : IRequest<CreatedLanguageResponse>
             await _languageBusinessRules.LanguageShouldNotBeTheSame(request.Name, language);
             await _languageRepository.AddAsync(language);
             CreatedLanguageResponse response = _mapper.Map<CreatedLanguageResponse>(language);
-            response.Message = "Yabancý dil bilgisi eklendi";
+            response.Message = "YabancÄ± dil bilgisi eklendi";
             return response;
         }
     }

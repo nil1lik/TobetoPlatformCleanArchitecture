@@ -2,6 +2,8 @@ using Application.Features.Cities.Commands.Create;
 using Application.Features.Cities.Commands.Delete;
 using Application.Features.Cities.Commands.Update;
 using Application.Features.Cities.Queries.GetById;
+using Application.Features.Cities.Queries.GetDistrictById;
+using Application.Features.Cities.Queries.GetDistrictList;
 using Application.Features.Cities.Queries.GetList;
 using Core.Application.Requests;
 using Core.Application.Responses;
@@ -44,11 +46,26 @@ public class CitiesController : BaseController
         return Ok(response);
     }
 
+    [HttpGet("getDistrict/{id}")]
+    public async Task<IActionResult> GetDistrictById([FromRoute] int id)
+    {
+        GetDistrictByIdCityResponse response = await Mediator.Send(new GetDistrictByIdCityQuery { Id = id });
+        return Ok(response);
+    }
+
     [HttpGet]
     public async Task<IActionResult> GetList([FromQuery] PageRequest pageRequest)
     {
         GetListCityQuery getListCityQuery = new() { PageRequest = pageRequest };
         GetListResponse<GetListCityListItemDto> response = await Mediator.Send(getListCityQuery);
+        return Ok(response);
+    }
+
+    [HttpGet("getDistrictList")]
+    public async Task<IActionResult> GetDistrictList([FromQuery] PageRequest pageRequest)
+    {
+        GetDistrictListCityQuery getDistrictListCityQuery = new() { PageRequest = pageRequest };
+        GetListResponse<GetDistrictListCityListItemDto> response = await Mediator.Send(getDistrictListCityQuery);
         return Ok(response);
     }
 }

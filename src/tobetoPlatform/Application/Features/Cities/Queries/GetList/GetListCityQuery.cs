@@ -5,6 +5,7 @@ using Core.Application.Requests;
 using Core.Application.Responses;
 using Core.Persistence.Paging;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 
 namespace Application.Features.Cities.Queries.GetList;
 
@@ -26,6 +27,7 @@ public class GetListCityQuery : IRequest<GetListResponse<GetListCityListItemDto>
         public async Task<GetListResponse<GetListCityListItemDto>> Handle(GetListCityQuery request, CancellationToken cancellationToken)
         {
             IPaginate<City> cities = await _cityRepository.GetListAsync(
+                include:p=>p.Include(p=>p.Districts),
                 index: request.PageRequest.PageIndex,
                 size: request.PageRequest.PageSize, 
                 cancellationToken: cancellationToken

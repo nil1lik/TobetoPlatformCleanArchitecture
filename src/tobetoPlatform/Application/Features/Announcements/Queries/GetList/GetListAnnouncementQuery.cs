@@ -5,6 +5,7 @@ using Core.Application.Requests;
 using Core.Application.Responses;
 using Core.Persistence.Paging;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 
 namespace Application.Features.Announcements.Queries.GetList;
 
@@ -26,6 +27,7 @@ public class GetListAnnouncementQuery : IRequest<GetListResponse<GetListAnnounce
         public async Task<GetListResponse<GetListAnnouncementListItemDto>> Handle(GetListAnnouncementQuery request, CancellationToken cancellationToken)
         {
             IPaginate<Announcement> announcements = await _announcementRepository.GetListAsync(
+                include: a=> a.Include(a=>a.AnnouncementType),
                 index: request.PageRequest.PageIndex,
                 size: request.PageRequest.PageSize, 
                 cancellationToken: cancellationToken

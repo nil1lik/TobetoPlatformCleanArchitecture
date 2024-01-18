@@ -1,4 +1,6 @@
+using Application.Features.ExamResults.Queries.GetList;
 using Core.Application.Dtos;
+using Domain.Entities;
 
 namespace Application.Features.Exams.Queries.GetList;
 
