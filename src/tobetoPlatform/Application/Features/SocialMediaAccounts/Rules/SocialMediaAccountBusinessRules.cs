@@ -46,19 +46,13 @@ public class SocialMediaAccountBusinessRules : BaseBusinessRules
     }
 
 
-    public async Task SocialMediaAccountsShouldNotBeTheSame(int id, SocialMediaAccount? socialMediaAccount)
+    public async Task SocialMediaAccountsShouldNotBeDuplicated(int id, SocialMediaAccount? socialMediaAccount)
     {
-        IPaginate<SocialMediaAccount> result = await _socialMediaAccountRepository.GetListAsync(b => b.Id == id);
+        IPaginate<SocialMediaAccount> result = await _socialMediaAccountRepository.GetListAsync(b => b.Id == id);//kontrol et
 
         if (result.Items.Any() && socialMediaAccount != null && socialMediaAccount.MediaUrl == result.Items.First().MediaUrl)
         {
-            throw new BusinessException(SocialMediaAccountsBusinessMessages.SocialMediaAccountsShouldNotBeTheSame);
+            throw new BusinessException(SocialMediaAccountsBusinessMessages.SocialMediaAccountsShouldNotBeDuplicated);
         }
     }
-
-
-
-
-
-
 }
