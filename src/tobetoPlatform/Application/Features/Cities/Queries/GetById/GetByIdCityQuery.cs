@@ -26,8 +26,7 @@ public class GetByIdCityQuery : IRequest<GetByIdCityResponse>
 
         public async Task<GetByIdCityResponse> Handle(GetByIdCityQuery request, CancellationToken cancellationToken)
         {
-            City? city = await _cityRepository.GetAsync(predicate: c => c.Id == request.Id,
-                    include: p=>p.Include(p=>p.Districts),        
+            City? city = await _cityRepository.GetAsync(predicate: c => c.Id == request.Id,      
                     cancellationToken: cancellationToken);
             await _cityBusinessRules.CityShouldExistWhenSelected(city);
 
