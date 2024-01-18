@@ -1,6 +1,9 @@
 using Application.Features.Announcements.Commands.Create;
 using Application.Features.Announcements.Commands.Delete;
 using Application.Features.Announcements.Commands.Update;
+using Application.Features.Announcements.Queries.GetAnnouncementDetail;
+using Application.Features.Announcements.Queries.GetAnnouncementTypeDetail;
+using Application.Features.Announcements.Queries.GetAnnouncementTypeDetailList;
 using Application.Features.Announcements.Queries.GetById;
 using Application.Features.Announcements.Queries.GetList;
 using Core.Application.Requests;
@@ -41,6 +44,21 @@ public class AnnouncementsController : BaseController
     public async Task<IActionResult> GetById([FromRoute] int id)
     {
         GetByIdAnnouncementResponse response = await Mediator.Send(new GetByIdAnnouncementQuery { Id = id });
+        return Ok(response);
+    }
+
+    [HttpGet("AnnouncementDto/{id}")]
+    public async Task<IActionResult> GetByIdAnnouncementType([FromRoute] int id)
+    {
+        GetAnnouncementTypeDetailDto response = await Mediator.Send(new GetAnnouncementTypeDetailQuery { Id = id });
+        return Ok(response);
+    }
+
+    [HttpGet("AnnouncementTypeList")]
+    public async Task<IActionResult> GetAnnouncementTypeList([FromQuery] PageRequest pageRequest)
+    {
+        GetAnnouncementTypeDetailListQuery getListAnnouncementTypeQuery = new() { PageRequest = pageRequest };
+        GetListResponse<GetAnnouncementTypeDetailListDto> response = await Mediator.Send(getListAnnouncementTypeQuery);
         return Ok(response);
     }
 
