@@ -3,6 +3,7 @@ using Application.Services.Repositories;
 using AutoMapper;
 using Domain.Entities;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 
 namespace Application.Features.Cities.Queries.GetById;
 
@@ -25,7 +26,8 @@ public class GetByIdCityQuery : IRequest<GetByIdCityResponse>
 
         public async Task<GetByIdCityResponse> Handle(GetByIdCityQuery request, CancellationToken cancellationToken)
         {
-            City? city = await _cityRepository.GetAsync(predicate: c => c.Id == request.Id, cancellationToken: cancellationToken);
+            City? city = await _cityRepository.GetAsync(predicate: c => c.Id == request.Id,      
+                    cancellationToken: cancellationToken);
             await _cityBusinessRules.CityShouldExistWhenSelected(city);
 
             GetByIdCityResponse response = _mapper.Map<GetByIdCityResponse>(city);

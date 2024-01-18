@@ -2,6 +2,8 @@ using Application.Features.Exams.Commands.Create;
 using Application.Features.Exams.Commands.Delete;
 using Application.Features.Exams.Commands.Update;
 using Application.Features.Exams.Queries.GetById;
+using Application.Features.Exams.Queries.GetByIdExamResult;
+using Application.Features.Exams.Queries.GetExamResaultDetailList;
 using Application.Features.Exams.Queries.GetList;
 using Core.Application.Requests;
 using Core.Application.Responses;
@@ -44,11 +46,26 @@ public class ExamsController : BaseController
         return Ok(response);
     }
 
+    [HttpGet("ExamDto/{id}")]
+    public async Task<IActionResult> GetByIdExamResult([FromRoute] int id)
+    {
+        GetExamResultDetailDTO response = await Mediator.Send(new GetExamResultDetailQuery { Id = id });
+        return Ok(response);
+    }
+
     [HttpGet]
     public async Task<IActionResult> GetList([FromQuery] PageRequest pageRequest)
     {
         GetListExamQuery getListExamQuery = new() { PageRequest = pageRequest };
         GetListResponse<GetListExamListItemDto> response = await Mediator.Send(getListExamQuery);
+        return Ok(response);
+    }
+
+    [HttpGet("ExamResultList")]
+    public async Task<IActionResult> GetExamResultList([FromQuery] PageRequest pageRequest)
+    {
+        GetExamResultDetailListQuery getListExamQuery = new() { PageRequest = pageRequest };
+        GetListResponse<GetExamResultDetailListDto> response = await Mediator.Send(getListExamQuery);
         return Ok(response);
     }
 }

@@ -11,6 +11,7 @@ public class UpdateDistrictCommand : IRequest<UpdatedDistrictResponse>
     public int Id { get; set; }
     public string Name { get; set; }
 
+    public int CityId { get; set; }
     public class UpdateDistrictCommandHandler : IRequestHandler<UpdateDistrictCommand, UpdatedDistrictResponse>
     {
         private readonly IMapper _mapper;
