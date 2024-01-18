@@ -35,10 +35,10 @@ public class CreateSocialMediaAccountCommand : IRequest<CreatedSocialMediaAccoun
 
             await _socialMediaAccountRepository.AddAsync(socialMediaAccount);
             CreatedSocialMediaAccountResponse response = _mapper.Map<CreatedSocialMediaAccountResponse>(socialMediaAccount);
-            response.Message = "Sosyal medya adresiniz baþarýyla eklendi";
+            response.Message = "Sosyal medya adresiniz baï¿½arï¿½yla eklendi";
             return response;
         }
-
+        
        
 
 

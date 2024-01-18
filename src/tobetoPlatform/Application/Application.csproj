@@ -19,6 +19,8 @@
     <Folder Include="Features\Calendar\Profiles\" />
     <Folder Include="Services\" />
     <Folder Include="Services\Repositories" />
+    <Folder Include="Features\Announcements\Queries\GetAnnouncementTypeDetail\" />
+    <Folder Include="Features\Announcements\Queries\GetAnnouncementTypeDetailList\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,4 +30,8 @@
     <PackageReference Include="FluentValidation" Version="11.8.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Features\Announcements\Queries\GetAnnouncementTypeDetail\" />
+    <None Remove="Features\Announcements\Queries\GetAnnouncementTypeDetailList\" />
+  </ItemGroup>
 </Project>
