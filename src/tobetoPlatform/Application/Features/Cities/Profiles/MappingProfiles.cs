@@ -8,7 +8,7 @@ using Core.Application.Responses;
 using Domain.Entities;
 using Core.Persistence.Paging;
 using Application.Features.Cities.Queries.GetDistrictById;
-using Application.Features.Cities.Queries.GetDistrictListByCityId;
+using Application.Features.Cities.Queries.GetDistrictList;
 
 namespace Application.Features.Cities.Profiles;
 

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Features.Cities.Queries.GetDistrictListByCityId;
+namespace Application.Features.Cities.Queries.GetDistrictList;
 public class GetDistrictListCityListItemDto:IDto
 {
     public int Id { get; set; }
