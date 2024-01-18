@@ -8,6 +8,7 @@ using Core.Application.Responses;
 using Domain.Entities;
 using Core.Persistence.Paging;
 using Application.Features.Exams.Queries.GetByIdExamResult;
+using Application.Features.Exams.Queries.GetExamResaultDetailList;
 
 namespace Application.Features.Exams.Profiles;
 
@@ -22,11 +23,16 @@ public class MappingProfiles : Profile
         CreateMap<Exam, DeleteExamCommand>().ReverseMap();
         CreateMap<Exam, DeletedExamResponse>().ReverseMap();
         CreateMap<Exam, GetByIdExamResponse>().ReverseMap();
-        CreateMap<Exam, GetByIdExamResultDTO>().
+        CreateMap<Exam, GetExamResultDetailDTO>().
             ForMember(x => x.ExamPoint, opt=>opt.MapFrom(x=>x.ExamResult.Point)).
             ForMember(x => x.ExamResultCreatedDate, opt=>opt.MapFrom(x=>x.ExamResult.CreatedDate)).
             ReverseMap();
         CreateMap<Exam, GetListExamListItemDto>().ReverseMap();
+        CreateMap<Exam, GetExamResultDetailListDto>().
+            ForMember(x => x.ExamPoint, opt => opt.MapFrom(x => x.ExamResult.Point)).
+            ForMember(x => x.ExamResultCreatedDate, opt => opt.MapFrom(x => x.ExamResult.CreatedDate)).
+            ReverseMap();
         CreateMap<IPaginate<Exam>, GetListResponse<GetListExamListItemDto>>().ReverseMap();
+        CreateMap<IPaginate<Exam>, GetListResponse<GetExamResultDetailListDto>>().ReverseMap();
     }
 }
