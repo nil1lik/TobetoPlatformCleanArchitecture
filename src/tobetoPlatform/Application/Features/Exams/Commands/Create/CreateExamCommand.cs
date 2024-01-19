@@ -33,6 +33,8 @@ public class CreateExamCommand : IRequest<CreatedExamResponse>
         {
             Exam exam = _mapper.Map<Exam>(request);
 
+            
+
             await _examRepository.AddAsync(exam);
 
             CreatedExamResponse response = _mapper.Map<CreatedExamResponse>(exam);

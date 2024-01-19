@@ -34,7 +34,7 @@ public class GetCalendarDetailListQuery:IRequest<GetListResponse<GetCalendarDeta
         {
             IPaginate<Course> courses = await _courseRepository.GetListAsync(
                 include: p => p.Include(p => p.SyncLessons)
-                               .Include(p => p.CourseInstructors),
+                               .Include(p => p.CourseInstructors).ThenInclude(x=>x.Instructor),
                 index: request.PageRequest.PageIndex,
                 size: request.PageRequest.PageSize,
                 cancellationToken: cancellationToken
