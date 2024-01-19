@@ -11,6 +11,6 @@ public class CreatedSyncLessonResponse : IResponse
     public string SessionName { get; set; }
     public DateTime StartDate { get; set; }
     public DateTime EndDate { get; set; }
-    public TimeSpan Time { get; set; }
+    //public TimeSpan Time { get; set; }
     public bool IsJoin { get; set; }
 }

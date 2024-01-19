@@ -24,10 +24,10 @@ public class MappingProfiles : Profile
         CreateMap<Course, GetByIdCourseResponse>().ReverseMap();
         CreateMap<Course, GetListCourseListItemDto>().ReverseMap();
         CreateMap<Course, GetCalendarDetailListDto>().
-                                    ForMember(p => p.InstructorFirstName, opt => opt.MapFrom(p => p.CourseInstructors.Select(p => p.Instructor.FirstName).ToList())).
-                                    ForMember(p => p.InstructorLastName,  opt => opt.MapFrom(p => p.CourseInstructors.Select(p => p.Instructor.LastName).ToList())).
-                                    ForMember(p => p.SessionName,         opt => opt.MapFrom(p => p.SyncLessons.Select(p => p.SessionName).ToList())).
-                                    ForMember(p => p.SessionStartDate,    opt => opt.MapFrom(p => p.SyncLessons.Select(p => p.StartDate).ToList()))
+                                    ForMember(p => p.InstructorFirstName, opt => opt.MapFrom(p => p.CourseInstructors.Select(p => p.Instructor.FirstName))).
+                                    ForMember(p => p.InstructorLastName,  opt => opt.MapFrom(p => p.CourseInstructors.Select(p => p.Instructor.LastName))).
+                                    ForMember(p => p.SessionName,         opt => opt.MapFrom(p => p.SyncLessons.Select(p => p.SessionName))).
+                                    ForMember(p => p.SessionStartDate,    opt => opt.MapFrom(p => p.SyncLessons.Select(p => p.StartDate)))
                                     .ReverseMap();
         CreateMap<IPaginate<Course>, GetListResponse<GetListCourseListItemDto>>().ReverseMap();
         CreateMap<IPaginate<Course>, GetListResponse<GetCalendarDetailListDto>>().ReverseMap();
