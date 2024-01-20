@@ -31,6 +31,7 @@ public class CreateExamResultCommand : IRequest<CreatedExamResultResponse>
         public async Task<CreatedExamResultResponse> Handle(CreateExamResultCommand request, CancellationToken cancellationToken)
         {
             ExamResult examResult = _mapper.Map<ExamResult>(request);
+            await _examResultBusinessRules.OneExamHasOneExamResult(request.ExamId,examResult);
 
             await _examResultRepository.AddAsync(examResult);
 
