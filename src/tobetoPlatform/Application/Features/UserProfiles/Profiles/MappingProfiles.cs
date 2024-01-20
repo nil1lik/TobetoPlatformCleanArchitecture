@@ -7,6 +7,7 @@ using AutoMapper;
 using Core.Application.Responses;
 using Domain.Entities;
 using Core.Persistence.Paging;
+using Application.Features.UserProfiles.Queries.GetUserDetail;
 
 namespace Application.Features.UserProfiles.Profiles;
 
@@ -20,7 +21,11 @@ public class MappingProfiles : Profile
         CreateMap<UserProfile, UpdatedUserProfileResponse>().ReverseMap();
         CreateMap<UserProfile, DeleteUserProfileCommand>().ReverseMap();
         CreateMap<UserProfile, DeletedUserProfileResponse>().ReverseMap();
-        CreateMap<UserProfile, GetByIdUserProfileResponse>().
+        //CreateMap<UserProfile, GetByIdUserProfileResponse>().
+        //    ForMember(up=>up.FirstName,opt=>opt.MapFrom(up=>up.User.FirstName)).
+        //    ForMember(up=>up.LastName, opt=>opt.MapFrom(up=>up.User.LastName)).
+        //    ForMember(up=>up.Email, opt=>opt.MapFrom(up=>up.User.Email)).ReverseMap();
+        CreateMap<UserProfile, GetUserDetailDto>().
             ForMember(up=>up.FirstName,opt=>opt.MapFrom(up=>up.User.FirstName)).
             ForMember(up=>up.LastName, opt=>opt.MapFrom(up=>up.User.LastName)).
             ForMember(up=>up.Email, opt=>opt.MapFrom(up=>up.User.Email)).ReverseMap();

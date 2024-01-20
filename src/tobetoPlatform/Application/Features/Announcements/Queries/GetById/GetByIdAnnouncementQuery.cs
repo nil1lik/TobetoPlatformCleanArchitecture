@@ -9,7 +9,7 @@ namespace Application.Features.Announcements.Queries.GetById;
 
 public class GetByIdAnnouncementQuery : IRequest<GetByIdAnnouncementResponse>
 {
-    public int Id { get; set; }
+    public int Id { get; set; } 
 
     public class GetByIdAnnouncementQueryHandler : IRequestHandler<GetByIdAnnouncementQuery, GetByIdAnnouncementResponse>
     {
@@ -29,7 +29,7 @@ public class GetByIdAnnouncementQuery : IRequest<GetByIdAnnouncementResponse>
             Announcement? announcement = await _announcementRepository.GetAsync(
                 predicate: a => a.Id == request.Id,
                 include: a => a.Include(an => an.AnnouncementType),
-                cancellationToken: cancellationToken);;
+                cancellationToken: cancellationToken);
             await _announcementBusinessRules.AnnouncementShouldExistWhenSelected(announcement);
 
             GetByIdAnnouncementResponse response = _mapper.Map<GetByIdAnnouncementResponse>(announcement);
@@ -37,3 +37,4 @@ public class GetByIdAnnouncementQuery : IRequest<GetByIdAnnouncementResponse>
         }
     }
 }
+

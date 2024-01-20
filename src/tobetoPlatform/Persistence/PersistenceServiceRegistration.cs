@@ -14,7 +14,7 @@ public static class PersistenceServiceRegistration
         services.AddDbContext<BaseDbContext>(options =>
         //options.UseSqlServer(configuration.GetConnectionString("TobetoPlatformConnectionString")));
         options.UseInMemoryDatabase("inMemory"));
-
+        
 
         services.AddScoped<IEmailAuthenticatorRepository, EmailAuthenticatorRepository>();
         services.AddScoped<IOperationClaimRepository, OperationClaimRepository>();
@@ -64,5 +64,6 @@ public static class PersistenceServiceRegistration
         services.AddScoped<IProfileExamRepository, ProfileExamRepository>();
         services.AddScoped<ICourseInstructorRepository, CourseInstructorRepository>();
         return services;
+
     }
 }
