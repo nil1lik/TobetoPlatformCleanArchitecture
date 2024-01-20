@@ -26,13 +26,13 @@ public class CreateExamCommand : IRequest<CreatedExamResponse>
         {
             _mapper = mapper;
             _examRepository = examRepository;
-            _examBusinessRules = examBusinessRules;
+            _examBusinessRules = examBusinessRules; 
         }
 
         public async Task<CreatedExamResponse> Handle(CreateExamCommand request, CancellationToken cancellationToken)
         {
             Exam exam = _mapper.Map<Exam>(request);
-
+            
             await _examRepository.AddAsync(exam);
 
             CreatedExamResponse response = _mapper.Map<CreatedExamResponse>(exam);

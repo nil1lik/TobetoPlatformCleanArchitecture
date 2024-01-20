@@ -31,4 +31,24 @@ public class ProfileApplicationBusinessRules : BaseBusinessRules
         );
         await ProfileApplicationShouldExistWhenSelected(profileApplication);
     }
+
+    public async Task ProfileApplicationApplicationResult(bool isComplete, CancellationToken cancellationToken)
+    {
+        ProfileApplication? profileApplication = await _profileApplicationRepository.GetAsync(
+            predicate: pa => pa.ProfileApplicationStep.IsCompleted == isComplete,
+            enableTracking: false,
+            cancellationToken: cancellationToken
+        );
+
+        if (profileApplication.ProfileApplicationStep.IsCompleted == true)
+        {
+            throw new BusinessException(ProfileApplicationsBusinessMessages.ProfileApplicationResultApproved);
+        }
+        else if(profileApplication.ProfileApplicationStep.IsCompleted == false)
+        {
+            throw new BusinessException(ProfileApplicationsBusinessMessages.ProfileApplicationResultReject);
+        }
+
+        await ProfileApplicationShouldExistWhenSelected(profileApplication);
+    }
 }
