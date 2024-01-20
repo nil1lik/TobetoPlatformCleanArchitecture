@@ -53,6 +53,7 @@ using Application.Services.Announcements;
 using Application.Services.Experiences;
 using Application.Services.ProfileAddresses;
 using Application.Services.AnnouncementTypes;
+using Application.Services.CourseInstructors;
 
 
 namespace Application;
@@ -99,6 +100,7 @@ public static class ApplicationServiceRegistration
         services.AddScoped<IExperiencesService, ExperiencesManager>();
         services.AddScoped<IProfileAddressesService, ProfileAddressesManager>();
         services.AddScoped<IAnnouncementTypesService, AnnouncementTypesManager>();
+        services.AddScoped<ICourseInstructorsService, CourseInstructorsManager>();
         return services;
     }
 

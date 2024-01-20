@@ -10,7 +10,7 @@ public class GetCalendarDetailListDto:IDto
 {
     public int Id { get; set; }
     public string SessionName { get; set; }
-    public string SessionStartDate { get; set; }
+    public DateTime SessionStartDate { get; set; }
     public string InstructorFirstName { get; set; }
     public string InstructorLastName { get; set; }
 }

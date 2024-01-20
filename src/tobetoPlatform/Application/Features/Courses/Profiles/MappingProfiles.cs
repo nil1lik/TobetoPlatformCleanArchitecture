@@ -24,12 +24,26 @@ public class MappingProfiles : Profile
         CreateMap<Course, GetByIdCourseResponse>().ReverseMap();
         CreateMap<Course, GetListCourseListItemDto>().ReverseMap();
         CreateMap<Course, GetCalendarDetailListDto>().
-                                    ForMember(p => p.InstructorFirstName, opt => opt.MapFrom(p => p.CourseInstructors.Select(p => p.Instructor.FirstName).ToList())).
-                                    ForMember(p => p.InstructorLastName,  opt => opt.MapFrom(p => p.CourseInstructors.Select(p => p.Instructor.LastName).ToList())).
-                                    ForMember(p => p.SessionName,         opt => opt.MapFrom(p => p.SyncLessons.Select(p => p.SessionName).ToList())).
-                                    ForMember(p => p.SessionStartDate,    opt => opt.MapFrom(p => p.SyncLessons.Select(p => p.StartDate).ToList()))
-                                    .ReverseMap();
+                                    ForMember(p => p.InstructorFirstName, opt => opt.MapFrom(p => p.CourseInstructors.Select(p => p.Instructor.FirstName))).
+                                    ForMember(p => p.InstructorLastName,  opt => opt.MapFrom(p => p.CourseInstructors.Select(p => p.Instructor.LastName))).
+                                    ForMember(p => p.SessionName,         opt => opt.MapFrom(p => p.SyncLessons.Select(p => p.SessionName)))
+.ForMember(dest => dest.SessionStartDate, opt => opt.MapFrom(src => GetSessionStartDate(src))).ReverseMap();
         CreateMap<IPaginate<Course>, GetListResponse<GetListCourseListItemDto>>().ReverseMap();
         CreateMap<IPaginate<Course>, GetListResponse<GetCalendarDetailListDto>>().ReverseMap();
+
+
+    }
+
+    private static DateTime GetSessionStartDate(Course source)
+    {
+        // Özel dönüşüm logic'i burada
+        // SessionStartDate'ı almak için uygun dönüşüm işlemini gerçekleştirin
+
+        var sessionStartDate = source.SyncLessons
+            .OrderBy(sl => sl.StartDate)  // Örnek: İlk başlangıç tarihini seç
+            .Select(sl => sl.StartDate)
+            .FirstOrDefault();
+
+        return sessionStartDate;
     }
 }

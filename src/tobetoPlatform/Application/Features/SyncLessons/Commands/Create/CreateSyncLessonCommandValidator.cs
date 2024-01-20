@@ -12,7 +12,7 @@ public class CreateSyncLessonCommandValidator : AbstractValidator<CreateSyncLess
         RuleFor(c => c.SessionName).NotEmpty();
         RuleFor(c => c.StartDate).NotEmpty();
         RuleFor(c => c.EndDate).NotEmpty();
-        RuleFor(c => c.Time).NotEmpty();
+        //RuleFor(c => c.Time).NotEmpty();
         RuleFor(c => c.IsJoin).NotEmpty();
     }
 }
