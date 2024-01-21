@@ -40,19 +40,19 @@ public class AsyncLessonBusinessRules : BaseBusinessRules
                     enableTracking: false,
                     cancellationToken: cancellationToken
                 );
-        if (asyncLesson.VideoPoint == 0)
+        if (asyncLesson.VideoPoint == AsyncLessonsRuleTypes.VideoNotStartedPoint)
         {
             throw new BusinessException(AsyncLessonsBusinessMessages.VideoNotStarted);
         }
 
-        else if (asyncLesson.VideoPoint >= 34.6)
+        else if (asyncLesson.VideoPoint >= AsyncLessonsRuleTypes.VideoInProgressPoint)
         {
             throw new BusinessException(asyncLesson.VideoPoint + AsyncLessonsBusinessMessages.VideoInProgress);
         }
 
-        else if (asyncLesson.VideoPoint == 100)
+        else if (asyncLesson.VideoPoint == AsyncLessonsRuleTypes.VideoCompletePoint)
         {
-            throw new BusinessException(asyncLesson.VideoPoint + AsyncLessonsBusinessMessages.VideoComlete);
+            throw new BusinessException(asyncLesson.VideoPoint + AsyncLessonsBusinessMessages.VideoComplete);
         }
         await AsyncLessonShouldExistWhenSelected(asyncLesson);
     }

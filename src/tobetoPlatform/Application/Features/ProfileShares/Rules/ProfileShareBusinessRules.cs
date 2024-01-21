@@ -35,20 +35,4 @@ public class ProfileShareBusinessRules : BaseBusinessRules
         );
         await ProfileShareShouldExistWhenSelected(profileShare);
     }
-
-    public async Task<Guid> ShowProfileLinkIfSwitchIsActive(bool isShare, CancellationToken cancellationToken)
-    {
-        ProfileShare? profileShare = await _profileShareRepository.GetAsync(
-        predicate: ps => ps.IsShare == isShare,
-        enableTracking: false,
-        cancellationToken: cancellationToken
-    );
-
-        if (isShare == true)
-        {
-            return profileShare.ProfileUrl;
-        }
-        throw new BusinessException(ProfileSharesBusinessMessages.NoPermissionToShareProfile);
-        //frontend'de kontrolü yapýlabilir.
-    }
 }

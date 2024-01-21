@@ -44,6 +44,26 @@ public class SyncLessonBusinessRules : BaseBusinessRules
             enableTracking: false,
             cancellationToken: cancellationToken
         );
+        await SyncLessonShouldExistWhenSelected(syncLesson);
 
+        if (syncLesson.StartDate != dateTime)
+        {
+            throw new BusinessException(SyncLessonsBusinessMessages.SessionHasNotStartedYet);
+        }
+
+        else if (syncLesson.StartDate == dateTime)
+        {
+            throw new BusinessException(SyncLessonsBusinessMessages.NextSession);
+        }
+
+        else if (syncLesson.StartDate < dateTime && syncLesson.IsJoin == true)
+        {
+            throw new BusinessException(SyncLessonsBusinessMessages.SessionAttended + syncLesson.SyncVideoUrl);
+        }
+
+        else if (syncLesson.StartDate < dateTime && syncLesson.IsJoin == false)
+        {
+            throw new BusinessException(SyncLessonsBusinessMessages.SessionNotAttended + syncLesson.SyncVideoUrl);
+        }
     }
 }
