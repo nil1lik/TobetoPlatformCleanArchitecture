@@ -41,7 +41,7 @@ public class SocialMediaAccountBusinessRules : BaseBusinessRules
     public async Task CheckUserSocialMediaAccountLimit(int userId)
     {
         IPaginate<SocialMediaAccount> result = await _socialMediaAccountRepository.GetListAsync(b => b.UserProfileId == userId);
-        if (result.Count >= 3)
+        if (result.Count >= SocialMediaAccountsRuleTypes.SocialMediaAccountsCount)
             throw new BusinessException(SocialMediaAccountsBusinessMessages.SocialMediaAccountsCannotBeMoreThan3);
     }
 

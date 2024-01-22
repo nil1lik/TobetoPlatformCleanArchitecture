@@ -41,26 +41,26 @@ public class EducationAdmirationBusinessRules : BaseBusinessRules
             predicate: ep => ep.EducationAdmiration.CompletionRate == completionRate,
             enableTracking: false,
             cancellationToken: cancellationToken
-        );
-
-        if (educationPath.EducationAdmiration.CompletionRate == 0)
-        {
-            throw new BusinessException(educationPath.EducationAbout.EndDate + EducationPathsBusinessMessages.VideoViewStatus);
+        ); 
+         
+        if (educationPath.EducationAdmiration.CompletionRate == EducationAdmirationsRuleTypes.VideoViewStatusPoint)
+        { 
+            throw new BusinessException(educationPath.EducationAbout.EndDate + EducationPathsValidationMessages.VideoViewStatus);
         }
 
-        else if (educationPath.EducationAdmiration.CompletionRate > 0)
+        else if (educationPath.EducationAdmiration.CompletionRate > EducationAdmirationsRuleTypes.VideoViewStatusPoint)
         {
-            throw new BusinessException(educationPath.EducationAbout.EndDate + EducationPathsBusinessMessages.VideoViewStatus);
+            throw new BusinessException(educationPath.EducationAbout.EndDate + EducationPathsValidationMessages.VideoViewStatus);
+        } 
+
+        else if (educationPath.EducationAdmiration.CompletionRate == EducationAdmirationsRuleTypes.CompletionRate && educationPath.EducationAdmiration.EducationPoint == EducationAdmirationsRuleTypes.SuccessPoint)
+        {
+            throw new BusinessException(educationPath.EducationAbout.EndDate + EducationPathsValidationMessages.SuccessMessage); // + like?
         }
 
-        else if (educationPath.EducationAdmiration.CompletionRate == 100 && educationPath.EducationAdmiration.EducationPoint == 98.8)
+        else if (educationPath.EducationAdmiration.CompletionRate == EducationAdmirationsRuleTypes.CompletionRate && educationPath.EducationAdmiration.EducationPoint == EducationAdmirationsRuleTypes.CompletionPoint)
         {
-            throw new BusinessException(educationPath.EducationAbout.EndDate + EducationPathsBusinessMessages.SuccessMessage); // + like?
-        }
-
-        else if (educationPath.EducationAdmiration.CompletionRate == 100 && educationPath.EducationAdmiration.EducationPoint == 100)
-        {
-            throw new BusinessException(educationPath.EducationAbout.EndDate + EducationPathsBusinessMessages.CompletionMessage); // + like?
+            throw new BusinessException(educationPath.EducationAbout.EndDate + EducationPathsValidationMessages.CompletionMessage); // + like?
         }
     }
-}
+} 
