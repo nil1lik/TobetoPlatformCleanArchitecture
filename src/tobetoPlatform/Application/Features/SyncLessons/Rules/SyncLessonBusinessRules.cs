@@ -48,22 +48,22 @@ public class SyncLessonBusinessRules : BaseBusinessRules
 
         if (syncLesson.StartDate != dateTime)
         {
-            throw new BusinessException(SyncLessonsBusinessMessages.SessionHasNotStartedYet);
+            throw new BusinessException(SyncLessonsValidationMessages.SessionHasNotStartedYet);
         }
 
         else if (syncLesson.StartDate == dateTime)
         {
-            throw new BusinessException(SyncLessonsBusinessMessages.NextSession);
+            throw new BusinessException(SyncLessonsValidationMessages.NextSession);
         }
 
         else if (syncLesson.StartDate < dateTime && syncLesson.IsJoin == true)
         {
-            throw new BusinessException(SyncLessonsBusinessMessages.SessionAttended + syncLesson.SyncVideoUrl);
+            throw new BusinessException(SyncLessonsValidationMessages.SessionAttended + syncLesson.SyncVideoUrl);
         }
 
         else if (syncLesson.StartDate < dateTime && syncLesson.IsJoin == false)
         {
-            throw new BusinessException(SyncLessonsBusinessMessages.SessionNotAttended + syncLesson.SyncVideoUrl);
+            throw new BusinessException(SyncLessonsValidationMessages.SessionNotAttended + syncLesson.SyncVideoUrl);
         }
     }
 }

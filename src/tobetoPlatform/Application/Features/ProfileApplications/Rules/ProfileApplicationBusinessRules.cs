@@ -42,11 +42,11 @@ public class ProfileApplicationBusinessRules : BaseBusinessRules
 
         if (profileApplication.ProfileApplicationStep.IsCompleted == true)
         {
-            throw new BusinessException(ProfileApplicationsBusinessMessages.ProfileApplicationResultApproved);
+            throw new BusinessException(ProfileApplicationsValidationMessages.ProfileApplicationResultApproved);
         }
         else if(profileApplication.ProfileApplicationStep.IsCompleted == false)
         {
-            throw new BusinessException(ProfileApplicationsBusinessMessages.ProfileApplicationResultReject);
+            throw new BusinessException(ProfileApplicationsValidationMessages.ProfileApplicationResultReject);
         }
 
         await ProfileApplicationShouldExistWhenSelected(profileApplication);
