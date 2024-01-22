@@ -42,17 +42,17 @@ public class AsyncLessonBusinessRules : BaseBusinessRules
                 );
         if (asyncLesson.VideoPoint == AsyncLessonsRuleTypes.VideoNotStartedPoint)
         {
-            throw new BusinessException(AsyncLessonsBusinessMessages.VideoNotStarted);
+            throw new BusinessException(AsyncLessonsValidationMessages.VideoNotStarted);
         }
 
         else if (asyncLesson.VideoPoint >= AsyncLessonsRuleTypes.VideoInProgressPoint)
         {
-            throw new BusinessException(asyncLesson.VideoPoint + AsyncLessonsBusinessMessages.VideoInProgress);
+            throw new BusinessException(asyncLesson.VideoPoint + AsyncLessonsValidationMessages.VideoInProgress);
         }
 
         else if (asyncLesson.VideoPoint == AsyncLessonsRuleTypes.VideoCompletePoint)
         {
-            throw new BusinessException(asyncLesson.VideoPoint + AsyncLessonsBusinessMessages.VideoComplete);
+            throw new BusinessException(asyncLesson.VideoPoint + AsyncLessonsValidationMessages.VideoComplete);
         }
         await AsyncLessonShouldExistWhenSelected(asyncLesson);
     }
