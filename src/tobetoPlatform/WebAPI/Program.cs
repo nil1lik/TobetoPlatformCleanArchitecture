@@ -73,6 +73,14 @@ builder.Services.AddSwaggerGen(opt =>
     );
     opt.OperationFilter<BearerSecurityRequirementOperationFilter>();
 });
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("CorsPolicy",
+        builder => builder
+            .AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader());
+});
 
 WebApplication app = builder.Build();
 
@@ -86,6 +94,7 @@ if (app.Environment.IsDevelopment())
     });
 }
 
+app.UseCors("CorsPolicy");
 app.ConfigureCustomExceptionMiddleware();
 
 app.UseAuthentication();
