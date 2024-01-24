@@ -8,26 +8,30 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
-    public class Announcement:Entity<int>
+    public class Announcement : Entity<int>
     {
         public int AnnouncementTypeId { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
+        public string Title { get; set; }
         public bool IsRead { get; set; }
+
         public virtual AnnouncementType AnnouncementType { get; set; }
         public virtual ICollection<ProfileAnnouncement>? ProfileAnnouncement { get; set; }
 
-        public Announcement() 
+        public Announcement()
         {
-            
-        } 
 
-        public Announcement(string name, bool isRead, string description, int id) : this()
+        }
+
+        public Announcement(int id, int announcementTypeId, string name, string description, string title, bool isRead):this()
         {
             Id = id;
+            AnnouncementTypeId = announcementTypeId;
             Name = name;
-            IsRead = isRead;
             Description = description;
+            Title = title;
+            IsRead = isRead;
         }
     }
 }
