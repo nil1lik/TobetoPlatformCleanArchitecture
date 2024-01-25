@@ -12,6 +12,7 @@ namespace Domain.Entities
     {
         public int AnnouncementTypeId { get; set; }
         public string Name { get; set; }
+        public string Title { get; set; }
         public string Description { get; set; }
         public bool IsRead { get; set; }
         public virtual AnnouncementType AnnouncementType { get; set; }
@@ -20,14 +21,16 @@ namespace Domain.Entities
         public Announcement() 
         {
             
-        } 
+        }
 
-        public Announcement(string name, bool isRead, string description, int id) : this()
+        public Announcement(int id,int announcementTypeId, string name, string title, string description, bool isRead):this()
         {
             Id = id;
+            AnnouncementTypeId = announcementTypeId;
             Name = name;
-            IsRead = isRead;
+            Title = title;
             Description = description;
+            IsRead = isRead;
         }
     }
 }
