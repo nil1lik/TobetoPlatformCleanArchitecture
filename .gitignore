@@ -13,6 +13,8 @@
 *.userosscache
 *.sln.docstates
 
+/tobetoPlatform/WebAPI/appsettings.json
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
@@ -408,3 +410,4 @@ FodyWeavers.xsd
 *.DS_Store
 .DS_Store
 
+/src/tobetoPlatform/WebAPI/appsettings.json

@@ -73,6 +73,23 @@ builder.Services.AddSwaggerGen(opt =>
     );
     opt.OperationFilter<BearerSecurityRequirementOperationFilter>();
 });
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("CorsPolicy",
+        builder => builder
+            .AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader());
+});
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("CorsPolicy",
+        builder => builder
+            .AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader());
+});
 
 builder.Services.AddCors(options =>
 {
@@ -95,8 +112,8 @@ if (app.Environment.IsDevelopment())
     });
 }
 
-if (app.Environment.IsProduction())
-    app.ConfigureCustomExceptionMiddleware();
+app.UseCors("CorsPolicy");
+app.ConfigureCustomExceptionMiddleware();
 
 app.UseCors("CorsPolicy");
 app.UseAuthentication();
