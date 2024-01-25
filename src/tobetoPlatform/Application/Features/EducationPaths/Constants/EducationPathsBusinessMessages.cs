@@ -8,3 +8,4 @@ public static class EducationPathsBusinessMessages
     public const string CompletionMessage = "Tamamladýn!";
     public const string CompletionPopupMessage = "Tebrikler Tamamladýn!";
 }
+

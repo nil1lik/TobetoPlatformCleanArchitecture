@@ -6,3 +6,4 @@ public static class ProfileApplicationsBusinessMessages
     public const string ProfileApplicationResultApproved = "Onaylandý.";
     public const string ProfileApplicationResultReject = "Reddedildi.";
 }
+ 

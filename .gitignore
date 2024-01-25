@@ -4,6 +4,9 @@
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
 # User-specific files
+/src/tobetoPlatform/WebAPI/appsettings.json
+
+# User-specific files
 *.rsuser
 *.suo
 *.user

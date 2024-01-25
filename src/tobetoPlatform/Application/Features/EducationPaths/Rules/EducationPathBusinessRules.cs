@@ -43,25 +43,25 @@ public class EducationPathBusinessRules : BaseBusinessRules
             enableTracking: false,
             cancellationToken: cancellationToken
         );
-
-        if (educationPath.EducationAdmiration.CompletionRate == 0)
+        
+        if (educationPath.EducationAdmiration.CompletionRate == EducationPathsRuleTypes.VideoViewStatusPoint) 
         {
-            throw new BusinessException(educationPath.EducationAbout.EndDate + EducationPathsBusinessMessages.VideoViewStatus);
+            throw new BusinessException(educationPath.EducationAbout.EndDate + EducationPathsValidationMessages.VideoViewStatus);
         }
 
-        else if (educationPath.EducationAdmiration.CompletionRate > 0)
+        else if (educationPath.EducationAdmiration.CompletionRate > EducationPathsRuleTypes.VideoViewStatusPoint)
         {
-            throw new BusinessException(educationPath.EducationAbout.EndDate + EducationPathsBusinessMessages.VideoViewStatus);
+            throw new BusinessException(educationPath.EducationAbout.EndDate + EducationPathsValidationMessages.VideoViewStatus);
         }
 
-        else if (educationPath.EducationAdmiration.CompletionRate == 100 && educationPath.EducationAdmiration.EducationPoint == 98.8)
+        else if (educationPath.EducationAdmiration.CompletionRate == EducationPathsRuleTypes.CompletionPoint && educationPath.EducationAdmiration.EducationPoint == EducationPathsRuleTypes.SuccessPoint)
         {
-            throw new BusinessException(educationPath.EducationAbout.EndDate + EducationPathsBusinessMessages.SuccessMessage);
+            throw new BusinessException(educationPath.EducationAbout.EndDate + EducationPathsValidationMessages.SuccessMessage);
         }
 
-        else if (educationPath.EducationAdmiration.CompletionRate == 100 && educationPath.EducationAdmiration.EducationPoint == 100)
+        else if (educationPath.EducationAdmiration.CompletionRate == EducationPathsRuleTypes.CompletionPoint && educationPath.EducationAdmiration.EducationPoint == EducationPathsRuleTypes.CompletionPoint)
         {
-            throw new BusinessException(educationPath.EducationAbout.EndDate + EducationPathsBusinessMessages.CompletionMessage);
+            throw new BusinessException(educationPath.EducationAbout.EndDate + EducationPathsValidationMessages.CompletionMessage);
         }
     }
 }
