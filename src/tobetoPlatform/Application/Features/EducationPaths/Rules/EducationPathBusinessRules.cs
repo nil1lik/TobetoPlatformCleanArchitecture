@@ -1,5 +1,4 @@
 using Application.Features.EducationPaths.Constants;
-using Application.Features.ProfileShares.Constants;
 using Application.Services.Repositories;
 using Core.Application.Rules;
 using Core.CrossCuttingConcerns.Exceptions.Types;

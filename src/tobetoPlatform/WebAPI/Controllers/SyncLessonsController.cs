@@ -1,3 +1,4 @@
+using Application.Features.Calendar.Queries.GetList;
 using Application.Features.SyncLessons.Commands.Create;
 using Application.Features.SyncLessons.Commands.Delete;
 using Application.Features.SyncLessons.Commands.Update;
@@ -51,4 +52,5 @@ public class SyncLessonsController : BaseController
         GetListResponse<GetListSyncLessonListItemDto> response = await Mediator.Send(getListSyncLessonQuery);
         return Ok(response);
     }
+
 }
