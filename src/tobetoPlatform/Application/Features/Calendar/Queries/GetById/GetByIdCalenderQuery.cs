@@ -31,7 +31,7 @@ public class GetByIdCalenderQuery : IRequest<GetByIdCalenderResponse>
         public async Task<GetByIdCalenderResponse> Handle(GetByIdCalenderQuery request, CancellationToken cancellationToken)
         {
            SyncLesson? syncLesson = await _syncLessonRepository.GetAsync(
-               predicate: sl => sl.Id == request.userId,
+               predicate: sl => sl.Course.EducationPath.ProfileEducations.Any(x=>x.UserProfileId == request.userId),
                include: p => p.Include(x => x.Instructors.Select(i=>i.Id)),
                cancellationToken: cancellationToken);
             GetByIdCalenderResponse response = _mapper.Map<GetByIdCalenderResponse>(syncLesson);

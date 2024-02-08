@@ -20,7 +20,6 @@ public class UserProfile:Entity<int>
     public string? Description { get; set; } 
 
     public virtual User User { get; set; }
-    public virtual ProfileShare ProfileShare { get; set; }
     public virtual ProfileAddress ProfileAddress { get; set; }
 
     public virtual ICollection<ProfileApplication> ProfileApplications { get; set; }

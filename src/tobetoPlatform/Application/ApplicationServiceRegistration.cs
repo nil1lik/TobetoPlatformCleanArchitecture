@@ -16,7 +16,6 @@ using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 using Domain.Entities;
-using Application.Services.ProfileShares;
 using Application.Services.ProfileApplications;
 using Application.Services.ApplicationSteps;
 using Application.Services.AsyncLessons;
@@ -54,6 +53,8 @@ using Application.Services.Experiences;
 using Application.Services.ProfileAddresses;
 using Application.Services.AnnouncementTypes;
 using Application.Services.CourseInstructors;
+using Application.Services.LessonVideoDetails;
+using Application.Services.VideoDetailCategories;
 
 
 namespace Application;
@@ -83,7 +84,6 @@ public static class ApplicationServiceRegistration
         services.AddScoped<IAuthService, AuthManager>();
         services.AddScoped<IAuthenticatorService, AuthenticatorManager>();
         services.AddScoped<IUserService, UserManager>();
-        services.AddScoped<IProfileSharesService, ProfileSharesManager>();
         services.AddScoped<IProfileApplicationsService, ProfileApplicationsManager>();
         services.AddScoped<IApplicationStepsService, ApplicationStepsManager>();
         services.AddScoped<IAsyncLessonsService, AsyncLessonsManager>();
@@ -101,6 +101,8 @@ public static class ApplicationServiceRegistration
         services.AddScoped<IProfileAddressesService, ProfileAddressesManager>();
         services.AddScoped<IAnnouncementTypesService, AnnouncementTypesManager>();
         services.AddScoped<ICourseInstructorsService, CourseInstructorsManager>();
+        services.AddScoped<ILessonVideoDetailsService, LessonVideoDetailsManager>();
+        services.AddScoped<IVideoDetailCategoriesService, VideoDetailCategoriesManager>();
         return services;
     }
 
