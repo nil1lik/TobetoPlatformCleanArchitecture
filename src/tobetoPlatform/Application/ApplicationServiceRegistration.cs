@@ -54,6 +54,7 @@ using Application.Services.ProfileAddresses;
 using Application.Services.AnnouncementTypes;
 using Application.Services.CourseInstructors;
 using Application.Services.LessonVideoDetails;
+using Application.Services.VideoDetailCategories;
 
 
 namespace Application;
@@ -101,6 +102,7 @@ public static class ApplicationServiceRegistration
         services.AddScoped<IAnnouncementTypesService, AnnouncementTypesManager>();
         services.AddScoped<ICourseInstructorsService, CourseInstructorsManager>();
         services.AddScoped<ILessonVideoDetailsService, LessonVideoDetailsManager>();
+        services.AddScoped<IVideoDetailCategoriesService, VideoDetailCategoriesManager>();
         return services;
     }
 
