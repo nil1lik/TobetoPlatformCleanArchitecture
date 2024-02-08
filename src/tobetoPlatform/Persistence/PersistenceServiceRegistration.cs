@@ -22,9 +22,6 @@ public static class PersistenceServiceRegistration
         services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IUserOperationClaimRepository, UserOperationClaimRepository>();
-
-
-        services.AddScoped<IProfileShareRepository, ProfileShareRepository>();
         services.AddScoped<IAnnouncementRepository, AnnouncementRepository>();
         services.AddScoped<IProfileApplicationRepository, ProfileApplicationRepository>();
         services.AddScoped<IApplicationStepRepository, ApplicationStepRepository>();

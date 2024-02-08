@@ -17,7 +17,10 @@ public class EducationAdmiration : Entity<int>
 
     public EducationAdmiration()
     {
-
+        this.IsLiked = false;
+        this.IsFavourited = false;
+        this.CompletionRate = 0;
+        this.EducationPoint = 0;
     }
 
     public EducationAdmiration(int id, bool isLiked, bool isFavourited, double completionRate, double educationPoint) : this()

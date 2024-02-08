@@ -16,7 +16,6 @@ using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 using Domain.Entities;
-using Application.Services.ProfileShares;
 using Application.Services.ProfileApplications;
 using Application.Services.ApplicationSteps;
 using Application.Services.AsyncLessons;
@@ -83,7 +82,6 @@ public static class ApplicationServiceRegistration
         services.AddScoped<IAuthService, AuthManager>();
         services.AddScoped<IAuthenticatorService, AuthenticatorManager>();
         services.AddScoped<IUserService, UserManager>();
-        services.AddScoped<IProfileSharesService, ProfileSharesManager>();
         services.AddScoped<IProfileApplicationsService, ProfileApplicationsManager>();
         services.AddScoped<IApplicationStepsService, ApplicationStepsManager>();
         services.AddScoped<IAsyncLessonsService, AsyncLessonsManager>();

@@ -13,8 +13,6 @@ public class ApplicationStepConfiguration : IEntityTypeConfiguration<Application
         builder.Property(aps => aps.Id).HasColumnName("Id").IsRequired();
         builder.Property(aps => aps.UserApplicationId).HasColumnName("UserApplicationId");
         builder.Property(aps => aps.Name).HasColumnName("Name");
-        builder.Property(aps => aps.DocumentUrl).HasColumnName("DocumentUrl");
-        builder.Property(aps => aps.FormUrl).HasColumnName("FormUrl");
         builder.Property(aps => aps.CreatedDate).HasColumnName("CreatedDate").IsRequired();
         builder.Property(aps => aps.UpdatedDate).HasColumnName("UpdatedDate");
         builder.Property(aps => aps.DeletedDate).HasColumnName("DeletedDate");
