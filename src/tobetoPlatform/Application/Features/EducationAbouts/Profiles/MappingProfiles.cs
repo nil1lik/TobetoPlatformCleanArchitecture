@@ -7,6 +7,8 @@ using AutoMapper;
 using Core.Application.Responses;
 using Domain.Entities;
 using Core.Persistence.Paging;
+using Application.Features.EducationAbouts.Queries.EducationAboutDetailById;
+using Application.Features.Exams.Queries.GetExamResaultDetailList;
 
 namespace Application.Features.EducationAbouts.Profiles;
 
@@ -21,6 +23,9 @@ public class MappingProfiles : Profile
         CreateMap<EducationAbout, DeleteEducationAboutCommand>().ReverseMap();
         CreateMap<EducationAbout, DeletedEducationAboutResponse>().ReverseMap();
         CreateMap<EducationAbout, GetByIdEducationAboutResponse>().ReverseMap();
+        CreateMap<EducationAbout, GetByIdEducationAboutDetailDto>().
+            ForMember(x => x.CompanyName, opt => opt.MapFrom(x => x.Company.Name)).
+            ForMember(x => x.CategoryName, opt => opt.MapFrom(x => x.EducationAboutCategory.Name)).ReverseMap();
         CreateMap<EducationAbout, GetListEducationAboutListItemDto>().ReverseMap();
         CreateMap<IPaginate<EducationAbout>, GetListResponse<GetListEducationAboutListItemDto>>().ReverseMap();
     }
