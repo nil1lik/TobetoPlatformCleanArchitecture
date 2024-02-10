@@ -7,7 +7,6 @@ using AutoMapper;
 using Core.Application.Responses;
 using Domain.Entities;
 using Core.Persistence.Paging;
-using Application.Features.Courses.Queries.GetCalendarDetailList;
 
 namespace Application.Features.Courses.Profiles;
 
@@ -23,14 +22,7 @@ public class MappingProfiles : Profile
         CreateMap<Course, DeletedCourseResponse>().ReverseMap();
         CreateMap<Course, GetByIdCourseResponse>().ReverseMap();
         CreateMap<Course, GetListCourseListItemDto>().ReverseMap();
-        CreateMap<Course, GetCalendarDetailListDto>().
-                                    ForMember(p => p.InstructorFirstName, opt => opt.MapFrom(p => p.CourseInstructors.Select(p => p.Instructor.FirstName))).
-                                    ForMember(p => p.InstructorLastName,  opt => opt.MapFrom(p => p.CourseInstructors.Select(p => p.Instructor.LastName))).
-                                    ForMember(p => p.SessionName,         opt => opt.MapFrom(p => p.SyncLessons.Select(p => p.SessionName))).
-                                    ForMember(p => p.SessionStartDate,    opt => opt.MapFrom(p => p.SyncLessons.Select(p => p.StartDate)))
-                                    .ReverseMap();
         CreateMap<IPaginate<Course>, GetListResponse<GetListCourseListItemDto>>().ReverseMap();
-        CreateMap<IPaginate<Course>, GetListResponse<GetCalendarDetailListDto>>().ReverseMap();
 
 
     }

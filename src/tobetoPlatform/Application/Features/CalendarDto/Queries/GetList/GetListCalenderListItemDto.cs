@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Calendar.Queries.GetList;
 public class GetListCalenderListItemDto : IDto
-{
-    public DateTime StartDate{ get; set; } 
-    public string CourseName { get; set; }
-    public GetListCalendarInstructorItemDto  Instructor { get; set; }
+{ 
+    public DateTime StartDate { get; set; } 
+    public string EducationPathName { get; set; }
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
 
 }
 
