@@ -1,4 +1,3 @@
-using Application.Features.Calendar.Queries.GetList;
 using Application.Features.CourseInstructors.Commands.Create;
 using Application.Features.CourseInstructors.Commands.Delete;
 using Application.Features.CourseInstructors.Commands.Update;
