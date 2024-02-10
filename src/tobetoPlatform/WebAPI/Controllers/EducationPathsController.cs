@@ -44,7 +44,7 @@ public class EducationPathsController : BaseController
         GetByIdEducationPathResponse response = await Mediator.Send(new GetByIdEducationPathQuery { Id = id });
         return Ok(response);
     }
-    [HttpGet("educationPathDetail/{id}")]
+    [HttpGet("EducationPathDetail/{id}")]
     public async Task<IActionResult> GetEducationPathDetailById([FromRoute] int id)
     {
         GetEducationPathDetailByIdDto response = await Mediator.Send(new GetEducationPathDetailByIdQuery { Id = id });

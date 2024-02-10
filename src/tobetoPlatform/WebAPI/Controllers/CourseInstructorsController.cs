@@ -53,11 +53,4 @@ public class CourseInstructorsController : BaseController
         return Ok(response);
     }
 
-    [HttpGet("/Calendar")]
-    public async Task<IActionResult> CalendarList([FromQuery] PageRequest pageRequest)
-    {
-        GetListCalenderQuery getListSyncLessonQuery = new() { PageRequest = pageRequest };
-        GetListResponse<GetListCalenderListItemDto> response = await Mediator.Send(getListSyncLessonQuery);
-        return Ok(response);
-    }
 }
