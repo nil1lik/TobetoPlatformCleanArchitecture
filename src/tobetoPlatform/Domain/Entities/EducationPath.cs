@@ -20,6 +20,7 @@ public class EducationPath : Entity<int>
 
     public virtual ICollection<ProfileEducation> ProfileEducations { get; set; }
     public virtual ICollection<Course> Courses { get; set; }
+    public virtual ICollection<Calendar> Calendars { get; set; }
 
     public EducationPath()
     {

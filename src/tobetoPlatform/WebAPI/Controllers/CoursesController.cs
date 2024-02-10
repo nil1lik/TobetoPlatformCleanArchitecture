@@ -52,11 +52,4 @@ public class CoursesController : BaseController
         return Ok(response);
     }
 
-    //[HttpGet("CalendarDetail")]
-    //public async Task<IActionResult> GetCalendarDetailList([FromQuery] PageRequest pageRequest)
-    //{
-    //    GetListCalenderQuery getCalendarDetailListQuery = new() { PageRequest = pageRequest };
-    //    GetListResponse<GetListCalenderListItemDto> response = await Mediator.Send(getCalendarDetailListQuery);
-    //    return Ok(response);
-    //}
 }
