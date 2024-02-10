@@ -7,6 +7,7 @@ using AutoMapper;
 using Core.Application.Responses;
 using Domain.Entities;
 using Core.Persistence.Paging;
+using Application.Features.Experiences.Queries.GetExperienceInformationsList;
 
 namespace Application.Features.Experiences.Profiles;
 
@@ -22,6 +23,9 @@ public class MappingProfiles : Profile
         CreateMap<Experience, DeletedExperienceResponse>().ReverseMap();
         CreateMap<Experience, GetByIdExperienceResponse>().ReverseMap();
         CreateMap<Experience, GetListExperienceListItemDto>().ReverseMap();
+        CreateMap<Experience, GetListExperienceInformationsListDto>().
+            ForMember(i => i.CityName, opt => opt.MapFrom(x => x.City.Name)).ReverseMap();
         CreateMap<IPaginate<Experience>, GetListResponse<GetListExperienceListItemDto>>().ReverseMap();
+        CreateMap<IPaginate<Experience>, GetListResponse<GetListExperienceInformationsListDto>>().ReverseMap();
     }
 }
