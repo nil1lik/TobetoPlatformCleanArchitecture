@@ -1,6 +1,7 @@
 using Application.Features.Calendars.Commands.Create;
 using Application.Features.Calendars.Commands.Delete;
 using Application.Features.Calendars.Commands.Update;
+using Application.Features.Calendars.Queries.GetAllCalendar;
 using Application.Features.Calendars.Queries.GetById;
 using Application.Features.Calendars.Queries.GetList;
 using Core.Application.Requests;
@@ -49,6 +50,14 @@ public class CalendarsController : BaseController
     {
         GetListCalendarQuery getListCalendarQuery = new() { PageRequest = pageRequest };
         GetListResponse<GetListCalendarListItemDto> response = await Mediator.Send(getListCalendarQuery);
+        return Ok(response);
+    }
+
+    [HttpGet("GetAllCalendar")]
+    public async Task<IActionResult> GetListCalendar([FromQuery] PageRequest pageRequest)
+    {
+        GetAllCalenderQuery getListCalendarQuery = new() { PageRequest = pageRequest };
+        GetListResponse<GetAllCalenderListItemDto> response = await Mediator.Send(getListCalendarQuery);
         return Ok(response);
     }
 }

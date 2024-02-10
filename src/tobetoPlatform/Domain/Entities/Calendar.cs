@@ -12,9 +12,9 @@ public class Calendar : Entity<int>
     public int InstructorId { get; set; }
     public int EducationPathId { get; set; }
 
-    public virtual ICollection<SyncLesson> SyncLessons { get; set; }
-    public virtual ICollection<Instructor> Instructors { get; set; }
-    public virtual ICollection<EducationPath> EducationPaths { get; set; }
+    public virtual SyncLesson SyncLesson { get; set; }
+    public virtual Instructor Instructor { get; set; }
+    public virtual EducationPath EducationPath { get; set; }
 
     public Calendar()
     {

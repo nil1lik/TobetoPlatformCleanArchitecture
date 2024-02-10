@@ -1,4 +1,3 @@
-using Application.Features.Calendar.Queries.GetList;
 using Application.Features.Courses.Commands.Create;
 using Application.Features.Courses.Commands.Delete;
 using Application.Features.Courses.Commands.Update;
@@ -53,11 +52,4 @@ public class CoursesController : BaseController
         return Ok(response);
     }
 
-    [HttpGet("CalendarDetail")]
-    public async Task<IActionResult> GetCalendarDetailList([FromQuery] PageRequest pageRequest)
-    {
-        GetListCalenderQuery getCalendarDetailListQuery = new() { PageRequest = pageRequest };
-        GetListResponse<GetListCalenderListItemDto> response = await Mediator.Send(getCalendarDetailListQuery);
-        return Ok(response);
-    }
 }
