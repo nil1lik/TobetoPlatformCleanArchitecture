@@ -55,6 +55,7 @@ using Application.Services.AnnouncementTypes;
 using Application.Services.CourseInstructors;
 using Application.Services.LessonVideoDetails;
 using Application.Services.VideoDetailCategories;
+using Application.Services.Calendars;
 
 
 namespace Application;
@@ -103,6 +104,7 @@ public static class ApplicationServiceRegistration
         services.AddScoped<ICourseInstructorsService, CourseInstructorsManager>();
         services.AddScoped<ILessonVideoDetailsService, LessonVideoDetailsManager>();
         services.AddScoped<IVideoDetailCategoriesService, VideoDetailCategoriesManager>();
+        services.AddScoped<ICalendarsService, CalendarsManager>();
         return services;
     }
 

@@ -56,6 +56,7 @@ public class BaseDbContext : DbContext
     public DbSet<AnnouncementType> AnnouncementTypes { get; set; }
     public DbSet<ProfileExam> ProfileExams { get; set; }
     public DbSet<VideoDetailCategory> VideoDetailCategories { get; set; }
+    public DbSet<Calendar> Calendars { get; set; }
 
 
 
