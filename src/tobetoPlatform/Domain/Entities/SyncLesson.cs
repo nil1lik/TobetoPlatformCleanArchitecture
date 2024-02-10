@@ -18,6 +18,8 @@ public class SyncLesson : Entity<int>
     public bool IsJoin { get; set; }
 
     public virtual ICollection<Instructor> Instructors { get; set; }
+    public virtual ICollection<Calendar> Calendars { get; set; }
+
     public virtual LessonVideoDetail LessonVideoDetail { get; set; }
     public virtual Course Course { get; set; }
 

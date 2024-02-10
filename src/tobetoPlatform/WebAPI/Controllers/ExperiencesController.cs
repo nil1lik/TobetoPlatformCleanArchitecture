@@ -2,6 +2,7 @@ using Application.Features.Experiences.Commands.Create;
 using Application.Features.Experiences.Commands.Delete;
 using Application.Features.Experiences.Commands.Update;
 using Application.Features.Experiences.Queries.GetById;
+using Application.Features.Experiences.Queries.GetExperienceInformationsList;
 using Application.Features.Experiences.Queries.GetList;
 using Core.Application.Requests;
 using Core.Application.Responses;
@@ -49,6 +50,14 @@ public class ExperiencesController : BaseController
     {
         GetListExperienceQuery getListExperienceQuery = new() { PageRequest = pageRequest };
         GetListResponse<GetListExperienceListItemDto> response = await Mediator.Send(getListExperienceQuery);
+        return Ok(response);
+    }
+
+    [HttpGet("ExperienceInformationsListDto")]
+    public async Task<IActionResult> GetExperienceInformationsListDto([FromQuery] PageRequest pageRequest)
+    {
+        GetListExperienceInformationsQuery getExperienceInformationsListQuery = new() { PageRequest = pageRequest };
+        GetListResponse<GetListExperienceInformationsListDto> response = await Mediator.Send(getExperienceInformationsListQuery);
         return Ok(response);
     }
 }
