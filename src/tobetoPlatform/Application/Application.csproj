@@ -20,6 +20,7 @@
     <Folder Include="Services\Repositories" />
     <Folder Include="Features\Announcements\Queries\GetAnnouncementTypeDetail\" />
     <Folder Include="Features\Announcements\Queries\GetAnnouncementTypeDetailList\" />
+    <Folder Include="Features\EducationPaths\Queries\GetEducationPathDetailById\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -32,5 +33,6 @@
   <ItemGroup>
     <None Remove="Features\Announcements\Queries\GetAnnouncementTypeDetail\" />
     <None Remove="Features\Announcements\Queries\GetAnnouncementTypeDetailList\" />
+    <None Remove="Features\EducationPaths\Queries\GetEducationPathDetailById\" />
   </ItemGroup>
 </Project>
