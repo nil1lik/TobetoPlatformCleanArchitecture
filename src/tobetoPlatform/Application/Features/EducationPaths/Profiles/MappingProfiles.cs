@@ -8,6 +8,7 @@ using Core.Application.Responses;
 using Domain.Entities;
 using Core.Persistence.Paging;
 using Application.Features.EducationPaths.Queries.GetEducationPathDetailById;
+using Application.Features.EducationPaths.Queries.GetCoursesByEducationId;
 
 namespace Application.Features.EducationPaths.Profiles;
 
@@ -29,6 +30,9 @@ public class MappingProfiles : Profile
             ForMember(x=>x.EducationPoint, opt=>opt.MapFrom(x=>x.EducationAdmiration.EducationPoint)).
             ForMember(x=>x.educationAboutId, opt => opt.MapFrom(x => x.EducationAbout.Id)).
             ReverseMap();
+        CreateMap<EducationPath, GetCoursesByEducationIdDto>().
+            ForMember(x => x.Courses, opt=>opt.MapFrom(x => x.Courses.Select(x=>x.Name).ToList()))
+            .ReverseMap();
         CreateMap<EducationPath, GetListEducationPathListItemDto>().ReverseMap();
         CreateMap<IPaginate<EducationPath>, GetListResponse<GetListEducationPathListItemDto>>().ReverseMap();
     }
