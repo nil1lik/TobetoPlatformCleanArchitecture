@@ -1,6 +1,7 @@
 using Application.Features.Courses.Commands.Create;
 using Application.Features.Courses.Commands.Delete;
 using Application.Features.Courses.Commands.Update;
+using Application.Features.Courses.Queries.GetAsyncLessonsByCourseId;
 using Application.Features.Courses.Queries.GetById;
 using Application.Features.Courses.Queries.GetList;
 using Core.Application.Requests;
@@ -41,6 +42,13 @@ public class CoursesController : BaseController
     public async Task<IActionResult> GetById([FromRoute] int id)
     {
         GetByIdCourseResponse response = await Mediator.Send(new GetByIdCourseQuery { Id = id });
+        return Ok(response);
+    }
+
+    [HttpGet("getAsyncLesson/{id}")]
+    public async Task<IActionResult> getAsyncLessonsByCourseId([FromRoute] int id)
+    {
+        GetAsyncLessonsByCourseIdResponse response = await Mediator.Send(new GetAsyncLessonsByCourseIdQuery { Id = id });
         return Ok(response);
     }
 

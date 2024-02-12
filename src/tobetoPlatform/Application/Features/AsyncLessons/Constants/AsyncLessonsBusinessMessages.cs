@@ -3,7 +3,7 @@ namespace Application.Features.AsyncLessons.Constants;
 public static class AsyncLessonsBusinessMessages
 {
     public const string AsyncLessonNotExists = "Async lesson not exists.";
-    public const string VideoNotStarted = "Baþlamadýn.";
+    public const string VideoNotStarted = "Baï¿½lamadï¿½n.";
     public const string VideoInProgress = "Devam Ediyor.";
-    public const string VideoComplete= "Tamamlandý.";
+    public const string VideoComplete= "Tamamlandï¿½.";
 }
