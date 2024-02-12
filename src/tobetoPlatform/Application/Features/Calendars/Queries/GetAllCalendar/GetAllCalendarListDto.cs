@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 namespace Application.Features.Calendars.Queries.GetAllCalendar;
 public class GetAllCalenderListItemDto : IDto
 {
+    public int Id { get; set; }
     public DateTime StartDate { get; set; }
     public string EducationPathName { get; set; }
     public string FirstName { get; set; }

@@ -57,6 +57,9 @@ public class BaseDbContext : DbContext
     public DbSet<ProfileExam> ProfileExams { get; set; }
     public DbSet<VideoDetailCategory> VideoDetailCategories { get; set; }
     public DbSet<Calendar> Calendars { get; set; }
+    public DbSet<ProfileGraduation> ProfileGraduations { get; set; }
+    public DbSet<ProfileSkill> ProfileSkills { get; set; }
+    public DbSet<ProfileLanguage> ProfileLanguages { get; set; }
 
 
 

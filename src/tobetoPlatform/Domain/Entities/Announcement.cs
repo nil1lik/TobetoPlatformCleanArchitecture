@@ -10,6 +10,7 @@ namespace Domain.Entities
 {
     public class Announcement : Entity<int>
     {
+        //.
         public int AnnouncementTypeId { get; set; }
         public string Name { get; set; }
         public string Title { get; set; }
