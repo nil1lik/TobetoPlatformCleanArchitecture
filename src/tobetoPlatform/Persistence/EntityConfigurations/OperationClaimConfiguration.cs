@@ -428,6 +428,7 @@ public class OperationClaimConfiguration : IEntityTypeConfiguration<OperationCla
         seeds.Add(new OperationClaim { Id = ++id, Name = "ProfileLanguages.Delete" });
         #endregion
 
+        
         return seeds;
     }
 }

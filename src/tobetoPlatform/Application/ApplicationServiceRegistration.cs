@@ -59,6 +59,7 @@ using Application.Services.Calendars;
 using Application.Services.ProfileGraduations;
 using Application.Services.ProfileSkills;
 using Application.Services.ProfileLanguages;
+using Application.Services.CourseLessons;
 
 
 namespace Application;
@@ -111,6 +112,7 @@ public static class ApplicationServiceRegistration
         services.AddScoped<IProfileGraduationsService, ProfileGraduationsManager>();
         services.AddScoped<IProfileSkillsService, ProfileSkillsManager>();
         services.AddScoped<IProfileLanguagesService, ProfileLanguagesManager>();
+        services.AddScoped<ICourseLessonsService, CourseLessonsManager>();
         return services;
     }
 

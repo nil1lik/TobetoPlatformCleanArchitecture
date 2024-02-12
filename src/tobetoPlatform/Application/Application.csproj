@@ -22,6 +22,7 @@
     <Folder Include="Features\Announcements\Queries\GetAnnouncementTypeDetailList\" />
     <Folder Include="Features\EducationPaths\Queries\GetEducationPathDetailById\" />
     <Folder Include="Features\EducationPaths\Queries\GetCoursesByEducationId\" />
+    <Folder Include="Features\Courses\Queries\GetAsyncLessonsByCourseId\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -36,5 +37,6 @@
     <None Remove="Features\Announcements\Queries\GetAnnouncementTypeDetailList\" />
     <None Remove="Features\EducationPaths\Queries\GetEducationPathDetailById\" />
     <None Remove="Features\EducationPaths\Queries\GetCoursesByEducationId\" />
+    <None Remove="Features\Courses\Queries\GetAsyncLessonsByCourseId\" />
   </ItemGroup>
 </Project>
