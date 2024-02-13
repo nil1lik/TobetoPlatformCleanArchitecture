@@ -33,7 +33,7 @@ public class GetAllLanguageByUserIdQuery : IRequest<GetListResponse<GetAllLangua
         public async Task<GetListResponse<GetAllLanguageByUserIdResponse>> Handle(GetAllLanguageByUserIdQuery request, CancellationToken cancellationToken)
         {
             IPaginate<ProfileLanguage> profileLanguages = await _profileLanguageRepository.GetListAsync(
-                include: x=>x.Include(x=>x.Language).ThenInclude(x=>x.LanguageLevel),
+                //include: x=>x.Include(x=>x.Language).ThenInclude(x=>x.LanguageLevel),
                 index: request.PageRequest.PageIndex,
                 size: request.PageRequest.PageSize,
                 cancellationToken: cancellationToken
