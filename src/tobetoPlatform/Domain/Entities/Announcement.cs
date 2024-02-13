@@ -10,7 +10,6 @@ namespace Domain.Entities
 {
     public class Announcement : Entity<int>
     {
-        //.
         public int AnnouncementTypeId { get; set; }
         public string Name { get; set; }
         public string Title { get; set; }
@@ -22,7 +21,7 @@ namespace Domain.Entities
 
         public Announcement()
         {
-            
+
         }
 
         public Announcement(int id,int announcementTypeId, string name, string title, string description, bool isRead):this()

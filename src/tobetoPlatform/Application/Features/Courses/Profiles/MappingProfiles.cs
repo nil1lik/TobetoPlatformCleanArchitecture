@@ -7,6 +7,7 @@ using AutoMapper;
 using Core.Application.Responses;
 using Domain.Entities;
 using Core.Persistence.Paging;
+using Application.Features.Courses.Queries.GetAsyncLessonsByCourseId;
 
 namespace Application.Features.Courses.Profiles;
 
@@ -22,6 +23,10 @@ public class MappingProfiles : Profile
         CreateMap<Course, DeletedCourseResponse>().ReverseMap();
         CreateMap<Course, GetByIdCourseResponse>().ReverseMap();
         CreateMap<Course, GetListCourseListItemDto>().ReverseMap();
+        CreateMap<Course, GetAsyncLessonsByCourseIdResponse>()
+            .ForMember(c => c.AsyncLessons, opt => opt.MapFrom(c => c.CourseLesson.Select(al => al.AsyncLesson.Name)))
+            .ReverseMap();
+
         CreateMap<IPaginate<Course>, GetListResponse<GetListCourseListItemDto>>().ReverseMap();
 
 
@@ -29,11 +34,11 @@ public class MappingProfiles : Profile
 
     private static DateTime GetSessionStartDate(Course source)
     {
-        // Özel dönüþüm logic'i burada
-        // SessionStartDate'ý almak için uygun dönüþüm iþlemini gerçekleþtirin
+        // ï¿½zel dï¿½nï¿½ï¿½ï¿½m logic'i burada
+        // SessionStartDate'ï¿½ almak iï¿½in uygun dï¿½nï¿½ï¿½ï¿½m iï¿½lemini gerï¿½ekleï¿½tirin
 
         var sessionStartDate = source.SyncLessons
-            .OrderBy(sl => sl.StartDate)  // Örnek: Ýlk baþlangýç tarihini seç
+            .OrderBy(sl => sl.StartDate)  // ï¿½rnek: ï¿½lk baï¿½langï¿½ï¿½ tarihini seï¿½
             .Select(sl => sl.StartDate)
             .FirstOrDefault();
 
