@@ -28,7 +28,7 @@ public class GetByIdLanguageQuery : IRequest<GetByIdLanguageResponse>
         {
             Language? language = await _languageRepository.GetAsync(
                 predicate: l => l.Id == request.Id, 
-                include : l=>l.Include(x=>x.LanguageLevel),
+                //include : l=>l.Include(x=>x.LanguageLevel),
                 cancellationToken: cancellationToken);
             await _languageBusinessRules.LanguageShouldExistWhenSelected(language);
 

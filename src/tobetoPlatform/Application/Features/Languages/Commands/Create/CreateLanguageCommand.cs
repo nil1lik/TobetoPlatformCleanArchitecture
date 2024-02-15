@@ -9,7 +9,6 @@ namespace Application.Features.Languages.Commands.Create;
 public class CreateLanguageCommand : IRequest<CreatedLanguageResponse>
 {
     public string Name { get; set; }
-    public int LanguageLevelId { get; set; }
 
     public class CreateLanguageCommandHandler : IRequestHandler<CreateLanguageCommand, CreatedLanguageResponse>
     {

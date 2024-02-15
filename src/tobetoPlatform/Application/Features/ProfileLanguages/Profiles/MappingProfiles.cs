@@ -23,10 +23,10 @@ public class MappingProfiles : Profile
         CreateMap<ProfileLanguage, DeletedProfileLanguageResponse>().ReverseMap();
         CreateMap<ProfileLanguage, GetByIdProfileLanguageResponse>().ReverseMap();
         CreateMap<ProfileLanguage, GetListProfileLanguageListItemDto>().ReverseMap();
-        CreateMap<ProfileLanguage, GetAllLanguageByUserIdResponse>()
-            .ForMember(x=>x.Name, opt=>opt.MapFrom(x=>x.Language.Name))
-            .ForMember(x=>x.Level, opt=>opt.MapFrom(x=>x.Language.LanguageLevel.Name))
-            .ReverseMap();
+        //CreateMap<ProfileLanguage, GetAllLanguageByUserIdResponse>()
+        //    .ForMember(x=>x.Name, opt=>opt.MapFrom(x=>x.Language.Name))
+        //    .ForMember(x=>x.Level, opt=>opt.MapFrom(x=>x.Language.LanguageLevel.Name))
+        //    .ReverseMap();
         CreateMap<IPaginate<ProfileLanguage>, GetListResponse<GetListProfileLanguageListItemDto>>().ReverseMap();
         CreateMap<IPaginate<ProfileLanguage>, GetListResponse<GetAllLanguageByUserIdResponse>>().ReverseMap();
     }
