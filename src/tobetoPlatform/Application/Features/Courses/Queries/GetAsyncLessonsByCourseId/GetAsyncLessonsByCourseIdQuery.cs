@@ -29,10 +29,11 @@ namespace Application.Features.Courses.Queries.GetAsyncLessonsByCourseId
             public async Task<GetAsyncLessonsByCourseIdResponse> Handle(GetAsyncLessonsByCourseIdQuery request, CancellationToken cancellationToken)
             {
                 Course? course = await _courseRepository.GetAsync(predicate: c => c.Id == request.Id,
-                    include: c => c.Include(c => c.CourseLesson).ThenInclude(al => al.AsyncLesson),
+                    include: c => c.Include(c => c.CourseLesson).ThenInclude(al => al.AsyncLesson)
+                                   .Include(a => a.CourseLesson).ThenInclude(al => al.AsyncLesson.LessonType),
                     cancellationToken: cancellationToken);
                 await _courseBusinessRules.CourseShouldExistWhenSelected(course);
-
+                 
                 GetAsyncLessonsByCourseIdResponse response = _mapper.Map<GetAsyncLessonsByCourseIdResponse>(course);
                 return response;
             }

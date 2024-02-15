@@ -23,9 +23,16 @@ public class MappingProfiles : Profile
         CreateMap<Course, DeletedCourseResponse>().ReverseMap();
         CreateMap<Course, GetByIdCourseResponse>().ReverseMap();
         CreateMap<Course, GetListCourseListItemDto>().ReverseMap();
+
+        CreateMap<CourseLesson, GetAsyncLessonsByCourseIdItem>()
+       .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.AsyncLesson.Id))
+       .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.AsyncLesson.Name))
+       .ForMember(dest => dest.LessonType, opt => opt.MapFrom(src => src.AsyncLesson.LessonType.Name))
+       .ForMember(dest => dest.Time, opt => opt.MapFrom(src => src.AsyncLesson.Time));
+
         CreateMap<Course, GetAsyncLessonsByCourseIdResponse>()
-            .ForMember(c => c.AsyncLessons, opt => opt.MapFrom(c => c.CourseLesson.Select(al => al.AsyncLesson.Name)))
-            .ReverseMap();
+            .ForMember(dest => dest.AsyncLessons, opt => opt.MapFrom(src => src.CourseLesson.Select(cl => cl)));
+
 
         CreateMap<IPaginate<Course>, GetListResponse<GetListCourseListItemDto>>().ReverseMap();
 
