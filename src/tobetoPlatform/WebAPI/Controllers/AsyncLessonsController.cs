@@ -2,6 +2,7 @@ using Application.Features.AsyncLessons.Commands.Create;
 using Application.Features.AsyncLessons.Commands.Delete;
 using Application.Features.AsyncLessons.Commands.Update;
 using Application.Features.AsyncLessons.Queries.GetById;
+using Application.Features.AsyncLessons.Queries.GetLessonDetailByAsyncLessonId;
 using Application.Features.AsyncLessons.Queries.GetList;
 using Core.Application.Requests;
 using Core.Application.Responses;
@@ -41,6 +42,13 @@ public class AsyncLessonsController : BaseController
     public async Task<IActionResult> GetById([FromRoute] int id)
     {
         GetByIdAsyncLessonResponse response = await Mediator.Send(new GetByIdAsyncLessonQuery { Id = id });
+        return Ok(response);
+    }
+
+    [HttpGet("getLessonDetail/{id}")]
+    public async Task<IActionResult> getLessonDetailByAsyncLessonId([FromRoute] int id)
+    {
+        GetLessonDetailByAsyncLessonIdResponse response = await Mediator.Send(new GetLessonDetailByAsyncLessonIdQuery { Id = id });
         return Ok(response);
     }
 

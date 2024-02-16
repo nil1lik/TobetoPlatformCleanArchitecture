@@ -429,6 +429,14 @@ public class OperationClaimConfiguration : IEntityTypeConfiguration<OperationCla
         #endregion
 
         
+        #region LessonVideoDetailVideoDetailCategories
+        seeds.Add(new OperationClaim { Id = ++id, Name = "LessonVideoDetailVideoDetailCategories.Admin" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "LessonVideoDetailVideoDetailCategories.Read" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "LessonVideoDetailVideoDetailCategories.Write" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "LessonVideoDetailVideoDetailCategories.Add" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "LessonVideoDetailVideoDetailCategories.Update" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "LessonVideoDetailVideoDetailCategories.Delete" });
+        #endregion
         return seeds;
     }
 }
