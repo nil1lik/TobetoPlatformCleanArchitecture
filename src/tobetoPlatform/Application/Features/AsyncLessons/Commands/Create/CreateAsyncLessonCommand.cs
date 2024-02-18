@@ -13,6 +13,7 @@ public class CreateAsyncLessonCommand : IRequest<CreatedAsyncLessonResponse>
     public int LessonTypeId { get; set; }
     public string Name { get; set; }
     public TimeSpan Time { get; set; }
+    public double VideoPoint { get; set; }
     public string VideoUrl { get; set; }
     public bool IsCompleted { get; set; }
 
