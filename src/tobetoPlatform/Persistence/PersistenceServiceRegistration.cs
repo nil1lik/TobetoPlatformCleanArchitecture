@@ -56,14 +56,12 @@ public static class PersistenceServiceRegistration
         services.AddScoped<ISocialMediaCategoryRepository, SocialMediaCategoryRepository>();
         services.AddScoped<IUserProfileRepository, UserProfileRepository>();
         services.AddScoped<IExperienceRepository, ExperienceRepository>();
-        services.AddScoped<IProfileAddressRepository, ProfileAddressRepository>();
         services.AddScoped<IAnnouncementTypeRepository, AnnouncementTypeRepository>();
         services.AddScoped<IProfileExamRepository, ProfileExamRepository>();
         services.AddScoped<ICourseInstructorRepository, CourseInstructorRepository>();
         services.AddScoped<ILessonVideoDetailRepository, LessonVideoDetailRepository>();
         services.AddScoped<IVideoDetailCategoryRepository, VideoDetailCategoryRepository>();
         services.AddScoped<ICalendarRepository, CalendarRepository>();
-        services.AddScoped<IProfileGraduationRepository, ProfileGraduationRepository>();
         services.AddScoped<IProfileSkillRepository, ProfileSkillRepository>();
         services.AddScoped<IProfileLanguageRepository, ProfileLanguageRepository>();
         services.AddScoped<ICourseLessonRepository, CourseLessonRepository>();
