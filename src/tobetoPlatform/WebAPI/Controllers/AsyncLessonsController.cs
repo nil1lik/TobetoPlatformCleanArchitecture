@@ -49,7 +49,7 @@ public class AsyncLessonsController : BaseController
     public async Task<IActionResult> getLessonDetailByAsyncLessonId([FromRoute] int id)
     {
         GetLessonDetailByAsyncLessonIdResponse response = await Mediator.Send(new GetLessonDetailByAsyncLessonIdQuery { Id = id });
-        return Ok(response);
+        return Ok(response); 
     }
 
     [HttpGet]

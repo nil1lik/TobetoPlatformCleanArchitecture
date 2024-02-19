@@ -31,10 +31,11 @@ namespace Application.Features.AsyncLessons.Queries.GetLessonDetailByAsyncLesson
                     include: al => al.Include(al => al.LessonType)
                     .Include(al => al.LessonVideoDetail.VideoLanguage)
                     .Include(al => al.LessonVideoDetail.Company)
-                    .Include(al => al.LessonVideoDetail).ThenInclude(al=>al.LessonVideoDetailVideoDetailCategories),
+                    .Include(al => al.LessonVideoDetail).ThenInclude(al=>al.LessonVideoDetailVideoDetailCategories).ThenInclude(al=>al.VideoDetailCategory)
+                    .Include(al => al.LessonVideoDetail.LessonVideoDetailVideoDetailCategories).ThenInclude(al => al.VideoDetailCategory).ThenInclude(al=>al.VideoDetailSubcategories),
 
-                    //.Include(al => al.LessonVideoDetail.VideoDetailCategories).ThenInclude(al => al.VideoDetailSubcategories),
-                    cancellationToken: cancellationToken);
+
+                    cancellationToken: cancellationToken); 
                 await _asyncLessonBusinessRules.AsyncLessonShouldExistWhenSelected(asyncLesson);
                 GetLessonDetailByAsyncLessonIdResponse response = _mapper.Map<GetLessonDetailByAsyncLessonIdResponse>(asyncLesson);
                 return response;
