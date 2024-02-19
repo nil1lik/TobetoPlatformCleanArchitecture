@@ -22,7 +22,7 @@ public class UserProfile:Entity<int>
     public virtual ProfileAddress ProfileAddress { get; set; }
 
     public virtual ICollection<ProfileApplication> ProfileApplications { get; set; }
-    public virtual ICollection<ProfileGraduation> ProfileGraduation { get; set; }
+    public virtual ICollection<Graduation> Graduations { get; set; }
     public virtual ICollection<ProfileLanguage>? ProfileLanguages { get; set; }
     public virtual ICollection<ProfileSkill>? ProfileSkills { get; set; }
     public virtual ICollection<ProfileExam>? ProfileExams { get; set; }
