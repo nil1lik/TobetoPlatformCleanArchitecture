@@ -56,7 +56,6 @@ using Application.Services.CourseInstructors;
 using Application.Services.LessonVideoDetails;
 using Application.Services.VideoDetailCategories;
 using Application.Services.Calendars;
-using Application.Services.ProfileGraduations;
 using Application.Services.ProfileSkills;
 using Application.Services.ProfileLanguages;
 using Application.Services.CourseLessons;
@@ -110,7 +109,6 @@ public static class ApplicationServiceRegistration
         services.AddScoped<ILessonVideoDetailsService, LessonVideoDetailsManager>();
         services.AddScoped<IVideoDetailCategoriesService, VideoDetailCategoriesManager>();
         services.AddScoped<ICalendarsService, CalendarsManager>();
-        services.AddScoped<IProfileGraduationsService, ProfileGraduationsManager>();
         services.AddScoped<IProfileSkillsService, ProfileSkillsManager>();
         services.AddScoped<IProfileLanguagesService, ProfileLanguagesManager>();
         services.AddScoped<ICourseLessonsService, CourseLessonsManager>();
