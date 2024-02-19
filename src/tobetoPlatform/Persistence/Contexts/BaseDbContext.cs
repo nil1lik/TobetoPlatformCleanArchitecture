@@ -52,7 +52,6 @@ public class BaseDbContext : DbContext
     public DbSet<VideoCategory> VideoCategories { get; set; }
     public DbSet<SocialMediaAccount> SocialMediaAccounts { get; set; }
     public DbSet<SocialMediaCategory> SocialMediaCategories { get; set; }
-    public DbSet<ProfileAddress> ProfileAddresses { get; set; }
     public DbSet<AnnouncementType> AnnouncementTypes { get; set; }
     public DbSet<ProfileExam> ProfileExams { get; set; }
     public DbSet<VideoDetailCategory> VideoDetailCategories { get; set; }

@@ -50,7 +50,6 @@ using Application.Services.SocialMediaCategories;
 using Application.Services.UserProfiles;
 using Application.Services.Announcements;
 using Application.Services.Experiences;
-using Application.Services.ProfileAddresses;
 using Application.Services.AnnouncementTypes;
 using Application.Services.CourseInstructors;
 using Application.Services.LessonVideoDetails;
@@ -103,7 +102,6 @@ public static class ApplicationServiceRegistration
         services.AddScoped<IUserProfilesService, UserProfilesManager>();
         services.AddScoped<IAnnouncementsService, AnnouncementsManager>();
         services.AddScoped<IExperiencesService, ExperiencesManager>();
-        services.AddScoped<IProfileAddressesService, ProfileAddressesManager>();
         services.AddScoped<IAnnouncementTypesService, AnnouncementTypesManager>();
         services.AddScoped<ICourseInstructorsService, CourseInstructorsManager>();
         services.AddScoped<ILessonVideoDetailsService, LessonVideoDetailsManager>();
