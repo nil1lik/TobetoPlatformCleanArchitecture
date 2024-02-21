@@ -1,3 +1,4 @@
+using Application.Features.Experiences.Constants;
 using Application.Features.Graduations.Rules;
 using Application.Services.Repositories;
 using AutoMapper;
@@ -37,7 +38,7 @@ public class CreateGraduationCommand : IRequest<CreatedGraduationResponse>
             await _graduationRepository.AddAsync(graduation);
 
             CreatedGraduationResponse response = _mapper.Map<CreatedGraduationResponse>(graduation);
-            response.Message = "Eðitim bilgisi eklendi.";
+            response.Message = ExperiencesValidationMessages.ExperienceSuccessfullyAdded;
             return response;
         }
     }
