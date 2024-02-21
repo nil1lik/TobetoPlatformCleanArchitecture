@@ -12,5 +12,5 @@ public class GetByIdAsyncLessonResponse : IResponse
     public string LessonTypeName { get; set; }
     public TimeSpan Time { get; set; }
     public string VideoUrl { get; set; }
-    public bool IsCompleted { get; set; }
+    public bool IsCompleted { get; set; } 
 }
