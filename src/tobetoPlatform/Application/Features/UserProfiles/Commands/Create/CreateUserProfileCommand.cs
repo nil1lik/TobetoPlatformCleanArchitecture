@@ -35,6 +35,7 @@ public class CreateUserProfileCommand : IRequest<CreatedUserProfileResponse>
         public async Task<CreatedUserProfileResponse> Handle(CreateUserProfileCommand request, CancellationToken cancellationToken)
         {
             UserProfile userProfile = _mapper.Map<UserProfile>(request);
+            userProfile.Id = request.UserId;
 
             await _userProfileRepository.AddAsync(userProfile);
 
