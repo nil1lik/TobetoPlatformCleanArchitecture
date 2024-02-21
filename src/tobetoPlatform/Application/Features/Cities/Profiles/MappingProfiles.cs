@@ -24,11 +24,11 @@ public class MappingProfiles : Profile
         CreateMap<City, DeletedCityResponse>().ReverseMap();
         CreateMap<City, GetByIdCityResponse>().ReverseMap();
         CreateMap<City, GetDistrictByIdCityResponse>()
-            .ForMember(d=>d.Districts,opt=>opt.MapFrom(d=>d.Districts.Select(d=>d.Name).ToList()))
+            .ForMember(dest => dest.Districts, opt => opt.MapFrom(src => src.Districts.Select(d => new DistrictDto { Id = d.Id, Name = d.Name }).ToList()))
             .ReverseMap();
         CreateMap<City, GetListCityListItemDto>().ReverseMap();
         CreateMap<City, GetDistrictListCityListItemDto>()
-            .ForMember(d => d.District, opt => opt.MapFrom(d => d.Districts.Select(d => d.Name).ToList()))
+            .ForMember(dest => dest.District, opt => opt.MapFrom(src => src.Districts.Select(d => new DistrictDto { Id = d.Id, Name = d.Name }).ToList()))
             .ReverseMap();
         CreateMap<IPaginate<City>, GetListResponse<GetListCityListItemDto>>().ReverseMap();
         CreateMap<IPaginate<City>, GetListResponse<GetDistrictListCityListItemDto>>().ReverseMap();
