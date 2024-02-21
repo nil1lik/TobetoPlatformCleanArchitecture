@@ -12,15 +12,17 @@ namespace Domain.Entities;
 public class UserProfile : Entity<int>
 {
     public int UserId { get; set; }
-    public int? ProfileShareId { get; set; }
     public int CityId { get; set; }
+    public int DistrictId { get; set; }
     public string NationalIdentity { get; set; }
     public string Phone { get; set; }
     public DateTime BirthDate { get; set; }
+    public string Country { get; set; }
     public string? AddressDetail { get; set; }
     public string? Description { get; set; }
     public virtual User User { get; set; }
     public virtual City City { get; set; }
+    public virtual District District { get; set; }
 
     public virtual ICollection<ProfileApplication> ProfileApplications { get; set; }
     public virtual ICollection<Graduation> Graduations { get; set; }
@@ -40,15 +42,17 @@ public class UserProfile : Entity<int>
 
     }
 
-    public UserProfile(int id, int userId, int profileAddressId, int profileShareId, string nationalIdentity, string phone, DateTime birthDate, string? description, User user)
+    public UserProfile(int id,int userId, int cityId, int districtId, string nationalIdentity, string phone, DateTime birthDate, string country, string? addressDetail, string? description, User user)
     {
         Id = id;
         UserId = userId;
-        //ProfileAddressId = profileAddressId;
-        ProfileShareId = profileShareId;
+        CityId = cityId;
+        DistrictId = districtId;
         NationalIdentity = nationalIdentity;
         Phone = phone;
         BirthDate = birthDate;
+        Country = country;
+        AddressDetail = addressDetail;
         Description = description;
         User = user;
     }
