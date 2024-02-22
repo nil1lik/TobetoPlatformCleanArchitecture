@@ -52,12 +52,10 @@ public class BaseDbContext : DbContext
     public DbSet<VideoCategory> VideoCategories { get; set; }
     public DbSet<SocialMediaAccount> SocialMediaAccounts { get; set; }
     public DbSet<SocialMediaCategory> SocialMediaCategories { get; set; }
-    public DbSet<ProfileAddress> ProfileAddresses { get; set; }
     public DbSet<AnnouncementType> AnnouncementTypes { get; set; }
     public DbSet<ProfileExam> ProfileExams { get; set; }
     public DbSet<VideoDetailCategory> VideoDetailCategories { get; set; }
     public DbSet<Calendar> Calendars { get; set; }
-    public DbSet<ProfileGraduation> ProfileGraduations { get; set; }
     public DbSet<ProfileSkill> ProfileSkills { get; set; }
     public DbSet<ProfileLanguage> ProfileLanguages { get; set; }
     public DbSet<LessonVideoDetailVideoDetailCategory> LessonVideoDetailVideoDetailCategories { get; set; }
