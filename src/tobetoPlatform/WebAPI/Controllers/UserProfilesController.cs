@@ -2,6 +2,7 @@ using Application.Features.UserProfiles.Commands.Create;
 using Application.Features.UserProfiles.Commands.Delete;
 using Application.Features.UserProfiles.Commands.Update;
 using Application.Features.UserProfiles.Queries.GetById;
+using Application.Features.UserProfiles.Queries.GetByUserId;
 using Application.Features.UserProfiles.Queries.GetList;
 using Application.Features.UserProfiles.Queries.GetUserDetail;
 using Core.Application.Requests;
@@ -42,6 +43,13 @@ public class UserProfilesController : BaseController
     public async Task<IActionResult> GetById([FromRoute] int id)
     {
         GetUserDetailDto response = await Mediator.Send(new GetUserDetailQuery { Id = id });
+        return Ok(response);
+    }
+
+    [HttpGet("getByUserId/{id}")]
+    public async Task<IActionResult> GetByUserId([FromRoute] int id)
+    {
+        GetByUserIdUserProfileResponse response = await Mediator.Send(new GetByUserIdUserProfileQuery { Id = id });
         return Ok(response);
     }
 
