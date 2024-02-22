@@ -9,7 +9,7 @@ namespace Application.Features.Graduations.Commands.Create;
 
 public class CreateGraduationCommand : IRequest<CreatedGraduationResponse>
 {
-    public string UserProfileId { get; set; }
+    public int UserProfileId { get; set; }
     public string Degree { get; set; }
     public string UniversityName { get; set; }
     public string Department { get; set; }
