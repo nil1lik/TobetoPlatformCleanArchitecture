@@ -11,6 +11,8 @@ using Application.Features.UserProfiles.Queries.GetUserDetail;
 using Application.Features.UserProfiles.Queries.GetByUserId;
 using Application.Features.UserProfiles.Queries.GetAllSkillByUserId;
 using Application.Features.Cities.Queries.GetDistrictList;
+using Application.Features.UserProfiles.Queries.GetAllGraduationByUserId;
+using Application.Features.UserProfiles.Queries.GetExperienceByUserId;
 
 namespace Application.Features.UserProfiles.Profiles;
 
@@ -37,6 +39,7 @@ public class MappingProfiles : Profile
         CreateMap<UserProfile, GetByUserIdUserProfileResponse>()
             .ForMember(x => x.UserId, opt => opt.MapFrom(x => x.User.Id))
             .ReverseMap();
+
         CreateMap<UserProfile, GetListSkillByUserIdResponse>()
          .ForMember(dest => dest.SkillDtoItems, opt => opt.MapFrom(src =>
         src.ProfileSkills.Select(profileSkill => new SkillDto
@@ -46,6 +49,39 @@ public class MappingProfiles : Profile
         }).ToList()))
 
          .ForMember(x => x.UserProfileId, opt => opt.MapFrom(x => x.UserId))
+          .ReverseMap();
+
+        CreateMap<UserProfile, GetListGraduationByUserIdResponse>()
+            .ForMember(x => x.UserProfileId, opt => opt.MapFrom(x => x.UserId))
+            .ForMember(x => x.GraduationsDtoItems, opt => opt.MapFrom(x => x.Graduations.Select(graduation => new GraduationDto
+            {
+                Degree = graduation.Degree,
+                Department = graduation.Department,
+                Id = graduation.Id,
+                StartDate = graduation.StartDate,
+                EndDate = graduation.EndDate,
+                UniversityName = graduation.UniversityName,
+                GraduationDate = graduation.GraduationDate
+                
+            })))
+            .ReverseMap();
+
+
+        CreateMap<UserProfile, GetListExperienceByUserIdResponse>()
+         .ForMember(x => x.UserProfileId, opt => opt.MapFrom(x => x.UserId))
+         .ForMember(dest => dest.ExperienceDtoItems, opt => opt.MapFrom(src =>
+        src.Experiences.Select(experiences=> new ExperienceDto
+        {
+            Id = experiences.Id,
+            OrganizationName = experiences.OrganizationName,
+            Description = experiences.Description,
+            EndDate = experiences.EndDate,
+            Position = experiences.Position,
+            Sector = experiences.Sector,
+            StartDate = experiences.StartDate,
+            CityName = experiences.City.Name
+            
+        }).ToList()))
           .ReverseMap();
     }
 }
