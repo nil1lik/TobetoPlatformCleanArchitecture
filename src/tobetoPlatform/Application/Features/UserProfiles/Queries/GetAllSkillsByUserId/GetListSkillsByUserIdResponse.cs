@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Application.Features.UserProfiles.Queries.GetAllSkillByUserId;
-public class GetListSkillByUserIdResponse : IResponse
+public class GetListSkillsByUserIdResponse : IResponse
 {
     public int UserProfileId { get; set; }
 

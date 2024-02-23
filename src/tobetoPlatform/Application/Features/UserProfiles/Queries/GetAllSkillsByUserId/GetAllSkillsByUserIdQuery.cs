@@ -18,11 +18,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Application.Features.UserProfiles.Queries.GetAllSkillByUserId;
-public class GetAllSkillByUserIdQuery : IRequest<GetListSkillByUserIdResponse>
+public class GetAllSkillsByUserIdQuery : IRequest<GetListSkillsByUserIdResponse>
 {
     public int Id { get; set; }
 
-    public class GetAllSkillByUserIdQueryHandler : IRequestHandler<GetAllSkillByUserIdQuery, GetListSkillByUserIdResponse>
+    public class GetAllSkillByUserIdQueryHandler : IRequestHandler<GetAllSkillsByUserIdQuery, GetListSkillsByUserIdResponse>
     {
         private readonly IMapper _mapper;
         private readonly IUserProfileRepository _userProfileRepository;
@@ -35,7 +35,7 @@ public class GetAllSkillByUserIdQuery : IRequest<GetListSkillByUserIdResponse>
             _userProfileBusinessRules = userProfileBusinessRules;
         }
 
-        public async Task<GetListSkillByUserIdResponse> Handle(GetAllSkillByUserIdQuery request, CancellationToken cancellationToken)
+        public async Task<GetListSkillsByUserIdResponse> Handle(GetAllSkillsByUserIdQuery request, CancellationToken cancellationToken)
         {
             UserProfile? userProfile = await _userProfileRepository.GetAsync(
                 predicate: ps => ps.UserId == request.Id,
@@ -43,7 +43,7 @@ public class GetAllSkillByUserIdQuery : IRequest<GetListSkillByUserIdResponse>
                 cancellationToken: cancellationToken);
             await _userProfileBusinessRules.UserProfileShouldExistWhenSelected(userProfile);
 
-            GetListSkillByUserIdResponse response = _mapper.Map<GetListSkillByUserIdResponse>(userProfile);
+            GetListSkillsByUserIdResponse response = _mapper.Map<GetListSkillsByUserIdResponse>(userProfile);
             return response;
         }
     }

@@ -11,7 +11,7 @@ public class Experience : Entity<int>
 {
     public int UserProfileId { get; set; }
     public int CityId { get; set; }
-    public string OrganizationName { get; set; }
+    public string OrganizationName { get; set; } //OrganisationName
     public string Position { get; set; }
     public string Sector { get; set; }
     public DateTime StartDate { get; set; }

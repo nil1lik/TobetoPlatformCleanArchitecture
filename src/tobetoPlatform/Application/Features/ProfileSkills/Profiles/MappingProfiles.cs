@@ -25,6 +25,6 @@ public class MappingProfiles : Profile
         CreateMap<ProfileSkill, GetByIdProfileSkillResponse>().ReverseMap();
         CreateMap<ProfileSkill, GetListProfileSkillListItemDto>().ReverseMap();
         CreateMap<IPaginate<ProfileSkill>, GetListResponse<GetListProfileSkillListItemDto>>().ReverseMap();
-        CreateMap<IPaginate<ProfileSkill>, GetListResponse<GetAllSkillByUserIdQuery>>().ReverseMap();
+        CreateMap<IPaginate<ProfileSkill>, GetListResponse<GetAllSkillsByUserIdQuery>>().ReverseMap();
     }
 }

@@ -11,6 +11,7 @@ using Application.Features.UserProfiles.Queries.GetUserDetail;
 using Application.Features.UserProfiles.Queries.GetByUserId;
 using Application.Features.UserProfiles.Queries.GetAllSkillByUserId;
 using Application.Features.Cities.Queries.GetDistrictList;
+using Application.Features.UserProfiles.Queries.GetAllLanguageByUserId;
 
 namespace Application.Features.UserProfiles.Profiles;
 
@@ -37,7 +38,7 @@ public class MappingProfiles : Profile
         CreateMap<UserProfile, GetByUserIdUserProfileResponse>()
             .ForMember(x => x.UserId, opt => opt.MapFrom(x => x.User.Id))
             .ReverseMap();
-        CreateMap<UserProfile, GetListSkillByUserIdResponse>()
+        CreateMap<UserProfile, GetListSkillsByUserIdResponse>()
          .ForMember(dest => dest.SkillDtoItems, opt => opt.MapFrom(src =>
         src.ProfileSkills.Select(profileSkill => new SkillDto
         {
@@ -47,5 +48,14 @@ public class MappingProfiles : Profile
 
          .ForMember(x => x.UserProfileId, opt => opt.MapFrom(x => x.UserId))
           .ReverseMap();
+        CreateMap<UserProfile, GetAllLanguagesByUserIdResponse>()
+         .ForMember(x => x.UserProfileId, opt => opt.MapFrom(x => x.UserId))
+         .ForMember(la => la.LanguageDtoItems, opt => opt.MapFrom(la => la.ProfileLanguages.Select(x => new LanguageDtoItems
+         {
+             LanguageId = x.Language.Id,
+             LanguageName = x.Language.Name,
+             LanguageLevelId = x.LanguageLevel.Id,
+             LanguageLevelName = x.LanguageLevel.Name,
+         }).ToList())).ReverseMap();
     }
 }
