@@ -7,4 +7,5 @@ public class CreatedProfileLanguageResponse : IResponse
     public int Id { get; set; }
     public int UserProfileId { get; set; }
     public int LanguageId { get; set; }
+    public int LanguageLevelId { get; set; }
 }

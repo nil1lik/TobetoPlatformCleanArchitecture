@@ -7,7 +7,6 @@ using AutoMapper;
 using Core.Application.Responses;
 using Domain.Entities;
 using Core.Persistence.Paging;
-using Application.Features.ProfileLanguages.Queries.GetAllLanguageByUserId;
 
 namespace Application.Features.ProfileLanguages.Profiles;
 
@@ -23,11 +22,6 @@ public class MappingProfiles : Profile
         CreateMap<ProfileLanguage, DeletedProfileLanguageResponse>().ReverseMap();
         CreateMap<ProfileLanguage, GetByIdProfileLanguageResponse>().ReverseMap();
         CreateMap<ProfileLanguage, GetListProfileLanguageListItemDto>().ReverseMap();
-        //CreateMap<ProfileLanguage, GetAllLanguageByUserIdResponse>()
-        //    .ForMember(x=>x.Name, opt=>opt.MapFrom(x=>x.Language.Name))
-        //    .ForMember(x=>x.Level, opt=>opt.MapFrom(x=>x.Language.LanguageLevel.Name))
-        //    .ReverseMap();
         CreateMap<IPaginate<ProfileLanguage>, GetListResponse<GetListProfileLanguageListItemDto>>().ReverseMap();
-        CreateMap<IPaginate<ProfileLanguage>, GetListResponse<GetAllLanguageByUserIdResponse>>().ReverseMap();
     }
 }

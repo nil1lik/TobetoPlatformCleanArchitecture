@@ -1,6 +1,7 @@
 using Application.Features.UserProfiles.Commands.Create;
 using Application.Features.UserProfiles.Commands.Delete;
 using Application.Features.UserProfiles.Commands.Update;
+using Application.Features.UserProfiles.Queries.GetAllLanguageByUserId;
 using Application.Features.UserProfiles.Queries.GetAllExperienceByUserId;
 using Application.Features.UserProfiles.Queries.GetAllGraduationByUserId;
 using Application.Features.UserProfiles.Queries.GetAllSkillByUserId;
@@ -68,7 +69,14 @@ public class UserProfilesController : BaseController
     [HttpGet("GetAllSkill/{id}")]
     public async Task<IActionResult> GetBySkillId([FromRoute] int id)
     {
-        GetListSkillByUserIdResponse response = await Mediator.Send(new GetAllSkillByUserIdQuery { Id = id });
+        GetListSkillsByUserIdResponse response = await Mediator.Send(new GetAllSkillsByUserIdQuery { Id = id });
+        return Ok(response);
+    }
+
+    [HttpGet("GetAllLanguage/{id}")]
+    public async Task<IActionResult> GetByLanguageId([FromRoute] int id)
+    {
+        GetAllLanguagesByUserIdResponse response = await Mediator.Send(new GetAllLanguagesByUserIdQuery { Id = id });
         return Ok(response);
     }
 

@@ -7,5 +7,5 @@ using System.Threading.Tasks;
 namespace Application.Features.Experiences.Constants;
 public class ExperiencesValidationMessages
 {
-    public const string ExperienceSuccessfullyAdded = "Eğitim bilgisi eklendi.";
+    public const string ExperienceSuccessfullyAdded = "Deneyim eklendi.";
 }

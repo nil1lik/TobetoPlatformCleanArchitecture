@@ -1,3 +1,4 @@
+using Application.Features.ProfileLanguages.Constants;
 using Application.Features.ProfileSkills.Constants;
 using Application.Services.Repositories;
 using Core.Application.Rules;
@@ -30,5 +31,17 @@ public class ProfileSkillBusinessRules : BaseBusinessRules
             cancellationToken: cancellationToken
         );
         await ProfileSkillShouldExistWhenSelected(profileSkill);
+    }
+    public async Task ProfileSkillCannotBeDuplicateWhenInserted(int id, CancellationToken cancellationToken)
+    {
+        bool isDuplicate = await _profileSkillRepository.AnyAsync(
+            predicate: e => e.Skill.Id == id,
+            cancellationToken: cancellationToken
+        );
+
+        if (isDuplicate)
+        {
+            throw new BusinessException(ProfileSkillsBusinessMessages.ProfileSkillConnotBeDuplicateWhenInserted);
+        }
     }
 }
