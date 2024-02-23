@@ -53,11 +53,12 @@ public class ProfileSkillsController : BaseController
         return Ok(response);
     }
 
-    [HttpGet("GetAllSkill")]
-    public async Task<IActionResult> GetAllSkillByUserId([FromQuery] PageRequest pageRequest)
+
+    [HttpGet("GetAllSkill/{id}")]
+    public async Task<IActionResult> GetBySkillId([FromRoute] int id)
     {
-        GetAllSkillByUserIdQuery getListProfileSkillQuery = new() { PageRequest = pageRequest };
-        GetListResponse<GetListSkillByUserIdResponse> response = await Mediator.Send(getListProfileSkillQuery);
+        GetListSkillByUserIdResponse response = await Mediator.Send(new GetAllSkillByUserIdQuery { Id = id });
         return Ok(response);
     }
+
 }

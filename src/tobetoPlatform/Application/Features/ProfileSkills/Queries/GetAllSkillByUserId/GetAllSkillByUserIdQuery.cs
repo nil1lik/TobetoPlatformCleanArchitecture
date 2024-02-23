@@ -1,4 +1,6 @@
-﻿using Application.Features.ProfileSkills.Queries.GetList;
+﻿using Application.Features.ProfileSkills.Queries.GetById;
+using Application.Features.ProfileSkills.Queries.GetList;
+using Application.Features.ProfileSkills.Rules;
 using Application.Services.Repositories;
 using AutoMapper;
 using Core.Application.Requests;
@@ -14,31 +16,32 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Application.Features.ProfileSkills.Queries.GetAllSkillByUserId;
-public class GetAllSkillByUserIdQuery : IRequest<GetListResponse<GetListSkillByUserIdResponse>>
+public class GetAllSkillByUserIdQuery : IRequest<GetListSkillByUserIdResponse>
 {
-    public PageRequest PageRequest { get; set; }
+    public int Id { get; set; }
 
-    public class GetAllSkillByUserIdQueryHandler : IRequestHandler<GetAllSkillByUserIdQuery, GetListResponse<GetListSkillByUserIdResponse>>
+    public class GetAllSkillByUserIdQueryHandler : IRequestHandler<GetAllSkillByUserIdQuery, GetListSkillByUserIdResponse>
     {
-        private readonly IProfileSkillRepository _profileSkillRepository;
         private readonly IMapper _mapper;
+        private readonly IProfileSkillRepository _profileSkillRepository;
+        private readonly ProfileSkillBusinessRules _profileSkillBusinessRules;
 
-        public GetAllSkillByUserIdQueryHandler(IProfileSkillRepository profileSkillRepository, IMapper mapper)
+        public GetAllSkillByUserIdQueryHandler(IMapper mapper, IProfileSkillRepository profileSkillRepository, ProfileSkillBusinessRules profileSkillBusinessRules)
         {
-            _profileSkillRepository = profileSkillRepository;
             _mapper = mapper;
+            _profileSkillRepository = profileSkillRepository;
+            _profileSkillBusinessRules = profileSkillBusinessRules;
         }
 
-        public async Task<GetListResponse<GetListSkillByUserIdResponse>> Handle(GetAllSkillByUserIdQuery request, CancellationToken cancellationToken)
+        public async Task<GetListSkillByUserIdResponse> Handle(GetAllSkillByUserIdQuery request, CancellationToken cancellationToken)
         {
-            IPaginate<ProfileSkill> profileSkills = await _profileSkillRepository.GetListAsync(
-                include:x=>x.Include(x=>x.Skill),
-                index: request.PageRequest.PageIndex,
-                size: request.PageRequest.PageSize,
-                cancellationToken: cancellationToken
-            );
+            ProfileSkill? profileSkill = await _profileSkillRepository.GetAsync(
+                predicate: ps => ps.UserProfileId == request.Id, 
+                include: ps=>ps.Include(x=>x.Skill),
+                cancellationToken: cancellationToken);
+            await _profileSkillBusinessRules.ProfileSkillShouldExistWhenSelected(profileSkill);
 
-            GetListResponse<GetListSkillByUserIdResponse> response = _mapper.Map<GetListResponse<GetListSkillByUserIdResponse>>(profileSkills);
+            GetListSkillByUserIdResponse response = _mapper.Map<GetListSkillByUserIdResponse>(profileSkill);
             return response;
         }
     }

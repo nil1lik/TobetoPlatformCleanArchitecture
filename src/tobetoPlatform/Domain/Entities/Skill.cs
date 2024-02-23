@@ -11,8 +11,6 @@ public class Skill : Entity<int>
 {
     public string Name { get; set; }
 
-    public virtual ICollection<ProfileSkill>? ProfileSkills { get; set; }
-
     public Skill()
     {
 
