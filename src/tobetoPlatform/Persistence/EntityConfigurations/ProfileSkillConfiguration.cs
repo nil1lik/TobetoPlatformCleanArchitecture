@@ -12,7 +12,6 @@ public class ProfileSkillConfiguration : IEntityTypeConfiguration<ProfileSkill>
 
         builder.Property(ps => ps.Id).HasColumnName("Id").IsRequired();
         builder.Property(ps => ps.UserProfileId).HasColumnName("UserProfileId");
-        builder.Property(ps => ps.SkillId).HasColumnName("SkillId");
         builder.Property(ps => ps.CreatedDate).HasColumnName("CreatedDate").IsRequired();
         builder.Property(ps => ps.UpdatedDate).HasColumnName("UpdatedDate");
         builder.Property(ps => ps.DeletedDate).HasColumnName("DeletedDate");

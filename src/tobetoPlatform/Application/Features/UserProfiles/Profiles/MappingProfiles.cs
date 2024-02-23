@@ -8,6 +8,9 @@ using Core.Application.Responses;
 using Domain.Entities;
 using Core.Persistence.Paging;
 using Application.Features.UserProfiles.Queries.GetUserDetail;
+using Application.Features.UserProfiles.Queries.GetByUserId;
+using Application.Features.UserProfiles.Queries.GetAllSkillByUserId;
+using Application.Features.Cities.Queries.GetDistrictList;
 
 namespace Application.Features.UserProfiles.Profiles;
 
@@ -22,13 +25,27 @@ public class MappingProfiles : Profile
         CreateMap<UserProfile, DeleteUserProfileCommand>().ReverseMap();
         CreateMap<UserProfile, DeletedUserProfileResponse>().ReverseMap();
         CreateMap<UserProfile, GetUserDetailDto>().
-            ForMember(up=>up.FirstName,opt=>opt.MapFrom(up=>up.User.FirstName)).
-            ForMember(up=>up.LastName, opt=>opt.MapFrom(up=>up.User.LastName)).
-            ForMember(up=>up.Email, opt=>opt.MapFrom(up=>up.User.Email)).ReverseMap();
+            ForMember(up => up.FirstName, opt => opt.MapFrom(up => up.User.FirstName)).
+            ForMember(up => up.LastName, opt => opt.MapFrom(up => up.User.LastName)).
+            ForMember(up => up.Email, opt => opt.MapFrom(up => up.User.Email)).ReverseMap();
         CreateMap<UserProfile, GetListUserProfileListItemDto>().
             ForMember(up => up.FirstName, opt => opt.MapFrom(up => up.User.FirstName)).
             ForMember(up => up.LastName, opt => opt.MapFrom(up => up.User.LastName)).
             ForMember(up => up.Email, opt => opt.MapFrom(up => up.User.Email)).ReverseMap();
         CreateMap<IPaginate<UserProfile>, GetListResponse<GetListUserProfileListItemDto>>().ReverseMap();
+
+        CreateMap<UserProfile, GetByUserIdUserProfileResponse>()
+            .ForMember(x => x.UserId, opt => opt.MapFrom(x => x.User.Id))
+            .ReverseMap();
+        CreateMap<UserProfile, GetListSkillByUserIdResponse>()
+         .ForMember(dest => dest.SkillDtoItems, opt => opt.MapFrom(src =>
+        src.ProfileSkills.Select(profileSkill => new SkillDto
+        {
+            SkillId = profileSkill.Skill.Id,
+            SkillName = profileSkill.Skill.Name
+        }).ToList()))
+
+         .ForMember(x => x.UserProfileId, opt => opt.MapFrom(x => x.UserId))
+          .ReverseMap();
     }
 }

@@ -1,7 +1,6 @@
 using Application.Features.ProfileSkills.Commands.Create;
 using Application.Features.ProfileSkills.Commands.Delete;
 using Application.Features.ProfileSkills.Commands.Update;
-using Application.Features.ProfileSkills.Queries.GetAllSkillByUserId;
 using Application.Features.ProfileSkills.Queries.GetById;
 using Application.Features.ProfileSkills.Queries.GetList;
 using Core.Application.Requests;
@@ -53,11 +52,5 @@ public class ProfileSkillsController : BaseController
         return Ok(response);
     }
 
-    [HttpGet("GetAllSkill")]
-    public async Task<IActionResult> GetAllSkillByUserId([FromQuery] PageRequest pageRequest)
-    {
-        GetAllSkillByUserIdQuery getListProfileSkillQuery = new() { PageRequest = pageRequest };
-        GetListResponse<GetListSkillByUserIdResponse> response = await Mediator.Send(getListProfileSkillQuery);
-        return Ok(response);
-    }
+
 }

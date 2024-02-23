@@ -7,4 +7,5 @@ public class GetListProfileSkillListItemDto : IDto
     public int Id { get; set; }
     public int UserProfileId { get; set; }
     public int SkillId { get; set; }
+
 }

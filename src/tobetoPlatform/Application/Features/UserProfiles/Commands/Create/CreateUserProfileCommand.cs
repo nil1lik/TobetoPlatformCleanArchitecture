@@ -36,6 +36,7 @@ public class CreateUserProfileCommand : IRequest<CreatedUserProfileResponse>
         {
             UserProfile userProfile = _mapper.Map<UserProfile>(request);
 
+            await _userProfileBusinessRules.UserProfileCannotBeDuplicatedWhenInserted(userProfile.UserId, cancellationToken);
             await _userProfileRepository.AddAsync(userProfile);
 
             CreatedUserProfileResponse response = _mapper.Map<CreatedUserProfileResponse>(userProfile);
