@@ -10,9 +10,15 @@ namespace Application.Features.UserProfiles.Queries.GetAllSkillByUserId;
 public class GetListSkillByUserIdResponse : IResponse
 {
     public int UserProfileId { get; set; }
-    public List<int> SkillId { get; set; }
-    public List<string> SkillName { get; set; }
 
+    public List<SkillDto> SkillDtoItems { get; set; }
+
+}
+
+public class SkillDto : IDto
+{
+    public int SkillId { get; set; }
+    public string SkillName { get; set; }
 }
 
 
