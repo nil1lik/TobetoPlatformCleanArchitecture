@@ -1,9 +1,12 @@
 using Application.Features.UserProfiles.Commands.Create;
 using Application.Features.UserProfiles.Commands.Delete;
 using Application.Features.UserProfiles.Commands.Update;
+using Application.Features.UserProfiles.Queries.GetAllExperienceByUserId;
+using Application.Features.UserProfiles.Queries.GetAllGraduationByUserId;
 using Application.Features.UserProfiles.Queries.GetAllSkillByUserId;
 using Application.Features.UserProfiles.Queries.GetById;
 using Application.Features.UserProfiles.Queries.GetByUserId;
+using Application.Features.UserProfiles.Queries.GetExperienceByUserId;
 using Application.Features.UserProfiles.Queries.GetList;
 using Application.Features.UserProfiles.Queries.GetUserDetail;
 using Core.Application.Requests;
@@ -66,6 +69,20 @@ public class UserProfilesController : BaseController
     public async Task<IActionResult> GetBySkillId([FromRoute] int id)
     {
         GetListSkillByUserIdResponse response = await Mediator.Send(new GetAllSkillByUserIdQuery { Id = id });
+        return Ok(response);
+    }
+
+    [HttpGet("getAllGraduation/{id}")]
+    public async Task<IActionResult> GetByGraduationId([FromRoute] int id)
+    {
+        GetListGraduationByUserIdResponse response = await Mediator.Send(new GetAllGraduationByUserIdQuery { Id = id });
+        return Ok(response);
+    }
+
+    [HttpGet("getAllExperience/{id}")]
+    public async Task<IActionResult> GetByExperienceId([FromRoute] int id)
+    {
+        GetListExperienceByUserIdResponse response = await Mediator.Send(new GetAllExperienceByUserIdQuery { Id = id });
         return Ok(response);
     }
 }
