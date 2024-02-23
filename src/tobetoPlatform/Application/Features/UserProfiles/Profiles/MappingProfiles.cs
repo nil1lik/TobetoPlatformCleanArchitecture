@@ -9,6 +9,7 @@ using Domain.Entities;
 using Core.Persistence.Paging;
 using Application.Features.UserProfiles.Queries.GetUserDetail;
 using Application.Features.UserProfiles.Queries.GetByUserId;
+using Application.Features.UserProfiles.Queries.GetAllSkillByUserId;
 
 namespace Application.Features.UserProfiles.Profiles;
 
@@ -35,5 +36,10 @@ public class MappingProfiles : Profile
         CreateMap<UserProfile, GetByUserIdUserProfileResponse>()
             .ForMember(x => x.UserId, opt => opt.MapFrom(x => x.User.Id))
             .ReverseMap();
+        CreateMap<UserProfile, GetListSkillByUserIdResponse>()
+         .ForMember(x => x.SkillId, opt => opt.MapFrom(x => x.ProfileSkills.Select(x => x.SkillId).ToList()))
+         .ForMember(x => x.UserProfileId, opt => opt.MapFrom(x => x.UserId))
+         .ForMember(x => x.SkillName, opt => opt.MapFrom(x => x.ProfileSkills.Select(x => x.Skill.Name).ToList()))
+          .ReverseMap();
     }
 }

@@ -7,8 +7,8 @@ using AutoMapper;
 using Core.Application.Responses;
 using Domain.Entities;
 using Core.Persistence.Paging;
-using Application.Features.ProfileSkills.Queries.GetAllSkillByUserId;
 using Application.Features.Cities.Queries.GetDistrictList;
+using Application.Features.UserProfiles.Queries.GetAllSkillByUserId;
 
 namespace Application.Features.ProfileSkills.Profiles;
 
@@ -24,9 +24,6 @@ public class MappingProfiles : Profile
         CreateMap<ProfileSkill, DeletedProfileSkillResponse>().ReverseMap();
         CreateMap<ProfileSkill, GetByIdProfileSkillResponse>().ReverseMap();
         CreateMap<ProfileSkill, GetListProfileSkillListItemDto>().ReverseMap();
-        CreateMap<ProfileSkill, GetListSkillByUserIdResponse>()
-            .ForMember(dest => dest.ProfileSkillItems, opt => opt.MapFrom(src => src.Skill.Select(d => new ProfileSkillDto { Id = d.Id, Name = d.Name }).ToList()))
-            .ReverseMap();
         CreateMap<IPaginate<ProfileSkill>, GetListResponse<GetListProfileSkillListItemDto>>().ReverseMap();
         CreateMap<IPaginate<ProfileSkill>, GetListResponse<GetAllSkillByUserIdQuery>>().ReverseMap();
     }

@@ -1,6 +1,7 @@
 using Application.Features.UserProfiles.Commands.Create;
 using Application.Features.UserProfiles.Commands.Delete;
 using Application.Features.UserProfiles.Commands.Update;
+using Application.Features.UserProfiles.Queries.GetAllSkillByUserId;
 using Application.Features.UserProfiles.Queries.GetById;
 using Application.Features.UserProfiles.Queries.GetByUserId;
 using Application.Features.UserProfiles.Queries.GetList;
@@ -58,6 +59,13 @@ public class UserProfilesController : BaseController
     {
         GetListUserProfileQuery getListUserProfileQuery = new() { PageRequest = pageRequest };
         GetListResponse<GetListUserProfileListItemDto> response = await Mediator.Send(getListUserProfileQuery);
+        return Ok(response);
+    }
+
+    [HttpGet("GetAllSkill/{id}")]
+    public async Task<IActionResult> GetBySkillId([FromRoute] int id)
+    {
+        GetListSkillByUserIdResponse response = await Mediator.Send(new GetAllSkillByUserIdQuery { Id = id });
         return Ok(response);
     }
 }

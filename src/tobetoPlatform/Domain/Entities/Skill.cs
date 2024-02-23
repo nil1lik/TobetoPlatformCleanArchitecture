@@ -10,6 +10,7 @@ namespace Domain.Entities;
 public class Skill : Entity<int>  
 {
     public string Name { get; set; }
+    public ICollection<ProfileSkill> ProfileSkills { get; set; }
 
     public Skill()
     {
