@@ -32,7 +32,7 @@ public class GetUserDetailQuery : IRequest<GetUserDetailDto>
         {
             UserProfile? userProfile = await _userProfileRepository.GetAsync(
                 predicate: up => up.Id == request.Id,
-                include: up => up.Include(up => up.User),
+                include: up => up.Include(up => up.User).Include(up=>up.City).Include(up=> up.District),
                 cancellationToken: cancellationToken);
             await _userProfileBusinessRules.UserProfileShouldExistWhenSelected(userProfile);
 
