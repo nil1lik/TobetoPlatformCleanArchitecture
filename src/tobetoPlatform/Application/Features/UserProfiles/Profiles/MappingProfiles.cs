@@ -30,7 +30,13 @@ public class MappingProfiles : Profile
         CreateMap<UserProfile, GetUserDetailDto>().
             ForMember(up => up.FirstName, opt => opt.MapFrom(up => up.User.FirstName)).
             ForMember(up => up.LastName, opt => opt.MapFrom(up => up.User.LastName)).
-            ForMember(up => up.Email, opt => opt.MapFrom(up => up.User.Email)).ReverseMap();
+            ForMember(up => up.Email, opt => opt.MapFrom(up => up.User.Email)).
+            ForMember(up => up.CityName, opt => opt.MapFrom(up => up.City.Name)).
+            ForMember(up => up.CityId, opt => opt.MapFrom(up => up.City.Id)).
+            ForMember(up => up.DistrictName, opt => opt.MapFrom(up => up.District.Name)).
+            ForMember(up => up.DistrictId, opt => opt.MapFrom(up => up.District.Id)).
+            ForMember(up => up.UserProfileId, opt => opt.MapFrom(up=> up.Id)).
+            ReverseMap();
         CreateMap<UserProfile, GetListUserProfileListItemDto>().
             ForMember(up => up.FirstName, opt => opt.MapFrom(up => up.User.FirstName)).
             ForMember(up => up.LastName, opt => opt.MapFrom(up => up.User.LastName)).
@@ -40,7 +46,7 @@ public class MappingProfiles : Profile
         CreateMap<UserProfile, GetByUserIdUserProfileResponse>()
             .ForMember(x => x.UserId, opt => opt.MapFrom(x => x.User.Id))
             .ReverseMap();
-        CreateMap<UserProfile, GetListSkillByUserIdResponse>()
+        CreateMap<UserProfile, GetListSkillsByUserIdResponse>()
          .ForMember(dest => dest.SkillDtoItems, opt => opt.MapFrom(src =>
         src.ProfileSkills.Select(profileSkill => new SkillDto
         {
@@ -62,7 +68,7 @@ public class MappingProfiles : Profile
                 EndDate = graduation.EndDate,
                 UniversityName = graduation.UniversityName,
                 GraduationDate = graduation.GraduationDate
-                
+
             })))
             .ReverseMap();
 
@@ -70,7 +76,7 @@ public class MappingProfiles : Profile
         CreateMap<UserProfile, GetListExperienceByUserIdResponse>()
          .ForMember(x => x.UserProfileId, opt => opt.MapFrom(x => x.UserId))
          .ForMember(dest => dest.ExperienceDtoItems, opt => opt.MapFrom(src =>
-        src.Experiences.Select(experiences=> new ExperienceDto
+        src.Experiences.Select(experiences => new ExperienceDto
         {
             Id = experiences.Id,
             OrganizationName = experiences.OrganizationName,
@@ -80,7 +86,7 @@ public class MappingProfiles : Profile
             Sector = experiences.Sector,
             StartDate = experiences.StartDate,
             CityName = experiences.City.Name
-            
+
         }).ToList()))
           .ReverseMap();
         CreateMap<UserProfile, GetAllLanguagesByUserIdResponse>()

@@ -93,4 +93,10 @@ public class UserProfilesController : BaseController
         GetListExperienceByUserIdResponse response = await Mediator.Send(new GetAllExperienceByUserIdQuery { Id = id });
         return Ok(response);
     }
+    [HttpGet("getUserDetail/{id}")]
+    public async Task<IActionResult> GetUserDetailByUserId([FromRoute] int id)
+    {
+        GetUserDetailDto response = await Mediator.Send(new GetUserDetailQuery { Id = id });
+        return Ok(response);
+    }
 }
