@@ -27,7 +27,7 @@ namespace Application.Features.EducationPaths.Queries.GetEducationPathDetailById
             {
                 EducationPath? educationPath = await _educationPathRepository.GetAsync(predicate: ep => ep.Id == request.Id,
                     include: c => c.Include(c => c.EducationAdmiration).
-                             Include(c => c.EducationAbout),
+                    Include(c => c.EducationAbout),
                     cancellationToken: cancellationToken);
                 await _educationPathBusinessRules.EducationPathShouldExistWhenSelected(educationPath);
                 GetEducationPathDetailByIdDto response = _mapper.Map<GetEducationPathDetailByIdDto>(educationPath);

@@ -6,9 +6,12 @@ namespace Domain.Entities
     {
         public int UserProfileId { get; set; }
         public int LanguageId { get; set; }
+        public int LanguageLevelId { get; set; }
 
         public virtual UserProfile UserProfile { get; set; }
         public virtual Language Language { get; set; }
+        public virtual LanguageLevel LanguageLevel { get; set; }
+
 
         public ProfileLanguage()
         {

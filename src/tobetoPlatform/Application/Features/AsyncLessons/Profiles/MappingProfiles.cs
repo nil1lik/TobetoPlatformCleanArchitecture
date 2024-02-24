@@ -29,26 +29,22 @@ public class MappingProfiles : Profile
             .ForMember(al => al.LanguageName, opt => opt.MapFrom(al => al.LessonVideoDetail.VideoLanguage.Name))
             .ForMember(al => al.CompanyName, opt => opt.MapFrom(al => al.LessonVideoDetail.Company.Name))
 
-//.ForMember(dest => dest.SubcategoryName, opt => opt.MapFrom(src =>
-//    (src.LessonVideoDetail != null && src.LessonVideoDetail.LessonVideoDetailVideoDetailCategories.Any()) ?
-//    string.Join(", ", src.LessonVideoDetail.LessonVideoDetailVideoDetailCategories.Where(vdc => vdc.VideoDetailCategory != null)
-//Select(s => s.Name)) :
-//    null))
-             //        .ForMember(dest => dest.VideoDetailCategoryName, opt => opt.MapFrom(src => src.LessonVideoDetail.LessonVideoDetailVideoDetailCategories
-             //.Select(c => c.VideoDetailCategory.Name)))
-             //.ForMember(dest => dest.VideoDetailCategories, opt => opt.MapFrom(src =>
-             //(src.LessonVideoDetail != null && src.LessonVideoDetail.LessonVideoDetailVideoDetailCategories.Any() && src.LessonVideoDetail.LessonVideoDetailVideoDetailCategories.First().VideoDetailCategory != null) ?
-             //src.LessonVideoDetail.LessonVideoDetailVideoDetailCategories.First().VideoDetailCategory.Name : null))
 
              .ForMember(dest => dest.VideoDetailCategoryName, opt => opt.MapFrom(src =>
     (src.LessonVideoDetail != null && src.LessonVideoDetail.LessonVideoDetailVideoDetailCategories.Any()) ?
-    string.Join(", ", src.LessonVideoDetail.LessonVideoDetailVideoDetailCategories
+    string.Join(" / ", src.LessonVideoDetail.LessonVideoDetailVideoDetailCategories
                                     .Where(vdc => vdc.VideoDetailCategory != null)
                                     .Select(vdc => vdc.VideoDetailCategory.Name)) :
     null))
 
-
-            //.ForMember(al => al.VideoDetailCategories, opt => opt.MapFrom(al => al.LessonVideoDetail.LessonVideoDetailVideoDetailCategories)) 
+             .ForMember(dest => dest.SubcategoryName, opt => opt.MapFrom(src =>
+    (src.LessonVideoDetail != null && src.LessonVideoDetail.LessonVideoDetailVideoDetailCategories.Any()) ?
+    string.Join(" / ", src.LessonVideoDetail.LessonVideoDetailVideoDetailCategories
+                                    .Where(vdc => vdc.VideoDetailCategory != null)
+                                    .SelectMany(vdc => vdc.VideoDetailCategory.VideoDetailSubcategories
+                                        .Where(vds => vds != null)
+                                        .Select(vds => vds.Name))) :
+    null))
 
             .ReverseMap();
         CreateMap<AsyncLesson, GetListAsyncLessonListItemDto>().ReverseMap();

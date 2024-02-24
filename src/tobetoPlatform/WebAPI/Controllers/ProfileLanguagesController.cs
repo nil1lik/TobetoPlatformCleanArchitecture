@@ -1,7 +1,6 @@
 using Application.Features.ProfileLanguages.Commands.Create;
 using Application.Features.ProfileLanguages.Commands.Delete;
 using Application.Features.ProfileLanguages.Commands.Update;
-using Application.Features.ProfileLanguages.Queries.GetAllLanguageByUserId;
 using Application.Features.ProfileLanguages.Queries.GetById;
 using Application.Features.ProfileLanguages.Queries.GetList;
 using Core.Application.Requests;
@@ -50,14 +49,6 @@ public class ProfileLanguagesController : BaseController
     {
         GetListProfileLanguageQuery getListProfileLanguageQuery = new() { PageRequest = pageRequest };
         GetListResponse<GetListProfileLanguageListItemDto> response = await Mediator.Send(getListProfileLanguageQuery);
-        return Ok(response);
-    }
-
-    [HttpGet("GetAllLanguage")]
-    public async Task<IActionResult> GetAllLanguageByUserId([FromQuery] PageRequest pageRequest)
-    {
-        GetAllLanguageByUserIdQuery getListProfileLanguageQuery = new() { PageRequest = pageRequest };
-        GetListResponse<GetAllLanguageByUserIdResponse> response = await Mediator.Send(getListProfileLanguageQuery);
         return Ok(response);
     }
 }

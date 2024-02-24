@@ -10,7 +10,7 @@ public class CreateProfileLanguageCommand : IRequest<CreatedProfileLanguageRespo
 {
     public int UserProfileId { get; set; }
     public int LanguageId { get; set; }
-
+    public int LanguageLevelId { get; set; }
     public class CreateProfileLanguageCommandHandler : IRequestHandler<CreateProfileLanguageCommand, CreatedProfileLanguageResponse>
     {
         private readonly IMapper _mapper;
@@ -29,6 +29,7 @@ public class CreateProfileLanguageCommand : IRequest<CreatedProfileLanguageRespo
         {
             ProfileLanguage profileLanguage = _mapper.Map<ProfileLanguage>(request);
 
+            await _profileLanguageBusinessRules.ProfileLanguageCannotBeDuplicateWhenInserted(request.LanguageId, cancellationToken);
             await _profileLanguageRepository.AddAsync(profileLanguage);
 
             CreatedProfileLanguageResponse response = _mapper.Map<CreatedProfileLanguageResponse>(profileLanguage);
