@@ -40,7 +40,7 @@ public class MappingProfiles : Profile
         CreateMap<UserProfile, GetByUserIdUserProfileResponse>()
             .ForMember(x => x.UserId, opt => opt.MapFrom(x => x.User.Id))
             .ReverseMap();
-        CreateMap<UserProfile, GetListSkillByUserIdResponse>()
+        CreateMap<UserProfile, GetListSkillsByUserIdResponse>()
          .ForMember(dest => dest.SkillDtoItems, opt => opt.MapFrom(src =>
         src.ProfileSkills.Select(profileSkill => new SkillDto
         {
