@@ -40,16 +40,16 @@ public class MappingProfiles : Profile
         CreateMap<UserProfile, GetByUserIdUserProfileResponse>()
             .ForMember(x => x.UserId, opt => opt.MapFrom(x => x.User.Id))
             .ReverseMap();
-        CreateMap<UserProfile, GetListSkillByUserIdResponse>()
-         .ForMember(dest => dest.SkillDtoItems, opt => opt.MapFrom(src =>
-        src.ProfileSkills.Select(profileSkill => new SkillDto
-        {
-            SkillId = profileSkill.Skill.Id,
-            SkillName = profileSkill.Skill.Name
-        }).ToList()))
+        //CreateMap<UserProfile, GetListSkillByUserIdResponse>()
+        // .ForMember(dest => dest.SkillDtoItems, opt => opt.MapFrom(src =>
+        //src.ProfileSkills.Select(profileSkill => new SkillDto
+        //{
+        //    SkillId = profileSkill.Skill.Id,
+        //    SkillName = profileSkill.Skill.Name
+        //}).ToList()))
 
-         .ForMember(x => x.UserProfileId, opt => opt.MapFrom(x => x.UserId))
-          .ReverseMap();
+        // .ForMember(x => x.UserProfileId, opt => opt.MapFrom(x => x.UserId))
+        //  .ReverseMap();
 
         CreateMap<UserProfile, GetListGraduationByUserIdResponse>()
             .ForMember(x => x.UserProfileId, opt => opt.MapFrom(x => x.UserId))
