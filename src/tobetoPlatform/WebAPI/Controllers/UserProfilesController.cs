@@ -13,6 +13,7 @@ using Application.Features.UserProfiles.Queries.GetUserDetail;
 using Core.Application.Requests;
 using Core.Application.Responses;
 using Microsoft.AspNetCore.Mvc;
+using Application.Features.UserProfiles.Queries.GetUserProfileInformations;
 
 namespace WebAPI.Controllers;
 
@@ -97,6 +98,12 @@ public class UserProfilesController : BaseController
     public async Task<IActionResult> GetUserDetailByUserId([FromRoute] int id)
     {
         GetUserDetailDto response = await Mediator.Send(new GetUserDetailQuery { Id = id });
+        return Ok(response);
+    }
+    [HttpGet("getUserProfileInformations/{id}")]
+    public async Task<IActionResult> GetUserProfileInformationsByUserId([FromRoute] int id)
+    {
+        GetUserProfileInformationsDto response = await Mediator.Send(new GetUserProfileInformationsQuery { Id = id });
         return Ok(response);
     }
 }
