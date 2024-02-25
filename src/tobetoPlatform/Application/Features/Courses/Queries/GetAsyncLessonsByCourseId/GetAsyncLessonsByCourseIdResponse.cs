@@ -1,9 +1,10 @@
 ﻿using Core.Application.Responses;
+using Domain.Entities;
 using System;
 namespace Application.Features.Courses.Queries.GetAsyncLessonsByCourseId
 {
 
-    public class GetAsyncLessonsByCourseIdResponse
+    public class GetAsyncLessonsByCourseIdResponse : IResponse
     {
         public List<GetAsyncLessonsByCourseIdItem> AsyncLessons { get; set; }
     }
