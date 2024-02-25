@@ -14,7 +14,6 @@ using Application.Features.Cities.Queries.GetDistrictList;
 using Application.Features.UserProfiles.Queries.GetAllLanguageByUserId;
 using Application.Features.UserProfiles.Queries.GetAllGraduationByUserId;
 using Application.Features.UserProfiles.Queries.GetExperienceByUserId;
-using Application.Features.UserProfiles.Queries.GetUserProfileInformations;
 using Application.Features.UserProfiles.Queries.GetAllSocialMediaAccountsByUserId;
 
 namespace Application.Features.UserProfiles.Profiles;
