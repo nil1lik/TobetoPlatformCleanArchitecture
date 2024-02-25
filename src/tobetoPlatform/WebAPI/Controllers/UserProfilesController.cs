@@ -66,14 +66,15 @@ public class UserProfilesController : BaseController
         return Ok(response);
     }
 
-    [HttpGet("GetAllSkill/{id}")]
+    [HttpGet("getAllSkill/{id}")]
     public async Task<IActionResult> GetBySkillId([FromRoute] int id)
     {
         GetListSkillsByUserIdResponse response = await Mediator.Send(new GetAllSkillsByUserIdQuery { Id = id });
         return Ok(response);
     }
 
-    [HttpGet("GetAllLanguage/{id}")]
+
+    [HttpGet("getAllLanguage/{id}")]
     public async Task<IActionResult> GetByLanguageId([FromRoute] int id)
     {
         GetAllLanguagesByUserIdResponse response = await Mediator.Send(new GetAllLanguagesByUserIdQuery { Id = id });
