@@ -11,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Features.ProfileSkills.Commands.DeleteSkillByUserId;
+namespace Application.Features.ProfileSkills.Commands.Delete.DeleteSkillByUserId;
 public class DeleteSkillbyUserIdCommand : IRequest<DeleteSkillByUserIdResponse>
 {
     public int UserProfileId { get; set; }
@@ -34,8 +34,8 @@ public class DeleteSkillbyUserIdCommand : IRequest<DeleteSkillByUserIdResponse>
         public async Task<DeleteSkillByUserIdResponse> Handle(DeleteSkillbyUserIdCommand request, CancellationToken cancellationToken)
         {
             ProfileSkill? profileSkill = await _profileSkillRepository.GetAsync(
-                predicate: ps => ps.UserProfileId == request.UserProfileId 
-                        && ps.SkillId == request.SkillId, 
+                predicate: ps => ps.UserProfileId == request.UserProfileId
+                        && ps.SkillId == request.SkillId,
                 cancellationToken: cancellationToken);
             await _profileSkillBusinessRules.ProfileSkillShouldExistWhenSelected(profileSkill);
 

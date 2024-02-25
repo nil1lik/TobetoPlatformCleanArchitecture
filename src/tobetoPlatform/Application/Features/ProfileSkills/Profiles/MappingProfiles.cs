@@ -9,7 +9,7 @@ using Domain.Entities;
 using Core.Persistence.Paging;
 using Application.Features.Cities.Queries.GetDistrictList;
 using Application.Features.UserProfiles.Queries.GetAllSkillByUserId;
-using Application.Features.ProfileSkills.Commands.DeleteSkillByUserId;
+using Application.Features.ProfileSkills.Commands.Delete.DeleteSkillByUserId;
 
 namespace Application.Features.ProfileSkills.Profiles;
 

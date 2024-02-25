@@ -1,6 +1,6 @@
 using Application.Features.ProfileSkills.Commands.Create;
 using Application.Features.ProfileSkills.Commands.Delete;
-using Application.Features.ProfileSkills.Commands.DeleteSkillByUserId;
+using Application.Features.ProfileSkills.Commands.Delete.DeleteSkillByUserId;
 using Application.Features.ProfileSkills.Commands.Update;
 using Application.Features.ProfileSkills.Queries.GetById;
 using Application.Features.ProfileSkills.Queries.GetList;

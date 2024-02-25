@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Features.ProfileSkills.Commands.DeleteSkillByUserId;
+namespace Application.Features.ProfileSkills.Commands.Delete.DeleteSkillByUserId;
 public class DeleteSkillByUserIdResponse : IResponse
 {
     public int UserProfileId { get; set; }
