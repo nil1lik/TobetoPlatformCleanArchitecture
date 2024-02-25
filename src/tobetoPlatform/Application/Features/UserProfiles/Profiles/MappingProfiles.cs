@@ -118,6 +118,7 @@ public class MappingProfiles : Profile
          .ForMember(x => x.UserProfileId, opt => opt.MapFrom(x => x.UserId))
          .ForMember(la => la.LanguageDtoItems, opt => opt.MapFrom(la => la.ProfileLanguages.Select(x => new LanguageDtoItems
          {
+             Id = x.Id,
              LanguageId = x.Language.Id,
              LanguageName = x.Language.Name,
              LanguageLevelId = x.LanguageLevel.Id,

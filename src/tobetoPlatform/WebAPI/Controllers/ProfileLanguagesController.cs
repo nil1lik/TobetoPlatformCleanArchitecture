@@ -1,6 +1,5 @@
 using Application.Features.ProfileLanguages.Commands.Create;
 using Application.Features.ProfileLanguages.Commands.Delete;
-using Application.Features.ProfileLanguages.Commands.Delete.DeleteLanguageByUserId;
 using Application.Features.ProfileLanguages.Commands.Update;
 using Application.Features.ProfileLanguages.Queries.GetById;
 using Application.Features.ProfileLanguages.Queries.GetList;
@@ -38,13 +37,6 @@ public class ProfileLanguagesController : BaseController
         return Ok(response);
     }
 
-    [HttpDelete("{userId}/{languageId}/{id}")]
-    public async Task<IActionResult> Delete([FromRoute] int userId,int languageId, int id)
-    {
-        DeleteLanguageByUserIdResponse response = await Mediator.Send(new DeleteLanguageByUserIdCommand { UserProfileId=userId,LanguageId=languageId,LanguageLevelId = id });
-
-        return Ok(response);
-    }
 
     [HttpGet("{id}")]
     public async Task<IActionResult> GetById([FromRoute] int id)
