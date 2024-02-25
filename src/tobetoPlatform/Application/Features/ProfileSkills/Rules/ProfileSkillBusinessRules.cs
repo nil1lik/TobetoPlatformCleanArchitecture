@@ -32,10 +32,11 @@ public class ProfileSkillBusinessRules : BaseBusinessRules
         );
         await ProfileSkillShouldExistWhenSelected(profileSkill);
     }
-    public async Task ProfileSkillCannotBeDuplicateWhenInserted(int id, CancellationToken cancellationToken)
+    public async Task ProfileSkillCannotBeDuplicateWhenInserted(int id, int userProfileId, CancellationToken cancellationToken)
     {
         bool isDuplicate = await _profileSkillRepository.AnyAsync(
-            predicate: e => e.Skill.Id == id,
+            predicate: e => e.Skill.Id == id && e.UserProfileId == userProfileId,
+                      
             cancellationToken: cancellationToken
         );
 

@@ -34,10 +34,10 @@ public class ProfileLanguageBusinessRules : BaseBusinessRules
         await ProfileLanguageShouldExistWhenSelected(profileLanguage);
     }
 
-    public async Task ProfileLanguageCannotBeDuplicateWhenInserted(int id, CancellationToken cancellationToken)
+    public async Task ProfileLanguageCannotBeDuplicateWhenInserted(int id, int userProfileId, CancellationToken cancellationToken)
     {
         bool isDuplicate = await _profileLanguageRepository.AnyAsync(
-            predicate: e => e.Language.Id == id,
+            predicate: e => e.Language.Id == id && e.UserProfile.Id == userProfileId,
             cancellationToken: cancellationToken
         );
 
