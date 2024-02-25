@@ -15,6 +15,7 @@ using Application.Features.UserProfiles.Queries.GetAllLanguageByUserId;
 using Application.Features.UserProfiles.Queries.GetAllGraduationByUserId;
 using Application.Features.UserProfiles.Queries.GetExperienceByUserId;
 using Application.Features.UserProfiles.Queries.GetUserProfileInformations;
+using Application.Features.UserProfiles.Queries.GetAllSocialMediaAccountsByUserId;
 
 namespace Application.Features.UserProfiles.Profiles;
 
@@ -75,7 +76,7 @@ public class MappingProfiles : Profile
          .ForMember(dest => dest.SkillDtoItems, opt => opt.MapFrom(src =>
         src.ProfileSkills.Select(profileSkill => new SkillDto
         {
-            SkillId = profileSkill.Skill.Id,
+            Id = profileSkill.Id,
             SkillName = profileSkill.Skill.Name
         }).ToList()))
 
@@ -118,10 +119,21 @@ public class MappingProfiles : Profile
          .ForMember(x => x.UserProfileId, opt => opt.MapFrom(x => x.UserId))
          .ForMember(la => la.LanguageDtoItems, opt => opt.MapFrom(la => la.ProfileLanguages.Select(x => new LanguageDtoItems
          {
+             Id = x.Id,
              LanguageId = x.Language.Id,
              LanguageName = x.Language.Name,
              LanguageLevelId = x.LanguageLevel.Id,
              LanguageLevelName = x.LanguageLevel.Name,
+         }).ToList())).ReverseMap();
+
+        CreateMap<UserProfile, GetListSocialMediaAccountsByUserIdResponse>()
+         .ForMember(x => x.UserProfileId, opt => opt.MapFrom(x => x.UserId))
+         .ForMember(sm => sm.SocialMediaAccountsItems, opt => opt.MapFrom(sm => sm.SocialMediaAccounts.Select(x => new SocialMediaAccountDto
+         {
+             Id = x.Id,
+             MediaUrl = x.MediaUrl,
+             SocialMediaCategoryName = x.SocialMediaCategory.Name
+
          }).ToList())).ReverseMap();
     }
 }
