@@ -7,7 +7,7 @@ using AutoMapper;
 using Core.Application.Responses;
 using Domain.Entities;
 using Core.Persistence.Paging;
-using Application.Features.Courses.Queries.GetAsyncLessonsByCourseId;
+using Application.Features.Courses.Queries.GetCalendarDetailList;
 
 namespace Application.Features.Courses.Profiles;
 
@@ -23,32 +23,25 @@ public class MappingProfiles : Profile
         CreateMap<Course, DeletedCourseResponse>().ReverseMap();
         CreateMap<Course, GetByIdCourseResponse>().ReverseMap();
         CreateMap<Course, GetListCourseListItemDto>().ReverseMap();
-
-        CreateMap<Course, GetAsyncLessonsByCourseIdResponse>()
-    .ForMember(dest => dest.AsyncLessons, opt => opt.MapFrom(src => src.CourseLesson.Select(cl => new GetAsyncLessonsByCourseIdItem
-    {
-        Id = cl.AsyncLesson.Id,
-        Name = cl.AsyncLesson.Name,
-        LessonType = cl.AsyncLesson.LessonType.Name,
-        Time = cl.AsyncLesson.Time
-    })));
-
-
-
-
-
+        CreateMap<Course, GetCalendarDetailListDto>().
+                                    ForMember(p => p.InstructorFirstName, opt => opt.MapFrom(p => p.CourseInstructors.Select(p => p.Instructor.FirstName))).
+                                    ForMember(p => p.InstructorLastName,  opt => opt.MapFrom(p => p.CourseInstructors.Select(p => p.Instructor.LastName))).
+                                    ForMember(p => p.SessionName,         opt => opt.MapFrom(p => p.SyncLessons.Select(p => p.SessionName))).
+                                    ForMember(p => p.SessionStartDate,    opt => opt.MapFrom(p => p.SyncLessons.Select(p => p.StartDate)))
+                                    .ReverseMap();
         CreateMap<IPaginate<Course>, GetListResponse<GetListCourseListItemDto>>().ReverseMap();
+        CreateMap<IPaginate<Course>, GetListResponse<GetCalendarDetailListDto>>().ReverseMap();
 
 
     }
 
     private static DateTime GetSessionStartDate(Course source)
     {
-        // ï¿½zel dï¿½nï¿½ï¿½ï¿½m logic'i burada
-        // SessionStartDate'ï¿½ almak iï¿½in uygun dï¿½nï¿½ï¿½ï¿½m iï¿½lemini gerï¿½ekleï¿½tirin
+        // Özel dönüþüm logic'i burada
+        // SessionStartDate'ý almak için uygun dönüþüm iþlemini gerçekleþtirin
 
         var sessionStartDate = source.SyncLessons
-            .OrderBy(sl => sl.StartDate)  // ï¿½rnek: ï¿½lk baï¿½langï¿½ï¿½ tarihini seï¿½
+            .OrderBy(sl => sl.StartDate)  // Örnek: Ýlk baþlangýç tarihini seç
             .Select(sl => sl.StartDate)
             .FirstOrDefault();
 

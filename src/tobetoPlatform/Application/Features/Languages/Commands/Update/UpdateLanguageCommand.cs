@@ -10,6 +10,7 @@ public class UpdateLanguageCommand : IRequest<UpdatedLanguageResponse>
 {
     public int Id { get; set; }
     public string Name { get; set; }
+    public int LanguageLevelId { get; set; }
 
     public class UpdateLanguageCommandHandler : IRequestHandler<UpdateLanguageCommand, UpdatedLanguageResponse>
     {

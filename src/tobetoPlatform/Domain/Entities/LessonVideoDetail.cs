@@ -14,7 +14,7 @@ public class LessonVideoDetail : Entity<int>
     public virtual Company? Company { get; set; }
     public virtual VideoLanguage VideoLanguage { get; set; }
 
-    public virtual ICollection<LessonVideoDetailVideoDetailCategory> LessonVideoDetailVideoDetailCategories { get; set; }
+    public virtual ICollection<VideoDetailCategory> VideoDetailCategories { get; set; }
     public virtual ICollection<AsyncLesson> AsyncLessons { get; set; }
     public virtual ICollection<SyncLesson> SyncLessons { get; set; }
 

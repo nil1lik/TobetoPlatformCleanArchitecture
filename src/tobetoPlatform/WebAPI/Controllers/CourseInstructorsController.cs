@@ -51,5 +51,4 @@ public class CourseInstructorsController : BaseController
         GetListResponse<GetListCourseInstructorListItemDto> response = await Mediator.Send(getListCourseInstructorQuery);
         return Ok(response);
     }
-
 }

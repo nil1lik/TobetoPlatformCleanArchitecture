@@ -39,6 +39,7 @@ public class BaseDbContext : DbContext
     public DbSet<UserProfile> UserProfiles { get; set; }
     public DbSet<ProfileApplication> ProfileApplications { get; set; }
     public DbSet<LanguageLevel> LanguageLevels { get; set; }
+    public DbSet<ProfileShare> ProfileShares { get; set; }
     public DbSet<Announcement> Announcements { get; set; }
     public DbSet<ApplicationStep> ApplicationSteps { get; set; }
     public DbSet<SyncLesson> SyncLessons { get; set; }
@@ -52,13 +53,9 @@ public class BaseDbContext : DbContext
     public DbSet<VideoCategory> VideoCategories { get; set; }
     public DbSet<SocialMediaAccount> SocialMediaAccounts { get; set; }
     public DbSet<SocialMediaCategory> SocialMediaCategories { get; set; }
+    public DbSet<ProfileAddress> ProfileAddresses { get; set; }
     public DbSet<AnnouncementType> AnnouncementTypes { get; set; }
     public DbSet<ProfileExam> ProfileExams { get; set; }
-    public DbSet<VideoDetailCategory> VideoDetailCategories { get; set; }
-    public DbSet<Calendar> Calendars { get; set; }
-    public DbSet<ProfileSkill> ProfileSkills { get; set; }
-    public DbSet<ProfileLanguage> ProfileLanguages { get; set; }
-    public DbSet<LessonVideoDetailVideoDetailCategory> LessonVideoDetailVideoDetailCategories { get; set; }
 
 
 
@@ -66,7 +63,7 @@ public class BaseDbContext : DbContext
         : base(dbContextOptions)
     {
         Configuration = configuration;
-        //Database.EnsureCreated();
+        Database.EnsureCreated();
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder) =>

@@ -3,7 +3,6 @@ using Application.Services.Repositories;
 using AutoMapper;
 using Domain.Entities;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 
 namespace Application.Features.AsyncLessons.Queries.GetById;
 
@@ -26,9 +25,7 @@ public class GetByIdAsyncLessonQuery : IRequest<GetByIdAsyncLessonResponse>
 
         public async Task<GetByIdAsyncLessonResponse> Handle(GetByIdAsyncLessonQuery request, CancellationToken cancellationToken)
         {
-            AsyncLesson? asyncLesson = await _asyncLessonRepository.GetAsync(predicate: al => al.Id == request.Id,
-                include: al => al.Include(al => al.LessonType),
-                cancellationToken: cancellationToken);
+            AsyncLesson? asyncLesson = await _asyncLessonRepository.GetAsync(predicate: al => al.Id == request.Id, cancellationToken: cancellationToken);
             await _asyncLessonBusinessRules.AsyncLessonShouldExistWhenSelected(asyncLesson);
 
             GetByIdAsyncLessonResponse response = _mapper.Map<GetByIdAsyncLessonResponse>(asyncLesson);

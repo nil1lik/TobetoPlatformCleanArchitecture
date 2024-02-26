@@ -11,7 +11,7 @@ public class EducationPath : Entity<int>
 {
     public int EducationAdmirationId { get; set; }
     public int EducationAboutId { get; set; }
-
+    public int TimeSpentId { get; set; }
     public string Name { get; set; }
     public string ImageUrl { get; set; }
 
@@ -20,7 +20,6 @@ public class EducationPath : Entity<int>
 
     public virtual ICollection<ProfileEducation> ProfileEducations { get; set; }
     public virtual ICollection<Course> Courses { get; set; }
-    public virtual ICollection<Calendar> Calendars { get; set; }
 
     public EducationPath()
     {

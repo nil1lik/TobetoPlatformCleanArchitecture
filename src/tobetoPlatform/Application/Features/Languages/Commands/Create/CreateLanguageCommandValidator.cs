@@ -7,6 +7,6 @@ public class CreateLanguageCommandValidator : AbstractValidator<CreateLanguageCo
     public CreateLanguageCommandValidator()
     {
         RuleFor(c => c.Name).NotEmpty();
-        //RuleFor(c => c.LanguageLevelId).NotEmpty();
+        RuleFor(c => c.LanguageLevelId).NotEmpty();
     }
 }

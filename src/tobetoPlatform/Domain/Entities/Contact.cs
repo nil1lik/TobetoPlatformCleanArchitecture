@@ -12,6 +12,7 @@ public class Contact : Entity<int>
     public string Email { get; set; }
     public string Message { get; set; }
 
+    public virtual ICollection<UserProfile> UserProfiles { get; set; }
 
     public Contact()
     {

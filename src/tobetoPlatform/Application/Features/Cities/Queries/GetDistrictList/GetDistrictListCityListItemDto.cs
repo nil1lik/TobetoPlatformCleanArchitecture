@@ -10,6 +10,5 @@ public class GetDistrictListCityListItemDto:IDto
 {
     public int Id { get; set; }
     public string Name { get; set; }
-    public List<DistrictDto> District { get; set; }
+    public List<string> District { get; set; }
 }
-

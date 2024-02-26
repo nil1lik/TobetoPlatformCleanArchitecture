@@ -5,7 +5,6 @@ namespace Application.Features.Graduations.Commands.Create;
 public class CreatedGraduationResponse : IResponse
 {
     public int Id { get; set; }
-    public int UserProfileId { get; set; }
     public string Degree { get; set; }
     public string UniversityName { get; set; }
     public string Department { get; set; }

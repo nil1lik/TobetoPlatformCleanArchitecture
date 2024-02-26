@@ -9,13 +9,11 @@ namespace Application.Features.UserProfiles.Commands.Create;
 public class CreateUserProfileCommand : IRequest<CreatedUserProfileResponse>
 {
     public int UserId { get; set; }
-    public int CityId { get; set; }
-    public int DistrictId { get; set; }
+    public int ProfileAddressId { get; set; }
+    public int ProfileShareId { get; set; }
     public string NationalIdentity { get; set; }
     public string Phone { get; set; }
     public DateTime BirthDate { get; set; }
-    public string Country { get; set; }
-    public string? AddressDetail { get; set; }
     public string? Description { get; set; }
 
     public class CreateUserProfileCommandHandler : IRequestHandler<CreateUserProfileCommand, CreatedUserProfileResponse>
@@ -36,7 +34,6 @@ public class CreateUserProfileCommand : IRequest<CreatedUserProfileResponse>
         {
             UserProfile userProfile = _mapper.Map<UserProfile>(request);
 
-            await _userProfileBusinessRules.UserProfileCannotBeDuplicatedWhenInserted(userProfile.UserId, cancellationToken);
             await _userProfileRepository.AddAsync(userProfile);
 
             CreatedUserProfileResponse response = _mapper.Map<CreatedUserProfileResponse>(userProfile);

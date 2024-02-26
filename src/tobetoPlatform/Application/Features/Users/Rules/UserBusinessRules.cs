@@ -50,6 +50,4 @@ public class UserBusinessRules : BaseBusinessRules
         if (doesExists)
             throw new BusinessException(AuthMessages.UserMailAlreadyExists);
     }
-
-
 }

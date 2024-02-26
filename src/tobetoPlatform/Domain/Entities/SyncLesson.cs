@@ -14,12 +14,11 @@ public class SyncLesson : Entity<int>
     public string SessionName { get; set; }
     public DateTime StartDate { get; set; }
     public DateTime EndDate { get; set; }
+    public TimeSpan Time { get; set; }
 
     public bool IsJoin { get; set; }
 
     public virtual ICollection<Instructor> Instructors { get; set; }
-    public virtual ICollection<Calendar> Calendars { get; set; }
-
     public virtual LessonVideoDetail LessonVideoDetail { get; set; }
     public virtual Course Course { get; set; }
 
@@ -28,7 +27,7 @@ public class SyncLesson : Entity<int>
 
     }
 
-    public SyncLesson(int id, int lessonVideoDetailId, int courseId, string syncVideoUrl, string sessionName, DateTime startDate, DateTime endDate, bool isJoin):this()
+    public SyncLesson(int id, int lessonVideoDetailId, int courseId, string syncVideoUrl, string sessionName, DateTime startDate, DateTime endDate, TimeSpan time, bool isJoin):this()
     {
         Id = id;
         LessonVideoDetailId = lessonVideoDetailId;
@@ -37,6 +36,7 @@ public class SyncLesson : Entity<int>
         SessionName = sessionName;
         StartDate = startDate;
         EndDate = endDate;
+        Time = time;
         IsJoin = isJoin;
     }
 }

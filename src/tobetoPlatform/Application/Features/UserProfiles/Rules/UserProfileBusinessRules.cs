@@ -1,4 +1,3 @@
-using Application.Features.Exams.Constants;
 using Application.Features.UserProfiles.Constants;
 using Application.Services.Repositories;
 using Core.Application.Rules;
@@ -31,19 +30,5 @@ public class UserProfileBusinessRules : BaseBusinessRules
             cancellationToken: cancellationToken
         );
         await UserProfileShouldExistWhenSelected(userProfile);
-    }
-
-    public async Task UserProfileCannotBeDuplicatedWhenInserted(int id, CancellationToken cancellationToken)
-    {
-        UserProfile? userProfile = await _userProfileRepository.GetAsync(
-            predicate: e => e.UserId == id,
-            enableTracking: false,
-            cancellationToken: cancellationToken
-            );
-
-        if (userProfile != null)
-        {
-            throw new BusinessException(UserProfilesBusinessMessages.UserProfileExists);
-        }
     }
 }

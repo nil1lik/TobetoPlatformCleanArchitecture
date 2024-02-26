@@ -1,4 +1,3 @@
-using Application.Features.Experiences.Constants;
 using Application.Features.Experiences.Rules;
 using Application.Services.Repositories;
 using AutoMapper;
@@ -37,13 +36,11 @@ public class CreateExperienceCommand : IRequest<CreatedExperienceResponse>
         {
             Experience experience = _mapper.Map<Experience>(request);
 
-            await _experienceBusinessRules.StartDateEndDateBusinessRules(request.StartDate, request.EndDate);
-            await _experienceBusinessRules.TheSameWorkCannotBeStartedOnTheSameDate(request.StartDate);
             await _experienceRepository.AddAsync(experience);
             
             CreatedExperienceResponse response = _mapper.Map<CreatedExperienceResponse>(experience);
 
-            response.Message = ExperiencesValidationMessages.ExperienceSuccessfullyAdded;
+            response.Message = "Deneyim eklendi.";
             return response;
         }
     }

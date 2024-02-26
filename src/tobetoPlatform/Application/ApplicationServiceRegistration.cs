@@ -16,6 +16,7 @@ using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 using Domain.Entities;
+using Application.Services.ProfileShares;
 using Application.Services.ProfileApplications;
 using Application.Services.ApplicationSteps;
 using Application.Services.AsyncLessons;
@@ -50,15 +51,9 @@ using Application.Services.SocialMediaCategories;
 using Application.Services.UserProfiles;
 using Application.Services.Announcements;
 using Application.Services.Experiences;
+using Application.Services.ProfileAddresses;
 using Application.Services.AnnouncementTypes;
 using Application.Services.CourseInstructors;
-using Application.Services.LessonVideoDetails;
-using Application.Services.VideoDetailCategories;
-using Application.Services.Calendars;
-using Application.Services.ProfileSkills;
-using Application.Services.ProfileLanguages;
-using Application.Services.CourseLessons;
-using Application.Services.LessonVideoDetailVideoDetailCategories;
 
 
 namespace Application;
@@ -88,6 +83,7 @@ public static class ApplicationServiceRegistration
         services.AddScoped<IAuthService, AuthManager>();
         services.AddScoped<IAuthenticatorService, AuthenticatorManager>();
         services.AddScoped<IUserService, UserManager>();
+        services.AddScoped<IProfileSharesService, ProfileSharesManager>();
         services.AddScoped<IProfileApplicationsService, ProfileApplicationsManager>();
         services.AddScoped<IApplicationStepsService, ApplicationStepsManager>();
         services.AddScoped<IAsyncLessonsService, AsyncLessonsManager>();
@@ -102,15 +98,9 @@ public static class ApplicationServiceRegistration
         services.AddScoped<IUserProfilesService, UserProfilesManager>();
         services.AddScoped<IAnnouncementsService, AnnouncementsManager>();
         services.AddScoped<IExperiencesService, ExperiencesManager>();
+        services.AddScoped<IProfileAddressesService, ProfileAddressesManager>();
         services.AddScoped<IAnnouncementTypesService, AnnouncementTypesManager>();
         services.AddScoped<ICourseInstructorsService, CourseInstructorsManager>();
-        services.AddScoped<ILessonVideoDetailsService, LessonVideoDetailsManager>();
-        services.AddScoped<IVideoDetailCategoriesService, VideoDetailCategoriesManager>();
-        services.AddScoped<ICalendarsService, CalendarsManager>();
-        services.AddScoped<IProfileSkillsService, ProfileSkillsManager>();
-        services.AddScoped<IProfileLanguagesService, ProfileLanguagesManager>();
-        services.AddScoped<ICourseLessonsService, CourseLessonsManager>();
-        services.AddScoped<ILessonVideoDetailVideoDetailCategoriesService, LessonVideoDetailVideoDetailCategoriesManager>();
         return services;
     }
 

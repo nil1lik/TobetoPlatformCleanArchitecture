@@ -12,8 +12,8 @@ public class Instructor : Entity<int>
     public string LastName { get; set; }
     public string ImageUrl { get; set; }
     
+    //CourseInstructor buraya yazılmalı mı?
     public virtual ICollection<CourseInstructor> CourseInstructors { get; set; }
-    public virtual ICollection<Calendar> Calendars { get; set; }
 
     public Instructor()
     {

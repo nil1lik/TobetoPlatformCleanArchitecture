@@ -51,6 +51,4 @@ public class SkillsController : BaseController
         GetListResponse<GetListSkillListItemDto> response = await Mediator.Send(getListSkillQuery);
         return Ok(response);
     }
-
-
 }

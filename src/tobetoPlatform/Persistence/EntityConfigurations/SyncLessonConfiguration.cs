@@ -17,6 +17,7 @@ public class SyncLessonConfiguration : IEntityTypeConfiguration<SyncLesson>
         builder.Property(sl => sl.SessionName).HasColumnName("SessionName");
         builder.Property(sl => sl.StartDate).HasColumnName("StartDate");
         builder.Property(sl => sl.EndDate).HasColumnName("EndDate");
+        builder.Property(sl => sl.Time).HasColumnName("Time");
         builder.Property(sl => sl.IsJoin).HasColumnName("IsJoin");
         builder.Property(sl => sl.CreatedDate).HasColumnName("CreatedDate").IsRequired();
         builder.Property(sl => sl.UpdatedDate).HasColumnName("UpdatedDate");

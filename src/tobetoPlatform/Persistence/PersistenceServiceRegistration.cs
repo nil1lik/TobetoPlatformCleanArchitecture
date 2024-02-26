@@ -22,6 +22,9 @@ public static class PersistenceServiceRegistration
         services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IUserOperationClaimRepository, UserOperationClaimRepository>();
+
+
+        services.AddScoped<IProfileShareRepository, ProfileShareRepository>();
         services.AddScoped<IAnnouncementRepository, AnnouncementRepository>();
         services.AddScoped<IProfileApplicationRepository, ProfileApplicationRepository>();
         services.AddScoped<IApplicationStepRepository, ApplicationStepRepository>();
@@ -56,16 +59,10 @@ public static class PersistenceServiceRegistration
         services.AddScoped<ISocialMediaCategoryRepository, SocialMediaCategoryRepository>();
         services.AddScoped<IUserProfileRepository, UserProfileRepository>();
         services.AddScoped<IExperienceRepository, ExperienceRepository>();
+        services.AddScoped<IProfileAddressRepository, ProfileAddressRepository>();
         services.AddScoped<IAnnouncementTypeRepository, AnnouncementTypeRepository>();
         services.AddScoped<IProfileExamRepository, ProfileExamRepository>();
         services.AddScoped<ICourseInstructorRepository, CourseInstructorRepository>();
-        services.AddScoped<ILessonVideoDetailRepository, LessonVideoDetailRepository>();
-        services.AddScoped<IVideoDetailCategoryRepository, VideoDetailCategoryRepository>();
-        services.AddScoped<ICalendarRepository, CalendarRepository>();
-        services.AddScoped<IProfileSkillRepository, ProfileSkillRepository>();
-        services.AddScoped<IProfileLanguageRepository, ProfileLanguageRepository>();
-        services.AddScoped<ICourseLessonRepository, CourseLessonRepository>();
-        services.AddScoped<ILessonVideoDetailVideoDetailCategoryRepository, LessonVideoDetailVideoDetailCategoryRepository>();
         return services;
 
     }

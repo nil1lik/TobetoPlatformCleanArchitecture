@@ -10,6 +10,7 @@ public class CreateEducationPathCommand : IRequest<CreatedEducationPathResponse>
 {
     public int EducationAdmirationId { get; set; }
     public int EducationAboutId { get; set; }
+    public int TimeSpentId { get; set; }
     public string Name { get; set; }
     public string ImageUrl { get; set; }
 

@@ -5,7 +5,6 @@ using Core.Application.Requests;
 using Core.Application.Responses;
 using Core.Persistence.Paging;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 
 namespace Application.Features.EducationPaths.Queries.GetList;
 
@@ -27,9 +26,8 @@ public class GetListEducationPathQuery : IRequest<GetListResponse<GetListEducati
         public async Task<GetListResponse<GetListEducationPathListItemDto>> Handle(GetListEducationPathQuery request, CancellationToken cancellationToken)
         {
             IPaginate<EducationPath> educationPaths = await _educationPathRepository.GetListAsync(
-                include: i => i.Include(i => i.EducationAbout),
                 index: request.PageRequest.PageIndex,
-                size: request.PageRequest.PageSize,
+                size: request.PageRequest.PageSize, 
                 cancellationToken: cancellationToken
             );
 

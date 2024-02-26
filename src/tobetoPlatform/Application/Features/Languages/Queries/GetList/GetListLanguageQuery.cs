@@ -27,7 +27,7 @@ public class GetListLanguageQuery : IRequest<GetListResponse<GetListLanguageList
         public async Task<GetListResponse<GetListLanguageListItemDto>> Handle(GetListLanguageQuery request, CancellationToken cancellationToken)
         {
             IPaginate<Language> languages = await _languageRepository.GetListAsync(
-                //include: l => l.Include(x => x.LanguageLevel),
+                include: l => l.Include(x => x.LanguageLevel),
                 index: request.PageRequest.PageIndex,
                 size: request.PageRequest.PageSize, 
                 cancellationToken: cancellationToken

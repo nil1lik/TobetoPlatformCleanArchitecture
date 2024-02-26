@@ -1,12 +1,10 @@
 using Application.Features.EducationAbouts.Commands.Create;
 using Application.Features.EducationAbouts.Commands.Delete;
 using Application.Features.EducationAbouts.Commands.Update;
-using Application.Features.EducationAbouts.Queries.EducationAboutDetailById;
 using Application.Features.EducationAbouts.Queries.GetById;
 using Application.Features.EducationAbouts.Queries.GetList;
 using Core.Application.Requests;
 using Core.Application.Responses;
-using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers;
@@ -43,13 +41,6 @@ public class EducationAboutsController : BaseController
     public async Task<IActionResult> GetById([FromRoute] int id)
     {
         GetByIdEducationAboutResponse response = await Mediator.Send(new GetByIdEducationAboutQuery { Id = id });
-        return Ok(response);
-    }
-
-    [HttpGet("EducationAboutDetailDto/{id}")]
-    public async Task<IActionResult> GetEducationAboutDetailDto([FromRoute] int id)
-    {
-        GetByIdEducationAboutDetailDto response = await Mediator.Send(new GetByIdEducationAboutDetailQuery { Id = id });
         return Ok(response);
     }
 

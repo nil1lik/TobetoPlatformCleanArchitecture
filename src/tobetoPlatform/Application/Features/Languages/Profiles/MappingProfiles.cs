@@ -20,8 +20,12 @@ public class MappingProfiles : Profile
         CreateMap<Language, UpdatedLanguageResponse>().ReverseMap();
         CreateMap<Language, DeleteLanguageCommand>().ReverseMap();
         CreateMap<Language, DeletedLanguageResponse>().ReverseMap();
-        CreateMap<Language, GetByIdLanguageResponse>().ReverseMap();
-        CreateMap<Language, GetListLanguageListItemDto>().ReverseMap();
+        CreateMap<Language, GetByIdLanguageResponse>().
+            ForMember(c=>c.LanguageLevel,opt=>opt.MapFrom(c=>c.LanguageLevel.Name)).
+            ReverseMap();
+        CreateMap<Language, GetListLanguageListItemDto>().
+            ForMember(c => c.LanguageLevel, opt => opt.MapFrom(c => c.LanguageLevel.Name)).
+            ReverseMap();
         CreateMap<IPaginate<Language>, GetListResponse<GetListLanguageListItemDto>>().
            
             ReverseMap();
