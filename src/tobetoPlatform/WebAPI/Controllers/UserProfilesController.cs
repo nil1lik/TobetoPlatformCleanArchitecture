@@ -13,8 +13,6 @@ using Application.Features.UserProfiles.Queries.GetUserDetail;
 using Core.Application.Requests;
 using Core.Application.Responses;
 using Microsoft.AspNetCore.Mvc;
-using Application.Features.SocialMediaAccounts.Queries.GetList;
-using Application.Features.UserProfiles.Queries.GetAllSocialMediaAccountsByUserId;
 
 namespace WebAPI.Controllers;
 
@@ -68,15 +66,14 @@ public class UserProfilesController : BaseController
         return Ok(response);
     }
 
-    [HttpGet("getAllSkill/{id}")]
+    [HttpGet("GetAllSkill/{id}")]
     public async Task<IActionResult> GetBySkillId([FromRoute] int id)
     {
         GetListSkillsByUserIdResponse response = await Mediator.Send(new GetAllSkillsByUserIdQuery { Id = id });
         return Ok(response);
     }
 
-
-    [HttpGet("getAllLanguage/{id}")]
+    [HttpGet("GetAllLanguage/{id}")]
     public async Task<IActionResult> GetByLanguageId([FromRoute] int id)
     {
         GetAllLanguagesByUserIdResponse response = await Mediator.Send(new GetAllLanguagesByUserIdQuery { Id = id });

@@ -14,7 +14,6 @@ using Application.Features.Cities.Queries.GetDistrictList;
 using Application.Features.UserProfiles.Queries.GetAllLanguageByUserId;
 using Application.Features.UserProfiles.Queries.GetAllGraduationByUserId;
 using Application.Features.UserProfiles.Queries.GetExperienceByUserId;
-using Application.Features.UserProfiles.Queries.GetAllSocialMediaAccountsByUserId;
 
 namespace Application.Features.UserProfiles.Profiles;
 
@@ -36,7 +35,7 @@ public class MappingProfiles : Profile
             ForMember(up => up.CityId, opt => opt.MapFrom(up => up.City.Id)).
             ForMember(up => up.DistrictName, opt => opt.MapFrom(up => up.District.Name)).
             ForMember(up => up.DistrictId, opt => opt.MapFrom(up => up.District.Id)).
-            ForMember(up => up.UserProfileId, opt => opt.MapFrom(up => up.Id)).
+            ForMember(up => up.UserProfileId, opt => opt.MapFrom(up=> up.Id)).
             ReverseMap();
         CreateMap<UserProfile, GetListUserProfileListItemDto>().
             ForMember(up => up.FirstName, opt => opt.MapFrom(up => up.User.FirstName)).
