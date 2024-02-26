@@ -11,6 +11,7 @@ public class UpdateCourseCommand : IRequest<UpdatedCourseResponse>
     public int Id { get; set; }
     public int EducationPathId { get; set; }
     public string Name { get; set; }
+    public string ImageUrl { get; set; }
 
     public class UpdateCourseCommandHandler : IRequestHandler<UpdateCourseCommand, UpdatedCourseResponse>
     {
