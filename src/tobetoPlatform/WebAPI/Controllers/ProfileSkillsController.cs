@@ -1,5 +1,6 @@
 using Application.Features.ProfileSkills.Commands.Create;
 using Application.Features.ProfileSkills.Commands.Delete;
+using Application.Features.ProfileSkills.Commands.Delete.DeleteSkillByUserId;
 using Application.Features.ProfileSkills.Commands.Update;
 using Application.Features.ProfileSkills.Queries.GetById;
 using Application.Features.ProfileSkills.Queries.GetList;
@@ -33,6 +34,14 @@ public class ProfileSkillsController : BaseController
     public async Task<IActionResult> Delete([FromRoute] int id)
     {
         DeletedProfileSkillResponse response = await Mediator.Send(new DeleteProfileSkillCommand { Id = id });
+
+        return Ok(response);
+    }
+
+    [HttpDelete("{userId}/{id}")]
+    public async Task<IActionResult> DeleteSkillbyUserId([FromRoute] int userId ,int id)
+    {
+        DeleteSkillByUserIdResponse response = await Mediator.Send(new DeleteSkillbyUserIdCommand { UserProfileId = userId ,SkillId = id });
 
         return Ok(response);
     }

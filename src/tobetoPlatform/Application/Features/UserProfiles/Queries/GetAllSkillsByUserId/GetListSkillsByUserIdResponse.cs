@@ -17,7 +17,7 @@ public class GetListSkillsByUserIdResponse : IResponse
 
 public class SkillDto : IDto
 {
-    public int SkillId { get; set; }
+    public int Id { get; set; }
     public string SkillName { get; set; }
 }
 

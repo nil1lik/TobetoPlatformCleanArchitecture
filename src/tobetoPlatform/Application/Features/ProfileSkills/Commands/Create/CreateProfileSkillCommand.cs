@@ -28,7 +28,7 @@ public class CreateProfileSkillCommand : IRequest<CreatedProfileSkillResponse>
         public async Task<CreatedProfileSkillResponse> Handle(CreateProfileSkillCommand request, CancellationToken cancellationToken)
         {
             ProfileSkill profileSkill = _mapper.Map<ProfileSkill>(request);
-            await _profileSkillBusinessRules.ProfileSkillCannotBeDuplicateWhenInserted(request.SkillId, cancellationToken);
+            await _profileSkillBusinessRules.ProfileSkillCannotBeDuplicateWhenInserted(request.SkillId, request.UserProfileId, cancellationToken);
             await _profileSkillRepository.AddAsync(profileSkill);
 
             CreatedProfileSkillResponse response = _mapper.Map<CreatedProfileSkillResponse>(profileSkill);

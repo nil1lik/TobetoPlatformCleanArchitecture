@@ -13,6 +13,8 @@ using Application.Features.UserProfiles.Queries.GetUserDetail;
 using Core.Application.Requests;
 using Core.Application.Responses;
 using Microsoft.AspNetCore.Mvc;
+using Application.Features.SocialMediaAccounts.Queries.GetList;
+using Application.Features.UserProfiles.Queries.GetAllSocialMediaAccountsByUserId;
 
 namespace WebAPI.Controllers;
 
@@ -66,14 +68,15 @@ public class UserProfilesController : BaseController
         return Ok(response);
     }
 
-    [HttpGet("GetAllSkill/{id}")]
+    [HttpGet("getAllSkill/{id}")]
     public async Task<IActionResult> GetBySkillId([FromRoute] int id)
     {
         GetListSkillsByUserIdResponse response = await Mediator.Send(new GetAllSkillsByUserIdQuery { Id = id });
         return Ok(response);
     }
 
-    [HttpGet("GetAllLanguage/{id}")]
+
+    [HttpGet("getAllLanguage/{id}")]
     public async Task<IActionResult> GetByLanguageId([FromRoute] int id)
     {
         GetAllLanguagesByUserIdResponse response = await Mediator.Send(new GetAllLanguagesByUserIdQuery { Id = id });
@@ -93,10 +96,18 @@ public class UserProfilesController : BaseController
         GetListExperienceByUserIdResponse response = await Mediator.Send(new GetAllExperienceByUserIdQuery { Id = id });
         return Ok(response);
     }
+
     [HttpGet("getUserDetail/{id}")]
     public async Task<IActionResult> GetUserDetailByUserId([FromRoute] int id)
     {
         GetUserDetailDto response = await Mediator.Send(new GetUserDetailQuery { Id = id });
+        return Ok(response);
+    }
+
+    [HttpGet("getAllSocialMediaAccount/{id}")]
+    public async Task<IActionResult> GetBySocialMediaAccountId([FromRoute] int id)
+    {
+        GetListSocialMediaAccountsByUserIdResponse response = await Mediator.Send(new GetAllSocialMediaAccountsByUserIdQuery { Id = id });
         return Ok(response);
     }
 }

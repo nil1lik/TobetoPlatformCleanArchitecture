@@ -29,7 +29,7 @@ public class CreateProfileLanguageCommand : IRequest<CreatedProfileLanguageRespo
         {
             ProfileLanguage profileLanguage = _mapper.Map<ProfileLanguage>(request);
 
-            await _profileLanguageBusinessRules.ProfileLanguageCannotBeDuplicateWhenInserted(request.LanguageId, cancellationToken);
+            await _profileLanguageBusinessRules.ProfileLanguageCannotBeDuplicateWhenInserted(request.LanguageId, request.UserProfileId, cancellationToken);
             await _profileLanguageRepository.AddAsync(profileLanguage);
 
             CreatedProfileLanguageResponse response = _mapper.Map<CreatedProfileLanguageResponse>(profileLanguage);

@@ -15,6 +15,7 @@ public class GetAllLanguagesByUserIdResponse:IResponse
 
 public class LanguageDtoItems: IDto
 {
+    public int Id { get; set; }
     public int LanguageId { get; set; }
     public int LanguageLevelId { get; set; }
     public string LanguageName { get; set; }
