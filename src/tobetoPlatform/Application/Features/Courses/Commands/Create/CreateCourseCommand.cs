@@ -10,6 +10,7 @@ public class CreateCourseCommand : IRequest<CreatedCourseResponse>
 {
     public int EducationPathId { get; set; }
     public string Name { get; set; }
+    public string ImageUrl { get; set; }
 
     public class CreateCourseCommandHandler : IRequestHandler<CreateCourseCommand, CreatedCourseResponse>
     {

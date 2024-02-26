@@ -9,6 +9,7 @@ public class UpdateSyncLessonCommandValidator : AbstractValidator<UpdateSyncLess
         RuleFor(c => c.Id).NotEmpty();
         RuleFor(c => c.LessonVideoDetailId).NotEmpty();
         RuleFor(c => c.CourseId).NotEmpty();
+        RuleFor(c => c.CourseClassId).NotEmpty();
         RuleFor(c => c.SyncVideoUrl).NotEmpty();
         RuleFor(c => c.SessionName).NotEmpty();
         RuleFor(c => c.StartDate).NotEmpty();

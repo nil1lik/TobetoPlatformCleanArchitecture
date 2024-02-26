@@ -10,6 +10,7 @@ public class SyncLesson : Entity<int>
 {
     public int LessonVideoDetailId { get; set; }
     public int CourseId { get; set; }
+    public int CourseClassId { get; set; }
     public string SyncVideoUrl { get; set; }
     public string SessionName { get; set; }
     public DateTime StartDate { get; set; }
@@ -19,7 +20,7 @@ public class SyncLesson : Entity<int>
 
     public virtual ICollection<Instructor> Instructors { get; set; }
     public virtual ICollection<Calendar> Calendars { get; set; }
-
+    public virtual CourseClass CourseClass { get; set; }
     public virtual LessonVideoDetail LessonVideoDetail { get; set; }
     public virtual Course Course { get; set; }
 
@@ -28,11 +29,12 @@ public class SyncLesson : Entity<int>
 
     }
 
-    public SyncLesson(int id, int lessonVideoDetailId, int courseId, string syncVideoUrl, string sessionName, DateTime startDate, DateTime endDate, bool isJoin):this()
+    public SyncLesson(int id, int lessonVideoDetailId, int courseId, int courseClassId, string syncVideoUrl, string sessionName, DateTime startDate, DateTime endDate, bool isJoin):this()
     {
         Id = id;
         LessonVideoDetailId = lessonVideoDetailId;
         CourseId = courseId;
+        CourseClassId = courseClassId;
         SyncVideoUrl = syncVideoUrl;
         SessionName = sessionName;
         StartDate = startDate;
