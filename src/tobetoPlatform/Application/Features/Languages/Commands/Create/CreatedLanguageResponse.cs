@@ -6,6 +6,5 @@ public class CreatedLanguageResponse : IResponse
 {
     public int Id { get; set; }
     public string Name { get; set; }
-    public int LanguageLevelId { get; set; }
     public string Message { get; set; }
 }

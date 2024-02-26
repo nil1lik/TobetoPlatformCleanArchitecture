@@ -11,9 +11,6 @@ namespace Domain.Entities;
 public class Language : Entity<int>  
 {
     public string Name { get; set; }
-    public int LanguageLevelId { get; set; }
-
-    public virtual LanguageLevel LanguageLevel { get; set; }
     public virtual ICollection<ProfileLanguage> ProfileLanguages { get; set; }
 
     public Language()
@@ -21,10 +18,9 @@ public class Language : Entity<int>
 
     }
 
-    public Language(int id,int languageLevelId, string name) : this()
+    public Language(int id, string name) : this()
     {
         Id = id;
-        LanguageLevelId = languageLevelId;
         Name = name;
     }
 }

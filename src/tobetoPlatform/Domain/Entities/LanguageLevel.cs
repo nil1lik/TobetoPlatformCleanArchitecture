@@ -11,7 +11,7 @@ public class LanguageLevel : Entity<int>
 {
     public string Name { get; set; }
 
-    public virtual ICollection<Language> Languages { get; set; }
+    public virtual ICollection<ProfileLanguage> ProfileLanguages { get; set; }
 
     public LanguageLevel()
     {

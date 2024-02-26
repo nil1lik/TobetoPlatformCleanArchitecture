@@ -10,8 +10,9 @@ public class VideoDetailCategory:Entity<int>
 {
     public string Name { get; set; }
 
+
     public virtual ICollection<VideoDetailSubcategory> VideoDetailSubcategories { get; set; }
-    public virtual ICollection<LessonVideoDetail> LessonVideoDetails { get; set; }
+    public virtual ICollection<LessonVideoDetailVideoDetailCategory> LessonVideoDetailVideoDetailCategories { get; set; }
 
     public VideoDetailCategory()
     {

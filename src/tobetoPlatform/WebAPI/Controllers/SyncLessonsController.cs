@@ -51,4 +51,5 @@ public class SyncLessonsController : BaseController
         GetListResponse<GetListSyncLessonListItemDto> response = await Mediator.Send(getListSyncLessonQuery);
         return Ok(response);
     }
+
 }

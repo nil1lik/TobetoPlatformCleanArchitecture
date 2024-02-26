@@ -411,3 +411,4 @@ FodyWeavers.xsd
 .DS_Store
 
 /src/tobetoPlatform/WebAPI/appsettings.json
+appsettings.json

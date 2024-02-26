@@ -1,8 +1,8 @@
 using Application.Features.Courses.Commands.Create;
 using Application.Features.Courses.Commands.Delete;
 using Application.Features.Courses.Commands.Update;
+using Application.Features.Courses.Queries.GetAsyncLessonsByCourseId;
 using Application.Features.Courses.Queries.GetById;
-using Application.Features.Courses.Queries.GetCalendarDetailList;
 using Application.Features.Courses.Queries.GetList;
 using Core.Application.Requests;
 using Core.Application.Responses;
@@ -45,6 +45,13 @@ public class CoursesController : BaseController
         return Ok(response);
     }
 
+    [HttpGet("getAsyncLesson/{id}")]
+    public async Task<IActionResult> getAsyncLessonsByCourseId([FromRoute] int id)
+    {
+        GetAsyncLessonsByCourseIdResponse response = await Mediator.Send(new GetAsyncLessonsByCourseIdQuery { Id = id });
+        return Ok(response);
+    }
+
     [HttpGet]
     public async Task<IActionResult> GetList([FromQuery] PageRequest pageRequest)
     {
@@ -53,11 +60,4 @@ public class CoursesController : BaseController
         return Ok(response);
     }
 
-    [HttpGet("getCalendarDetail")]
-    public async Task<IActionResult> GetCalendarDetailList([FromQuery] PageRequest pageRequest)
-    {
-        GetCalendarDetailListQuery getCalendarDetailListQuery = new() { PageRequest = pageRequest };
-        GetListResponse<GetCalendarDetailListDto> response = await Mediator.Send(getCalendarDetailListQuery);
-        return Ok(response);
-    }
 }

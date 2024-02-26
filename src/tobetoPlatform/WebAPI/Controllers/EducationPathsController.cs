@@ -2,6 +2,8 @@ using Application.Features.EducationPaths.Commands.Create;
 using Application.Features.EducationPaths.Commands.Delete;
 using Application.Features.EducationPaths.Commands.Update;
 using Application.Features.EducationPaths.Queries.GetById;
+using Application.Features.EducationPaths.Queries.GetCoursesByEducationId;
+using Application.Features.EducationPaths.Queries.GetEducationPathDetailById;
 using Application.Features.EducationPaths.Queries.GetList;
 using Core.Application.Requests;
 using Core.Application.Responses;
@@ -41,6 +43,19 @@ public class EducationPathsController : BaseController
     public async Task<IActionResult> GetById([FromRoute] int id)
     {
         GetByIdEducationPathResponse response = await Mediator.Send(new GetByIdEducationPathQuery { Id = id });
+        return Ok(response);
+    }
+    [HttpGet("EducationPathDetail/{id}")]
+    public async Task<IActionResult> GetEducationPathDetailById([FromRoute] int id)
+    {
+        GetEducationPathDetailByIdDto response = await Mediator.Send(new GetEducationPathDetailByIdQuery { Id = id });
+        return Ok(response);
+    }
+
+    [HttpGet("Courses/{id}")]
+    public async Task<IActionResult> GetCoursesByEducationId([FromRoute] int id)
+    {
+        GetCoursesByEducationIdDto response = await Mediator.Send(new GetCoursesByEducationIdQuery { Id = id });
         return Ok(response);
     }
 

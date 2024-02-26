@@ -98,7 +98,7 @@ public class OperationClaimConfiguration : IEntityTypeConfiguration<OperationCla
         seeds.Add(new OperationClaim { Id = ++id, Name = "ApplicationForms.Update" });
         seeds.Add(new OperationClaim { Id = ++id, Name = "ApplicationForms.Delete" });
         #endregion
-        
+
         #region AsyncLessons
         seeds.Add(new OperationClaim { Id = ++id, Name = "AsyncLessons.Admin" });
         seeds.Add(new OperationClaim { Id = ++id, Name = "AsyncLessons.Read" });
@@ -394,6 +394,48 @@ public class OperationClaimConfiguration : IEntityTypeConfiguration<OperationCla
         seeds.Add(new OperationClaim { Id = ++id, Name = "ProfileExams.Add" });
         seeds.Add(new OperationClaim { Id = ++id, Name = "ProfileExams.Update" });
         seeds.Add(new OperationClaim { Id = ++id, Name = "ProfileExams.Delete" });
+        #endregion
+        #region VideoDetailCategories
+        seeds.Add(new OperationClaim { Id = ++id, Name = "VideoDetailCategories.Admin" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "VideoDetailCategories.Read" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "VideoDetailCategories.Write" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "VideoDetailCategories.Add" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "VideoDetailCategories.Update" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "VideoDetailCategories.Delete" });
+        #endregion
+        #region ProfileGraduations
+        seeds.Add(new OperationClaim { Id = ++id, Name = "ProfileGraduations.Admin" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "ProfileGraduations.Read" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "ProfileGraduations.Write" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "ProfileGraduations.Add" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "ProfileGraduations.Update" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "ProfileGraduations.Delete" });
+        #endregion
+        #region ProfileSkills
+        seeds.Add(new OperationClaim { Id = ++id, Name = "ProfileSkills.Admin" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "ProfileSkills.Read" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "ProfileSkills.Write" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "ProfileSkills.Add" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "ProfileSkills.Update" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "ProfileSkills.Delete" });
+        #endregion
+        #region ProfileLanguages
+        seeds.Add(new OperationClaim { Id = ++id, Name = "ProfileLanguages.Admin" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "ProfileLanguages.Read" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "ProfileLanguages.Write" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "ProfileLanguages.Add" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "ProfileLanguages.Update" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "ProfileLanguages.Delete" });
+        #endregion
+
+        
+        #region LessonVideoDetailVideoDetailCategories
+        seeds.Add(new OperationClaim { Id = ++id, Name = "LessonVideoDetailVideoDetailCategories.Admin" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "LessonVideoDetailVideoDetailCategories.Read" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "LessonVideoDetailVideoDetailCategories.Write" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "LessonVideoDetailVideoDetailCategories.Add" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "LessonVideoDetailVideoDetailCategories.Update" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "LessonVideoDetailVideoDetailCategories.Delete" });
         #endregion
         return seeds;
     }

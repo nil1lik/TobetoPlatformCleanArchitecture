@@ -21,7 +21,7 @@ namespace Domain.Entities
 
         public Announcement()
         {
-            
+
         }
 
         public Announcement(int id,int announcementTypeId, string name, string title, string description, bool isRead):this()

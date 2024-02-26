@@ -9,7 +9,6 @@ public class UpdateEducationPathCommandValidator : AbstractValidator<UpdateEduca
         RuleFor(c => c.Id).NotEmpty();
         RuleFor(c => c.EducationAdmirationId).NotEmpty();
         RuleFor(c => c.EducationAboutId).NotEmpty();
-        RuleFor(c => c.TimeSpentId).NotEmpty();
         RuleFor(c => c.Name).NotEmpty();
         RuleFor(c => c.ImageUrl).NotEmpty();
     }

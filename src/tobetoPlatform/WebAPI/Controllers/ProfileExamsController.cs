@@ -1,6 +1,7 @@
 using Application.Features.ProfileExams.Commands.Create;
 using Application.Features.ProfileExams.Commands.Delete;
 using Application.Features.ProfileExams.Commands.Update;
+using Application.Features.ProfileExams.Queries.GetAllExamByUserId;
 using Application.Features.ProfileExams.Queries.GetById;
 using Application.Features.ProfileExams.Queries.GetList;
 using Core.Application.Requests;
@@ -49,6 +50,14 @@ public class ProfileExamsController : BaseController
     {
         GetListProfileExamQuery getListProfileExamQuery = new() { PageRequest = pageRequest };
         GetListResponse<GetListProfileExamListItemDto> response = await Mediator.Send(getListProfileExamQuery);
+        return Ok(response);
+    }
+
+    [HttpGet("GetAllExam")]
+    public async Task<IActionResult> GetallExamByUserId([FromQuery] PageRequest pageRequest)
+    {
+        GetListExamByUserIdQuery getListProfileExamQuery = new() { PageRequest = pageRequest };
+        GetListResponse<GetAllExamByUserIdResponse> response = await Mediator.Send(getListProfileExamQuery);
         return Ok(response);
     }
 }

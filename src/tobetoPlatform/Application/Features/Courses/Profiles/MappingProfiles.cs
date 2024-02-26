@@ -7,7 +7,7 @@ using AutoMapper;
 using Core.Application.Responses;
 using Domain.Entities;
 using Core.Persistence.Paging;
-using Application.Features.Courses.Queries.GetCalendarDetailList;
+using Application.Features.Courses.Queries.GetAsyncLessonsByCourseId;
 
 namespace Application.Features.Courses.Profiles;
 
@@ -23,25 +23,29 @@ public class MappingProfiles : Profile
         CreateMap<Course, DeletedCourseResponse>().ReverseMap();
         CreateMap<Course, GetByIdCourseResponse>().ReverseMap();
         CreateMap<Course, GetListCourseListItemDto>().ReverseMap();
-        CreateMap<Course, GetCalendarDetailListDto>().
-                                    ForMember(p => p.InstructorFirstName, opt => opt.MapFrom(p => p.CourseInstructors.Select(p => p.Instructor.FirstName))).
-                                    ForMember(p => p.InstructorLastName,  opt => opt.MapFrom(p => p.CourseInstructors.Select(p => p.Instructor.LastName))).
-                                    ForMember(p => p.SessionName,         opt => opt.MapFrom(p => p.SyncLessons.Select(p => p.SessionName))).
-                                    ForMember(p => p.SessionStartDate,    opt => opt.MapFrom(p => p.SyncLessons.Select(p => p.StartDate)))
-                                    .ReverseMap();
+
+        CreateMap<CourseLesson, GetAsyncLessonsByCourseIdItem>()
+       .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.AsyncLesson.Id))
+       .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.AsyncLesson.Name))
+       .ForMember(dest => dest.LessonType, opt => opt.MapFrom(src => src.AsyncLesson.LessonType.Name))
+       .ForMember(dest => dest.Time, opt => opt.MapFrom(src => src.AsyncLesson.Time));
+
+        CreateMap<Course, GetAsyncLessonsByCourseIdResponse>()
+            .ForMember(dest => dest.AsyncLessons, opt => opt.MapFrom(src => src.CourseLesson.Select(cl => cl)));
+
+
         CreateMap<IPaginate<Course>, GetListResponse<GetListCourseListItemDto>>().ReverseMap();
-        CreateMap<IPaginate<Course>, GetListResponse<GetCalendarDetailListDto>>().ReverseMap();
 
 
     }
 
     private static DateTime GetSessionStartDate(Course source)
     {
-        // Özel dönüþüm logic'i burada
-        // SessionStartDate'ý almak için uygun dönüþüm iþlemini gerçekleþtirin
+        // ï¿½zel dï¿½nï¿½ï¿½ï¿½m logic'i burada
+        // SessionStartDate'ï¿½ almak iï¿½in uygun dï¿½nï¿½ï¿½ï¿½m iï¿½lemini gerï¿½ekleï¿½tirin
 
         var sessionStartDate = source.SyncLessons
-            .OrderBy(sl => sl.StartDate)  // Örnek: Ýlk baþlangýç tarihini seç
+            .OrderBy(sl => sl.StartDate)  // ï¿½rnek: ï¿½lk baï¿½langï¿½ï¿½ tarihini seï¿½
             .Select(sl => sl.StartDate)
             .FirstOrDefault();
 
