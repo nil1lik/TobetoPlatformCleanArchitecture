@@ -15,6 +15,7 @@ using Application.Features.UserProfiles.Queries.GetAllLanguageByUserId;
 using Application.Features.UserProfiles.Queries.GetAllGraduationByUserId;
 using Application.Features.UserProfiles.Queries.GetExperienceByUserId;
 using Application.Features.UserProfiles.Queries.GetAllSocialMediaAccountsByUserId;
+using Application.Features.UserProfiles.Queries.GetAllEducationsByUserId;
 
 namespace Application.Features.UserProfiles.Profiles;
 
@@ -109,6 +110,15 @@ public class MappingProfiles : Profile
              MediaUrl = x.MediaUrl,
              SocialMediaCategoryName = x.SocialMediaCategory.Name
 
+         }).ToList())).ReverseMap();
+        CreateMap<UserProfile, GetAllEducationsByUserIdResponse>()
+            .ForMember(x => x.UserProfileId, opt => opt.MapFrom(x => x.UserId))
+         .ForMember(la => la.EducationDtoItems, opt => opt.MapFrom(la => la.ProfileEducations.Select(x => new EducationDtoItems
+         {
+             Id = x.Id,
+             EducationPathId = x.EducationPathId,
+             EducationPathName = x.EducationPath.Name,
+             EducationPathImageUrl = x.EducationPath.ImageUrl,
          }).ToList())).ReverseMap();
     }
 }
