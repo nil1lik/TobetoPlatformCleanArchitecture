@@ -109,6 +109,7 @@ public class MappingProfiles : Profile
          .ForMember(sm => sm.SocialMediaAccountsItems, opt => opt.MapFrom(sm => sm.SocialMediaAccounts.Select(x => new SocialMediaAccountDto
          {
              Id = x.Id,
+             SocialMediaCategoryId = x.SocialMediaCategory.Id,
              MediaUrl = x.MediaUrl,
              SocialMediaCategoryName = x.SocialMediaCategory.Name
 

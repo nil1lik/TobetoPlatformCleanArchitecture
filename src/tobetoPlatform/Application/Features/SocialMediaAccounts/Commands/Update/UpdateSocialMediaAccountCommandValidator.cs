@@ -9,7 +9,6 @@ public class UpdateSocialMediaAccountCommandValidator : AbstractValidator<Update
         RuleFor(c => c.Id).NotEmpty();
         RuleFor(c => c.UserProfileId).NotEmpty();
         RuleFor(c => c.SocialMediaCategoryId).NotEmpty();
-        RuleFor(c => c.Name).NotEmpty();
         RuleFor(c => c.MediaUrl).NotEmpty();
     }
 }

@@ -15,6 +15,7 @@ public class GetListSocialMediaAccountsByUserIdResponse
 public class SocialMediaAccountDto
 {
     public int Id { get; set; }
+    public int SocialMediaCategoryId { get; set; }
     public string SocialMediaCategoryName { get; set; }
     public string MediaUrl { get; set; }
 }
