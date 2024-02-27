@@ -10,7 +10,6 @@ public class Course : Entity<int>
 {
     public int EducationPathId { get; set; }
     public string Name { get; set; }
-    public string ImageUrl { get; set; }
 
     public virtual EducationPath EducationPath { get; set; }
 
@@ -20,14 +19,13 @@ public class Course : Entity<int>
 
     public Course()
     {
-
+        
     }
 
-    public Course(int id, int educationPathId,  string name, string imageUrl) : this()
+    public Course(int id, int educationPathId,  string name) : this()
     {
         Id = id;
         EducationPathId = educationPathId;
         Name = name;
-        ImageUrl = imageUrl;
     }
 }
