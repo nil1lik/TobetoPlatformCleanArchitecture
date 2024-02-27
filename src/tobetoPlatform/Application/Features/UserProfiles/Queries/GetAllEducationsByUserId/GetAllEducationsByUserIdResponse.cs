@@ -20,4 +20,5 @@ public class EducationDtoItems
     public int EducationPathId { get; set; }
     public string EducationPathName { get; set; }
     public string EducationPathImageUrl { get; set; }
+    public DateTime startDate { get; set; }
 }
