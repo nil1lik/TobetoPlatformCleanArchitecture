@@ -9,7 +9,6 @@ using Domain.Entities;
 using Core.Persistence.Paging;
 using Application.Features.Cities.Queries.GetDistrictList;
 using Application.Features.UserProfiles.Queries.GetAllSkillByUserId;
-using Application.Features.ProfileSkills.Commands.Delete.DeleteSkillByUserId;
 
 namespace Application.Features.ProfileSkills.Profiles;
 
@@ -23,8 +22,6 @@ public class MappingProfiles : Profile
         CreateMap<ProfileSkill, UpdatedProfileSkillResponse>().ReverseMap();
         CreateMap<ProfileSkill, DeleteProfileSkillCommand>().ReverseMap();
         CreateMap<ProfileSkill, DeletedProfileSkillResponse>().ReverseMap();
-        CreateMap<ProfileSkill, DeleteSkillbyUserIdCommand>().ReverseMap();
-        CreateMap<ProfileSkill, DeleteSkillByUserIdResponse>().ReverseMap();
         CreateMap<ProfileSkill, GetByIdProfileSkillResponse>().ReverseMap();
         CreateMap<ProfileSkill, GetListProfileSkillListItemDto>().ReverseMap();
         CreateMap<IPaginate<ProfileSkill>, GetListResponse<GetListProfileSkillListItemDto>>().ReverseMap();

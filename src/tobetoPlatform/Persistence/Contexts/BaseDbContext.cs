@@ -60,6 +60,7 @@ public class BaseDbContext : DbContext
     public DbSet<ProfileLanguage> ProfileLanguages { get; set; }
     public DbSet<LessonVideoDetailVideoDetailCategory> LessonVideoDetailVideoDetailCategories { get; set; }
     public DbSet<ProfileEducation> ProfileEducations { get; set; }
+    public DbSet<ProfileClass> ProfileClasses { get; set; }
 
 
 

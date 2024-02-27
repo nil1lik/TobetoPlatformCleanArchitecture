@@ -8,5 +8,6 @@ public class CreateCourseCommandValidator : AbstractValidator<CreateCourseComman
     {
         RuleFor(c => c.EducationPathId).NotEmpty();
         RuleFor(c => c.Name).NotEmpty();
+        RuleFor(c => c.ImageUrl).NotEmpty();
     }
 }

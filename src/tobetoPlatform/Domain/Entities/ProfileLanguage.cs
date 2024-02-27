@@ -17,12 +17,11 @@ namespace Domain.Entities
         {
         }
 
-        public ProfileLanguage(int id, int userProfileId, int languageId, int languageLevelId):this()
+        public ProfileLanguage(int id, int userProfileId, int languageId):this()
         {
             Id = id;
             UserProfileId = userProfileId;
             LanguageId = languageId;
-            LanguageLevelId = languageLevelId;
         }
     }
 }

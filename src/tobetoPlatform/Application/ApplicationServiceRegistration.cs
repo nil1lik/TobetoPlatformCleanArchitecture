@@ -60,6 +60,7 @@ using Application.Services.ProfileLanguages;
 using Application.Services.CourseLessons;
 using Application.Services.LessonVideoDetailVideoDetailCategories;
 using Application.Services.ProfileEducations;
+using Application.Services.ProfileClasses;
 
 
 namespace Application;
@@ -113,6 +114,7 @@ public static class ApplicationServiceRegistration
         services.AddScoped<ICourseLessonsService, CourseLessonsManager>();
         services.AddScoped<ILessonVideoDetailVideoDetailCategoriesService, LessonVideoDetailVideoDetailCategoriesManager>();
         services.AddScoped<IProfileEducationsService, ProfileEducationsManager>();
+        services.AddScoped<IProfileClassesService, ProfileClassesManager>();
         return services;
     }
 
