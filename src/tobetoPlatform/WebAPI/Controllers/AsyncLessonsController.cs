@@ -46,7 +46,7 @@ public class AsyncLessonsController : BaseController
     }
 
     [HttpGet("getLessonDetail/{id}")]
-    public async Task<IActionResult> getLessonDetailByAsyncLessonId([FromRoute] int id)
+    public async Task<IActionResult> GetLessonDetailByAsyncLessonId([FromRoute] int id)
     {
         GetLessonDetailByAsyncLessonIdResponse response = await Mediator.Send(new GetLessonDetailByAsyncLessonIdQuery { Id = id });
         return Ok(response); 

@@ -7,5 +7,4 @@ public class GetListProfileLanguageListItemDto : IDto
     public int Id { get; set; }
     public int UserProfileId { get; set; }
     public int LanguageId { get; set; }
-    public int LanguageLevelId { get; set; }
 }

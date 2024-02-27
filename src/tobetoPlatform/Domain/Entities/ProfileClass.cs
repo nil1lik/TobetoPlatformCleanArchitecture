@@ -6,9 +6,11 @@ public class ProfileClass:Entity<int>
 {
     public int UserProfileId { get; set; }
     public int CourseClassId { get; set; }
+    public int EducationPathId { get; set; }
 
     public virtual UserProfile UserProfile { get; set; }
     public virtual CourseClass CourseClass { get; set; }
+    public virtual EducationPath EducationPath { get; set; }
 
     public ProfileClass()
     {

@@ -10,6 +10,8 @@ public class CreateSyncLessonCommand : IRequest<CreatedSyncLessonResponse>
 {
     public int LessonVideoDetailId { get; set; }
     public int CourseId { get; set; }
+    public int CourseClassId { get; set; }
+
     public string SyncVideoUrl { get; set; }
     public string SessionName { get; set; }
     public DateTime StartDate { get; set; }

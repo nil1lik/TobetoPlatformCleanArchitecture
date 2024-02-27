@@ -4,6 +4,7 @@ using Application.Features.Courses.Commands.Update;
 using Application.Features.Courses.Queries.GetAsyncLessonsByCourseId;
 using Application.Features.Courses.Queries.GetById;
 using Application.Features.Courses.Queries.GetList;
+using Application.Features.Courses.Queries.GetSyncLessonsByCourseId;
 using Core.Application.Requests;
 using Core.Application.Responses;
 using Microsoft.AspNetCore.Mvc;
@@ -46,9 +47,16 @@ public class CoursesController : BaseController
     }
 
     [HttpGet("getAsyncLesson/{id}")]
-    public async Task<IActionResult> getAsyncLessonsByCourseId([FromRoute] int id)
+    public async Task<IActionResult> GetAsyncLessonsByCourseId([FromRoute] int id)
     {
         GetAsyncLessonsByCourseIdResponse response = await Mediator.Send(new GetAsyncLessonsByCourseIdQuery { Id = id });
+        return Ok(response);
+    }
+
+    [HttpGet("getSyncLesson/{id}")]
+    public async Task<IActionResult> GetSyncLessonsByCourseId([FromRoute] int id)
+    {
+        GetSyncLessonsByCourseIdResponse response = await Mediator.Send(new GetSyncLessonsByCourseIdQuery { Id = id });
         return Ok(response);
     }
 

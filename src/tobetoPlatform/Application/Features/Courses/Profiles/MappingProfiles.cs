@@ -8,6 +8,7 @@ using Core.Application.Responses;
 using Domain.Entities;
 using Core.Persistence.Paging;
 using Application.Features.Courses.Queries.GetAsyncLessonsByCourseId;
+using Application.Features.Courses.Queries.GetSyncLessonsByCourseId;
 
 namespace Application.Features.Courses.Profiles;
 
@@ -24,7 +25,14 @@ public class MappingProfiles : Profile
         CreateMap<Course, GetByIdCourseResponse>().ReverseMap();
         CreateMap<Course, GetListCourseListItemDto>().ReverseMap();
 
+        CreateMap<CourseLesson, GetAsyncLessonsByCourseIdItem>()
+       .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.AsyncLesson.Id))
+       .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.AsyncLesson.Name))
+       .ForMember(dest => dest.LessonType, opt => opt.MapFrom(src => src.AsyncLesson.LessonType.Name))
+       .ForMember(dest => dest.Time, opt => opt.MapFrom(src => src.AsyncLesson.Time));
+
         CreateMap<Course, GetAsyncLessonsByCourseIdResponse>()
+ 
     .ForMember(dest => dest.AsyncLessons, opt => opt.MapFrom(src => src.CourseLesson.Select(cl => new GetAsyncLessonsByCourseIdItem
     {
         Id = cl.AsyncLesson.Id,
@@ -34,7 +42,18 @@ public class MappingProfiles : Profile
     })));
 
 
-
+        CreateMap<Course, GetSyncLessonsByCourseIdResponse>()
+            .ForMember(dest => dest.SyncLessons, opt => opt.MapFrom(src => src.SyncLessons.Select(al => new GetSyncLessonsByCourseIdItem
+            {
+                Id = al.Id,
+                Name = al.Course.Name,
+                SessionName = al.SessionName,
+                SyncVideoUrl = al.SyncVideoUrl,
+                StartDate = al.StartDate,
+                EndDate = al.EndDate,
+                IsJoin = al.IsJoin,
+                InstructorNames = al.Course.CourseInstructors.Select(ci => ci.Instructor.FirstName).ToList()
+            })));
 
 
         CreateMap<IPaginate<Course>, GetListResponse<GetListCourseListItemDto>>().ReverseMap();
@@ -51,7 +70,7 @@ public class MappingProfiles : Profile
             .OrderBy(sl => sl.StartDate)  // �rnek: �lk ba�lang�� tarihini se�
             .Select(sl => sl.StartDate)
             .FirstOrDefault();
-
+        
         return sessionStartDate;
     }
 }
