@@ -437,6 +437,14 @@ public class OperationClaimConfiguration : IEntityTypeConfiguration<OperationCla
         seeds.Add(new OperationClaim { Id = ++id, Name = "LessonVideoDetailVideoDetailCategories.Update" });
         seeds.Add(new OperationClaim { Id = ++id, Name = "LessonVideoDetailVideoDetailCategories.Delete" });
         #endregion
+        #region ProfileEducations
+        seeds.Add(new OperationClaim { Id = ++id, Name = "ProfileEducations.Admin" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "ProfileEducations.Read" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "ProfileEducations.Write" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "ProfileEducations.Add" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "ProfileEducations.Update" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "ProfileEducations.Delete" });
+        #endregion
         return seeds;
     }
 }

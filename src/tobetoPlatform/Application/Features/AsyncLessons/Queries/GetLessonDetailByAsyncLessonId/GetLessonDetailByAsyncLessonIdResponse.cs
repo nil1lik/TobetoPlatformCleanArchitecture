@@ -15,8 +15,6 @@ namespace Application.Features.AsyncLessons.Queries.GetLessonDetailByAsyncLesson
         public string CompanyName { get; set; }
         public string SubcategoryName  { get; set; }
         public string VideoDetailCategoryName { get; set; }
-
-        //public List<VideoDetailCategory> VideoDetailCategories { get; set; } 
     } 
 }
 

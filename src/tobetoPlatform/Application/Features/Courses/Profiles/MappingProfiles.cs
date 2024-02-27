@@ -8,6 +8,7 @@ using Core.Application.Responses;
 using Domain.Entities;
 using Core.Persistence.Paging;
 using Application.Features.Courses.Queries.GetAsyncLessonsByCourseId;
+using Application.Features.Courses.Queries.GetSyncLessonsByCourseId;
 
 namespace Application.Features.Courses.Profiles;
 
@@ -34,7 +35,18 @@ public class MappingProfiles : Profile
     })));
 
 
-
+        CreateMap<Course, GetSyncLessonsByCourseIdResponse>()
+            .ForMember(dest => dest.SyncLessons, opt => opt.MapFrom(src => src.SyncLessons.Select(al => new GetSyncLessonsByCourseIdItem
+            {
+                Id = al.Id,
+                Name = al.Course.Name,
+                SessionName = al.SessionName,
+                SyncVideoUrl = al.SyncVideoUrl,
+                StartDate = al.StartDate,
+                EndDate = al.EndDate,
+                IsJoin = al.IsJoin,
+                InstructorNames = al.Course.CourseInstructors.Select(ci => ci.Instructor.FirstName).ToList()
+            })));
 
 
         CreateMap<IPaginate<Course>, GetListResponse<GetListCourseListItemDto>>().ReverseMap();
@@ -51,7 +63,7 @@ public class MappingProfiles : Profile
             .OrderBy(sl => sl.StartDate)  // �rnek: �lk ba�lang�� tarihini se�
             .Select(sl => sl.StartDate)
             .FirstOrDefault();
-
+        
         return sessionStartDate;
     }
 }

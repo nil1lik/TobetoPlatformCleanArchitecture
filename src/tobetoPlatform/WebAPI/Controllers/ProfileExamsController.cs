@@ -45,7 +45,7 @@ public class ProfileExamsController : BaseController
         return Ok(response);
     }
 
-    [HttpGet]
+    [HttpGet] 
     public async Task<IActionResult> GetList([FromQuery] PageRequest pageRequest)
     {
         GetListProfileExamQuery getListProfileExamQuery = new() { PageRequest = pageRequest };

@@ -24,6 +24,7 @@
     <Folder Include="Features\EducationPaths\Queries\GetCoursesByEducationId\" />
     <Folder Include="Features\Courses\Queries\GetAsyncLessonsByCourseId\" />
     <Folder Include="Features\AsyncLessons\Queries\GetLessonDetailByAsyncLessonId\" />
+    <Folder Include="Features\Courses\Queries\GetSyncLessonsByCourseId\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -40,5 +41,6 @@
     <None Remove="Features\EducationPaths\Queries\GetCoursesByEducationId\" />
     <None Remove="Features\Courses\Queries\GetAsyncLessonsByCourseId\" />
     <None Remove="Features\AsyncLessons\Queries\GetLessonDetailByAsyncLessonId\" />
+    <None Remove="Features\Courses\Queries\GetSyncLessonsByCourseId\" />
   </ItemGroup>
 </Project>
