@@ -13,6 +13,8 @@ using Application.Features.UserProfiles.Queries.GetUserDetail;
 using Core.Application.Requests;
 using Core.Application.Responses;
 using Microsoft.AspNetCore.Mvc;
+using Application.Features.UserProfiles.Queries.GetAllSocialMediaAccountsByUserId;
+using Application.Features.UserProfiles.Queries.GetAllEducationsByUserId;
 
 namespace WebAPI.Controllers;
 
@@ -107,4 +109,12 @@ public class UserProfilesController : BaseController
         GetListSocialMediaAccountsByUserIdResponse response = await Mediator.Send(new GetAllSocialMediaAccountsByUserIdQuery { Id = id });
         return Ok(response);
     }
+
+    [HttpGet("getAllEducations/{id}")]
+    public async Task<IActionResult> GetByEducationsByUserId([FromRoute] int id)
+    {
+        GetAllEducationsByUserIdResponse response = await Mediator.Send(new GetAllEducationsByUserIdQuery { Id = id });
+        return Ok(response);
+    }
 }
+
