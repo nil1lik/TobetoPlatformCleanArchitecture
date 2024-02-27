@@ -15,6 +15,8 @@ using Core.Application.Responses;
 using Microsoft.AspNetCore.Mvc;
 using Application.Features.UserProfiles.Queries.GetAllSocialMediaAccountsByUserId;
 using Application.Features.UserProfiles.Queries.GetAllEducationsByUserId;
+using Application.Features.UserProfiles.Queries.GetAllCertificatesByUserId;
+using Application.Features.UserProfiles.Queries.GetAllExamsByUserId;
 
 namespace WebAPI.Controllers;
 
@@ -104,16 +106,30 @@ public class UserProfilesController : BaseController
     }
 
     [HttpGet("getAllSocialMediaAccount/{id}")]
-    public async Task<IActionResult> GetBySocialMediaAccountId([FromRoute] int id)
+    public async Task<IActionResult> GetAllSocialMediaAccountByUserId([FromRoute] int id)
     {
         GetListSocialMediaAccountsByUserIdResponse response = await Mediator.Send(new GetAllSocialMediaAccountsByUserIdQuery { Id = id });
         return Ok(response);
     }
 
     [HttpGet("getAllEducations/{id}")]
-    public async Task<IActionResult> GetByEducationsByUserId([FromRoute] int id)
+    public async Task<IActionResult> GetAllEducationsByUserId([FromRoute] int id)
     {
         GetAllEducationsByUserIdResponse response = await Mediator.Send(new GetAllEducationsByUserIdQuery { Id = id });
+        return Ok(response);
+    }
+
+    [HttpGet("getAllCertificates/{id}")]
+    public async Task<IActionResult> GetAllCertificatesByUserId([FromRoute] int id)
+    {
+        GetAllCertificatesByUserIdResponse response = await Mediator.Send(new GetAllCertificatesByUserIdQuery { Id = id });
+        return Ok(response);
+    }
+
+    [HttpGet("getAllExams/{id}")]
+    public async Task<IActionResult> GetAllExamsByUserId([FromRoute] int id)
+    {
+        GetAllExamsByUserIdResponse response = await Mediator.Send(new GetAllExamsByUserIdQuery { Id = id });
         return Ok(response);
     }
 }

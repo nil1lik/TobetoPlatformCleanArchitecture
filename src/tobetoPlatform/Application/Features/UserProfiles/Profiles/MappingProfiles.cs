@@ -16,6 +16,8 @@ using Application.Features.UserProfiles.Queries.GetAllGraduationByUserId;
 using Application.Features.UserProfiles.Queries.GetExperienceByUserId;
 using Application.Features.UserProfiles.Queries.GetAllSocialMediaAccountsByUserId;
 using Application.Features.UserProfiles.Queries.GetAllEducationsByUserId;
+using Application.Features.UserProfiles.Queries.GetAllCertificatesByUserId;
+using Application.Features.UserProfiles.Queries.GetAllExamsByUserId;
 
 namespace Application.Features.UserProfiles.Profiles;
 
@@ -119,6 +121,28 @@ public class MappingProfiles : Profile
              EducationPathId = x.EducationPathId,
              EducationPathName = x.EducationPath.Name,
              EducationPathImageUrl = x.EducationPath.ImageUrl,
+         }).ToList())).ReverseMap();
+        CreateMap<UserProfile, GetAllCertificatesByUserIdResponse>()
+            .ForMember(x => x.UserProfileId, opt => opt.MapFrom(x => x.UserId))
+         .ForMember(la => la.CertificateDtoItems, opt => opt.MapFrom(la => la.Certificates.Select(x => new CertificateDtoItems
+         {
+             Id = x.Id,
+             CertificateId = x.Id,
+             CertificateName = x.Name,
+             CertificateFileUrl = x.FileUrl,
+             CertificateFileType = x.FileType
+         }).ToList())).ReverseMap();
+        CreateMap<UserProfile, GetAllExamsByUserIdResponse>()
+            .ForMember(x => x.UserProfileId, opt => opt.MapFrom(x => x.UserId))
+         .ForMember(la => la.ExamsDtoItems, opt => opt.MapFrom(la => la.ProfileExams.Select(x => new ExamsDtoItems
+         {
+             Id = x.Id,
+             ExamId = x.Exam.Id,
+             ExamName = x.Exam.Name,
+             ExamCreatedDate = x.Exam.CreatedDate,
+             ExamDuration = x.Exam.Duration,
+             QuestionCount = x.Exam.QuestionCount,
+             IsCompleted = x.Exam.IsCompleted,
          }).ToList())).ReverseMap();
     }
 }
