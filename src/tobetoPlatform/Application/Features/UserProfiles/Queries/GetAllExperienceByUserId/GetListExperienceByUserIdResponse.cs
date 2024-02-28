@@ -9,7 +9,7 @@ public class GetListExperienceByUserIdResponse
 {
     public int UserProfileId { get; set; }
 
-    public List<ExperienceDto> ExperienceDtoItems { get; set; }
+    public List<ExperienceDto> ExperiencesDtoItems { get; set; }
 }
 
 public class ExperienceDto
