@@ -12,7 +12,6 @@ public class UpdateAsyncLessonCommand : IRequest<UpdatedAsyncLessonResponse>
     public int LessonVideoDetailId { get; set; }
     public int VideoCategoryId { get; set; }
     public int LessonTypeId { get; set; }
-    public int CourseClassId { get; set; }
     public string Name { get; set; }
     public double VideoPoint { get; set; }
     public TimeSpan Time { get; set; }
