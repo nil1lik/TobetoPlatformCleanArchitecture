@@ -79,7 +79,7 @@ public class MappingProfiles : Profile
 
         CreateMap<UserProfile, GetListExperienceByUserIdResponse>()
          .ForMember(x => x.UserProfileId, opt => opt.MapFrom(x => x.UserId))
-         .ForMember(dest => dest.ExperienceDtoItems, opt => opt.MapFrom(src =>
+         .ForMember(dest => dest.ExperiencesDtoItems, opt => opt.MapFrom(src =>
         src.Experiences.Select(experiences => new ExperienceDto
         {
             Id = experiences.Id,

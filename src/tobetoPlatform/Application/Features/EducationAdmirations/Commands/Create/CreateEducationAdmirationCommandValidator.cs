@@ -6,9 +6,9 @@ public class CreateEducationAdmirationCommandValidator : AbstractValidator<Creat
 {
     public CreateEducationAdmirationCommandValidator()
     {
-        RuleFor(c => c.IsLiked).NotEmpty();
-        RuleFor(c => c.IsFavourited).NotEmpty();
-        RuleFor(c => c.CompletionRate).NotEmpty();
-        RuleFor(c => c.EducationPoint).NotEmpty();
+        //RuleFor(c => c.IsLiked).NotEmpty();
+        //RuleFor(c => c.IsFavourited).NotEmpty();
+        //RuleFor(c => c.CompletionRate).NotEmpty();
+        //RuleFor(c => c.EducationPoint).NotEmpty();
     }
 }
