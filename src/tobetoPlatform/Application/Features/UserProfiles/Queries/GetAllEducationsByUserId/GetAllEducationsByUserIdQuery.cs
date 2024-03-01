@@ -34,8 +34,7 @@ public class GetAllEducationsByUserIdQuery:IRequest<GetAllEducationsByUserIdResp
         {
             UserProfile? userProfile = await _userProfileRepository.GetAsync(
                 predicate: ps => ps.UserId == request.Id,
-                include: ps => ps.Include(x=> x.ProfileEducations).ThenInclude(x=>x.EducationPath)
-                .Include(x=>x.ProfileEducations).ThenInclude(x=>x.EducationPath).ThenInclude(x=>x.EducationAbout),
+                include: ps => ps.Include(x=> x.ProfileEducations).ThenInclude(x=>x.EducationPath).ThenInclude(x=>x.EducationAbout),
                 cancellationToken: cancellationToken);
 
             await _userProfileBusinessRules.UserProfileShouldExistWhenSelected(userProfile);
