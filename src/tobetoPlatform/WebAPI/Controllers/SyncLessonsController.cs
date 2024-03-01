@@ -2,6 +2,7 @@ using Application.Features.SyncLessons.Commands.Create;
 using Application.Features.SyncLessons.Commands.Delete;
 using Application.Features.SyncLessons.Commands.Update;
 using Application.Features.SyncLessons.Queries.GetById;
+using Application.Features.SyncLessons.Queries.GetLessonDetailBySyncLessonId;
 using Application.Features.SyncLessons.Queries.GetList;
 using Core.Application.Requests;
 using Core.Application.Responses;
@@ -41,6 +42,13 @@ public class SyncLessonsController : BaseController
     public async Task<IActionResult> GetById([FromRoute] int id)
     {
         GetByIdSyncLessonResponse response = await Mediator.Send(new GetByIdSyncLessonQuery { Id = id });
+        return Ok(response);
+    }
+
+    [HttpGet("getLessonDetail/{id}")]
+    public async Task<IActionResult> GetLessonDetailByAsyncLessonId([FromRoute] int id)
+    {
+        GetLessonDetailBySyncLessonIdResponse response = await Mediator.Send(new GetLessonDetailBySyncLessonIdQuery { Id = id });
         return Ok(response);
     }
 
