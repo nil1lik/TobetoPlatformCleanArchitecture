@@ -445,6 +445,13 @@ public class OperationClaimConfiguration : IEntityTypeConfiguration<OperationCla
         seeds.Add(new OperationClaim { Id = ++id, Name = "ProfileEducations.Update" });
         seeds.Add(new OperationClaim { Id = ++id, Name = "ProfileEducations.Delete" });
         #endregion
+        #region CatalogPaths
+        seeds.Add(new OperationClaim { Id = ++id, Name = "CatalogPaths.Admin" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "CatalogPaths.Read" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "CatalogPaths.Write" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "CatalogPaths.Add" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "CatalogPaths.Update" });
+        seeds.Add(new OperationClaim { Id = ++id, Name = "CatalogPaths.Delete" });
         return seeds;
     }
 }

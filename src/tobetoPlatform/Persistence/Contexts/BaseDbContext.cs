@@ -61,6 +61,7 @@ public class BaseDbContext : DbContext
     public DbSet<LessonVideoDetailVideoDetailCategory> LessonVideoDetailVideoDetailCategories { get; set; }
     public DbSet<ProfileEducation> ProfileEducations { get; set; }
     public DbSet<ProfileClass> ProfileClasses { get; set; }
+    public DbSet<CatalogPath> CatalogPaths { get; set; }
 
 
 
