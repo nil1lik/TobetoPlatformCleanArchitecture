@@ -11,6 +11,7 @@ public class CourseLesson : Entity<int>
     public int CourseId { get; set; }
     public int AsyncLessonId { get; set; }
 
+
     public virtual Course Course { get; set; }
     public virtual AsyncLesson AsyncLesson { get; set; }
 
