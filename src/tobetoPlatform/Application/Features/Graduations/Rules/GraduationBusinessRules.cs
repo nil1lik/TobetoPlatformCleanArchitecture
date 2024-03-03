@@ -1,3 +1,4 @@
+using Application.Features.Experiences.Constants;
 using Application.Features.Graduations.Constants;
 using Application.Services.Repositories;
 using Core.Application.Rules;
@@ -30,5 +31,33 @@ public class GraduationBusinessRules : BaseBusinessRules
             cancellationToken: cancellationToken
         );
         await GraduationShouldExistWhenSelected(graduation);
+    }
+
+    public async Task TheSameWorkCannotBeStartedOnTheSameDate(DateTime startDate)
+    {
+        bool isDuplicate = await _graduationRepository.AnyAsync(
+        predicate: e => e.StartDate == startDate
+    );
+
+        if (isDuplicate)
+        {
+            throw new BusinessException(GraduationsBusinessMessages.TheSameWorkCannotBeStartedOnTheSameDate);
+        }
+    }
+
+    public async Task StartDateEndDateBusinessRules(DateTime startDate, DateTime endDate)
+    {
+        await _graduationRepository.AnyAsync(
+        predicate: e => e.StartDate == startDate && e.EndDate == endDate
+    );
+
+        if (startDate == endDate)
+        {
+            throw new BusinessException(GraduationsBusinessMessages.TheStartDateAndTheEndDateCannotBeDuplicated);
+        }
+        else if (startDate >= endDate)
+        {
+            throw new BusinessException(GraduationsBusinessMessages.TheStartDateCannotBeGreaterThanTheEndDate);
+        }
     }
 }

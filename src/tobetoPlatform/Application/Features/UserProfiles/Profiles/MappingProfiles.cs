@@ -70,8 +70,7 @@ public class MappingProfiles : Profile
                 Id = graduation.Id,
                 StartDate = graduation.StartDate,
                 EndDate = graduation.EndDate,
-                UniversityName = graduation.UniversityName,
-                GraduationDate = graduation.GraduationDate
+                UniversityName = graduation.UniversityName
 
             })))
             .ReverseMap();

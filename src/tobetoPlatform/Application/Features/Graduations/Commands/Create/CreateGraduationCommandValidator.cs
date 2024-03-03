@@ -11,6 +11,5 @@ public class CreateGraduationCommandValidator : AbstractValidator<CreateGraduati
         RuleFor(c => c.Department).NotEmpty();
         RuleFor(c => c.StartDate).NotEmpty();
         RuleFor(c => c.EndDate).NotEmpty();
-        RuleFor(c => c.GraduationDate).NotEmpty();
     }
 }
