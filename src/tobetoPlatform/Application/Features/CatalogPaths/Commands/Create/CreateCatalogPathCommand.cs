@@ -11,7 +11,7 @@ public class CreateCatalogPathCommand : IRequest<CreatedCatalogPathResponse>
     public string Name { get; set; }
     public string ImageUrl { get; set; }
     public int InstructorId { get; set; }
-    public DateTime AddedDate { get; set; }
+    public int Time { get; set; }
 
     public class CreateCatalogPathCommandHandler : IRequestHandler<CreateCatalogPathCommand, CreatedCatalogPathResponse>
     {

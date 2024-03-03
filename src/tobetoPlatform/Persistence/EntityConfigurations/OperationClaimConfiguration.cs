@@ -452,6 +452,7 @@ public class OperationClaimConfiguration : IEntityTypeConfiguration<OperationCla
         seeds.Add(new OperationClaim { Id = ++id, Name = "CatalogPaths.Add" });
         seeds.Add(new OperationClaim { Id = ++id, Name = "CatalogPaths.Update" });
         seeds.Add(new OperationClaim { Id = ++id, Name = "CatalogPaths.Delete" });
+        #endregion
         return seeds;
     }
 }

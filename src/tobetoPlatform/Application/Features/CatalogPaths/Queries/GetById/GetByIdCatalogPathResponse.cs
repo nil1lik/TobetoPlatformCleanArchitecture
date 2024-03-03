@@ -8,5 +8,5 @@ public class GetByIdCatalogPathResponse : IResponse
     public string Name { get; set; }
     public string ImageUrl { get; set; }
     public int InstructorId { get; set; }
-    public DateTime AddedDate { get; set; }
+    public int Time { get; set; }
 }

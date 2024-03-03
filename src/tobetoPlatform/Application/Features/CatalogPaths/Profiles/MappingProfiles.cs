@@ -7,6 +7,7 @@ using AutoMapper;
 using Core.Application.Responses;
 using Domain.Entities;
 using Core.Persistence.Paging;
+using Application.Features.CatalogPaths.Queries.GetCatalogById;
 
 namespace Application.Features.CatalogPaths.Profiles;
 
@@ -21,7 +22,12 @@ public class MappingProfiles : Profile
         CreateMap<CatalogPath, DeleteCatalogPathCommand>().ReverseMap();
         CreateMap<CatalogPath, DeletedCatalogPathResponse>().ReverseMap();
         CreateMap<CatalogPath, GetByIdCatalogPathResponse>().ReverseMap();
+        CreateMap<CatalogPath, GetCatalogByIdResponse>()
+            .ForMember(x=>x.InstructorName,opt=>opt.MapFrom(x=>x.Instructor.FirstName))
+            .ForMember(x=>x.InstructorSurname,opt=>opt.MapFrom(x=>x.Instructor.LastName))
+            .ReverseMap();
         CreateMap<CatalogPath, GetListCatalogPathListItemDto>().ReverseMap();
         CreateMap<IPaginate<CatalogPath>, GetListResponse<GetListCatalogPathListItemDto>>().ReverseMap();
+        CreateMap<IPaginate<CatalogPath>, GetListResponse<GetCatalogByIdResponse>>().ReverseMap();
     }
 }

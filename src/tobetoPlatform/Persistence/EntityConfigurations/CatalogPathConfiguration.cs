@@ -14,7 +14,7 @@ public class CatalogPathConfiguration : IEntityTypeConfiguration<CatalogPath>
         builder.Property(cp => cp.Name).HasColumnName("Name");
         builder.Property(cp => cp.ImageUrl).HasColumnName("ImageUrl");
         builder.Property(cp => cp.InstructorId).HasColumnName("InstructorId");
-        builder.Property(cp => cp.AddedDate).HasColumnName("AddedDate");
+        builder.Property(cp => cp.Time).HasColumnName("Time");
         builder.Property(cp => cp.CreatedDate).HasColumnName("CreatedDate").IsRequired();
         builder.Property(cp => cp.UpdatedDate).HasColumnName("UpdatedDate");
         builder.Property(cp => cp.DeletedDate).HasColumnName("DeletedDate");

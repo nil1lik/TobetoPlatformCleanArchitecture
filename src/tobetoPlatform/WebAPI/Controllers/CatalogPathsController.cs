@@ -2,6 +2,7 @@ using Application.Features.CatalogPaths.Commands.Create;
 using Application.Features.CatalogPaths.Commands.Delete;
 using Application.Features.CatalogPaths.Commands.Update;
 using Application.Features.CatalogPaths.Queries.GetById;
+using Application.Features.CatalogPaths.Queries.GetCatalogById;
 using Application.Features.CatalogPaths.Queries.GetList;
 using Core.Application.Requests;
 using Core.Application.Responses;
@@ -41,6 +42,14 @@ public class CatalogPathsController : BaseController
     public async Task<IActionResult> GetById([FromRoute] int id)
     {
         GetByIdCatalogPathResponse response = await Mediator.Send(new GetByIdCatalogPathQuery { Id = id });
+        return Ok(response);
+    }
+
+    [HttpGet("CatalogList")]
+    public async Task<IActionResult> GetListCatalog([FromQuery] PageRequest pageRequest)
+    {
+        GetCatalogByIdQuery getListCatalogPathQuery = new() { PageRequest = pageRequest };
+        GetListResponse<GetCatalogByIdResponse> response = await Mediator.Send(getListCatalogPathQuery);
         return Ok(response);
     }
 
