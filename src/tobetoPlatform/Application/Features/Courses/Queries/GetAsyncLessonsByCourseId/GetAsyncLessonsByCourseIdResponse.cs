@@ -3,7 +3,7 @@ using System;
 namespace Application.Features.Courses.Queries.GetAsyncLessonsByCourseId
 {
 
-    public class GetAsyncLessonsByCourseIdResponse
+    public class GetAsyncLessonsByCourseIdResponse : IResponse
     {
         public List<GetAsyncLessonsByCourseIdItem> AsyncLessons { get; set; }
     }
@@ -14,6 +14,7 @@ namespace Application.Features.Courses.Queries.GetAsyncLessonsByCourseId
         public string Name { get; set; }
         public string LessonType { get; set; }
         public TimeSpan Time { get; set; }
+
     }
 }
 

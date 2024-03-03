@@ -28,7 +28,8 @@ namespace Application.Features.Courses.Queries.GetSyncLessonsByCourseId
             public async Task<GetSyncLessonsByCourseIdResponse> Handle(GetSyncLessonsByCourseIdQuery request, CancellationToken cancellationToken)
             {
                 Course? course = await _courseRepository.GetAsync(predicate: sl => sl.Id == request.Id,
-                    include: sl => sl.Include(sl => sl.SyncLessons),
+                    include: sl => sl.Include(sl => sl.SyncLessons)
+                    .Include(sl=>sl.CourseInstructors).ThenInclude(sl=>sl.Instructor),
                     cancellationToken: cancellationToken);
                 await _courseBusinessRules.CourseShouldExistWhenSelected(course);
 
