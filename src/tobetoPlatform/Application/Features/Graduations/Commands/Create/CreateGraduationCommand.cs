@@ -1,4 +1,5 @@
 using Application.Features.Experiences.Constants;
+using Application.Features.Experiences.Rules;
 using Application.Features.Graduations.Rules;
 using Application.Services.Repositories;
 using AutoMapper;
@@ -15,7 +16,6 @@ public class CreateGraduationCommand : IRequest<CreatedGraduationResponse>
     public string Department { get; set; }
     public DateTime StartDate { get; set; }
     public DateTime EndDate { get; set; }
-    public DateTime GraduationDate { get; set; }
 
     public class CreateGraduationCommandHandler : IRequestHandler<CreateGraduationCommand, CreatedGraduationResponse>
     {
@@ -34,7 +34,8 @@ public class CreateGraduationCommand : IRequest<CreatedGraduationResponse>
         public async Task<CreatedGraduationResponse> Handle(CreateGraduationCommand request, CancellationToken cancellationToken)
         {
             Graduation graduation = _mapper.Map<Graduation>(request);
-
+            await _graduationBusinessRules.StartDateEndDateBusinessRules(request.StartDate, request.EndDate);
+            await _graduationBusinessRules.TheSameWorkCannotBeStartedOnTheSameDate(request.StartDate);
             await _graduationRepository.AddAsync(graduation);
 
             CreatedGraduationResponse response = _mapper.Map<CreatedGraduationResponse>(graduation);
