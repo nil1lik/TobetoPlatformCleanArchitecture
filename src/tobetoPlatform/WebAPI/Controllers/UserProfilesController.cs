@@ -105,6 +105,7 @@ public class UserProfilesController : BaseController
         return Ok(response);
     }
 
+
     [HttpGet("getAllSocialMediaAccount/{id}")]
     public async Task<IActionResult> GetAllSocialMediaAccountByUserId([FromRoute] int id)
     {

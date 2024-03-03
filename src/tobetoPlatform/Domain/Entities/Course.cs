@@ -10,7 +10,7 @@ public class Course : Entity<int>
 {
     public int EducationPathId { get; set; }
     public string Name { get; set; }
-    //public string ImageUrl { get; set; }
+    public string? imageUrl { get; set; }
 
 
     public virtual EducationPath EducationPath { get; set; }
