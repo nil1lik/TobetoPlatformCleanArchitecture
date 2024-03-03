@@ -13,7 +13,6 @@ public class CatalogPath : Entity<int>
     public int InstructorId { get; set; }
     public int Time { get; set; }
     public virtual Instructor Instructor { get; set; }
-    public virtual ICollection<Course> Courses { get; set; }
 
     public CatalogPath()
     {
