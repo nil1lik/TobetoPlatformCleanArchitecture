@@ -2,6 +2,7 @@
 using Application.Features.Users.Commands.Delete;
 using Application.Features.Users.Commands.Update;
 using Application.Features.Users.Commands.UpdateFromAuth;
+using Application.Features.Users.Commands.UpdatePassword;
 using Application.Features.Users.Queries.GetById;
 using Application.Features.Users.Queries.GetList;
 using Core.Application.Requests;
@@ -56,6 +57,13 @@ public class UsersController : BaseController
     {
         updateUserFromAuthCommand.Id = getUserIdFromRequest();
         UpdatedUserFromAuthResponse result = await Mediator.Send(updateUserFromAuthCommand);
+        return Ok(result);
+    }
+
+    [HttpPut("UpdatePassword")]
+    public async Task<IActionResult> UpdatePassword([FromBody] UpdatePasswordCommand updatePasswordCommand)
+    {
+        PasswordUpdatedResponse result = await Mediator.Send(updatePasswordCommand);
         return Ok(result);
     }
 

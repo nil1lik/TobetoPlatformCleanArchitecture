@@ -1,9 +1,12 @@
 using Application.Features.Auth.Constants;
+using Application.Features.Users.Constants;
 using Application.Services.Repositories;
+using Azure.Core;
 using Core.Application.Rules;
 using Core.CrossCuttingConcerns.Exceptions.Types;
 using Core.Security.Entities;
 using Core.Security.Hashing;
+using System.Security.Cryptography;
 
 namespace Application.Features.Users.Rules;
 
@@ -28,6 +31,14 @@ public class UserBusinessRules : BaseBusinessRules
         bool doesExist = await _userRepository.AnyAsync(predicate: u => u.Id == id, enableTracking: false);
         if (doesExist)
             throw new BusinessException(AuthMessages.UserDontExists);
+    }
+    public Task UserPasswordShouldBeExistsWhenSelected(string password)
+    {
+        if (string.IsNullOrWhiteSpace(password))
+        {
+            throw new Exception(UsersBusinessMessages.UserPasswordShouldBeExistsWhenSelected);
+        }
+        return Task.CompletedTask;
     }
 
     public Task UserPasswordShouldBeMatched(User user, string password)

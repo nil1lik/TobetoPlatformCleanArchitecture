@@ -427,8 +427,6 @@ public class OperationClaimConfiguration : IEntityTypeConfiguration<OperationCla
         seeds.Add(new OperationClaim { Id = ++id, Name = "ProfileLanguages.Update" });
         seeds.Add(new OperationClaim { Id = ++id, Name = "ProfileLanguages.Delete" });
         #endregion
-
-        
         #region LessonVideoDetailVideoDetailCategories
         seeds.Add(new OperationClaim { Id = ++id, Name = "LessonVideoDetailVideoDetailCategories.Admin" });
         seeds.Add(new OperationClaim { Id = ++id, Name = "LessonVideoDetailVideoDetailCategories.Read" });
@@ -452,6 +450,7 @@ public class OperationClaimConfiguration : IEntityTypeConfiguration<OperationCla
         seeds.Add(new OperationClaim { Id = ++id, Name = "CatalogPaths.Add" });
         seeds.Add(new OperationClaim { Id = ++id, Name = "CatalogPaths.Update" });
         seeds.Add(new OperationClaim { Id = ++id, Name = "CatalogPaths.Delete" });
+        #endregion
         return seeds;
     }
 }
