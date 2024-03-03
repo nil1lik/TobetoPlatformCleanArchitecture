@@ -10,11 +10,13 @@ public class LoggedResponse : IResponse
     public Core.Security.Entities.RefreshToken? RefreshToken { get; set; }
     public AuthenticatorType? RequiredAuthenticatorType { get; set; }
 
-    public LoggedHttpResponse ToHttpResponse() =>
-        new() { AccessToken = AccessToken, RequiredAuthenticatorType = RequiredAuthenticatorType };
+    public string userId { get; set; }
 
+    public LoggedHttpResponse ToHttpResponse() =>
+        new() { AccessToken = AccessToken, RequiredAuthenticatorType = RequiredAuthenticatorType, userId = userId };
     public class LoggedHttpResponse
     {
+        public string userId { get; set; }
         public AccessToken? AccessToken { get; set; }
         public AuthenticatorType? RequiredAuthenticatorType { get; set; }
     }
