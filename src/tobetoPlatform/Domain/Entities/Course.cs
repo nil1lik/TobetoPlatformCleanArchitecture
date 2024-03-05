@@ -10,6 +10,7 @@ public class Course : Entity<int>
 {
     public int EducationPathId { get; set; }
     public string Name { get; set; }
+    public string? imageUrl { get; set; }
 
 
     public virtual EducationPath EducationPath { get; set; }
@@ -17,16 +18,17 @@ public class Course : Entity<int>
     public virtual ICollection<CourseInstructor> CourseInstructors { get; set; }
     public virtual ICollection<SyncLesson> SyncLessons { get; set; }
     public virtual ICollection<CourseLesson> CourseLesson { get; set; }
-
+    
     public Course()
     {
         
     }
 
-    public Course(int id, int educationPathId,  string name) : this()
+    public Course(int id, int educationPathId,  string name, string imageUrl) : this()
     {
         Id = id;
         EducationPathId = educationPathId;
         Name = name;
+        //ImageUrl = imageUrl;
     }
 }

@@ -70,8 +70,7 @@ public class MappingProfiles : Profile
                 Id = graduation.Id,
                 StartDate = graduation.StartDate,
                 EndDate = graduation.EndDate,
-                UniversityName = graduation.UniversityName,
-                GraduationDate = graduation.GraduationDate
+                UniversityName = graduation.UniversityName
 
             })))
             .ReverseMap();
@@ -122,7 +121,7 @@ public class MappingProfiles : Profile
              EducationPathId = x.EducationPathId,
              EducationPathName = x.EducationPath.Name,
              EducationPathImageUrl = x.EducationPath.ImageUrl,
-             StartDate = x.EducationPath.EducationAbout.StartDate
+             startDate=x.EducationPath.EducationAbout.StartDate
          }).ToList())).ReverseMap();
         CreateMap<UserProfile, GetAllCertificatesByUserIdResponse>()
             .ForMember(x => x.UserProfileId, opt => opt.MapFrom(x => x.UserId))

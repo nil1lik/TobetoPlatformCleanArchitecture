@@ -30,6 +30,7 @@ namespace Application.Features.AsyncLessons.Queries.GetLessonDetailByAsyncLesson
                 AsyncLesson? asyncLesson = await _asyncLessonRepository.GetAsync(predicate: al => al.Id == request.Id,
                     include: al => al.Include(al => al.LessonType)
                     .Include(al => al.LessonVideoDetail.VideoLanguage)
+                    .Include(al => al.CourseLessons).ThenInclude(src=>src.Course)
                     .Include(al => al.LessonVideoDetail.Company)
                     .Include(al => al.LessonVideoDetail).ThenInclude(al=>al.LessonVideoDetailVideoDetailCategories).ThenInclude(al=>al.VideoDetailCategory)
                     .Include(al => al.LessonVideoDetail.LessonVideoDetailVideoDetailCategories).ThenInclude(al => al.VideoDetailCategory).ThenInclude(al=>al.VideoDetailSubcategories),

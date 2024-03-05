@@ -5,7 +5,8 @@ namespace Application.Features.AsyncLessons.Queries.GetLessonDetailByAsyncLesson
 {
     public class GetLessonDetailByAsyncLessonIdResponse : IResponse
     {
-        public int Id { get; set; } 
+        public int Id { get; set; }
+        public string ImageUrl { get; set; }
         public string Name { get; set; }
         public TimeSpan Time { get; set; }
         public double VideoPoint { get; set; }
@@ -17,6 +18,7 @@ namespace Application.Features.AsyncLessons.Queries.GetLessonDetailByAsyncLesson
         public string VideoDetailCategoryName { get; set; }
     } 
 }
+
 
 
 

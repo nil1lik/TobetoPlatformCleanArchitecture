@@ -28,7 +28,7 @@ public class MappingProfiles : Profile
             .ForMember(al => al.LessonTypeName, opt => opt.MapFrom(al => al.LessonType.Name))
             .ForMember(al => al.LanguageName, opt => opt.MapFrom(al => al.LessonVideoDetail.VideoLanguage.Name))
             .ForMember(al => al.CompanyName, opt => opt.MapFrom(al => al.LessonVideoDetail.Company.Name))
-
+            //.ForMember(al=>al.ImageUrl, opt=>opt.MapFrom(al=>al.CourseLessons.FirstOrDefault().Course.ImageUrl))
 
              .ForMember(dest => dest.VideoDetailCategoryName, opt => opt.MapFrom(src =>
     (src.LessonVideoDetail != null && src.LessonVideoDetail.LessonVideoDetailVideoDetailCategories.Any()) ?

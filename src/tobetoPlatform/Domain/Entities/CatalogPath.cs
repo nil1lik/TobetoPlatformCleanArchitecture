@@ -11,21 +11,20 @@ public class CatalogPath : Entity<int>
     public string Name { get; set; }
     public string ImageUrl { get; set; }
     public int InstructorId { get; set; }
-    public DateTime AddedDate { get; set; }
+    public int Time { get; set; }
     public virtual Instructor Instructor { get; set; }
-    public virtual ICollection<Course> Courses { get; set; }
 
     public CatalogPath()
     {
         
     }
 
-    public CatalogPath(int id,string name, string ımageUrl, int ınstructorId, DateTime addedDate)
+    public CatalogPath(int id,string name, string ımageUrl, int ınstructorId, int time)
     {
         Id = id;
         Name = name;
         ImageUrl = ımageUrl;
         InstructorId = ınstructorId;
-        AddedDate = addedDate;
+        Time = time;
     }
 }

@@ -41,15 +41,15 @@ public class MappingProfiles : Profile
             {
                 Id = al.Id,
                 Name = al.Course.Name,
-                //SessionName = al.SessionName,
-                //SyncVideoUrl = al.SyncVideoUrl,
-                //StartDate = al.StartDate,
-                //EndDate = al.EndDate,
-                //IsJoin = al.IsJoin,
-                //InstructorNames = al.Course.CourseInstructors.Select(ci => ci.Instructor.FirstName).ToList()
+                SessionName = al.SessionName,
+                SyncVideoUrl = al.SyncVideoUrl,
+                StartDate = al.StartDate,
+                EndDate = al.EndDate,
+                IsJoin = al.IsJoin,
+                InstructorNames = al.Course.CourseInstructors.Select(ci => ci.Instructor.FirstName + " " + ci.Instructor.LastName + " ").ToList()
             })));
 
-
+        
         CreateMap<IPaginate<Course>, GetListResponse<GetListCourseListItemDto>>().ReverseMap();
 
 

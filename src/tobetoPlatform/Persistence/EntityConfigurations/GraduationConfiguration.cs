@@ -16,7 +16,6 @@ public class GraduationConfiguration : IEntityTypeConfiguration<Graduation>
         builder.Property(g => g.Department).HasColumnName("Department");
         builder.Property(g => g.StartDate).HasColumnName("StartDate");
         builder.Property(g => g.EndDate).HasColumnName("EndDate");
-        builder.Property(g => g.GraduationDate).HasColumnName("GraduationDate");
         builder.Property(g => g.CreatedDate).HasColumnName("CreatedDate").IsRequired();
         builder.Property(g => g.UpdatedDate).HasColumnName("UpdatedDate");
         builder.Property(g => g.DeletedDate).HasColumnName("DeletedDate");
