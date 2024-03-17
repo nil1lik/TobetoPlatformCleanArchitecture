@@ -24,8 +24,26 @@ public class MappingProfiles : Profile
         CreateMap<SyncLesson, GetByIdSyncLessonResponse>().ReverseMap();
         CreateMap<SyncLesson, GetListSyncLessonListItemDto>().ReverseMap();
         CreateMap<SyncLesson, GetLessonDetailBySyncLessonIdResponse>()
-            .ForMember(sl => sl.InstructorNames, opt => opt.MapFrom(src=>src.Course.CourseInstructors.Select(src => src.Instructor.FirstName + " " + src.Instructor.LastName)))
-            .ForMember(sl => sl.Name, opt=>opt.MapFrom(src=>src.Course.Name))
+            .ForMember(sl => sl.Name, opt => opt.MapFrom(src => src.Course.Name))
+            .ForMember(al => al.LanguageName, opt => opt.MapFrom(al => al.LessonVideoDetail.VideoLanguage.Name))
+            .ForMember(al => al.LessonTypeName, opt => opt.MapFrom(al => al.LessonVideoDetail.AsyncLessons.Select(al=>al.LessonType.Name)))
+
+
+             .ForMember(dest => dest.VideoDetailCategoryName, opt => opt.MapFrom(src =>
+    (src.LessonVideoDetail != null && src.LessonVideoDetail.LessonVideoDetailVideoDetailCategories.Any()) ?
+    string.Join(" / ", src.LessonVideoDetail.LessonVideoDetailVideoDetailCategories
+                                    .Where(vdc => vdc.VideoDetailCategory != null)
+                                    .Select(vdc => vdc.VideoDetailCategory.Name)) :
+    null))
+
+             .ForMember(dest => dest.SubcategoryName, opt => opt.MapFrom(src =>
+    (src.LessonVideoDetail != null && src.LessonVideoDetail.LessonVideoDetailVideoDetailCategories.Any()) ?
+    string.Join(" / ", src.LessonVideoDetail.LessonVideoDetailVideoDetailCategories
+                                    .Where(vdc => vdc.VideoDetailCategory != null)
+                                    .SelectMany(vdc => vdc.VideoDetailCategory.VideoDetailSubcategories
+                                        .Where(vds => vds != null)
+                                        .Select(vds => vds.Name))) :
+    null))
             .ReverseMap();
         CreateMap<IPaginate<SyncLesson>, GetListResponse<GetListSyncLessonListItemDto>>().ReverseMap();
     }
