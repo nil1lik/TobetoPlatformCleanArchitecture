@@ -31,8 +31,12 @@ namespace Application.Features.SyncLessons.Queries.GetLessonDetailBySyncLessonId
             public async Task<GetLessonDetailBySyncLessonIdResponse> Handle(GetLessonDetailBySyncLessonIdQuery request, CancellationToken cancellationToken)
             {
                 SyncLesson? syncLesson = await _syncLessonRepository.GetAsync(predicate: sl => sl.Id == request.Id,
-                    include: sl => sl.Include(sl => sl.Course).ThenInclude(sl=>sl.CourseInstructors).ThenInclude(i => i.Instructor)
+                    include: sl => sl.Include(sl => sl.LessonVideoDetail.VideoLanguage)
+                    .Include(sl => sl.LessonVideoDetail).ThenInclude(sl => sl.LessonVideoDetailVideoDetailCategories).ThenInclude(al => al.VideoDetailCategory)
+                    .Include(sl => sl.LessonVideoDetail.LessonVideoDetailVideoDetailCategories).ThenInclude(al => al.VideoDetailCategory).ThenInclude(al => al.VideoDetailSubcategories)
+                    .Include(sl => sl.LessonVideoDetail).ThenInclude(sl => sl.AsyncLessons).ThenInclude(al => al.LessonType)
                     .Include(sl => sl.Course),
+
                    cancellationToken: cancellationToken);
                 await _syncLessonBusinessRules.SyncLessonShouldExistWhenSelected(syncLesson);
                 GetLessonDetailBySyncLessonIdResponse response = _mapper.Map<GetLessonDetailBySyncLessonIdResponse>(syncLesson);
