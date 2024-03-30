@@ -17,6 +17,7 @@ using Application.Features.UserProfiles.Queries.GetAllSocialMediaAccountsByUserI
 using Application.Features.UserProfiles.Queries.GetAllEducationsByUserId;
 using Application.Features.UserProfiles.Queries.GetAllCertificatesByUserId;
 using Application.Features.UserProfiles.Queries.GetAllExamsByUserId;
+using Application.Features.UserProfiles.Queries.GetAsyncsLessonByUserId;
 
 namespace WebAPI.Controllers;
 
@@ -133,5 +134,12 @@ public class UserProfilesController : BaseController
         GetAllExamsByUserIdResponse response = await Mediator.Send(new GetAllExamsByUserIdQuery { Id = id });
         return Ok(response);
     }
-}
 
+    //asyncLesson isWatched
+    [HttpGet("getAsyncLesson/{id}")]
+    public async Task<IActionResult> GetAsyncLessonByUserId([FromRoute] int id)
+    {
+        GetAsyncsLessonByUserIdResponse response = await Mediator.Send(new GetAsyncsLessonByUserIdQuery { Id = id });
+        return Ok(response);
+    }
+}

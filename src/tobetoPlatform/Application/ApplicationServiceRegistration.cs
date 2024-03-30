@@ -62,6 +62,7 @@ using Application.Services.LessonVideoDetailVideoDetailCategories;
 using Application.Services.ProfileEducations;
 using Application.Services.ProfileClasses;
 using Application.Services.CatalogPaths;
+using Application.Services.ProfileLessons;
 
 
 namespace Application;
@@ -117,6 +118,7 @@ public static class ApplicationServiceRegistration
         services.AddScoped<IProfileEducationsService, ProfileEducationsManager>();
         services.AddScoped<IProfileClassesService, ProfileClassesManager>();
         services.AddScoped<ICatalogPathsService, CatalogPathsManager>();
+        services.AddScoped<IProfileLessonsService, ProfileLessonsManager>();
         return services;
     }
 

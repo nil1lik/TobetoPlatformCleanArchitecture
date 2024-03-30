@@ -18,6 +18,8 @@ using Application.Features.UserProfiles.Queries.GetAllSocialMediaAccountsByUserI
 using Application.Features.UserProfiles.Queries.GetAllEducationsByUserId;
 using Application.Features.UserProfiles.Queries.GetAllCertificatesByUserId;
 using Application.Features.UserProfiles.Queries.GetAllExamsByUserId;
+using Application.Features.UserProfiles.Queries.GetAsyncsLessonByUserId;
+using OtpNet;
 
 namespace Application.Features.UserProfiles.Profiles;
 
@@ -39,7 +41,7 @@ public class MappingProfiles : Profile
             ForMember(up => up.CityId, opt => opt.MapFrom(up => up.City.Id)).
             ForMember(up => up.DistrictName, opt => opt.MapFrom(up => up.District.Name)).
             ForMember(up => up.DistrictId, opt => opt.MapFrom(up => up.District.Id)).
-            ForMember(up => up.UserProfileId, opt => opt.MapFrom(up=> up.Id)).
+            ForMember(up => up.UserProfileId, opt => opt.MapFrom(up => up.Id)).
             ReverseMap();
         CreateMap<UserProfile, GetListUserProfileListItemDto>().
             ForMember(up => up.FirstName, opt => opt.MapFrom(up => up.User.FirstName)).
@@ -121,7 +123,7 @@ public class MappingProfiles : Profile
              EducationPathId = x.EducationPathId,
              EducationPathName = x.EducationPath.Name,
              EducationPathImageUrl = x.EducationPath.ImageUrl,
-             startDate=x.EducationPath.EducationAbout.StartDate
+             startDate = x.EducationPath.EducationAbout.StartDate
          }).ToList())).ReverseMap();
         CreateMap<UserProfile, GetAllCertificatesByUserIdResponse>()
             .ForMember(x => x.UserProfileId, opt => opt.MapFrom(x => x.UserId))
@@ -145,5 +147,15 @@ public class MappingProfiles : Profile
              QuestionCount = x.Exam.QuestionCount,
              IsCompleted = x.Exam.IsCompleted,
          }).ToList())).ReverseMap();
+
+        CreateMap<UserProfile, GetAsyncsLessonByUserIdResponse>()
+            .ForMember(x => x.UserProfileId, opt => opt.MapFrom(x => x.UserId))
+            .ForMember(la => la.AsyncLessonItem, opt => opt.MapFrom(la => la.ProfileLessons.Select(x => new AsyncLessonItem
+            {
+                Id = x.Id,
+                AsyncLessonId = x.AsyncLesson.Id,
+                IsWatched = x.IsWatched
+            }).ToList())).ReverseMap();
+
     }
 }

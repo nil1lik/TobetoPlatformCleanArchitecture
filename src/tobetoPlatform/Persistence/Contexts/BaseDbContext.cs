@@ -62,8 +62,18 @@ public class BaseDbContext : DbContext
     public DbSet<ProfileEducation> ProfileEducations { get; set; }
     public DbSet<ProfileClass> ProfileClasses { get; set; }
     public DbSet<CatalogPath> CatalogPaths { get; set; }
+    public DbSet<ProfileLesson> ProfileLessons { get; set; }
 
-
+    ////for Mac migration
+    //public BaseDbContext()
+    //{
+    //}
+    //public BaseDbContext(DbContextOptions dbContextOptions)
+    //    : base(dbContextOptions)
+    //{
+    //    //Database.EnsureCreated();
+    //}
+    ////for Mac migration
 
     public BaseDbContext(DbContextOptions dbContextOptions, IConfiguration configuration)
         : base(dbContextOptions)

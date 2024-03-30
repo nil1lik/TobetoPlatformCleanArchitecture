@@ -33,6 +33,7 @@ public class UserProfile : Entity<int>
     public virtual ICollection<ProfileAnnouncement>? ProfileAnnouncement { get; set; }
     public virtual ICollection<ProfileClass>? ProfileClasses { get; set; }
     public virtual ICollection<ProfileEducation>? ProfileEducations { get; set; }
+    public virtual ICollection<ProfileLesson>? ProfileLessons { get; set; }
     public virtual ICollection<Certificate>? Certificates { get; set; }
     public virtual ICollection<Experience>? Experiences { get; set; }
     public virtual ICollection<SocialMediaAccount>? SocialMediaAccounts { get; set; }
