@@ -14,6 +14,8 @@ public class EducationAdmiration : Entity<int>
     public double EducationPoint { get; set; }
 
     public virtual ICollection<EducationPath> EducationPaths { get; set; }
+    public virtual ICollection<ProfileAdmiration> ProfileAdmirations { get; set; }
+
 
     public EducationAdmiration()
     {

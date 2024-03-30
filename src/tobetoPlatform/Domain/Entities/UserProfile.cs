@@ -37,6 +37,8 @@ public class UserProfile : Entity<int>
     public virtual ICollection<Certificate>? Certificates { get; set; }
     public virtual ICollection<Experience>? Experiences { get; set; }
     public virtual ICollection<SocialMediaAccount>? SocialMediaAccounts { get; set; }
+    public virtual ICollection<ProfileAdmiration>? ProfileAdmirations { get; set; }
+
 
     public UserProfile()
     {

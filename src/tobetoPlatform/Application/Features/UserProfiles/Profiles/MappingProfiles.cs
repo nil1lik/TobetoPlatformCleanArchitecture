@@ -20,6 +20,7 @@ using Application.Features.UserProfiles.Queries.GetAllCertificatesByUserId;
 using Application.Features.UserProfiles.Queries.GetAllExamsByUserId;
 using Application.Features.UserProfiles.Queries.GetAsyncsLessonByUserId;
 using OtpNet;
+using Application.Features.UserProfiles.Queries.GetAllAdmirationsByUserId;
 
 namespace Application.Features.UserProfiles.Profiles;
 
@@ -148,7 +149,7 @@ public class MappingProfiles : Profile
              IsCompleted = x.Exam.IsCompleted,
          }).ToList())).ReverseMap();
 
-        CreateMap<UserProfile, GetAsyncsLessonByUserIdResponse>()
+        CreateMap<UserProfile, GetAllAsyncLessonsByUserIdResponse>()
             .ForMember(x => x.UserProfileId, opt => opt.MapFrom(x => x.UserId))
             .ForMember(la => la.AsyncLessonItem, opt => opt.MapFrom(la => la.ProfileLessons.Select(x => new AsyncLessonItem
             {
@@ -157,5 +158,17 @@ public class MappingProfiles : Profile
                 IsWatched = x.IsWatched
             }).ToList())).ReverseMap();
 
+        CreateMap<UserProfile, GetAllAdmirationsByUserIdResponse>()
+            .ForMember(x => x.UserProfileId, opt => opt.MapFrom(x => x.UserId))
+            .ForMember(la => la.ProfileAdmirationItems, opt => opt.MapFrom(la => la.ProfileAdmirations.Select(x => new ProfileAdmirationItem
+            {
+                Id = x.Id,
+                EducationPathId = x.EducationPath.Id,
+                EducationAdmirationId = x.EducationAdmiration.Id,
+                IsLiked = x.EducationAdmiration.IsLiked,
+                IsFavourited = x.EducationAdmiration.IsFavourited,
+                CompletionRate = x.EducationAdmiration.CompletionRate,
+                EducationPoint = x.EducationAdmiration.EducationPoint
+            }).ToList())).ReverseMap();
     }
 }

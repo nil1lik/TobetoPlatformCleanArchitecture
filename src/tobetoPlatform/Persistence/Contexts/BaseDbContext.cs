@@ -63,6 +63,7 @@ public class BaseDbContext : DbContext
     public DbSet<ProfileClass> ProfileClasses { get; set; }
     public DbSet<CatalogPath> CatalogPaths { get; set; }
     public DbSet<ProfileLesson> ProfileLessons { get; set; }
+    public DbSet<ProfileAdmiration> ProfileAdmirations { get; set; }
 
     ////for Mac migration
     //public BaseDbContext()

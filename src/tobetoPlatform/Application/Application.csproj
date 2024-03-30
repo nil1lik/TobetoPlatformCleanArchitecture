@@ -26,7 +26,8 @@
     <Folder Include="Features\AsyncLessons\Queries\GetLessonDetailByAsyncLessonId\" />
     <Folder Include="Features\Courses\Queries\GetSyncLessonsByCourseId\" />
     <Folder Include="Features\SyncLessons\Queries\GetLessonDetailBySyncLessonId\" />
-    <Folder Include="Features\UserProfiles\Queries\GetAsyncsLessonByUserId\" />
+    <Folder Include="Features\UserProfiles\Queries\GetAllAdmirationsByUserId\" />
+    <Folder Include="Features\UserProfiles\Queries\GetAllAsyncLessonsByUserId\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -45,6 +46,7 @@
     <None Remove="Features\AsyncLessons\Queries\GetLessonDetailByAsyncLessonId\" />
     <None Remove="Features\Courses\Queries\GetSyncLessonsByCourseId\" />
     <None Remove="Features\SyncLessons\Queries\GetLessonDetailBySyncLessonId\" />
-    <None Remove="Features\UserProfiles\Queries\GetAsyncsLessonByUserId\" />
+    <None Remove="Features\UserProfiles\Queries\GetAllAdmirationsByUserId\" />
+    <None Remove="Features\UserProfiles\Queries\GetAllAsyncLessonsByUserId\" />
   </ItemGroup>
 </Project>

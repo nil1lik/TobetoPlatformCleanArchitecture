@@ -63,6 +63,7 @@ using Application.Services.ProfileEducations;
 using Application.Services.ProfileClasses;
 using Application.Services.CatalogPaths;
 using Application.Services.ProfileLessons;
+using Application.Services.ProfileAdmirations;
 
 
 namespace Application;
@@ -119,6 +120,7 @@ public static class ApplicationServiceRegistration
         services.AddScoped<IProfileClassesService, ProfileClassesManager>();
         services.AddScoped<ICatalogPathsService, CatalogPathsManager>();
         services.AddScoped<IProfileLessonsService, ProfileLessonsManager>();
+        services.AddScoped<IProfileAdmirationsService, ProfileAdmirationsManager>();
         return services;
     }
 

@@ -2,7 +2,7 @@
 using System;
 namespace Application.Features.UserProfiles.Queries.GetAsyncsLessonByUserId
 {
-    public class GetAsyncsLessonByUserIdResponse : IResponse
+    public class GetAllAsyncLessonsByUserIdResponse : IResponse
     {
         public int UserProfileId { get; set; }
         public List<AsyncLessonItem> AsyncLessonItem { get; set; }

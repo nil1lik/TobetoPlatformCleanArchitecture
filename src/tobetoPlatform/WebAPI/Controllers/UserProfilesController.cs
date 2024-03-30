@@ -18,6 +18,7 @@ using Application.Features.UserProfiles.Queries.GetAllEducationsByUserId;
 using Application.Features.UserProfiles.Queries.GetAllCertificatesByUserId;
 using Application.Features.UserProfiles.Queries.GetAllExamsByUserId;
 using Application.Features.UserProfiles.Queries.GetAsyncsLessonByUserId;
+using Application.Features.UserProfiles.Queries.GetAllAdmirationsByUserId;
 
 namespace WebAPI.Controllers;
 
@@ -139,7 +140,14 @@ public class UserProfilesController : BaseController
     [HttpGet("getAsyncLesson/{id}")]
     public async Task<IActionResult> GetAsyncLessonByUserId([FromRoute] int id)
     {
-        GetAsyncsLessonByUserIdResponse response = await Mediator.Send(new GetAsyncsLessonByUserIdQuery { Id = id });
+        GetAllAsyncLessonsByUserIdResponse response = await Mediator.Send(new GetAllAsyncLessonsByUserIdQuery { Id = id });
+        return Ok(response);
+    }
+
+    [HttpGet("profileAdmirations/{id}")]
+    public async Task<IActionResult> GetAllAdmirationsByUserId([FromRoute] int id)
+    {
+        GetAllAdmirationsByUserIdResponse response = await Mediator.Send(new GetAllAdmirationsByUserIdQuery { Id = id });
         return Ok(response);
     }
 }
